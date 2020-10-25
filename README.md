@@ -11,7 +11,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Quick setup](#quick-setup)
-- [Example Screenshot](#example-screenshot)
+- [Screenshots](#screenshots)
 - [Deploying it on your own](#deploying-it-on-your-own)
 - [Contributing](#contributing)
 - [Contact me](#contact-me)
@@ -20,17 +20,23 @@
 ## Quick setup
 
 1. Copy-paste the markdown below into your GitHub profile README
-2. Replace "DenverCoder1" with your username
+2. Replace the value after `?user=` with your GitHub username
 
-`<img src="https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1"/>`
+```
+<a href="https://github.com/DenverCoder1/github-readme-streak-stats">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1"/>
+</a>
+```
 
 > Note: See below for information about deploying the app on your own
 
-## Example Screenshot
+## Screenshots
 
 <img alt="Example Streak" src="https://i.imgur.com/IaTuYdS.png" />
 
-See it live at [DenverCoder1's profile](https://github.com/DenverCoder1).
+<img alt="Example 2" src="https://i.imgur.com/ePKtOHu.png" />
+
+See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
 
 ## Deploying it on your own
 
@@ -57,7 +63,7 @@ $ composer install
 $ php -S localhost:8000
 ```
 
-Open https://localhost:8000/src?user=USERNAME to test the project locally.
+Open http://localhost:8000/src?user=USERNAME to test the project locally.
 
 [▶ How to run PHP using XAMPP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
