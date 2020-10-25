@@ -4,7 +4,9 @@
 </p>
 
 <p align="center">
-    Display your total contributions, current streak, and longest streak on your GitHub profile README
+  Display your total contributions, current streak,
+  <br/>
+  and longest streak on your GitHub profile README
 </p>
 
 ## Table of Contents
@@ -50,7 +52,7 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
 
-Make sure to test the app before submitting a pull request.
+Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
 **Running the project locally**
 
@@ -63,7 +65,7 @@ $ composer install
 $ php -S localhost:8000
 ```
 
-Open http://localhost:8000/src?user=USERNAME to test the project locally.
+Open http://localhost:8000/src?user=DenverCoder1 to test the project locally.
 
 [▶ How to run PHP using XAMPP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
