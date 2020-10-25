@@ -13,12 +13,18 @@
 - [Quick setup](#quick-setup)
 - [Example Screenshot](#example-screenshot)
 - [Deploying it on your own](#deploying-it-on-your-own)
+- [Contributing](#contributing)
 - [Contact me](#contact-me)
 - [Support](#support)
 
 ## Quick setup
 
-Coming soon
+1. Copy-paste the markdown below into your GitHub profile README
+2. Replace "DenverCoder1" with your username
+
+`<img src="https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1"/>`
+
+> Note: See below for information about deploying the app on your own
 
 ## Example Screenshot
 
@@ -33,6 +39,27 @@ If you can, it is preferable to host the files on your own server.
 Doing this can lead to better uptime and more control over customization (you can modify the code for your usage).
 
 You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
+
+Make sure to test the app before submitting a pull request.
+
+**Running the project locally**
+
+Requirements: [Composer](https://getcomposer.org/), [PHP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
+
+```
+$ git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
+$ cd github-readme-streak-stats
+$ composer install
+$ php -S localhost:8000
+```
+
+Open https://localhost:8000/src?user=USERNAME to test the project locally.
+
+[▶ How to run PHP using XAMPP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
 ## Contact me
 
@@ -55,3 +82,5 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 ---
 
 Made with ❤️ and PHP
+
+<a href="https://heroku.com/"><img alt="Powered by Heroku" title="Powered by Heroku" src="https://img.shields.io/badge/-Powered%20by%20Heroku-6567a5?style=for-the-badge&logo=heroku&logoColor=white"/></a>
