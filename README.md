@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.imgur.com/PN6xSL4.png" width="100px"/>
+  <img src="https://i.imgur.com/GZHodUG.png" width="100px"/>
   <h3 align="center">Github Readme Streak Stats</h3>
 </p>
 
@@ -13,7 +13,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Quick setup](#quick-setup)
-- [Screenshots](#screenshots)
+- [Themes](#themes)
 - [Deploying it on your own](#deploying-it-on-your-own)
 - [Contributing](#contributing)
 - [Contact me](#contact-me)
@@ -32,11 +32,25 @@
 
 > Note: See below for information about deploying the app on your own
 
-## Screenshots
+## Themes
+
+To enable dark theme, append `&theme=dark` to the end of the source url
+
+```
+<a href="https://github.com/DenverCoder1/github-readme-streak-stats">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark"/>
+</a>
+```
+
+### Currently supported themes:
+
+#### `default`
 
 <img alt="Example Streak" src="https://i.imgur.com/IaTuYdS.png" />
 
-<img alt="Example 2" src="https://i.imgur.com/ePKtOHu.png" />
+#### `dark`
+
+<img alt="Example 3 Dark" src="https://i.imgur.com/bUrsjlp.png" />
 
 See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
 
@@ -56,7 +70,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
-**Running the project locally**
+### Running the app locally
 
 Requirements: [Composer](https://getcomposer.org/), [PHP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
@@ -87,7 +101,7 @@ Open http://localhost:8000/src?user=DenverCoder1 to test the project locally.
   <a href="https://github.com/sponsors/DenverCoder1"><img alt="Sponsor with Github" title="Sponsor with Github" src="https://img.shields.io/badge/-Sponsor-ea4aaa?style=for-the-badge&logo=github&logoColor=white"/></a>
 </p>
 
-<a href="https://ko-fi.com/jlawrence">☕ Buy me a coffee</a>
+[☕ Buy me a coffee](https://ko-fi.com/jlawrence)
 
 ---
 
