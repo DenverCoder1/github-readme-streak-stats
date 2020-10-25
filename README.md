@@ -40,6 +40,8 @@
 
 See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
 
+> Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
+
 ## Deploying it on your own
 
 If you can, it is preferable to host the files on your own server.
