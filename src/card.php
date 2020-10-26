@@ -48,6 +48,9 @@ function generateCard($stats): string
 
     return "
     <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+        </style>
         <defs>
             <clipPath id='_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw'>
                 <rect width='495' height='195'/>
@@ -66,7 +69,7 @@ function generateCard($stats): string
                 <!-- Total Contributions Big Number -->
                 <g transform='translate(1,54)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
                         {$totalContributions}
                     </text>
                 </g>
@@ -74,7 +77,7 @@ function generateCard($stats): string
                 <!-- Total Contributions Label -->
                 <g transform='translate(1,90)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
                         Total Contributions
                     </text>
                 </g>
@@ -82,7 +85,7 @@ function generateCard($stats): string
                 <!-- total contributions range -->
                 <g transform='translate(1,122)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["subtitleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["subtitleText"]};stroke:none;'>
                         {$totalContributionsRange}
                     </text>
                 </g>
@@ -91,7 +94,7 @@ function generateCard($stats): string
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,54)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
                         {$currentStreak}
                     </text>
                 </g>
@@ -99,7 +102,7 @@ function generateCard($stats): string
                 <!-- Current Streak Label -->
                 <g transform='translate(166,112)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["highlight"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["highlight"]};stroke:none;'>
                         Current Streak
                     </text>
                 </g>
@@ -107,7 +110,7 @@ function generateCard($stats): string
                 <!-- Current Streak Range -->
                 <g transform='translate(166,145)'>
                     <rect width='163' height='26' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='13' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["subtitleText"]};stroke:none;'>
+                    <text x='81.5' y='13' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["subtitleText"]};stroke:none;'>
                         {$currentStreakRange}
                     </text>
                 </g>
@@ -128,7 +131,7 @@ function generateCard($stats): string
                 <!-- Longest Streak Big Number -->
                 <g transform='translate(331,54)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
                         {$longestStreak}
                     </text>
                 </g>
@@ -136,7 +139,7 @@ function generateCard($stats): string
                 <!-- Longest Streak Label -->
                 <g transform='translate(331,90)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["titleText"]};stroke:none;'>
                         Longest Streak
                     </text>
                 </g>
@@ -144,7 +147,7 @@ function generateCard($stats): string
                 <!-- Longest Streak Range -->
                 <g transform='translate(331,122)'>
                     <rect width='163' height='40' stroke='none' fill='{$theme["background"]}'></rect>
-                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["subtitleText"]};stroke:none;'>
+                    <text x='81.5' y='20' alignment-baseline='middle' font-size='12' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["subtitleText"]};stroke:none;'>
                         {$longestStreakRange}
                     </text>
                 </g>
