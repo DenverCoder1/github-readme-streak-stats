@@ -20,10 +20,10 @@ function getContributionDates($user) : array
     $contributions = array();
     // check contributions for every year
     for ($i = $startYear; $i <= $currentYear; $i++) {
-        // set end date
-        $to = date("${i}-m-d");
+        // set end date (leave parameter out for current year)
+        $to = $i < $currentYear ? "?to=" . date("${i}-m-d") : "";
         // load contributions graph
-        $dom->loadFromUrl("https://github.com/users/${user}/contributions?to=${to}");
+        $dom->loadFromUrl("https://github.com/users/${user}/contributions${to}");
         // find rectangles in contributions graph
         $rectangles = $dom->find("rect");
         // add the dates and contribution counts to the array
