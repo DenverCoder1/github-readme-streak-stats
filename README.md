@@ -14,6 +14,7 @@
 - [Table of Contents](#table-of-contents)
 - [Quick setup](#quick-setup)
 - [Themes](#themes)
+- [How these stats are calculated](#how-these-stats-are-calculated)
 - [Deploying it on your own](#deploying-it-on-your-own)
 - [Contributing](#contributing)
 - [Contact me](#contact-me)
@@ -55,6 +56,19 @@ To enable dark theme, append `&theme=dark` to the end of the source url
 See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
 
 > Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
+
+## How these stats are calculated
+
+This tool uses the contribution graphs on your GitHub profile to calculate which days you have contributed.
+
+To include contributions in private repositories, turn on the setting for "Private contributions" from the dropdown menu above the contribution graph on your profile page.
+
+Contributions include commits, pull requests, and issues that you create in standalone repositories ([Learn more about what is considered a contribution](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile)).
+
+The longest streak is the highest number of consecutive days on which you have made at least one contribution.
+
+The current streak is the number of consecutive days ending with the current day on which you have made at least one contribution. If you have made a contribution today, it will be counted towards the current streak, however, if you have not made a contribution today, the streak will only count days before today so that your streak will not be zero.
+
 
 ## Deploying it on your own
 
