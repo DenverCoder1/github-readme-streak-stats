@@ -79,6 +79,8 @@ Doing this can lead to better uptime and more control over customization (you ca
 
 You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main)
+
 ## Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.

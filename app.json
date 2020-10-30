@@ -2,5 +2,7 @@
   "name": "GitHub Readme Streak Stats",
   "description": "Display your total contributions, current streak, and longest streak on your GitHub profile README",
   "repository": "https://github.com/DenverCoder1/github-readme-streak-stats/",
+  "logo": "https://camo.githubusercontent.com/d5b4a2fb45f88c951e4439b47314c4e1aa46441c/68747470733a2f2f692e696d6775722e636f6d2f475a486f6455472e706e67",
+  "keywords": ["github", "dynamic", "readme", "contributions", "streak", "stats"],
   "addons": []
 }
