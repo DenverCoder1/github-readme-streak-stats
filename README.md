@@ -25,10 +25,8 @@
 1. Copy-paste the markdown below into your GitHub profile README
 2. Replace the value after `?user=` with your GitHub username
 
-```
-<a href="https://github.com/DenverCoder1/github-readme-streak-stats">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1"/>
-</a>
+```md
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1)](https://github.com/DenverCoder1/github-readme-streak-stats)
 ```
 
 > Note: See below for information about deploying the app on your own
@@ -37,10 +35,9 @@
 
 To enable dark theme, append `&theme=dark` to the end of the source url
 
-```
-<a href="https://github.com/DenverCoder1/github-readme-streak-stats">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark"/>
-</a>
+
+```md
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://github.com/DenverCoder1/github-readme-streak-stats)
 ```
 
 ### Currently supported themes:
