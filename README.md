@@ -89,7 +89,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 ### Running the app locally
 
-Requirements: [PHP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
+Requirements: [PHP 7.4+](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
 ```
 $ git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
