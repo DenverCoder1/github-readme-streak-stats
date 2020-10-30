@@ -86,12 +86,11 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 ### Running the app locally
 
-Requirements: [Composer](https://getcomposer.org/), [PHP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
+Requirements: [PHP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
 ```
 $ git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
 $ cd github-readme-streak-stats
-$ composer install
 $ php -S localhost:8000
 ```
 
