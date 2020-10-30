@@ -16,6 +16,13 @@ function getTheme($theme)
             "titleText" => "#fefefe",
             "subtitleText" => "#9e9e9e",
             "highlight" => "#fb8c00"
+        ],
+        "highcontrast" => [
+            "background" => "#000000",
+            "stroke" => "#bebebe",
+            "titleText" => "#ffffff",
+            "subtitleText" => "#c5c5c5",
+            "highlight" => "#fb8c00"
         ]
     );
 

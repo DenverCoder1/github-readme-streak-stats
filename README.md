@@ -44,11 +44,15 @@ To enable dark theme, append `&theme=dark` to the end of the source url
 
 #### `default`
 
-<img alt="Example Streak" src="https://i.imgur.com/IaTuYdS.png" />
+<img alt="Example 1" src="https://i.imgur.com/IaTuYdS.png" />
 
 #### `dark`
 
-<img alt="Example 3 Dark" src="https://i.imgur.com/bUrsjlp.png" />
+<img alt="Example 2" src="https://i.imgur.com/bUrsjlp.png" />
+
+#### `highcontrast`
+
+<img alt="Example 3" src="https://i.imgur.com/ovrVrTY.png" />
 
 See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
 
