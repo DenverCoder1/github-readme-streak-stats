@@ -1,6 +1,7 @@
 <?php
 
-function getTheme($theme)
+// get theme colors given a theme name
+function getTheme($theme): array
 {
     $themes = array(
         "default" => [
