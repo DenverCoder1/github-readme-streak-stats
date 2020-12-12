@@ -106,7 +106,7 @@ function generateCard($stats): string
                         Current Streak
                     </text>
                 </g>
-                
+
                 <!-- Current Streak Range -->
                 <g transform='translate(166,145)'>
                     <rect width='163' height='26' stroke='none' fill='none'></rect>
@@ -114,11 +114,16 @@ function generateCard($stats): string
                         {$currentStreakRange}
                     </text>
                 </g>
-                
+
+                <!-- mask for background behind fire -->
+                <defs>
+                    <mask id='cut-off-area'>
+                    <rect x='0' y='0' width='500' height='500' fill='white' />
+                    <ellipse cx='247.5' cy='31' rx='13' ry='18'/>
+                    </mask>
+                </defs>
                 <!-- ring around number -->
-                <circle cx='247.5' cy='71' r='40' style='fill:none;stroke:{$theme["highlight"]};stroke-width:5;'></circle>
-                <!-- background behind fire -->
-                <ellipse vector-effect='non-scaling-stroke' cx='247.5' cy='31' rx='13' ry='18' fill='{$theme["background"]}'/>
+                <circle cx='247.5' cy='71' r='40' mask='url(#cut-off-area)' style='fill:none;stroke:{$theme["highlight"]};stroke-width:5;'></circle>
                 <!-- fire icon -->
                 <g>
                     <path d=' M 235.5 19.5 L 259.5 19.5 L 259.5 43.5 L 235.5 43.5 L 235.5 19.5 Z ' fill='none'/>
