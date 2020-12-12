@@ -19,6 +19,7 @@ function generateCard($stats): string
     if (isset($_REQUEST["theme"])) {
         $theme = getTheme($_REQUEST["theme"]);
     }
+    // no theme specified
     else {
         $theme = getTheme("default");
     }
@@ -46,6 +47,7 @@ function generateCard($stats): string
         $longestStreakRange .= " - " . $longestStreakEnd;
     }
 
+    // TODO: Add animations on load
     return "
     <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>

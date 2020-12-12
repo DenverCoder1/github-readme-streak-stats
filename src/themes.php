@@ -32,7 +32,7 @@ function getTheme($theme): array
             "subtitleText" => "#38bdae",
             "highlight" => "#bf91f3"
         ],
-        // duo: compatible with light and dark mode both
+        // duo: compatible with both light and dark mode
         "tokyonight_duo" => [
             "background" => "#0000", // transparent background
             "stroke" => "#e4e2e2",
@@ -43,7 +43,7 @@ function getTheme($theme): array
     );
 
     // if offset is valid
-    if (isset($themes[$theme])) {
+    if (array_key_exists($theme, $themes)) {
         return $themes[$theme];
     }
 

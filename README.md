@@ -54,6 +54,18 @@ To enable dark theme, append `&theme=dark` to the end of the source url
 
 <img alt="Example 3" src="https://i.imgur.com/ovrVrTY.png" />
 
+#### `tokyonight`
+
+Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readme-streak-stats/pull/4/))
+
+<img alt="Example 4" src="https://i.imgur.com/8rthHoG.png" />
+
+#### `tokyonight_duo` - light and dark mode compatible
+
+Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readme-streak-stats/pull/4/))
+
+<img alt="Example 5" src="https://i.imgur.com/ErUwR9r.png" />
+
 See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
 
 > Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
