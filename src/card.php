@@ -96,7 +96,7 @@ function generateCard($stats): string
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["highlight"]};stroke:none;'>
+                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["currentStreak"]};stroke:none;'>
                         {$currentStreak}
                     </text>
                 </g>
@@ -125,11 +125,11 @@ function generateCard($stats): string
                     </mask>
                 </defs>
                 <!-- ring around number -->
-                <circle cx='247.5' cy='71' r='40' mask='url(#cut-off-area)' style='fill:none;stroke:{$theme["titleText"]};stroke-width:5;'></circle>
+                <circle cx='247.5' cy='71' r='40' mask='url(#cut-off-area)' style='fill:none;stroke:{$theme["ring"]};stroke-width:5;'></circle>
                 <!-- fire icon -->
                 <g>
                     <path d=' M 235.5 19.5 L 259.5 19.5 L 259.5 43.5 L 235.5 43.5 L 235.5 19.5 Z ' fill='none'/>
-                    <path d=' M 249 20.17 C 249 20.17 249.74 22.82 249.74 24.97 C 249.74 27.03 248.39 28.7 246.33 28.7 C 244.26 28.7 242.7 27.03 242.7 24.97 L 242.73 24.61 C 240.71 27.01 239.5 30.12 239.5 33.5 C 239.5 37.92 243.08 41.5 247.5 41.5 C 251.92 41.5 255.5 37.92 255.5 33.5 C 255.5 28.11 252.91 23.3 249 20.17 Z  M 247.21 38.5 C 245.43 38.5 243.99 37.1 243.99 35.36 C 243.99 33.74 245.04 32.6 246.8 32.24 C 248.57 31.88 250.4 31.03 251.42 29.66 C 251.81 30.95 252.01 32.31 252.01 33.7 C 252.01 36.35 249.86 38.5 247.21 38.5 Z ' fill='{$theme["titleText"]}'/>
+                    <path d=' M 249 20.17 C 249 20.17 249.74 22.82 249.74 24.97 C 249.74 27.03 248.39 28.7 246.33 28.7 C 244.26 28.7 242.7 27.03 242.7 24.97 L 242.73 24.61 C 240.71 27.01 239.5 30.12 239.5 33.5 C 239.5 37.92 243.08 41.5 247.5 41.5 C 251.92 41.5 255.5 37.92 255.5 33.5 C 255.5 28.11 252.91 23.3 249 20.17 Z  M 247.21 38.5 C 245.43 38.5 243.99 37.1 243.99 35.36 C 243.99 33.74 245.04 32.6 246.8 32.24 C 248.57 31.88 250.4 31.03 251.42 29.66 C 251.81 30.95 252.01 32.31 252.01 33.7 C 252.01 36.35 249.86 38.5 247.21 38.5 Z ' fill='{$theme["ring"]}'/>
                 </g>
             </g>
             <g style='isolation:isolate'>
