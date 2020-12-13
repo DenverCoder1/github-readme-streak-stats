@@ -13,6 +13,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Quick setup](#quick-setup)
+- [Options](#options)
 - [Themes](#themes)
 - [How these stats are calculated](#how-these-stats-are-calculated)
 - [Deploying it on your own](#deploying-it-on-your-own)
@@ -31,16 +32,25 @@
 
 > Note: See below for information about deploying the app on your own
 
+## Options
+
+`user`\*- The GitHub username to show stats for
+
+`theme` - The theme to apply. (See [Themes](#themes) below). [Default value: `default`]
+
+`hide_border` - Set to `true` to make the border of the image transparent. [Default: `false`]
+
+> \* The `user` field is the only required option. All other fields are optional.
+
+
 ## Themes
 
-To enable dark theme, append `&theme=dark` to the end of the source url
+To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
 
 
 ```md
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://github.com/DenverCoder1/github-readme-streak-stats)
 ```
-
-### Currently supported themes:
 
 #### `default`
 
@@ -66,9 +76,7 @@ Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readm
 
 <img alt="Example 5" src="https://i.imgur.com/ErUwR9r.png" />
 
-See it live at [DenverCoder1's profile](https://github.com/DenverCoder1)
-
-> Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
+See a list of [all available themes](./themes/README.md).
 
 ## How these stats are calculated
 
@@ -82,6 +90,7 @@ The longest streak is the highest number of consecutive days on which you have m
 
 The current streak is the number of consecutive days ending with the current day on which you have made at least one contribution. If you have made a contribution today, it will be counted towards the current streak, however, if you have not made a contribution today, the streak will only count days before today so that your streak will not be zero.
 
+> Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
 
 ## Deploying it on your own
 
