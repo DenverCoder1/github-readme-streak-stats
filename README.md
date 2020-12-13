@@ -34,11 +34,11 @@
 
 ## Options
 
-`user`\*- The GitHub username to show stats for
+`user`\* - The GitHub username to show stats for
 
 `theme` - The theme to apply. (See [Themes](#themes) below). [Default value: `default`]
 
-`hide_border` - Set to `true` to make the border of the image transparent. [Default: `false`]
+`hide_border` - Set to `true` to make the border of the image transparent. [Default value: `false`]
 
 > \* The `user` field is the only required option. All other fields are optional.
 
