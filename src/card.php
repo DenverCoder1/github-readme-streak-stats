@@ -24,6 +24,15 @@ function generateCard($stats): string
         $theme = getTheme("default");
     }
 
+    // hide borders
+    if (isset($_REQUEST["hide_border"]) && $_REQUEST["hide_border"] == "true") {
+        $borderColor = "#0000"; // transparent
+    }
+    // hide borders is not set or not set to true
+    else {
+        $borderColor = $theme["stroke"];
+    }
+
     // total contributions
     $totalContributions = $stats['totalContributions'];
     $firstContribution = format($stats['firstContribution']);
@@ -61,7 +70,7 @@ function generateCard($stats): string
         <g clip-path='url(#_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw)'>
             <g style='isolation:isolate'>
                 <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
-                    style='stroke: {$theme["stroke"]}; fill: {$theme["background"]};stroke-miterlimit:10;rx: 4.5;'/>
+                    style='stroke: {$borderColor}; fill: {$theme["background"]};stroke-miterlimit:10;rx: 4.5;'/>
             </g>
             <g style='isolation:isolate'>
                 <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
