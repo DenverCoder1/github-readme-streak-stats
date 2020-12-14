@@ -68,13 +68,13 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readme-streak-stats/pull/4/))
 
-<img alt="Example 4" src="https://i.imgur.com/8rthHoG.png" />
+<img alt="Example 4" src="https://i.imgur.com/sb51hnQ.png" />
 
 #### `tokyonight_duo` - light and dark mode compatible
 
 Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readme-streak-stats/pull/4/))
 
-<img alt="Example 5" src="https://i.imgur.com/ErUwR9r.png" />
+<img alt="Example 5" src="https://i.imgur.com/lja8hgu.png" />
 
 See a list of [all available themes](./themes/README.md).
 
