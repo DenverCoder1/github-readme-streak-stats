@@ -76,7 +76,7 @@ Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readm
 
 <img alt="Example 5" src="https://i.imgur.com/lja8hgu.png" />
 
-See a list of [all available themes](./themes/README.md).
+See a list of [all available themes](./docs/themes/README.md).
 
 ## How these stats are calculated
 
