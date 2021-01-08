@@ -113,6 +113,8 @@ Make sure your request is meaningful and you have tested the app locally before 
 Requirements: [PHP 7.4+](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
 ```
+$ sudo apt-get install php
+$ sudo apt-get install php-curl
 $ git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
 $ cd github-readme-streak-stats
 $ php -S localhost:8000
