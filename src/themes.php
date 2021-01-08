@@ -437,6 +437,15 @@ function getTheme($theme): array
             "currentStreak" => "#a64833",
             "subtitleText" => "#d9c8a9",
             "background" => "#402b23"
+        ],
+        "ads-juicy-fresh" => [
+            "stroke" => "#e4e2e2",
+            "titleText" => "#fff",
+            "ring" => "#81ff00",
+            "highlight" => "#ff5700",
+            "currentStreak" => "#fff",
+            "subtitleText" => "#6562af",
+            "background" => "#0d0c15"
         ]
     );
 
