@@ -437,6 +437,15 @@ function getTheme($theme): array
             "currentStreak" => "#a64833",
             "subtitleText" => "#d9c8a9",
             "background" => "#402b23"
+        ],
+        "black-ice" => [
+            "stroke" => "#e4e2e2",
+            "titleText" => "#fff",
+            "ring" => "#00e7ff",
+            "highlight" => "#00e7ff",
+            "currentStreak" => "#fff",
+            "subtitleText" => "#9f9f9f",
+            "background" => "#151515"
         ]
     );
 
