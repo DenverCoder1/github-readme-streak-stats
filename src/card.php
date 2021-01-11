@@ -35,7 +35,7 @@ function generateCard($stats): string
 
     // personal theme customizations
     $properties = array_keys($theme);
-    $css_colors = getValidCSSColors();
+    $cssColors = getValidCSSColors();
     foreach ($properties as $prop) {
         // check if each property was passed as a parameter
         if (isset($_REQUEST[$prop])) {
@@ -47,7 +47,7 @@ function generateCard($stats): string
                 $theme[$prop] = "#" . $param;
             }
             // check if color is valid css color
-            else if (in_array($param, $css_colors)) {
+            else if (in_array($param, $cssColors)) {
                 // set property
                 $theme[$prop] = $param;
             }
