@@ -76,7 +76,7 @@ These additional URL options, can be added as parameters to make customizations 
 
 If the `theme` parameter is specified, these customizations will be applied on top of the theme, overriding the theme's values.
 
-For each of the following a **hex code or css color** can be specified, for example `FF0000` or `red`. Do *not* use `#` in the hex code!
+For each of the following, a **hex code** (ex. `F00`, `FFF2`, `23BFC1`) or **css color**  (ex. `white`, `forestgreen`, `fuchsia`) can be specified. Do *not* use `#` when writing the hex code!
 
 `background` - Override the background color
 
