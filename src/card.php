@@ -19,9 +19,9 @@ function generateCard($stats): string
     if (isset($_REQUEST["theme"])) {
         $theme = getTheme($_REQUEST["theme"]);
     }
-    // no theme specified
+    // no theme specified, get default
     else {
-        $theme = getTheme("default");
+        $theme = getTheme();
     }
 
     // hide borders
@@ -31,6 +31,27 @@ function generateCard($stats): string
     // hide borders is not set or not set to true
     else {
         $borderColor = $theme["border"];
+    }
+
+    // personal theme customizations
+    $properties = array_keys($theme);
+    $css_colors = getValidCSSColors();
+    foreach ($properties as $prop) {
+        // check if each property was passed as a parameter
+        if (isset($_REQUEST[$prop])) {
+            // ignore case
+            $param = strtolower($_REQUEST[$prop]);
+            // check if color is valid hex color (3, 4, 6, or 8 hex digits)
+            if (preg_match("/^([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/", $param)) {
+                // set property
+                $theme[$prop] = "#" . $param;
+            }
+            // check if color is valid css color
+            else if (in_array($param, $css_colors)) {
+                // set property
+                $theme[$prop] = $param;
+            }
+        }
     }
 
     // total contributions
