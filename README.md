@@ -36,7 +36,7 @@
 
 `user`\* - The GitHub username to show stats for
 
-`theme` - The theme to apply. (See [Themes](#themes) below). [Default value: `default`]
+`theme` - The theme to apply. (See the [list of themes](./docs/themes/README.md)). [Default value: `default`]
 
 `hide_border` - Set to `true` to make the border of the image transparent. [Default value: `false`]
 
