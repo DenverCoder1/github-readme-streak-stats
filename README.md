@@ -15,6 +15,7 @@
 - [Quick setup](#quick-setup)
 - [Options](#options)
 - [Themes](#themes)
+- [Theme customizations](#theme-customizations)
 - [How these stats are calculated](#how-these-stats-are-calculated)
 - [Deploying it on your own](#deploying-it-on-your-own)
 - [Contributing](#contributing)
@@ -34,14 +35,15 @@
 
 ## Options
 
-`user`\* - The GitHub username to show stats for
+- `user`\* - The GitHub username to show stats for
 
-`theme` - The theme to apply. (See the [list of themes](./docs/themes/README.md)). [Default value: `default`]
+- `theme` - The theme to apply. (See the [list of themes](./docs/themes/README.md)). [Default value: `default`]
 
-`hide_border` - Set to `true` to make the border of the image transparent. [Default value: `false`]
+- `hide_border` - Set to `true` to make the border of the image transparent. [Default value: `false`]
+
+- Theme customizations (see [Theme Customizations](#theme-customizations) below)
 
 > \* The `user` field is the only required option. All other fields are optional.
-
 
 ## Themes
 
@@ -64,19 +66,43 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 <img alt="Example 3" src="https://i.imgur.com/ovrVrTY.png" />
 
-#### `tokyonight`
+There are many more themes available!
 
-Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readme-streak-stats/pull/4/))
+**See a list of [all available themes](./docs/themes/README.md).**
 
-<img alt="Example 4" src="https://i.imgur.com/sb51hnQ.png" />
+## Theme customizations
 
-#### `tokyonight_duo` - light and dark mode compatible
+These additional URL options, can be added as parameters to make customizations to the colors used.
 
-Contributed by @DeeshanSharma ([#4](https://github.com/DenverCoder1/github-readme-streak-stats/pull/4/))
+If the `theme` parameter is specified, these customizations will be applied on top of the theme, overriding the theme's values.
 
-<img alt="Example 5" src="https://i.imgur.com/lja8hgu.png" />
+For each of the following a **hex code or css color** can be specified, for example `FF0000` or `red`. Do *not* use `#` in the hex code!
 
-See a list of [all available themes](./docs/themes/README.md).
+`background` - Override the background color
+
+`border` - Override the border color
+
+`stroke` - Override the color of the strokes between sections
+
+`ring` - Override the color of the ring around the current streak
+
+`fire` - Override the color of the fire in the ring
+
+`currStreakNum` - Override the color of the current streak number
+
+`sideNums` - Override the color of the numbers on the sides
+
+`currStreakLabel` - Override the color of the current streak label
+
+`sideLabels` - Override the color of the labels on the sides
+
+`dates` - Override the color for the date text
+
+Example:
+
+```md
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00)](https://github.com/DenverCoder1/github-readme-streak-stats)
+```
 
 ## How these stats are calculated
 
