@@ -241,3 +241,11 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 `kacho_ga`
 
 ![image](https://user-images.githubusercontent.com/20955511/103046388-b9381680-4590-11eb-86f4-64401fa46969.png)
+
+`ads-juicy-fresh`
+
+![image](https://user-images.githubusercontent.com/20955511/104234961-e9225d80-545c-11eb-884c-359818327172.png)
+
+`black-ice`
+
+![image](https://user-images.githubusercontent.com/20955511/104234941-e293e600-545c-11eb-984c-0b5b265e4464.png)
