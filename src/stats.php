@@ -109,6 +109,7 @@ function getYearJoined($user) : int
     // no user page found at the URL
     else {
         // TODO: make error appear in an SVG so users can see it
+        echo "<!--" . $response . "-->";
         die("User info could not be found.");
     }
 }
