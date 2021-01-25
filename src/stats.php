@@ -8,7 +8,7 @@ function getContributionGraphs($user): array
     $currentYear = (int) date("Y");
     // build a list of individual requests
     $urls = [];
-    for ($i = $startYear; $i <= $currentYear; $i++) {
+    for ($i = $currentYear; $i >= $startYear; $i--) {
         // set end date (leave parameter out for current year)
         $to = $i < $currentYear ? "?to=" . date("${i}-m-d") : "";
         // create curl request
@@ -40,7 +40,7 @@ function getContributionGraphs($user): array
     // collect responses
     $response = [];
     foreach ($urls as $url) {
-        array_push($response, curl_multi_getcontent($url));
+        array_unshift($response, curl_multi_getcontent($url));
     }
     return $response;
 }
