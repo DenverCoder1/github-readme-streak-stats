@@ -92,6 +92,7 @@ function getYearJoined($user) : int
 {
     // load the user's profile info
     $response = curl_get_contents("https://api.github.com/users/${user}");
+    echo "<!--" . $response . "-->";
     $json = json_decode($response);
     // find the year the user was created
     if ($json && isset($json->created_at) && strlen($json->created_at) > 4) {
@@ -100,7 +101,6 @@ function getYearJoined($user) : int
     // data is missing at the url
     else {
         // TODO: make error appear in an SVG so users can see it
-        echo "<!--" . $response . "-->";
         die("User info could not be found.");
     }
 }
