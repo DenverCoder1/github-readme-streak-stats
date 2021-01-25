@@ -73,6 +73,8 @@ function getContributionDates($user) : array
 function curl_get_contents($url): string
 {
     $ch = curl_init();
+    $user_agent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)';
+    curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
     curl_setopt($ch, CURLOPT_AUTOREFERER, true);
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -88,25 +90,14 @@ function curl_get_contents($url): string
 // get the first year a user contributed
 function getYearJoined($user) : int
 {
-    // load the user's profile page
-    $html = curl_get_contents("https://github.com/${user}");
-    // find the year links below the contribution graph
-    $years = [];
-    $lines = explode("\n", $html);
-    foreach ($lines as $line) {
-        if (strpos($line, "id=\"year-link-") !== false) {
-            preg_match("/year-link-(\d{4})/", $line, $yearMatch);
-            if (isset($yearMatch[1])) {
-                array_push($years, (int) $yearMatch[1]);
-            }
-        }
+    // load the user's profile info
+    $response = curl_get_contents("https://api.github.com/users/${user}");
+    $json = json_decode($response);
+    // find the year the user was created
+    if ($json && isset($json->created_at) && strlen($json->created_at) > 4) {
+        return substr($json->created_at, 0, 4);
     }
-    // check that user page is working
-    if (count($years) > 0) {
-        // get the inner text of the last year on the page
-        return $years[count($years) - 1];
-    }
-    // no user page found at the URL
+    // data is missing at the url
     else {
         // TODO: make error appear in an SVG so users can see it
         echo "<!--" . $response . "-->";
