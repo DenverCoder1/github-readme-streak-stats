@@ -2,6 +2,7 @@
 
 require_once "stats.php";
 require_once "card.php";
+file_exists("config.php") AND include "config.php";
 
 // set cache to refresh once per day
 $timestamp = gmdate("D, d M Y 23:59:00") . " GMT";
