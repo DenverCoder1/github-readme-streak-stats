@@ -249,3 +249,11 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 `black-ice`
 
 ![image](https://user-images.githubusercontent.com/20955511/104234941-e293e600-545c-11eb-984c-0b5b265e4464.png)
+
+### Can't find the theme you like?
+
+You can now customize your stats card with url parameters.
+
+See the available options [here](/README.md#theme-customizations).
+
+If you would like to share your theme with others, feel free to open an issue/pull request.
