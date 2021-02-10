@@ -5,6 +5,12 @@ function getContributionGraphs($user): array
 {
     // get the start year based on when the user first contributed
     $startYear = getYearJoined($user);
+
+    // If error occured return -1
+    if ($startYear === -1) {
+        return array(-1);
+    }
+
     $currentYear = (int) date("Y");
     // build a list of individual requests
     $urls = [];
@@ -50,6 +56,11 @@ function getContributionDates($user) : array
 {
     // fetch html for all contribution graphs
     $contributionsHTML = getContributionGraphs($user);
+
+    // If error occured
+    if ($contributionsHTML[0] === -1) {
+        return $contributionsHTML;
+    }
     // get contributions from HTML
     $contributions = [];
     foreach ($contributionsHTML as $html) {
@@ -106,7 +117,7 @@ function getYearJoined($user) : int
     // data is missing at the url
     else {
         // TODO: make error appear in an SVG so users can see it
-        die("User info could not be found.");
+        return -1; //ERR_USER_NOT_FOUND
     }
 }
 
@@ -114,6 +125,12 @@ function getYearJoined($user) : int
 function getContributionStats($user) : array
 {
     $contributions = getContributionDates($user);
+
+    // If error occured
+    if ($contributions[0] === -1) {
+        return $contributions;
+    }
+
     $today = array_key_last($contributions);
     $stats = [
         "totalContributions" => 0,
