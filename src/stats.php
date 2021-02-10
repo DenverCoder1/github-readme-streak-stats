@@ -46,7 +46,7 @@ function getContributionGraphs($user): array
 }
 
 // get array of all dates with the number of contributions
-function getContributionDates($user) : array
+function getContributionDates($user): array
 {
     // fetch html for all contribution graphs
     $contributionsHTML = getContributionGraphs($user);
@@ -73,13 +73,13 @@ function getContributionDates($user) : array
 function curl_get_contents($url): string
 {
     $ch = curl_init();
-    $token = getenv('TOKEN');
-    $username = getenv('USERNAME');
+    $token = getenv("TOKEN");
+    $username = getenv("USERNAME");
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "Accept: application/vnd.github.v3+json",
         "Authorization: token $token",
-        "User-Agent: $username"
-      ]);
+        "User-Agent: $username",
+    ]);
     curl_setopt($ch, CURLOPT_AUTOREFERER, true);
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -93,7 +93,7 @@ function curl_get_contents($url): string
 }
 
 // get the first year a user contributed
-function getYearJoined($user) : int
+function getYearJoined($user): int
 {
     // load the user's profile info
     $response = curl_get_contents("https://api.github.com/users/${user}");
@@ -104,13 +104,13 @@ function getYearJoined($user) : int
         return substr($json->created_at, 0, 4);
     }
     // API Error
-    else if($json && isset($json->message)){
+    else if ($json && isset($json->message)) {
         // User not found
-        if($json->message == 'Not Found'){
+        if ($json->message == "Not Found") {
             die(generateErrorCard("User could not be found."));
         }
         // Other errors that contain a message field
-        else{
+        else {
             die(generateErrorCard($json->message));
         }
     }
@@ -121,7 +121,7 @@ function getYearJoined($user) : int
 }
 
 // get the total number of contributions
-function getContributionStats($user) : array
+function getContributionStats($user): array
 {
     $contributions = getContributionDates($user);
     $today = array_key_last($contributions);
@@ -131,14 +131,15 @@ function getContributionStats($user) : array
         "longestStreak" => [
             "start" => array_key_first($contributions),
             "end" => array_key_first($contributions),
-            "length" => 0
+            "length" => 0,
         ],
         "currentStreak" => [
             "start" => array_key_first($contributions),
             "end" => array_key_first($contributions),
-            "length" => 0
-        ]
+            "length" => 0,
+        ],
     ];
+    
     // calculate the stats from the contributions array
     foreach ($contributions as $date => $count) {
         // add contribution count to total
@@ -171,5 +172,6 @@ function getContributionStats($user) : array
             $stats["currentStreak"]["end"] = "";
         }
     }
+
     return $stats;
 }
