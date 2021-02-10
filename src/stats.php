@@ -103,14 +103,20 @@ function getYearJoined($user) : int
     if ($json && isset($json->created_at) && strlen($json->created_at) > 4) {
         return substr($json->created_at, 0, 4);
     }
-    // data is missing at the url
-    else {
-        // TODO: make error appear in an SVG so users can see it
-        if($json && $json->message == 'Not Found'){
-            die(generateErrorCard("User could not be found")); //ERR_USER_NOT_FOUND
-        }else{
+    // API Error
+    else if($json && isset($json->message)){
+        // User not found
+        if($json->message == 'Not Found'){
+            die(generateErrorCard("User could not be found."));
+        }
+        // Other errors that contain a message field
+        else{
             die(generateErrorCard($json->message));
         }
+    }
+    // Response returned but doesn't contain a message field
+    else {
+        die(generateErrorCard("An unknown error occurred."));
     }
 }
 
