@@ -20,7 +20,7 @@ function getContributionGraphs($user): array
         curl_setopt($urls[$i], CURLOPT_URL, "https://github.com/users/${user}/contributions${to}");
         curl_setopt($urls[$i], CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($urls[$i], CURLOPT_VERBOSE, false);
-        curl_setopt($urls[$i], CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($urls[$i], CURLOPT_SSL_VERIFYPEER, true);
     }
     // build multi-curl handle
     $multi = curl_multi_init();
@@ -86,7 +86,7 @@ function curl_get_contents($url): string
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_VERBOSE, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $response = curl_exec($ch);
     curl_close($ch);
     return $response;
