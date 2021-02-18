@@ -1,8 +1,6 @@
 <?php
 
-require_once "themes.php";
-
-function format($date): string
+function format_date($date): string
 {
     $date = new DateTime($date);
     // if current year, display only month and day
@@ -16,12 +14,13 @@ function format($date): string
 function getRequestedTheme(): array
 {
     // get theme colors
-    if (isset($_REQUEST["theme"])) {
-        $theme = getTheme($_REQUEST["theme"]);
+    $themes = include "themes.php";
+    if (isset($_REQUEST["theme"]) && array_key_exists($_REQUEST["theme"], $themes)) {
+        $theme = $themes[$_REQUEST["theme"]];
     }
     // no theme specified, get default
     else {
-        $theme = getTheme();
+        $theme = $themes["default"];
     }
 
     // hide borders
@@ -31,7 +30,7 @@ function getRequestedTheme(): array
 
     // personal theme customizations
     $properties = array_keys($theme);
-    $cssColors = getValidCSSColors();
+    $cssColors = include "colors.php";
     foreach ($properties as $prop) {
         // check if each property was passed as a parameter
         if (isset($_REQUEST[$prop])) {
@@ -59,13 +58,13 @@ function generateCard($stats): string
 
     // total contributions
     $totalContributions = $stats["totalContributions"];
-    $firstContribution = format($stats["firstContribution"]);
+    $firstContribution = format_date($stats["firstContribution"]);
     $totalContributionsRange = $firstContribution . " - Present";
 
     // current streak
     $currentStreak = $stats["currentStreak"]["length"];
-    $currentStreakStart = format($stats["currentStreak"]["start"]);
-    $currentStreakEnd = format($stats["currentStreak"]["end"]);
+    $currentStreakStart = format_date($stats["currentStreak"]["start"]);
+    $currentStreakEnd = format_date($stats["currentStreak"]["end"]);
     $currentStreakRange = $currentStreakStart;
     if ($currentStreakStart != $currentStreakEnd) {
         $currentStreakRange .= " - " . $currentStreakEnd;
@@ -73,38 +72,26 @@ function generateCard($stats): string
 
     // longest streak
     $longestStreak = $stats["longestStreak"]["length"];
-    $longestStreakStart = format($stats["longestStreak"]["start"]);
-    $longestStreakEnd = format($stats["longestStreak"]["end"]);
+    $longestStreakStart = format_date($stats["longestStreak"]["start"]);
+    $longestStreakEnd = format_date($stats["longestStreak"]["end"]);
     $longestStreakRange = $longestStreakStart;
     if ($longestStreakStart != $longestStreakEnd) {
         $longestStreakRange .= " - " . $longestStreakEnd;
     }
 
-    // TODO: Add animations on load
     return "
     <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>
             @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-            @keyframes crntstreak {
-                0%{
-                  font-size: 3px;
-                  opacity:0.2;
-                }80%{
-                  font-size: 34px;
-                  opacity:1;
-                }100%{
-                  font-size: 28px;
-                  opacity:1;
-                }
-              }
-              @keyframes fadein{
-                0%{
-                  opacity: 0;
-                }
-                100%{
-                  opacity: 1;
-                }
-              }
+            @keyframes currstreak {
+                0% { font-size: 3px; opacity: 0.2; }
+                80% { font-size: 34px; opacity: 1; }
+                100% { font-size: 28px; opacity: 1; }
+            }
+            @keyframes fadein {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
         </style>
         <defs>
             <clipPath id='_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw'>
@@ -149,7 +136,7 @@ function generateCard($stats): string
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["currStreakNum"]};stroke:none;animation: crntstreak 0.6s linear forwards'>
+                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["currStreakNum"]};stroke:none;animation: currstreak 0.6s linear forwards;'>
                         {$currentStreak}
                     </text>
                 </g>
@@ -212,7 +199,7 @@ function generateCard($stats): string
             </g>
         </g>
     </svg>
-  ";
+    ";
 }
 
 function generateErrorCard($error)
