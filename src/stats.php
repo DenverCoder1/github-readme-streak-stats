@@ -10,14 +10,14 @@ function getContributionGraphs($user): array
     $urls = [];
     for ($i = $currentYear; $i >= $startYear; $i--) {
         // set end date (leave parameter out for current year)
-        $to = $i < $currentYear ? "?to=" . date("${i}-m-d") : "";
+        $url = "https://github.com/users/${user}/contributions?to=${i}-12-31";
         // create curl request
         $urls[$i] = curl_init();
         // set options for curl
         curl_setopt($urls[$i], CURLOPT_AUTOREFERER, true);
         curl_setopt($urls[$i], CURLOPT_HEADER, false);
         curl_setopt($urls[$i], CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($urls[$i], CURLOPT_URL, "https://github.com/users/${user}/contributions${to}");
+        curl_setopt($urls[$i], CURLOPT_URL, $url);
         curl_setopt($urls[$i], CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($urls[$i], CURLOPT_VERBOSE, false);
         curl_setopt($urls[$i], CURLOPT_SSL_VERIFYPEER, true);
@@ -62,7 +62,9 @@ function getContributionDates($user): array
             if (isset($dateMatch[1]) && isset($countMatch[1])) {
                 $date = $dateMatch[1];
                 $count = (int) $countMatch[1];
-                $contributions[$date] = $count;
+                if ($date <= date("Y-m-d")) {
+                    $contributions[$date] = $count;
+                }
             }
         }
     }
@@ -97,7 +99,6 @@ function getYearJoined($user): int
 {
     // load the user's profile info
     $response = curl_get_contents("https://api.github.com/users/${user}");
-    echo "<!--" . $response . "-->";
     $json = json_decode($response);
     // find the year the user was created
     if ($json && isset($json->created_at) && strlen($json->created_at) > 4) {
