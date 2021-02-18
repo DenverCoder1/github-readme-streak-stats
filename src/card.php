@@ -90,10 +90,10 @@ function generateCard($stats): string
                   font-size: 3px;
                   opacity:0.2;
                 }80%{
-                  font-size: 40px;
+                  font-size: 34px;
                   opacity:1;
                 }100%{
-                  font-size: 34px;
+                  font-size: 28px;
                   opacity:1;
                 }
               }
