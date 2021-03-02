@@ -9,20 +9,19 @@
   and longest streak on your GitHub profile README
 </p>
 
-## Table of Contents
+## 📃 Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Quick setup](#quick-setup)
-- [Options](#options)
-- [Themes](#themes)
-- [Theme customizations](#theme-customizations)
-- [How these stats are calculated](#how-these-stats-are-calculated)
-- [Deploying it on your own](#deploying-it-on-your-own)
-- [Contributing](#contributing)
-- [Contact me](#contact-me)
-- [Support](#support)
+- [📃 Table of Contents](#-table-of-contents)
+- [⚡ Quick setup](#-quick-setup)
+- [🔧 Options](#-options)
+- [🖌 Themes](#-themes)
+- [🖼 Theme customizations](#-theme-customizations)
+- [ℹ How these stats are calculated](#ℹ-how-these-stats-are-calculated)
+- [📤 Deploying it on your own](#-deploying-it-on-your-own)
+- [🤗 Contributing](#-contributing)
+- [🙋‍♂️ Support](#️-support)
 
-## Quick setup
+## ⚡ Quick setup
 
 1. Copy-paste the markdown below into your GitHub profile README
 2. Replace the value after `?user=` with your GitHub username
@@ -33,19 +32,18 @@
 
 > Note: See below for information about deploying the app on your own
 
-## Options
+## 🔧 Options
 
-- `user`\* - The GitHub username to show stats for
+|      Parameter       |                    Details                     |                         Example                          |
+| :------------------: | :--------------------------------------------: | :------------------------------------------------------: |
+|        `user`        |       GitHub username to show stats for        |                       DenverCoder1                       |
+|       `theme`        |    The theme to apply (Default: `default`)     |    dark, black-ice, etc. [🎨](./docs/themes/README.md)    |
+|    `hide_border`     | Make the border transparent (Default: `false`) |                      true or false                       |
+| Theme Customizations |           Customize specific colors            | See [Theme Customizations](#-theme-customizations) below |
 
-- `theme` - The theme to apply. (See the [list of themes](./docs/themes/README.md)). [Default value: `default`]
+> **Note:** The `user` field is the only required option. All other fields are optional.
 
-- `hide_border` - Set to `true` to make the border of the image transparent. [Default value: `false`]
-
-- Theme customizations (see [Theme Customizations](#theme-customizations) below)
-
-> \* The `user` field is the only required option. All other fields are optional.
-
-## Themes
+## 🖌 Themes
 
 To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
 
@@ -54,57 +52,43 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://github.com/DenverCoder1/github-readme-streak-stats)
 ```
 
-#### `default`
+|     Theme      |                             Screenshot                              |
+| :------------: | :-----------------------------------------------------------------: |
+|   `default`    |             ![default](https://i.imgur.com/IaTuYdS.png)             |
+|     `dark`     |              ![dark](https://i.imgur.com/bUrsjlp.png)               |
+| `highcontrast` |          ![highcontrast](https://i.imgur.com/ovrVrTY.png)           |
+|  More themes!  | **🎨 [See a list of all available themes](./docs/themes/README.md)** |
 
-<img alt="Example 1" src="https://i.imgur.com/IaTuYdS.png" />
+> If you have come up with a new theme you'd like to share with others, open an issue to add it!
 
-#### `dark`
-
-<img alt="Example 2" src="https://i.imgur.com/bUrsjlp.png" />
-
-#### `highcontrast`
-
-<img alt="Example 3" src="https://i.imgur.com/ovrVrTY.png" />
-
-There are many more themes available!
-
-**See a list of [all available themes](./docs/themes/README.md).**
-
-## Theme customizations
+## 🖼 Theme customizations
 
 These additional URL options, can be added as parameters to make customizations to the colors used.
 
 If the `theme` parameter is specified, these customizations will be applied on top of the theme, overriding the theme's values.
 
-For each of the following, a **hex code** (ex. `F00`, `FFF2`, `23BFC1`) or **css color**  (ex. `white`, `forestgreen`, `fuchsia`) can be specified. Do *not* use `#` when writing the hex code!
+For each of the following, a **hex code** (ex. `F00`, `FFF2`, `23BFC1`, etc.) or **css color**  (ex. `white`, `forestgreen`, `fuchsia`, etc.) can be specified. Do *not* use `#` when writing the hex code!
 
-`background` - Override the background color
+|     Parameter     |                   Details                   |
+| :---------------: | :-----------------------------------------: |
+|   `background`    |              Background color               |
+|     `border`      |                Border color                 |
+|     `stroke`      |     Stroke line color between sections      |
+|      `ring`       | Color of the ring around the current streak |
+|      `fire`       |        Color of the fire in the ring        |
+|  `currStreakNum`  |            Current streak number            |
+|    `sideNums`     |      Total and longest streak numbers       |
+| `currStreakLabel` |            Current streak label             |
+|   `sideLabels`    |       Total and longest streak labels       |
+|      `dates`      |            Date range text color            |
 
-`border` - Override the border color
-
-`stroke` - Override the color of the strokes between sections
-
-`ring` - Override the color of the ring around the current streak
-
-`fire` - Override the color of the fire in the ring
-
-`currStreakNum` - Override the color of the current streak number
-
-`sideNums` - Override the color of the numbers on the sides
-
-`currStreakLabel` - Override the color of the current streak label
-
-`sideLabels` - Override the color of the labels on the sides
-
-`dates` - Override the color for the date text
-
-Example:
+### Example:
 
 ```md
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00)](https://github.com/DenverCoder1/github-readme-streak-stats)
 ```
 
-## How these stats are calculated
+## ℹ How these stats are calculated
 
 This tool uses the contribution graphs on your GitHub profile to calculate which days you have contributed.
 
@@ -118,7 +102,7 @@ The current streak is the number of consecutive days ending with the current day
 
 > Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
 
-## Deploying it on your own
+## 📤 Deploying it on your own
 
 If you can, it is preferable to host the files on your own server.
 
@@ -128,7 +112,7 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main)
 
-## Contributing
+## 🤗 Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
 
@@ -150,14 +134,7 @@ Open http://localhost:8000/src?user=DenverCoder1 to test the project locally.
 
 [▶ How to run PHP using XAMPP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
-## Contact me
-
-<p align="left">
-  <a href="https://twitter.com/DenverCoder1"><img alt="Twitter" title="Twitter" src="https://img.shields.io/badge/-Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
-  <a href="https://www.reddit.com/user/denvercoder1/"><img alt="Reddit" title="Reddit" src="https://img.shields.io/badge/-Reddit-FF5700?style=for-the-badge&logo=reddit&logoColor=white"/></a>
-</p>
-
-## Support
+## 🙋‍♂️ Support
 
 💙 If you like this project, give it a ⭐ and share it with friends!
 
