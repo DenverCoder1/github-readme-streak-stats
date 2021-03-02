@@ -7,20 +7,20 @@ function getContributionGraphs($user): array
     $startYear = getYearJoined($user);
     $currentYear = (int) date("Y");
     // build a list of individual requests
-    $urls = [];
-    for ($i = $currentYear; $i >= $startYear; $i--) {
-        // set end date (leave parameter out for current year)
-        $url = "https://github.com/users/${user}/contributions?to=${i}-12-31";
+    $urls = array();
+    for ($year = $currentYear; $year >= $startYear; $year--) {
+        // create url with year set as end date
+        $url = "https://github.com/users/${user}/contributions?to=${year}-12-31";
         // create curl request
-        $urls[$i] = curl_init();
+        $urls[$year] = curl_init();
         // set options for curl
-        curl_setopt($urls[$i], CURLOPT_AUTOREFERER, true);
-        curl_setopt($urls[$i], CURLOPT_HEADER, false);
-        curl_setopt($urls[$i], CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($urls[$i], CURLOPT_URL, $url);
-        curl_setopt($urls[$i], CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($urls[$i], CURLOPT_VERBOSE, false);
-        curl_setopt($urls[$i], CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($urls[$year], CURLOPT_AUTOREFERER, true);
+        curl_setopt($urls[$year], CURLOPT_HEADER, false);
+        curl_setopt($urls[$year], CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($urls[$year], CURLOPT_URL, $url);
+        curl_setopt($urls[$year], CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($urls[$year], CURLOPT_VERBOSE, false);
+        curl_setopt($urls[$year], CURLOPT_SSL_VERIFYPEER, true);
     }
     // build multi-curl handle
     $multi = curl_multi_init();
@@ -32,13 +32,13 @@ function getContributionGraphs($user): array
     do {
         curl_multi_exec($multi, $running);
     } while ($running);
-    //close the handles
+    // close the handles
     foreach ($urls as $url) {
         curl_multi_remove_handle($multi, $url);
     }
     curl_multi_close($multi);
-    // collect responses
-    $response = [];
+    // collect responses from last to first
+    $response = array();
     foreach ($urls as $url) {
         array_unshift($response, curl_multi_getcontent($url));
     }
@@ -51,7 +51,8 @@ function getContributionDates($user): array
     // fetch html for all contribution graphs
     $contributionsHTML = getContributionGraphs($user);
     // get contributions from HTML
-    $contributions = [];
+    $contributions = array();
+    $currentDate = date("Y-m-d");
     foreach ($contributionsHTML as $html) {
         // split into lines
         $lines = explode("\n", $html);
@@ -62,7 +63,8 @@ function getContributionDates($user): array
             if (isset($dateMatch[1]) && isset($countMatch[1])) {
                 $date = $dateMatch[1];
                 $count = (int) $countMatch[1];
-                if ($date <= date("Y-m-d")) {
+                if ($date <= $currentDate) {
+                    // add contributions to the array
                     $contributions[$date] = $count;
                 }
             }
@@ -101,7 +103,7 @@ function getYearJoined($user): int
     $response = curl_get_contents("https://api.github.com/users/${user}");
     $json = json_decode($response);
     // find the year the user was created
-    if ($json && isset($json->created_at) && strlen($json->created_at) > 4) {
+    if ($json && isset($json->created_at)) {
         return substr($json->created_at, 0, 4);
     }
     // API Error
@@ -115,7 +117,7 @@ function getYearJoined($user): int
             die(generateErrorCard($json->message));
         }
     }
-    // Response returned but doesn't contain a message field
+    // Response doesn't contain a message field
     else {
         die(generateErrorCard("An unknown error occurred."));
     }
@@ -150,29 +152,27 @@ function getContributionStats($user): array
             // increment streak
             ++$stats["currentStreak"]["length"];
             $stats["currentStreak"]["end"] = $date;
-            // first day of streak
+            // set start on first day of streak
             if ($stats["currentStreak"]["length"] == 1) {
                 $stats["currentStreak"]["start"] = $date;
             }
-            // first contribution
-            if ($stats["firstContribution"] == "") {
+            // set first contribution date the first time
+            if (!$stats["firstContribution"]) {
                 $stats["firstContribution"] = $date;
             }
             // update longestStreak
             if ($stats["currentStreak"]["length"] > $stats["longestStreak"]["length"]) {
-                $stats["longestStreak"]["length"] = $stats["currentStreak"]["length"];
+                // copy current streak start, end, and length into longest streak
                 $stats["longestStreak"]["start"] = $stats["currentStreak"]["start"];
                 $stats["longestStreak"]["end"] = $stats["currentStreak"]["end"];
+                $stats["longestStreak"]["length"] = $stats["currentStreak"]["length"];
             }
         }
         // reset streak but give exception for today
         elseif ($date != $today) {
             // reset streak
             $stats["currentStreak"]["length"] = 0;
-            $stats["currentStreak"]["start"] = "";
-            $stats["currentStreak"]["end"] = "";
         }
     }
-
     return $stats;
 }
