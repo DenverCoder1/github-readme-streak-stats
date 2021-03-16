@@ -34,12 +34,12 @@
 
 ## 🔧 Options
 
-|      Parameter       |                    Details                     |                         Example                          |
-| :------------------: | :--------------------------------------------: | :------------------------------------------------------: |
-|        `user`        |       GitHub username to show stats for        |                       DenverCoder1                       |
-|       `theme`        |    The theme to apply (Default: `default`)     |    dark, black-ice, etc. [🎨](./docs/themes/README.md)    |
-|    `hide_border`     | Make the border transparent (Default: `false`) |                      true or false                       |
-| Theme Customizations |           Customize specific colors            | See [Theme Customizations](#-theme-customizations) below |
+|      Parameter       |                    Details                     |                            Example                            |
+| :------------------: | :--------------------------------------------: | :-----------------------------------------------------------: |
+|        `user`        |       GitHub username to show stats for        |                         `DenverCoder1`                        |
+|       `theme`        |    The theme to apply (Default: `default`)     |    `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md)    |
+|    `hide_border`     | Make the border transparent (Default: `false`) |                       `true` or `false`                       |
+| Theme Customizations |           Customize specific colors            |    See [Theme Customizations](#-theme-customizations) below   |
 
 > **Note:** The `user` field is the only required option. All other fields are optional.
 
@@ -118,21 +118,31 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
-### Running the app locally
+#### Installing PHP (Linux)
 
-Requirements: [PHP 7.4+](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
+Requirements: [PHP 7.4+](https://www.apachefriends.org/index.html)
 
 ```
-$ sudo apt-get install php
-$ sudo apt-get install php-curl
-$ git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
-$ cd github-readme-streak-stats
-$ php -S localhost:8000
+sudo apt-get install php
+sudo apt-get install php-curl
+```
+
+[▶ How to run PHP using XAMPP (Windows)](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
+
+#### Clone the repository
+
+```
+git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
+cd github-readme-streak-stats
+```
+
+### Running the app locally
+
+```
+php -S localhost:8000
 ```
 
 Open http://localhost:8000/src?user=DenverCoder1 to test the project locally.
-
-[▶ How to run PHP using XAMPP](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
 ## 🙋‍♂️ Support
 
