@@ -13,7 +13,6 @@
 
 - [📃 Table of Contents](#-table-of-contents)
 - [⚡ Quick setup](#-quick-setup)
-- [⚙ Demo Site](#-demo-site)
 - [🔧 Options](#-options)
 - [🖌 Themes](#-themes)
 - [🖼 Theme customizations](#-theme-customizations)
@@ -32,12 +31,6 @@
 ```
 
 > Note: See below for information about deploying the app on your own
-
-## ⚙ Demo Site - WIP
-
-Here you can customize your Streak Stats card with a live preview.
-
-http://github-readme-streak-stats.herokuapp.com/demo/
 
 ## 🔧 Options
 
