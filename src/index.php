@@ -4,11 +4,12 @@
 require_once "stats.php";
 require_once "card.php";
 
-// load config
+// load config if the file exists
 if (file_exists("config.php")) {
     require_once "config.php";
 }
-else {
+// if environment variables are not loaded, display error
+elseif (!getenv("TOKEN")) {
     die(generateErrorCard("/src/config.php was not found. Check Contributing.md for details."));
 }
 
