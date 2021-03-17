@@ -16,8 +16,8 @@
     <title>GitHub Readme Streak Steak</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
-    <script type="text/javascript" src="./js/script.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -69,6 +69,9 @@ foreach ($themes as $theme => $options) {
         <div class="output">
             <h2>Preview</h2>
             <img alt="GitHub Readme Streak Stats" src="../test" />
+            <p class="warning">
+                Note: The stats above are just examples and not from your GitHub profile.
+            </p>
 
             <h2>Markdown</h2>
             <div class="md">
