@@ -118,6 +118,14 @@ form.parameters select.param {
   max-width: 100%;
 }
 
+.output .warning {
+  color: #222;
+  font-size: 0.84em;
+  background: #fffde7;
+  padding: 8px 14px;
+  border-left: 4px solid #ffee58;
+}
+
 .output .md {
   background: #ddd;
   border-radius: 6px;
