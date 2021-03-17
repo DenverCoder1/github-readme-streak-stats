@@ -49,7 +49,7 @@
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme" placeholder="default">
 <?php
-$themes = include "../src/themes.php";
+$themes = include "../themes.php";
 foreach ($themes as $theme => $options) {
     echo "\t\t\t\t\t<option>{$theme}</option>\n";
 }
@@ -68,7 +68,7 @@ foreach ($themes as $theme => $options) {
 
         <div class="output">
             <h2>Preview</h2>
-            <img alt="GitHub Readme Streak Stats" src="demo.php" />
+            <img alt="GitHub Readme Streak Stats" src="../test" />
 
             <h2>Markdown</h2>
             <div class="md">

@@ -1,6 +1,6 @@
 <?php
 
-require_once("../src/card.php");
+require_once("../card.php");
 
 // set cache to refresh once per day
 $timestamp = gmdate('D, d M Y H:i:s') . " GMT";

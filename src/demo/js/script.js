@@ -24,7 +24,7 @@ let preview = {
       .join("&");
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
-    const demoImageURL = `demo.php?${query}`;
+    const demoImageURL = `../test?${query}`;
     const repoLink =
       "https://github.com/DenverCoder1/github-readme-streak-stats";
     const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
