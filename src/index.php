@@ -1,8 +1,16 @@
 <?php
 
+// load functions
 require_once "stats.php";
 require_once "card.php";
-file_exists("config.php") && include "config.php";
+
+// load config
+if (file_exists("config.php")) {
+    require_once "config.php";
+}
+else {
+    die(generateErrorCard("/src/config.php was not found. Check Contributing.md for details."));
+}
 
 // set cache to refresh once per day
 $timestamp = gmdate("D, d M Y 23:59:00") . " GMT";
