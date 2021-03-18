@@ -91,7 +91,9 @@ foreach ($themes["default"] as $option => $color) {
 
             <h2>Markdown</h2>
             <div class="md">
-                <code></code>
+                <code>
+                    [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?)](https://github.com/DenverCoder1/github-readme-streak-stats)
+                </code>
             </div>
 
             <button class="btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);">
