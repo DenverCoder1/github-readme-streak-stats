@@ -84,16 +84,14 @@ foreach ($themes["default"] as $option => $color) {
 
         <div class="output">
             <h2>Preview</h2>
-            <img alt="GitHub Readme Streak Stats" src="../test" />
+            <img alt="GitHub Readme Streak Stats" src="../test?" />
             <p class="warning">
                 Note: The stats above are just examples and not from your GitHub profile.
             </p>
 
             <h2>Markdown</h2>
             <div class="md">
-                <code>
-                    [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?)](https://github.com/DenverCoder1/github-readme-streak-stats)
-                </code>
+                <code></code>
             </div>
 
             <button class="btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);">

@@ -66,9 +66,8 @@ h2 {
   border-bottom: 1px solid #a9a9a9;
 }
 
-:not(a):focus {
-  outline: none;
-  box-shadow: 0px 0px 3px 1px #ff9800 !important;
+:focus {
+  outline: #ff9800 auto 2px;
 }
 
 .btn {
@@ -139,9 +138,12 @@ h2 {
 }
 
 .advanced {
-  padding: 6px;
   grid-column-start: 1;
   grid-column-end: -1;
+}
+
+.advanced summary {
+  padding: 6px;
 }
 
 .advanced .parameters {

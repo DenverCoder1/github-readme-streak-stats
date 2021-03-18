@@ -2,13 +2,6 @@
 
 require_once("../card.php");
 
-// set cache to refresh once per day
-$timestamp = gmdate('D, d M Y H:i:s') . " GMT";
-header("Expires: $timestamp");
-header("Last-Modified: $timestamp");
-header("Pragma: no-cache");
-header("Cache-Control: no-cache, must-revalidate");
-
 // set content type to SVG image
 header("Content-Type: image/svg+xml");
 

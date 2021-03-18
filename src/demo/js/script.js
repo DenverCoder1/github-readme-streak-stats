@@ -139,25 +139,22 @@ document.addEventListener("click", () => preview.update(), false);
 window.addEventListener(
   "load",
   () => {
-    // check if URL parameters are set
-    if (window.location.search) {
-      // set input boxes to match URL parameters
-      new URLSearchParams(window.location.search).forEach((val, key) => {
-        let paramInput = document.querySelector(`#${key}`);
-        if (paramInput) {
-          // set parameter value
-          paramInput.value = val;
-        } else {
-          // add advanced property
-          document.querySelector("details.advanced").open = true;
-          preview.addProperty(key);
-          paramInput = document.querySelector(`#${key}`);
-          paramInput.value = val;
-        }
-      });
-      // update previews
-      preview.update();
-    }
+    // set input boxes to match URL parameters
+    new URLSearchParams(window.location.search).forEach((val, key) => {
+      let paramInput = document.querySelector(`#${key}`);
+      if (paramInput) {
+        // set parameter value
+        paramInput.value = val;
+      } else {
+        // add advanced property
+        document.querySelector("details.advanced").open = true;
+        preview.addProperty(key);
+        paramInput = document.querySelector(`#${key}`);
+        paramInput.value = val;
+      }
+    });
+    // update previews
+    preview.update();
   },
   false
 );
