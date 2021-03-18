@@ -66,6 +66,11 @@ h2 {
   border-bottom: 1px solid #a9a9a9;
 }
 
+:not(a):focus {
+  outline: none;
+  box-shadow: 0px 0px 3px 1px #ff9800 !important;
+}
+
 .btn {
   max-width: 100%;
   background-color: #4caf51;
@@ -84,7 +89,7 @@ h2 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-form.parameters {
+.parameters {
   margin: auto;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -94,7 +99,13 @@ form.parameters {
   grid-gap: 8px;
 }
 
-form.parameters .param {
+.parameters .btn {
+  margin-top: 8px;
+}
+
+.parameters input[type="text"],
+.parameters input[type="color"],
+.parameters select {
   padding: 10px 14px;
   display: inline-block;
   border: 1px solid #bbb;
@@ -105,13 +116,57 @@ form.parameters .param {
   width: 100%;
 }
 
-form.parameters select.param {
+.parameters select {
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 5px;
+}
+
+.parameters select option[disabled] {
+  display: none;
+}
+
+.parameters input[type="color"] {
+  padding: 4px 6px;
+  height: 40px;
+}
+
+.parameters label {
+  text-transform: capitalize;
+}
+
+.advanced {
+  padding: 6px;
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.advanced .parameters {
+  margin-top: 8px;
+  grid-template-columns: auto 1fr auto;
+}
+
+.advanced .parameters label:first-of-type {
+  font-weight: bold;
+}
+
+.plus.btn,
+.minus.btn {
+  margin: 0;
+  background: inherit;
+  color: inherit;
+  font-size: 22px;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+}
+
+.plus.btn:hover,
+.minus.btn:hover {
+  background: #fafafa;
 }
 
 .output img {
