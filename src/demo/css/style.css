@@ -149,6 +149,10 @@ h2 {
   grid-template-columns: auto 1fr auto;
 }
 
+.advanced .parameters label:first-of-type {
+  font-weight: bold;
+}
+
 .plus.btn,
 .minus.btn {
   margin: 0;

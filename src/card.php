@@ -23,11 +23,6 @@ function getRequestedTheme(): array
         $theme = $themes["default"];
     }
 
-    // hide borders
-    if (isset($_REQUEST["hide_border"]) && $_REQUEST["hide_border"] == "true") {
-        $theme["border"] = "#0000"; // transparent
-    }
-
     // personal theme customizations
     $properties = array_keys($theme);
     $cssColors = include "colors.php";
@@ -47,6 +42,11 @@ function getRequestedTheme(): array
                 $theme[$prop] = $param;
             }
         }
+    }
+
+    // hide borders
+    if (isset($_REQUEST["hide_border"]) && $_REQUEST["hide_border"] == "true") {
+        $theme["border"] = "#0000"; // transparent
     }
 
     return $theme;
