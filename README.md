@@ -39,7 +39,7 @@ Here you can customize your Streak Stats card with a live preview.
 
 http://github-readme-streak-stats.herokuapp.com/demo/
 
-[![Demo Site](https://user-images.githubusercontent.com/20955511/111533200-3083dd80-876f-11eb-8502-80f0e6abb4f6.png)](http://github-readme-streak-stats.herokuapp.com/demo/)
+[![Demo Site](https://user-images.githubusercontent.com/20955511/111553483-296bc800-878d-11eb-8a80-87cb33f02e0d.png)](http://github-readme-streak-stats.herokuapp.com/demo/)
 
 ## 🔧 Options
 
