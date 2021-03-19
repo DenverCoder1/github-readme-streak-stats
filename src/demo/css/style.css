@@ -12,15 +12,50 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  --background: #eee;
+  --card-background: white;
+  --text: #1a1a1a;
+  --border: #ccc;
+  --stroke: #a9a9a9;
+  --blue-light: #2196f3;
+  --blue-transparent: #2196f3aa;
+  --blue-dark: #1e88e5;
+  --button-outline: black;
+  --red: #ff6464;
+  --yellow: #ffee58;
+  --yellow-light: #fffde7;
+}
+
+[data-theme="dark"] {
+  --background: #090d13;
+  --card-background: #0d1117;
+  --text: #efefef;
+  --border: #2a2e34;
+  --stroke: #737373;
+  --blue-light: #1976d2;
+  --blue-transparent: #2196f320;
+  --blue-dark: #1565c0;
+  --button-outline: black;
+  --red: #ff6464;
+  --yellow: #a59809;
+  --yellow-light: #716800;
+}
+
 body {
-  background: #eee;
+  background: var(--background);
   font-family: "Open Sans", Roboto, Arial, sans-serif;
   padding-top: 10px;
+  color: var(--text);
 }
 
 .github {
   text-align: center;
   margin-bottom: 12px;
+}
+
+.github a {
+  color: var(--text);
 }
 
 @media only screen and (max-width: 340px) {
@@ -44,10 +79,10 @@ body {
 .output {
   max-width: 550px;
   margin: 10px;
-  background: white;
+  background: var(--card-background);
   padding: 25px;
   padding-top: 0;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 6px;
 }
 
@@ -63,16 +98,16 @@ h1 {
 }
 
 h2 {
-  border-bottom: 1px solid #a9a9a9;
+  border-bottom: 1px solid var(--stroke);
 }
 
 :not(.btn):focus {
-  outline: #2196f3 auto 2px;
+  outline: var(--blue-light) auto 2px;
 }
 
 .btn {
   max-width: 100%;
-  background-color: #2196f3;
+  background-color: var(--blue-light);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -84,16 +119,16 @@ h2 {
 }
 
 .btn:focus {
-  outline: #000000 auto 2px;
+  outline: var(--button-outline) auto 2px;
 }
 
 .btn:hover {
-  background-color: #1e88e5;
+  background-color: var(--blue-dark);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .btn:disabled {
-  background: #2196f3aa;
+  background: var(--blue-transparent);
   box-shadow: none;
 }
 
@@ -116,12 +151,13 @@ h2 {
 .parameters select {
   padding: 10px 14px;
   display: inline-block;
-  border: 1px solid #bbb;
+  border: 1px solid var(--border);
   border-radius: 6px;
   box-sizing: border-box;
   font-family: inherit;
-  background: white;
+  background: var(--card-background);
   width: 100%;
+  color: inherit;
 }
 
 .parameters select {
@@ -147,11 +183,11 @@ h2 {
 }
 
 span[title="required"] {
-  color: #ff6464;
+  color: var(--red);
 }
 
 input:focus:invalid {
-  outline: 2px #ff6464 auto;
+  outline: 2px var(--red) auto;
 }
 
 .advanced {
@@ -185,7 +221,7 @@ input:focus:invalid {
 
 .plus.btn:hover,
 .minus.btn:hover {
-  background: #fafafa;
+  background: var(--background);
 }
 
 .output img {
@@ -193,15 +229,14 @@ input:focus:invalid {
 }
 
 .output .warning {
-  color: #222;
   font-size: 0.84em;
-  background: #fffde7;
+  background: var(--yellow-light);
   padding: 8px 14px;
-  border-left: 4px solid #ffee58;
+  border-left: 4px solid var(--yellow);
 }
 
 .output .md {
-  background: #ddd;
+  background: var(--border);
   border-radius: 6px;
   padding: 12px 16px;
   word-break: break-all;
