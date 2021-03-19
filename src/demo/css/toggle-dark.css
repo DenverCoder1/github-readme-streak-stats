@@ -1,0 +1,18 @@
+a.darkmode {
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  color: var(--text);
+  background: #99999910;
+  height: 3em;
+  width: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #99999950;
+}
+
+a.darkmode:hover {
+  background: #99999930;
+}
