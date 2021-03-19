@@ -44,8 +44,9 @@
             <h2>Properties</h2>
 
             <form class="parameters">
-                <label for="user">Username</label>
-                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1">
+                <label for="user">Username<span title="required">*</span></label>
+                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" required
+                        pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme" placeholder="default">
@@ -94,7 +95,7 @@ foreach ($themes["default"] as $option => $color) {
                 <code></code>
             </div>
 
-            <button class="btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);">
+            <button class="copy-button btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                 Copy To Clipboard
             </button>
         </div>

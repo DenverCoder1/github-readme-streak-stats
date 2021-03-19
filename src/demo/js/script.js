@@ -1,7 +1,6 @@
 let preview = {
   // default values
   defaults: {
-    user: "",
     theme: "default",
     hide_border: "false",
   },
@@ -19,7 +18,7 @@ let preview = {
     // convert parameters to query string
     const encode = encodeURIComponent;
     const query = Object.keys(params)
-      .filter((key) => params[key] && params[key] != this.defaults[key])
+      .filter((key) => params[key] !== this.defaults[key])
       .map((key) => encode(key) + "=" + encode(params[key]))
       .join("&");
     // generate links and markdown
@@ -32,6 +31,9 @@ let preview = {
     document.querySelector(".output img").src = demoImageURL;
     // update markdown
     document.querySelector(".md code").innerText = md;
+    // disable copy button if username is invalid
+    const copyButton = document.querySelector(".copy-button");
+    copyButton.disabled = !!document.querySelectorAll("#user:invalid").length;
   },
   addProperty: function (property) {
     const selectElement = document.querySelector("#properties");

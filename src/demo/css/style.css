@@ -66,13 +66,13 @@ h2 {
   border-bottom: 1px solid #a9a9a9;
 }
 
-:focus {
-  outline: #ff9800 auto 2px;
+:not(.btn):focus {
+  outline: #2196f3 auto 2px;
 }
 
 .btn {
   max-width: 100%;
-  background-color: #4caf51;
+  background-color: #2196f3;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -83,9 +83,18 @@ h2 {
   transition: 0.2s ease-in-out;
 }
 
+.btn:focus {
+  outline: #000000 auto 2px;
+}
+
 .btn:hover {
-  background-color: #45a04a;
+  background-color: #1e88e5;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.btn:disabled {
+  background: #2196f3aa;
+  box-shadow: none;
 }
 
 .parameters {
@@ -135,6 +144,14 @@ h2 {
 
 .parameters label {
   text-transform: capitalize;
+}
+
+span[title="required"] {
+  color: #ff6464;
+}
+
+input:focus:invalid {
+  outline: 2px #ff6464 auto;
 }
 
 .advanced {
@@ -231,7 +248,13 @@ h2 {
 
 /* show tooltip on hover */
 .btn.tooltip[title]:hover:before,
-.btn.tooltip[title]:hover:after {
+.btn.tooltip[title]:hover:after,
+.btn.tooltip:disabled:hover:before,
+.btn.tooltip:disabled:hover:after {
   transition: 0.2s ease-in opacity;
   opacity: 1;
+}
+
+.btn.tooltip:disabled:before {
+  content: "You must first input a valid username.";
 }
