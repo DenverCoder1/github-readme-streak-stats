@@ -64,21 +64,21 @@ The `user` field is the only required option. All other fields are optional.
 
 If the `theme` parameter is specified, any color customizations specified will be applied on top of the theme, overriding the theme's values.
 
-|     Parameter     |                     Details                    |                                    Example                                    |
-| :---------------: | :--------------------------------------------: | :---------------------------------------------------------------------------: |
-|       `user`      |        GitHub username to show stats for       |                                 `DenverCoder1`                                |
-|      `theme`      |     The theme to apply (Default: `default`)    |             `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md)            |
-|   `hide_border`   | Make the border transparent (Default: `false`) |                               `true` or `false`                               |
-|    `background`   |                Background color                | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|      `border`     |                  Border color                  | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|      `stroke`     |       Stroke line color between sections       | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|       `ring`      |   Color of the ring around the current streak  | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|       `fire`      |          Color of the fire in the ring         | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|  `currStreakNum`  |              Current streak number             | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|     `sideNums`    |        Total and longest streak numbers        | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-| `currStreakLabel` |              Current streak label              | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|    `sideLabels`   |         Total and longest streak labels        | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
-|      `dates`      |              Date range text color             | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|     Parameter     |                    Details                     |                        Example                        |
+| :---------------: | :--------------------------------------------: | :---------------------------------------------------: |
+|      `user`       |       GitHub username to show stats for        |                    `DenverCoder1`                     |
+|      `theme`      |    The theme to apply (Default: `default`)     | `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md) |
+|   `hide_border`   | Make the border transparent (Default: `false`) |                   `true` or `false`                   |
+|   `background`    |                Background color                |      **hex code** (without `#`) or **css color**      |
+|     `border`      |                  Border color                  |      **hex code** (without `#`) or **css color**      |
+|     `stroke`      |       Stroke line color between sections       |      **hex code** (without `#`) or **css color**      |
+|      `ring`       |  Color of the ring around the current streak   |      **hex code** (without `#`) or **css color**      |
+|      `fire`       |         Color of the fire in the ring          |      **hex code** (without `#`) or **css color**      |
+|  `currStreakNum`  |             Current streak number              |      **hex code** (without `#`) or **css color**      |
+|    `sideNums`     |        Total and longest streak numbers        |      **hex code** (without `#`) or **css color**      |
+| `currStreakLabel` |              Current streak label              |      **hex code** (without `#`) or **css color**      |
+|   `sideLabels`    |        Total and longest streak labels         |      **hex code** (without `#`) or **css color**      |
+|      `dates`      |             Date range text color              |      **hex code** (without `#`) or **css color**      |
 
 ### Example:
 
