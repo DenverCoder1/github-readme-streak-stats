@@ -256,6 +256,6 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 ### Can't find the theme you like?
 
-You can now customize your stats card with [url parameters](/README.md#-theme-customizations). or by using the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/).
+You can now customize your stats card with [url parameters](/README.md#-options). or by using the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/).
 
 If you would like to share your theme with others, feel free to open an issue/pull request.
