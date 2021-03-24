@@ -14,10 +14,9 @@
 - [📃 Table of Contents](#-table-of-contents)
 - [⚡ Quick setup](#-quick-setup)
 - [⚙ Demo Site](#-demo-site)
-- [🔧 Options](#-options)
 - [🖌 Themes](#-themes)
-- [🖼 Theme customizations](#-theme-customizations)
-- [ℹ How these stats are calculated](#ℹ-how-these-stats-are-calculated)
+- [🔧 Options](#-options)
+- [ℹ️ How these stats are calculated](#ℹ️-how-these-stats-are-calculated)
 - [📤 Deploying it on your own](#-deploying-it-on-your-own)
 - [🤗 Contributing](#-contributing)
 - [🙋‍♂️ Support](#️-support)
@@ -41,17 +40,6 @@ http://github-readme-streak-stats.herokuapp.com/demo/
 
 [![Demo Site](https://user-images.githubusercontent.com/20955511/111553483-296bc800-878d-11eb-8a80-87cb33f02e0d.png)](http://github-readme-streak-stats.herokuapp.com/demo/)
 
-## 🔧 Options
-
-|      Parameter       |                    Details                     |                            Example                            |
-| :------------------: | :--------------------------------------------: | :-----------------------------------------------------------: |
-|        `user`        |       GitHub username to show stats for        |                         `DenverCoder1`                        |
-|       `theme`        |    The theme to apply (Default: `default`)     |    `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md)    |
-|    `hide_border`     | Make the border transparent (Default: `false`) |                       `true` or `false`                       |
-| Theme Customizations |           Customize specific colors            |    See [Theme Customizations](#-theme-customizations) below   |
-
-> **Note:** The `user` field is the only required option. All other fields are optional.
-
 ## 🖌 Themes
 
 To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
@@ -70,26 +58,27 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 > If you have come up with a new theme you'd like to share with others, open an issue to add it!
 
-## 🖼 Theme customizations
+## 🔧 Options
 
-These additional URL options, can be added as parameters to make customizations to the colors used.
+The `user` field is the only required option. All other fields are optional.
 
-If the `theme` parameter is specified, these customizations will be applied on top of the theme, overriding the theme's values.
+If the `theme` parameter is specified, any color customizations specified will be applied on top of the theme, overriding the theme's values.
 
-For each of the following, a **hex code** (ex. `F00`, `FFF2`, `23BFC1`, etc.) or **css color**  (ex. `white`, `forestgreen`, `fuchsia`, etc.) can be specified. Do *not* use `#` when writing the hex code!
-
-|     Parameter     |                   Details                   |
-| :---------------: | :-----------------------------------------: |
-|   `background`    |              Background color               |
-|     `border`      |                Border color                 |
-|     `stroke`      |     Stroke line color between sections      |
-|      `ring`       | Color of the ring around the current streak |
-|      `fire`       |        Color of the fire in the ring        |
-|  `currStreakNum`  |            Current streak number            |
-|    `sideNums`     |      Total and longest streak numbers       |
-| `currStreakLabel` |            Current streak label             |
-|   `sideLabels`    |       Total and longest streak labels       |
-|      `dates`      |            Date range text color            |
+|     Parameter     |                     Details                    |                                    Example                                    |
+| :---------------: | :--------------------------------------------: | :---------------------------------------------------------------------------: |
+|       `user`      |        GitHub username to show stats for       |                                 `DenverCoder1`                                |
+|      `theme`      |     The theme to apply (Default: `default`)    |             `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md)            |
+|   `hide_border`   | Make the border transparent (Default: `false`) |                               `true` or `false`                               |
+|    `background`   |                Background color                | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|      `border`     |                  Border color                  | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|      `stroke`     |       Stroke line color between sections       | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|       `ring`      |   Color of the ring around the current streak  | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|       `fire`      |          Color of the fire in the ring         | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|  `currStreakNum`  |              Current streak number             | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|     `sideNums`    |        Total and longest streak numbers        | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+| `currStreakLabel` |              Current streak label              | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|    `sideLabels`   |         Total and longest streak labels        | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
+|      `dates`      |              Date range text color             | **hex code** without `#` (ex. `23BFC1`) or **css color** (ex. `forestgreen`)  |
 
 ### Example:
 
@@ -97,7 +86,7 @@ For each of the following, a **hex code** (ex. `F00`, `FFF2`, `23BFC1`, etc.) or
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00)](https://github.com/DenverCoder1/github-readme-streak-stats)
 ```
 
-## ℹ How these stats are calculated
+## ℹ️ How these stats are calculated
 
 This tool uses the contribution graphs on your GitHub profile to calculate which days you have contributed.
 
