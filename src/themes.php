@@ -602,4 +602,16 @@ return array(
         "sideLabels" => "#fff",
         "dates" => "#9f9f9f",
     ],
+    "soft-green" => [
+        "background" => "#222428",
+        "border" => "#e4e2e2",
+        "stroke" => "#e4e2e2",
+        "ring" => "#00dc4d",
+        "fire" => "#00dc4d",
+        "currStreakNum" => "#00dc4d",
+        "sideNums" => "#3ddc77",
+        "currStreakLabel" => "#00dc4d",
+        "sideLabels" => "#3ddc77",
+        "dates" => "#cecece",
+    ],
 );
