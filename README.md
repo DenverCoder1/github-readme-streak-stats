@@ -116,25 +116,31 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
-#### Installing PHP (Linux)
-
 Requirements: [PHP 7.4+](https://www.apachefriends.org/index.html)
+
+### Installing PHP
+
+#### Linux
 
 ```
 sudo apt-get install php
 sudo apt-get install php-curl
 ```
 
+#### Windows
+
+Install from [XAMPP](https://www.apachefriends.org/index.html) or [php.net](https://windows.php.net/download)
+
 [▶ How to install and run PHP using XAMPP (Windows)](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
 
-#### Clone the repository
+### Clone the repository
 
 ```
 git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
 cd github-readme-streak-stats
 ```
 
-#### Authorization
+### Authorization
 
 To get the GitHub API to run locally you will need to provide a token.
 
