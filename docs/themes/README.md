@@ -260,7 +260,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 `blood-dark`
 
-![image](https://user-images.githubusercontent.com/73984717/112638122-79bfe580-8e71-11eb-83de-c4ba453afe4a.png)
+![image](https://user-images.githubusercontent.com/20955511/112644234-3c9a2a00-8e56-11eb-936b-49dbb57dd1f4.png)
 
 
 
