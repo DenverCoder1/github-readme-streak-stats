@@ -256,7 +256,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 `blood`
 
-![image](https://user-images.githubusercontent.com/73984717/112638604-036fb300-8e72-11eb-867c-4251cd83891a.png)
+![image](https://user-images.githubusercontent.com/20955511/112644211-35731c00-8e56-11eb-831f-563c01014d60.png)
 
 `blood-dark`
 
