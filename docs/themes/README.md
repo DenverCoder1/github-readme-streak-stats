@@ -262,6 +262,10 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 ![image](https://user-images.githubusercontent.com/20955511/112644234-3c9a2a00-8e56-11eb-936b-49dbb57dd1f4.png)
 
+`green_nur`
+
+![image](https://user-images.githubusercontent.com/81451482/112715623-ea1f4300-8f13-11eb-8d51-0094313ec7ac.png)
+
 
 
 ### Can't find the theme you like?
