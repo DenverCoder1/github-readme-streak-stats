@@ -638,4 +638,16 @@ return array(
         "sideLabels" => "#ff5f5f",
         "dates" => "#fff",
     ],
+    "green_nur" => [
+        "background" => "#0a1e17",
+        "border" => "#e4e2e2",
+        "stroke" => "#e4e2e2",
+        "ring" => "#5affc8",
+        "fire" => "#5affc8",
+        "currStreakNum" => "#5affc8",
+        "sideNums" => "#5affc8",
+        "currStreakLabel" => "#5affc8",
+        "sideLabels" => "#5affc8",
+        "dates" => "#fff",
+    ],
 );
