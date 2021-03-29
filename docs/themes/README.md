@@ -1,10 +1,6 @@
 ### Currently supported themes
 
-To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
-
-```md
-[![GitHub Streak Stats](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://github.com/DenverCoder1/github-readme-streak-stats)
-```
+To enable a theme, append `&theme=` followed by the theme name to the end of your url. Try out these themes on the [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/).
 
 `default`
 
