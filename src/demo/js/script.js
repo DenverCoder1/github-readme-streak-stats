@@ -24,8 +24,7 @@ let preview = {
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
     const demoImageURL = `../test?${query}`;
-    const repoLink =
-      "https://github.com/DenverCoder1/github-readme-streak-stats";
+    const repoLink = "https://git.io/streak-stats";
     const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
     // update image preview
     document.querySelector(".output img").src = demoImageURL;
