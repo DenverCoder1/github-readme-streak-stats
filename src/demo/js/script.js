@@ -62,12 +62,11 @@ let preview = {
       label.setAttribute("data-property", property);
       // color picker
       const input = document.createElement("input");
-      input.type = "color";
-      input.className = "param";
+      input.className = "param jscolor";
       input.id = property;
       input.name = property;
-      input.value = "#dd2727"; // default red color
       input.setAttribute("data-property", property);
+      input.setAttribute("data-jscolor", "{ preset: 'customPreset' }");
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
@@ -82,6 +81,10 @@ let preview = {
       parent.appendChild(label);
       parent.appendChild(input);
       parent.appendChild(minus);
+
+      //initialise jscolor on element
+      jscolor.install(parent);
+
       // update and exit
       this.update();
     }

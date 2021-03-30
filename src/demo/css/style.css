@@ -147,7 +147,7 @@ h2 {
 }
 
 .parameters input[type="text"],
-.parameters input[type="color"],
+.parameters input.jscolor,
 .parameters select {
   padding: 10px 14px;
   display: inline-block;
@@ -171,11 +171,6 @@ h2 {
 
 .parameters select option[disabled] {
   display: none;
-}
-
-.parameters input[type="color"] {
-  padding: 4px 6px;
-  height: 40px;
 }
 
 .parameters label {
