@@ -34,7 +34,7 @@ let preview = {
     const copyButton = document.querySelector(".copy-button");
     copyButton.disabled = !!document.querySelectorAll("#user:invalid").length;
   },
-  addProperty: function (property) {
+  addProperty: function (property, value = "#DD2727FF") {
     const selectElement = document.querySelector("#properties");
     // if no property passed, get the currently selected property
     if (!property) {
@@ -66,7 +66,8 @@ let preview = {
       input.id = property;
       input.name = property;
       input.setAttribute("data-property", property);
-      input.setAttribute("data-jscolor", "{ preset: 'customPreset' }");
+      input.setAttribute("data-jscolor", "{ format: 'hexa' }");
+      input.value = value;
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
@@ -152,9 +153,7 @@ window.addEventListener(
       } else {
         // add advanced property
         document.querySelector("details.advanced").open = true;
-        preview.addProperty(key);
-        paramInput = document.querySelector(`#${key}`);
-        paramInput.value = val;
+        preview.addProperty(key, val);
       }
     });
     // update previews

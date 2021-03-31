@@ -23,16 +23,6 @@
     <script type="text/javascript" src="./js/accordion.js" defer></script>
     <script type="text/javascript" src="./js/toggle-dark.js" defer></script>
     <script type="text/javascript" src="./js/jscolor.min.js" defer></script>
-    <script >
-        //defers inline script and defines custom jscolor preset
-        window.addEventListener('DOMContentLoaded', function() {
-            if (jscolor) {
-                jscolor.presets.customPreset = {
-                    format: 'rgba',
-                }
-            }
-        });
-    </script>
 </head>
 
 <body <?php echo $_COOKIE["darkmode"] == "on" ? 'data-theme="dark"' : ""; ?>>
