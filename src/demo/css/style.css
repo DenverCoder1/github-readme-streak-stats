@@ -160,6 +160,17 @@ h2 {
   color: inherit;
 }
 
+.parameters input.jscolor {
+  font-size: 12px;
+  max-width: 130px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .parameters input.jscolor {
+    max-width: none;
+  }
+}
+
 .parameters select {
   -webkit-appearance: none;
   -moz-appearance: none;
