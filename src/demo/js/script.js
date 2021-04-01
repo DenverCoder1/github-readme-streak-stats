@@ -10,7 +10,17 @@ let preview = {
     const params = Array.from(document.querySelectorAll(".param")).reduce(
       (acc, next) => {
         let obj = { ...acc };
-        obj[next.id] = next.value.replace(/#/g, "").replace(/(F|f){2}$/, "");
+        let value = next.value;
+
+        if (value.indexOf('#') >= 0) {
+          // if the value is colour, remove the hash sign
+          value = value.replace(/#/g, "");
+          if (value.length > 6) {
+            // if the value is in hexa and opacity is 1, remove FF
+            value = value.replace(/(F|f){2}$/, "");
+          }
+        }
+        obj[next.id] = value; 
         return obj;
       },
       {}
