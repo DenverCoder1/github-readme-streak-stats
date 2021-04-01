@@ -10,7 +10,7 @@ let preview = {
     const params = Array.from(document.querySelectorAll(".param")).reduce(
       (acc, next) => {
         let obj = { ...acc };
-        obj[next.id] = next.value.replace(/#/g, "");
+        obj[next.id] = next.value.replace(/#/g, "").replace(/(F|f){2}$/, "");
         return obj;
       },
       {}
