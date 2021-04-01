@@ -650,7 +650,7 @@ return array(
         "sideLabels" => "#5affc8",
         "dates" => "#fff",
     ],
-		"neon-dark" => [
+    "neon-dark" => [
         "background" => "#020200",
         "border" => "#a8a8a8",
         "stroke" => "#a8a8a8",
