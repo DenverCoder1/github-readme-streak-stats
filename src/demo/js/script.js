@@ -10,7 +10,17 @@ let preview = {
     const params = Array.from(document.querySelectorAll(".param")).reduce(
       (acc, next) => {
         let obj = { ...acc };
-        obj[next.id] = next.value.replace(/#/g, "");
+        let value = next.value;
+
+        if (value.indexOf('#') >= 0) {
+          // if the value is colour, remove the hash sign
+          value = value.replace(/#/g, "");
+          if (value.length > 6) {
+            // if the value is in hexa and opacity is 1, remove FF
+            value = value.replace(/(F|f){2}$/, "");
+          }
+        }
+        obj[next.id] = value; 
         return obj;
       },
       {}
@@ -34,7 +44,7 @@ let preview = {
     const copyButton = document.querySelector(".copy-button");
     copyButton.disabled = !!document.querySelectorAll("#user:invalid").length;
   },
-  addProperty: function (property) {
+  addProperty: function (property, value = "#DD2727FF") {
     const selectElement = document.querySelector("#properties");
     // if no property passed, get the currently selected property
     if (!property) {
@@ -62,12 +72,12 @@ let preview = {
       label.setAttribute("data-property", property);
       // color picker
       const input = document.createElement("input");
-      input.type = "color";
-      input.className = "param";
+      input.className = "param jscolor";
       input.id = property;
       input.name = property;
-      input.value = "#dd2727"; // default red color
       input.setAttribute("data-property", property);
+      input.setAttribute("data-jscolor", "{ format: 'hexa' }");
+      input.value = value;
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
@@ -82,6 +92,10 @@ let preview = {
       parent.appendChild(label);
       parent.appendChild(input);
       parent.appendChild(minus);
+
+      //initialise jscolor on element
+      jscolor.install(parent);
+
       // update and exit
       this.update();
     }
@@ -149,9 +163,7 @@ window.addEventListener(
       } else {
         // add advanced property
         document.querySelector("details.advanced").open = true;
-        preview.addProperty(key);
-        paramInput = document.querySelector(`#${key}`);
-        paramInput.value = val;
+        preview.addProperty(key, val);
       }
     });
     // update previews

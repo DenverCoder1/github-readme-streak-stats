@@ -22,6 +22,7 @@
     <script type="text/javascript" src="./js/script.js" defer></script>
     <script type="text/javascript" src="./js/accordion.js" defer></script>
     <script type="text/javascript" src="./js/toggle-dark.js" defer></script>
+    <script type="text/javascript" src="./js/jscolor.min.js" defer></script>
 </head>
 
 <body <?php echo $_COOKIE["darkmode"] == "on" ? 'data-theme="dark"' : ""; ?>>
@@ -45,7 +46,6 @@
     <div class="container">
         <div class="properties">
             <h2>Properties</h2>
-
             <form class="parameters">
                 <label for="user">Username<span title="required">*</span></label>
                 <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" required

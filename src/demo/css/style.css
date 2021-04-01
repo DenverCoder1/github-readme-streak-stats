@@ -147,7 +147,7 @@ h2 {
 }
 
 .parameters input[type="text"],
-.parameters input[type="color"],
+.parameters input.jscolor,
 .parameters select {
   padding: 10px 14px;
   display: inline-block;
@@ -158,6 +158,17 @@ h2 {
   background: var(--card-background);
   width: 100%;
   color: inherit;
+}
+
+.parameters input.jscolor {
+  font-size: 12px;
+  max-width: 130px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .parameters input.jscolor {
+    max-width: none;
+  }
 }
 
 .parameters select {
@@ -171,11 +182,6 @@ h2 {
 
 .parameters select option[disabled] {
   display: none;
-}
-
-.parameters input[type="color"] {
-  padding: 4px 6px;
-  height: 40px;
 }
 
 .parameters label {
