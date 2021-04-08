@@ -274,6 +274,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of you
 
 `dark-smoky`
 
+![image](https://user-images.githubusercontent.com/74750414/114088204-6893c180-98d2-11eb-80ee-9c3e351de6bb.png)
 
 
 
