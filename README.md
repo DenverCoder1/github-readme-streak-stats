@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/fPrdqh3Zfu" alt="Dev Pro Tips Discussion & Support Server">
+  <a href="https://discord.gg/fPrdqh3Zfu" alt="Discord" title="Dev Pro Tips Discussion & Support Server">
     <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
 </p>
 
@@ -43,7 +43,7 @@ Here you can customize your Streak Stats card with a live preview.
 
 http://github-readme-streak-stats.herokuapp.com/demo/
 
-[![Demo Site](https://user-images.githubusercontent.com/20955511/111553483-296bc800-878d-11eb-8a80-87cb33f02e0d.png)](http://github-readme-streak-stats.herokuapp.com/demo/)
+[![Demo Site](https://user-images.githubusercontent.com/20955511/114024405-ae259f80-987c-11eb-90b1-6e11f367b68a.gif "Demo Site")](http://github-readme-streak-stats.herokuapp.com/demo/)
 
 ## 🖌 Themes
 
@@ -113,7 +113,7 @@ Doing this can lead to better uptime and more control over customization (you ca
 
 You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg "Deploy to Heroku")](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main)
 
 ## 🤗 Contributing
 
