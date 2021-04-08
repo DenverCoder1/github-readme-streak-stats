@@ -262,6 +262,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of you
 
 ![image](https://user-images.githubusercontent.com/81451482/112715623-ea1f4300-8f13-11eb-8d51-0094313ec7ac.png)
 
+
 `neon-dark`
 
 ![image](https://user-images.githubusercontent.com/74750414/113354372-b94c6d00-935c-11eb-9446-a0fea1ed7bb7.png)
@@ -270,6 +271,10 @@ To enable a theme, append `&theme=` followed by the theme name to the end of you
 `neon-palenight`
 
 ![image](https://user-images.githubusercontent.com/74750414/113354391-bfdae480-935c-11eb-875d-49103b314055.png)
+
+`dark-smoky`
+
+![image](https://user-images.githubusercontent.com/74750414/114088204-6893c180-98d2-11eb-80ee-9c3e351de6bb.png)
 
 
 
