@@ -674,4 +674,16 @@ return array(
         "sideLabels" => "#5cadc0",
         "dates" => "#ed7b25",
     ],
+    "dark-smoky" => [
+        "background" => "#0b0c10",
+        "border" => "#c5c6c7",
+        "stroke" => "#c5c6c7",
+        "ring" => "#edf5e1",
+        "fire" => "#edf5e1",
+        "currStreakNum" => "#66fcf1",
+        "currStreakLabel" => "#66fcf1",
+        "sideNums" => "#edf5e1",
+        "sideLabels" => "#edf5e1",
+        "dates" => "#45a29e",
+    ],
 );
