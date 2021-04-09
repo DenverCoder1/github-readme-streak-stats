@@ -26,6 +26,11 @@ header("Content-Type: image/svg+xml");
 // get user from url query string
 $user = $_REQUEST["user"];
 
+// redirect to sample site
+if(!isset($_REQUEST["user"]){
+    header('Location: https://github-readme-streak-stats.herokuapp.com/demo');
+    exit;
+
 // get streak stats
 $stats = getContributionStats($user);
 
