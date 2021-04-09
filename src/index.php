@@ -30,6 +30,7 @@ $user = $_REQUEST["user"];
 if(!isset($_REQUEST["user"]){
     header('Location: https://github-readme-streak-stats.herokuapp.com/demo');
     exit;
+}
 
 // get streak stats
 $stats = getContributionStats($user);
