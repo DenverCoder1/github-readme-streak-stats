@@ -28,7 +28,7 @@ $user = $_REQUEST["user"];
 
 // redirect to sample site
 if (!isset($_REQUEST["user"])) {
-    header('Location: https://github-readme-streak-stats.herokuapp.com/demo');
+    header('Location: demo/');
     exit;
 }
 
