@@ -26,6 +26,12 @@ header("Content-Type: image/svg+xml");
 // get user from url query string
 $user = $_REQUEST["user"];
 
+// redirect to sample site
+if (!isset($_REQUEST["user"])) {
+    header('Location: demo/');
+    exit;
+}
+
 // get streak stats
 $stats = getContributionStats($user);
 
