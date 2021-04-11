@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 // load functions
 require_once "stats.php";
@@ -23,17 +23,19 @@ header("Cache-Control: no-cache, must-revalidate");
 // set content type to SVG image
 header("Content-Type: image/svg+xml");
 
-// get user from url query string
-$user = $_REQUEST["user"];
-
-// redirect to sample site
+// redirect to demo site if user is not given
 if (!isset($_REQUEST["user"])) {
     header('Location: demo/');
     exit;
 }
 
-// get streak stats
-$stats = getContributionStats($user);
+try {
+    // get streak stats for user given in query string
+    $stats = getContributionStats($_REQUEST["user"]);
+}
+catch (InvalidArgumentException $error) {
+    die(generateErrorCard($error->getMessage()));
+}
 
 // echo SVG data for streak stats
 echo generateCard($stats);
