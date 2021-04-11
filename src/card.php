@@ -1,8 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
-function format_date($date): string
+/**
+ * Convert date from YYYY-MM-DD to nicer format
+ */
+function formatDate(string $dateString): string
 {
-    $date = new DateTime($date);
+    $date = new DateTime($dateString);
     // if current year, display only month and day
     if (date_format($date, "Y") == date("Y")) {
         return date_format($date, "M j");
@@ -11,6 +14,9 @@ function format_date($date): string
     return date_format($date, "M j, Y");
 }
 
+/**
+ * Check theme and color customization parameters to generate a theme mapping
+ */
 function getRequestedTheme(): array
 {
     // get theme colors
@@ -52,19 +58,22 @@ function getRequestedTheme(): array
     return $theme;
 }
 
-function generateCard($stats): string
+/**
+ * Generate SVG output for a stats array
+ */
+function generateCard(array $stats): string
 {
     $theme = getRequestedTheme();
 
     // total contributions
     $totalContributions = $stats["totalContributions"];
-    $firstContribution = format_date($stats["firstContribution"]);
+    $firstContribution = formatDate($stats["firstContribution"]);
     $totalContributionsRange = $firstContribution . " - Present";
 
     // current streak
     $currentStreak = $stats["currentStreak"]["length"];
-    $currentStreakStart = format_date($stats["currentStreak"]["start"]);
-    $currentStreakEnd = format_date($stats["currentStreak"]["end"]);
+    $currentStreakStart = formatDate($stats["currentStreak"]["start"]);
+    $currentStreakEnd = formatDate($stats["currentStreak"]["end"]);
     $currentStreakRange = $currentStreakStart;
     if ($currentStreakStart != $currentStreakEnd) {
         $currentStreakRange .= " - " . $currentStreakEnd;
@@ -72,8 +81,8 @@ function generateCard($stats): string
 
     // longest streak
     $longestStreak = $stats["longestStreak"]["length"];
-    $longestStreakStart = format_date($stats["longestStreak"]["start"]);
-    $longestStreakEnd = format_date($stats["longestStreak"]["end"]);
+    $longestStreakStart = formatDate($stats["longestStreak"]["start"]);
+    $longestStreakEnd = formatDate($stats["longestStreak"]["end"]);
     $longestStreakRange = $longestStreakStart;
     if ($longestStreakStart != $longestStreakEnd) {
         $longestStreakRange .= " - " . $longestStreakEnd;
@@ -202,7 +211,10 @@ function generateCard($stats): string
     ";
 }
 
-function generateErrorCard($error)
+/**
+ * Generate SVG displaying an error message
+ */
+function generateErrorCard(string $message)
 {
     $theme = getRequestedTheme();
 
@@ -226,7 +238,7 @@ function generateErrorCard($error)
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='50' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;'>
-                        {$error}
+                        {$message}
                     </text>
                 </g>
 
