@@ -6,6 +6,19 @@ require_once "src/card.php";
 
 final class CardTest extends TestCase
 {
+    private $default_theme = Array(
+        "background" => "#fffefe",
+        "border" => "#e4e2e2",
+        "stroke" => "#e4e2e2",
+        "ring" => "#fb8c00",
+        "fire" => "#fb8c00",
+        "currStreakNum" => "#151515",
+        "sideNums" => "#151515",
+        "currStreakLabel" => "#fb8c00",
+        "sideLabels" => "#151515",
+        "dates" => "#464646",
+    );
+
     /**
      * Test theme parameters
      */
@@ -26,10 +39,33 @@ final class CardTest extends TestCase
     public function testFallbackToDefaultTheme(): void
     {
         // check that getRequestedTheme returns default for invalid theme
-        $themes = include "src/themes.php";
+        // request parameters
         $_REQUEST = ["theme" => "not a theme name"];
-        $actualColors = getRequestedTheme();
-        $this->assertEquals($themes["default"], $actualColors);
+        // test that invalid theme name gives default values
+        $this->assertEquals($this->default_theme, getRequestedTheme());
+    }
+
+    /**
+     * Test parameters to override specific color
+     */
+    public function testColorOverrideParameters(): void
+    {
+        // check that getRequestedTheme returns default for invalid theme
+        // clear request parameters
+        $_REQUEST = [];
+        // set default expected value
+        $expected = $this->default_theme;
+        foreach (array_keys($this->default_theme) as $param) {
+            // set request parameter
+            $_REQUEST[$param] = "f00";
+            // update parameter in expected result
+            $expected = array_merge(
+                $expected,
+                [$param => "#f00"],
+            );
+            // test color change
+            $this->assertEquals($expected, getRequestedTheme());
+        }
     }
 
     /**
