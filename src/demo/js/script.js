@@ -33,7 +33,7 @@ let preview = {
       .join("&");
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
-    const demoImageURL = `../test?${query}`;
+    const demoImageURL = `preview.php?${query}`;
     const repoLink = "https://git.io/streak-stats";
     const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
     // update image preview
