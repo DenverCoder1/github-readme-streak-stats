@@ -16,3 +16,11 @@ a.darkmode {
 a.darkmode:hover {
   background: #99999930;
 }
+
+@media only screen and (max-width: 600px) {
+  a.darkmode {
+    top: calc(100% - 4em);
+    right: 1em;
+    background: var(--blue-light);
+  }
+}
