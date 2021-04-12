@@ -46,6 +46,32 @@ final class CardTest extends TestCase
     }
 
     /**
+     * Check that all themes have valid values for all parameters
+     */
+    public function testThemesHaveValidParameters(): void
+    {
+        // check that all themes contain all parameters and have valid values
+        $themes = include "src/themes.php";
+        $hexRegex = "/^#([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/";
+        foreach ($themes as $theme => $colors) {
+            foreach (array_keys($this->default_theme) as $param) {
+                // check that the key exists
+                $this->assertArrayHasKey(
+                    $param, 
+                    $colors, 
+                    "The theme '$theme' is missing the key '$param'."
+                );
+                // check that the key is a valid hex color
+                $this->assertMatchesRegularExpression(
+                    $hexRegex, 
+                    strtolower($colors[$param]),
+                    "The parameter '$param' of '$theme' is not a valid hex color."
+                );
+            }
+        }
+    }
+
+    /**
      * Test parameters to override specific color
      */
     public function testColorOverrideParameters(): void
@@ -109,13 +135,11 @@ final class CardTest extends TestCase
         ];
         // clear request parameters
         $_REQUEST = [];
-        // set default expected value
-        $expected = $this->default_theme;
         foreach ($invalid_input_types as $input) {
             // set request parameter
             $_REQUEST["background"] = $input;
             // test that theme is still default
-            $this->assertEquals($expected, getRequestedTheme());
+            $this->assertEquals($this->default_theme, getRequestedTheme());
         }
     }
 
