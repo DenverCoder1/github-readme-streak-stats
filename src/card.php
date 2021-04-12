@@ -61,8 +61,11 @@ function getRequestedTheme(): array
 /**
  * Generate SVG output for a stats array
  */
-function generateCard(array $theme, array $stats): string
+function generateCard(array $stats, array $theme = null): string
 {
+    // get requested theme if $theme is null
+    $theme = $theme ?? getRequestedTheme();
+
     // total contributions
     $totalContributions = $stats["totalContributions"];
     $firstContribution = formatDate($stats["firstContribution"]);
@@ -212,9 +215,10 @@ function generateCard(array $theme, array $stats): string
 /**
  * Generate SVG displaying an error message
  */
-function generateErrorCard(string $message): string
+function generateErrorCard(string $message, array $theme = null): string
 {
-    $theme = getRequestedTheme();
+    // get requested theme if $theme is null
+    $theme = $theme ?? getRequestedTheme();
 
     return "
     <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
