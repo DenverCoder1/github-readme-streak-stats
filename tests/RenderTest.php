@@ -23,13 +23,13 @@ final class RenderTest extends TestCase
         "totalContributions" => 2048,
         "firstContribution" => "2016-08-10",
         "longestStreak" => [
-            "start" => "2020-12-19",
-            "end" => "2021-03-14",
+            "start" => "2016-12-19",
+            "end" => "2016-03-14",
             "length" => 86,
         ],
         "currentStreak" => [
-            "start" => "2021-03-28",
-            "end" => "2021-04-12",
+            "start" => "2019-03-28",
+            "end" => "2019-04-12",
             "length" => 16,
         ],
     );
