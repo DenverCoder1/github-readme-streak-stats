@@ -98,6 +98,7 @@ final class CardTest extends TestCase
      */
     public function testValidColorInputs(): void
     {
+        // valid color inputs and what the output color will be
         $validInputTypes = [
             "f00" => "#f00",
             "f00f" => "#f00f",
@@ -128,6 +129,7 @@ final class CardTest extends TestCase
      */
     public function testInvalidColorInputs(): void
     {
+        // invalid color inputs
         $invalidInputTypes = [
             "g00", # not 0-9, A-F
             "f00f0", # invalid number of characters
