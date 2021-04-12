@@ -7,16 +7,16 @@ require_once "src/card.php";
 final class RenderTest extends TestCase
 {
     private $testTheme = array(
-        "background" => "#111111",
-        "border" => "#222222",
-        "stroke" => "#333333",
-        "ring" => "#444444",
-        "fire" => "#555555",
-        "currStreakNum" => "#666666",
-        "sideNums" => "#777777",
-        "currStreakLabel" => "#888888",
-        "sideLabels" => "#999999",
-        "dates" => "#000000",
+        "background" => "#000000",
+        "border" => "#111111",
+        "stroke" => "#222222",
+        "ring" => "#333333",
+        "fire" => "#444444",
+        "currStreakNum" => "#555555",
+        "sideNums" => "#666666",
+        "currStreakLabel" => "#777777",
+        "sideLabels" => "#888888",
+        "dates" => "#999999",
     );
 
     private $testStats = array(

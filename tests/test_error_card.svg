@@ -11,13 +11,13 @@
         <g clip-path='url(#_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw)'>
             <g style='isolation:isolate'>
                 <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
-                    style='stroke: #222222; fill: #111111;stroke-miterlimit:10;rx: 4.5;'/>
+                    style='stroke: #111111; fill: #000000;stroke-miterlimit:10;rx: 4.5;'/>
             </g>
             <g style='isolation:isolate'>
                 <!-- Error Label -->
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='50' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#999999;stroke:none;'>
+                    <text x='81.5' y='50' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;'>
                         An unknown error occurred
                     </text>
                 </g>
@@ -31,10 +31,10 @@
                 </defs>
                 <!-- Sad face -->
                 <g>
-                    <path style='fill:#555555;' d='M248,35.8c-25.2,0-45.7,20.5-45.7,45.7s20.5,45.8,45.7,45.8s45.7-20.5,45.7-45.7S273.2,35.8,248,35.8z M248,122.3c-11.2,0-21.4-4.5-28.8-11.9c-2.9-2.9-5.4-6.3-7.4-10c-3-5.7-4.6-12.1-4.6-18.9c0-22.5,18.3-40.8,40.8-40.8 c10.7,0,20.4,4.1,27.7,10.9c3.8,3.5,6.9,7.7,9.1,12.4c2.6,5.3,4,11.3,4,17.6C288.8,104.1,270.5,122.3,248,122.3z'/>
-                    <path style='fill:#555555;' d='M252.8,93.8c5.4,1.1,10.3,4.2,13.7,8.6l3.9-3c-4.1-5.3-10-9-16.6-10.4c-10.6-2.2-21.7,1.9-28.3,10.4l3.9,3 C234.9,95.3,244.1,91.9,252.8,93.8z'/>
-                    <circle style='fill:#555555;' cx='232.8' cy='71.3' r='4.9'/>
-                    <circle style='fill:#555555;' cx='263.4' cy='71.3' r='4.9'/>
+                    <path style='fill:#444444;' d='M248,35.8c-25.2,0-45.7,20.5-45.7,45.7s20.5,45.8,45.7,45.8s45.7-20.5,45.7-45.7S273.2,35.8,248,35.8z M248,122.3c-11.2,0-21.4-4.5-28.8-11.9c-2.9-2.9-5.4-6.3-7.4-10c-3-5.7-4.6-12.1-4.6-18.9c0-22.5,18.3-40.8,40.8-40.8 c10.7,0,20.4,4.1,27.7,10.9c3.8,3.5,6.9,7.7,9.1,12.4c2.6,5.3,4,11.3,4,17.6C288.8,104.1,270.5,122.3,248,122.3z'/>
+                    <path style='fill:#444444;' d='M252.8,93.8c5.4,1.1,10.3,4.2,13.7,8.6l3.9-3c-4.1-5.3-10-9-16.6-10.4c-10.6-2.2-21.7,1.9-28.3,10.4l3.9,3 C234.9,95.3,244.1,91.9,252.8,93.8z'/>
+                    <circle style='fill:#444444;' cx='232.8' cy='71.3' r='4.9'/>
+                    <circle style='fill:#444444;' cx='263.4' cy='71.3' r='4.9'/>
                 </g>
             </g>
         </g>
