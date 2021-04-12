@@ -21,7 +21,13 @@ final class StatsTest extends TestCase
         $this->assertGreaterThanOrEqual(86, $stats["longestStreak"]["length"]);
         // test current streak length
         $this->assertGreaterThanOrEqual(0, $stats["currentStreak"]["length"]);
-        // test current streak end date
+        // test longest streak start date are in form YYYY-MM-DD
+        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["longestStreak"]["start"]);
+        // test longest streak end date are in form YYYY-MM-DD
+        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["longestStreak"]["end"]);
+        // test current streak start date are in form YYYY-MM-DD
+        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["currentStreak"]["start"]);
+        // test current streak end date is today or yesterday
         $this->assertContains($stats["currentStreak"]["end"], [date("Y-m-d"), date("Y-m-d", strtotime("yesterday"))]);
         // test length of longest streak matches time between start and end dates
         $longestStreakDelta = strtotime($stats["longestStreak"]["end"]) - strtotime($stats["longestStreak"]["start"]);
