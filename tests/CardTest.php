@@ -11,14 +11,25 @@ final class CardTest extends TestCase
      */
     public function testThemes(): void
     {
-        $_REQUEST = [];
         // check that getRequestedTheme returns correct colors for each theme
         $themes = include "src/themes.php";
         foreach ($themes as $theme => $colors) {
-            $_REQUEST["theme"] = $theme;
+            $_REQUEST = ["theme" => $theme];
             $actualColors = getRequestedTheme();
             $this->assertEquals($colors, $actualColors);
         }
+    }
+
+    /**
+     * Test fallback to default theme
+     */
+    public function testFallbackToDefaultTheme(): void
+    {
+        // check that getRequestedTheme returns default for invalid theme
+        $themes = include "src/themes.php";
+        $_REQUEST = ["theme" => "not a theme name"];
+        $actualColors = getRequestedTheme();
+        $this->assertEquals($themes["default"], $actualColors);
     }
 
     /**
@@ -26,13 +37,12 @@ final class CardTest extends TestCase
      */
     public function testHideBorder(): void
     {
-        $_REQUEST = [];
         // check that getRequestedTheme returns transparent border when hide_border is true
-        $_REQUEST["hide_border"] = "true";
+        $_REQUEST = ["hide_border" => "true"];
         $theme = getRequestedTheme();
         $this->assertEquals("#0000", $theme["border"]);
-        // check that getRequestedTheme returns solid border when hide_border is false
-        $_REQUEST["hide_border"] = "false";
+        // check that getRequestedTheme returns solid border when hide_border is not true
+        $_REQUEST = ["hide_border" => "false"];
         $theme = getRequestedTheme();
         $this->assertEquals("#e4e2e2", $theme["border"]);
     }
