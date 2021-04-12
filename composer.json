@@ -10,5 +10,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9"
+    },
+    "scripts": {
+        "start": "php -S localhost:8000",
+        "test": "./vendor/bin/phpunit --testdox tests"
     }
 }
