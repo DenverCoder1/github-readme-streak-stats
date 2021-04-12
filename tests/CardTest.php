@@ -6,7 +6,7 @@ require_once "src/card.php";
 
 final class CardTest extends TestCase
 {
-    private $default_theme = Array(
+    private $default_theme = array(
         "background" => "#fffefe",
         "border" => "#e4e2e2",
         "stroke" => "#e4e2e2",
@@ -50,7 +50,6 @@ final class CardTest extends TestCase
      */
     public function testColorOverrideParameters(): void
     {
-        // check that getRequestedTheme returns default for invalid theme
         // clear request parameters
         $_REQUEST = [];
         // set default expected value
@@ -64,6 +63,58 @@ final class CardTest extends TestCase
                 [$param => "#f00"],
             );
             // test color change
+            $this->assertEquals($expected, getRequestedTheme());
+        }
+    }
+
+    /**
+     * Test color override parameters - all valid color inputs
+     */
+    public function testValidColorInputs(): void
+    {
+        $valid_input_types = [
+            "f00" => "#f00",
+            "f00f" => "#f00f",
+            "ff0000" => "#ff0000",
+            "FF0000" => "#ff0000",
+            "ff0000ff" => "#ff0000ff",
+            "red" => "red",
+        ];
+        // clear request parameters
+        $_REQUEST = [];
+        // set default expected value
+        $expected = $this->default_theme;
+        foreach ($valid_input_types as $input => $output) {
+            // set request parameter
+            $_REQUEST["background"] = $input;
+            // update parameter in expected result
+            $expected = array_merge(
+                $expected,
+                ["background" => $output],
+            );
+            // test color change
+            $this->assertEquals($expected, getRequestedTheme());
+        }
+    }
+
+    /**
+     * Test color override parameters - invalid color inputs
+     */
+    public function testInvalidColorInputs(): void
+    {
+        $invalid_input_types = [
+            "g00", # not 0-9, A-F
+            "f00f0", # invalid number of characters
+            "fakecolor", # invalid color name
+        ];
+        // clear request parameters
+        $_REQUEST = [];
+        // set default expected value
+        $expected = $this->default_theme;
+        foreach ($invalid_input_types as $input) {
+            // set request parameter
+            $_REQUEST["background"] = $input;
+            // test that theme is still default
             $this->assertEquals($expected, getRequestedTheme());
         }
     }
