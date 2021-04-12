@@ -61,10 +61,8 @@ function getRequestedTheme(): array
 /**
  * Generate SVG output for a stats array
  */
-function generateCard(array $stats): string
+function generateCard(array $theme, array $stats): string
 {
-    $theme = getRequestedTheme();
-
     // total contributions
     $totalContributions = $stats["totalContributions"];
     $firstContribution = formatDate($stats["firstContribution"]);

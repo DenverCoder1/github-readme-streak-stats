@@ -21,5 +21,7 @@ $demoStats = [
     ],
 ];
 
+$theme = getRequestedTheme();
+
 // echo SVG data for demo stats
-echo generateCard($demoStats);
+echo generateCard($theme, $demoStats);
