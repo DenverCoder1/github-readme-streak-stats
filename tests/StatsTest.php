@@ -14,12 +14,15 @@ final class StatsTest extends TestCase
     {
         $stats = getContributionStats("DenverCoder1");
         // test total contributions
-        $this->assertGreaterThan(2048, $stats["totalContributions"]);
+        $this->assertIsInt($stats["totalContributions"]);
+        $this->assertGreaterThan(2300, $stats["totalContributions"]);
         // test first contribution
         $this->assertEquals("2016-08-10", $stats["firstContribution"]);
         // test longest streak length
-        $this->assertGreaterThanOrEqual(86, $stats["longestStreak"]["length"]);
+        $this->assertIsInt($stats["longestStreak"]["length"]);
+        $this->assertGreaterThanOrEqual(98, $stats["longestStreak"]["length"]);
         // test current streak length
+        $this->assertIsInt($stats["currentStreak"]["length"]);
         $this->assertGreaterThanOrEqual(0, $stats["currentStreak"]["length"]);
         // test longest streak start date are in form YYYY-MM-DD
         $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["longestStreak"]["start"]);
