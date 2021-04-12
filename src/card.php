@@ -214,7 +214,7 @@ function generateCard(array $stats): string
 /**
  * Generate SVG displaying an error message
  */
-function generateErrorCard(string $message)
+function generateErrorCard(string $message): string
 {
     $theme = getRequestedTheme();
 
