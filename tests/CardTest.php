@@ -155,7 +155,7 @@ final class CardTest extends TestCase
         // check that getRequestedTheme returns solid border when hide_border is not true
         $_REQUEST = ["hide_border" => "false"];
         $theme = getRequestedTheme();
-        $this->assertEquals("#e4e2e2", $theme["border"]);
+        $this->assertEquals($this->default_theme["border"], $theme["border"]);
     }
 
     /**
