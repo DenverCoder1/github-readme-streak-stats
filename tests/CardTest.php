@@ -6,7 +6,7 @@ require_once "src/card.php";
 
 final class CardTest extends TestCase
 {
-    private $default_theme = array(
+    private $defaultTheme = array(
         "background" => "#fffefe",
         "border" => "#e4e2e2",
         "stroke" => "#e4e2e2",
@@ -42,7 +42,7 @@ final class CardTest extends TestCase
         // request parameters
         $_REQUEST = ["theme" => "not a theme name"];
         // test that invalid theme name gives default values
-        $this->assertEquals($this->default_theme, getRequestedTheme());
+        $this->assertEquals($this->defaultTheme, getRequestedTheme());
     }
 
     /**
@@ -54,7 +54,7 @@ final class CardTest extends TestCase
         $themes = include "src/themes.php";
         $hexRegex = "/^#([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/";
         foreach ($themes as $theme => $colors) {
-            foreach (array_keys($this->default_theme) as $param) {
+            foreach (array_keys($this->defaultTheme) as $param) {
                 // check that the key exists
                 $this->assertArrayHasKey(
                     $param, 
@@ -79,8 +79,8 @@ final class CardTest extends TestCase
         // clear request parameters
         $_REQUEST = [];
         // set default expected value
-        $expected = $this->default_theme;
-        foreach (array_keys($this->default_theme) as $param) {
+        $expected = $this->defaultTheme;
+        foreach (array_keys($this->defaultTheme) as $param) {
             // set request parameter
             $_REQUEST[$param] = "f00";
             // update parameter in expected result
@@ -98,7 +98,7 @@ final class CardTest extends TestCase
      */
     public function testValidColorInputs(): void
     {
-        $valid_input_types = [
+        $validInputTypes = [
             "f00" => "#f00",
             "f00f" => "#f00f",
             "ff0000" => "#ff0000",
@@ -109,8 +109,8 @@ final class CardTest extends TestCase
         // clear request parameters
         $_REQUEST = [];
         // set default expected value
-        $expected = $this->default_theme;
-        foreach ($valid_input_types as $input => $output) {
+        $expected = $this->defaultTheme;
+        foreach ($validInputTypes as $input => $output) {
             // set request parameter
             $_REQUEST["background"] = $input;
             // update parameter in expected result
@@ -128,18 +128,18 @@ final class CardTest extends TestCase
      */
     public function testInvalidColorInputs(): void
     {
-        $invalid_input_types = [
+        $invalidInputTypes = [
             "g00", # not 0-9, A-F
             "f00f0", # invalid number of characters
             "fakecolor", # invalid color name
         ];
         // clear request parameters
         $_REQUEST = [];
-        foreach ($invalid_input_types as $input) {
+        foreach ($invalidInputTypes as $input) {
             // set request parameter
             $_REQUEST["background"] = $input;
             // test that theme is still default
-            $this->assertEquals($this->default_theme, getRequestedTheme());
+            $this->assertEquals($this->defaultTheme, getRequestedTheme());
         }
     }
 
@@ -155,7 +155,7 @@ final class CardTest extends TestCase
         // check that getRequestedTheme returns solid border when hide_border is not true
         $_REQUEST = ["hide_border" => "false"];
         $theme = getRequestedTheme();
-        $this->assertEquals($this->default_theme["border"], $theme["border"]);
+        $this->assertEquals($this->defaultTheme["border"], $theme["border"]);
     }
 
     /**
