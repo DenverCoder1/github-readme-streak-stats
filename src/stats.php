@@ -111,8 +111,12 @@ function getYearJoined(string $user): int
     $response = curl_get_contents("https://api.github.com/users/${user}");
     $json = json_decode($response);
     // find the year the user was created
-    if ($json && isset($json->created_at)) {
+    if ($json && isset($json->type) && $json->type == "User" && isset($json->created_at)) {
         return intval(substr($json->created_at, 0, 4));
+    }
+    // Account is not a user (eg. Organization account)
+    if (isset($json->type)) {
+        throw new InvalidArgumentException("The username given is not a user.");
     }
     // API Error
     if ($json && isset($json->message)) {
