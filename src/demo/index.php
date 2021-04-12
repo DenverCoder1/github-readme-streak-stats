@@ -9,7 +9,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-48CYVH0XEF"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-48CYVH0XEF');
     </script>
@@ -56,7 +56,7 @@
 <?php
 $themes = include "../themes.php";
 foreach ($themes as $theme => $options) {
-    echo "\t\t\t\t\t<option>{$theme}</option>\n";
+    echo str_repeat("\t", 5) . "<option>{$theme}</option>\n";
 }
 ?>
                 </select>
@@ -74,7 +74,7 @@ foreach ($themes as $theme => $options) {
                         <select id="properties" name="properties" placeholder="background">
 <?php
 foreach ($themes["default"] as $option => $color) {
-    echo "\t\t\t\t\t\t\t<option>{$option}</option>\n";
+    echo str_repeat("\t", 7) . "<option>{$option}</option>\n";
 }
 ?>
                         </select>
@@ -88,7 +88,7 @@ foreach ($themes["default"] as $option => $color) {
 
         <div class="output">
             <h2>Preview</h2>
-            <img alt="GitHub Readme Streak Stats" src="../test?" />
+            <img alt="GitHub Readme Streak Stats" src="preview.php?user=" />
             <p class="warning">
                 Note: The stats above are just examples and not from your GitHub profile.
             </p>
