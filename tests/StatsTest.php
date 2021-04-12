@@ -3,7 +3,6 @@ use PHPUnit\Framework\TestCase;
 
 // load functions
 require_once "src/stats.php";
-require_once "src/card.php";
 require_once "src/config.php";
 
 final class StatsTest extends TestCase
@@ -27,12 +26,22 @@ final class StatsTest extends TestCase
     }
 
     /**
-     * Test that an invalid username returns 'User could not be found.' error
+     * Test that an invalid username returns 'not found' error
      */
     public function testInvalidUsername(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("User could not be found.");
         getContributionStats("help");
+    }
+
+    /**
+     * Test that an organization name returns 'not a user' error
+     */
+    public function testOrganizationName(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("The username given is not a user.");
+        getContributionStats("DenverCoderOne");
     }
 }
