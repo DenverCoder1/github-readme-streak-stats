@@ -3,7 +3,18 @@ use PHPUnit\Framework\TestCase;
 
 // load functions
 require_once "src/stats.php";
-require_once "src/config.php";
+
+// load config if the file exists
+if (file_exists("src/config.php")) {
+    require_once "src/config.php";
+}
+// if environment variables are not loaded, display error
+if (!getenv("TOKEN") || !getenv("USERNAME")) {
+    $message = file_exists("config.php")
+    ? "Missing token or username in config. Check Contributing.md for details."
+    : "src/config.php was not found. Check Contributing.md for details.";
+    die($message);
+}
 
 final class StatsTest extends TestCase
 {
