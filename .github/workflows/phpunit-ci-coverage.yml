@@ -13,7 +13,7 @@ jobs:
         with:
           bootstrap: vendor/autoload.php
           configuration: tests/phpunit.xml
-          args: --testdox --coverage-text
+          args: --testdox
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: DenverCoder1
