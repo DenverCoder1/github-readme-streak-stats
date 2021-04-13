@@ -2,7 +2,7 @@
 <phpunit colors="true">
   <testsuites>
     <testsuite name="main">
-      <directory suffix="Test.php">.</directory>
+      <directory suffix="Test.php">tests</directory>
     </testsuite>
   </testsuites>
 </phpunit>
