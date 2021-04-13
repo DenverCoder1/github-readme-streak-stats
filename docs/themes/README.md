@@ -276,8 +276,9 @@ To enable a theme, append `&theme=` followed by the theme name to the end of you
 
 ![image](https://user-images.githubusercontent.com/74750414/114088204-6893c180-98d2-11eb-80ee-9c3e351de6bb.png)
 
+`monokai-metallian`
 
-
+![image](https://user-images.githubusercontent.com/20955511/114599323-9e9ec000-9c9b-11eb-89d2-8e2f2dffa7ad.png)
 
 ### Can't find the theme you like?
 
