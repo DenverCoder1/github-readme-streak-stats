@@ -1,11 +1,13 @@
-<?php
+<?php declare (strict_types = 1);
 
-// get all http requests for contributions
-function getContributionGraphs($user): array
+/**
+ * Get all HTTP request responses for user's contributions
+ */
+function getContributionGraphs(string $user): array
 {
     // get the start year based on when the user first contributed
     $startYear = getYearJoined($user);
-    $currentYear = (int) date("Y");
+    $currentYear = intval(date("Y"));
     // build a list of individual requests
     $urls = array();
     for ($year = $currentYear; $year >= $startYear; $year--) {
@@ -45,8 +47,10 @@ function getContributionGraphs($user): array
     return $response;
 }
 
-// get array of all dates with the number of contributions
-function getContributionDates($user): array
+/**
+ * Get an array of all dates with the number of contributions
+ */
+function getContributionDates(string $user): array
 {
     // fetch html for all contribution graphs
     $contributionsHTML = getContributionGraphs($user);
@@ -73,8 +77,10 @@ function getContributionDates($user): array
     return $contributions;
 }
 
-// Get the contents of a single URL
-function curl_get_contents($url): string
+/**
+ * Get the contents of a single URL
+ */
+function curl_get_contents(string $url): string
 {
     $ch = curl_init();
     $token = getenv("TOKEN");
@@ -96,35 +102,39 @@ function curl_get_contents($url): string
     return $response;
 }
 
-// get the first year a user contributed
-function getYearJoined($user): int
+/**
+ * Get the first year a user contributed
+ */
+function getYearJoined(string $user): int
 {
     // load the user's profile info
     $response = curl_get_contents("https://api.github.com/users/${user}");
     $json = json_decode($response);
     // find the year the user was created
-    if ($json && isset($json->created_at)) {
-        return substr($json->created_at, 0, 4);
+    if ($json && isset($json->type) && $json->type == "User" && isset($json->created_at)) {
+        return intval(substr($json->created_at, 0, 4));
+    }
+    // Account is not a user (eg. Organization account)
+    if (isset($json->type)) {
+        throw new InvalidArgumentException("The username given is not a user.");
     }
     // API Error
-    else if ($json && isset($json->message)) {
+    if ($json && isset($json->message)) {
         // User not found
         if ($json->message == "Not Found") {
-            die(generateErrorCard("User could not be found."));
+            throw new InvalidArgumentException("User could not be found.");
         }
         // Other errors that contain a message field
-        else {
-            die(generateErrorCard($json->message));
-        }
+        throw new InvalidArgumentException($json->message);
     }
     // Response doesn't contain a message field
-    else {
-        die(generateErrorCard("An unknown error occurred."));
-    }
+    throw new InvalidArgumentException("An unknown error occurred.");
 }
 
-// get the total number of contributions
-function getContributionStats($user): array
+/**
+ * Get a stats array with the contribution count, streak, and dates
+ */
+function getContributionStats(string $user): array
 {
     $contributions = getContributionDates($user);
     $today = array_key_last($contributions);
@@ -142,7 +152,7 @@ function getContributionStats($user): array
             "length" => 0,
         ],
     ];
-    
+
     // calculate the stats from the contributions array
     foreach ($contributions as $date => $count) {
         // add contribution count to total

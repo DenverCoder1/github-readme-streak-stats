@@ -20,7 +20,7 @@ let preview = {
             value = value.replace(/(F|f){2}$/, "");
           }
         }
-        obj[next.id] = value; 
+        obj[next.id] = value;
         return obj;
       },
       {}
@@ -33,7 +33,7 @@ let preview = {
       .join("&");
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
-    const demoImageURL = `../test?${query}`;
+    const demoImageURL = `preview.php?${query}`;
     const repoLink = "https://git.io/streak-stats";
     const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
     // update image preview

@@ -1,4 +1,4 @@
-<?php
+<?php declare (strict_types = 1);
 
 // load functions
 require_once "stats.php";
@@ -9,8 +9,11 @@ if (file_exists("config.php")) {
     require_once "config.php";
 }
 // if environment variables are not loaded, display error
-elseif (!getenv("TOKEN")) {
-    die(generateErrorCard("/src/config.php was not found. Check Contributing.md for details."));
+if (!getenv("TOKEN") || !getenv("USERNAME")) {
+    $message = file_exists("config.php")
+    ? "Missing token or username in config. Check Contributing.md for details."
+    : "src/config.php was not found. Check Contributing.md for details.";
+    die(generateErrorCard($message));
 }
 
 // set cache to refresh once per day
@@ -23,17 +26,18 @@ header("Cache-Control: no-cache, must-revalidate");
 // set content type to SVG image
 header("Content-Type: image/svg+xml");
 
-// get user from url query string
-$user = $_REQUEST["user"];
-
-// redirect to sample site
+// redirect to demo site if user is not given
 if (!isset($_REQUEST["user"])) {
     header('Location: demo/');
     exit;
 }
 
-// get streak stats
-$stats = getContributionStats($user);
+try {
+    // get streak stats for user given in query string
+    $stats = getContributionStats($_REQUEST["user"]);
+} catch (InvalidArgumentException $error) {
+    die(generateErrorCard($error->getMessage()));
+}
 
 // echo SVG data for streak stats
 echo generateCard($stats);
