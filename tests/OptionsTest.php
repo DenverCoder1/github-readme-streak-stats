@@ -107,13 +107,11 @@ final class OptionsTest extends TestCase
             "ff0000ff" => "#ff0000ff",
             "red" => "red",
         ];
-        // clear request parameters
-        $_REQUEST = [];
         // set default expected value
         $expected = $this->defaultTheme;
         foreach ($validInputTypes as $input => $output) {
             // set request parameter
-            $_REQUEST["background"] = $input;
+            $_REQUEST = [ "background" => $input ];
             // update parameter in expected result
             $expected = array_merge(
                 $expected,
@@ -135,11 +133,9 @@ final class OptionsTest extends TestCase
             "f00f0", # invalid number of characters
             "fakecolor", # invalid color name
         ];
-        // clear request parameters
-        $_REQUEST = [];
         foreach ($invalidInputTypes as $input) {
             // set request parameter
-            $_REQUEST["background"] = $input;
+            $_REQUEST = [ "background" => $input ];
             // test that theme is still default
             $this->assertEquals($this->defaultTheme, getRequestedTheme());
         }
