@@ -686,4 +686,17 @@ return array(
         "sideLabels" => "#edf5e1",
         "dates" => "#45a29e",
     ],
+    "monokai-metallian" => [
+        "background" => "#1F222E",
+        "border" => "#FFFFFF",
+        "currStreakLabel" => "#F85D7F",
+        "currStreakNum" => "#F8D866",
+        "dates" => "#9CA2B8",
+        "fire" => "#FC9867",
+        "hide_border" => "true",
+        "ring" => "#FC9867",
+        "sideLabels" => "#F85D7F",
+        "sideNums" => "#F8D866",
+        "stroke" => "#4A4F64",
+    ],
 );
