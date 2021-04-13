@@ -41,7 +41,7 @@ final class RenderTest extends TestCase
     {
         // check that getRequestedTheme returns correct colors for each theme
         $render = generateCard($this->testStats, $this->testTheme);
-        $expected = file_get_contents("tests/test_card.svg");
+        $expected = file_get_contents("tests/svg/test_card.svg");
         $this->assertEquals($expected, $render);
     }
 
@@ -52,7 +52,7 @@ final class RenderTest extends TestCase
     {
         // check that getRequestedTheme returns correct colors for each theme
         $render = generateErrorCard("An unknown error occurred", $this->testTheme);
-        $expected = file_get_contents("tests/test_error_card.svg");
+        $expected = file_get_contents("tests/svg/test_error_card.svg");
         $this->assertEquals($expected, $render);
     }
 }
