@@ -2,7 +2,7 @@
 name: Question
 about: I have a question about GitHub Streak Stats
 title: ''
-labels: ''
+labels: 'question'
 assignees: ''
 
 ---
