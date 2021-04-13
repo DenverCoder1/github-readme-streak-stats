@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
 // load functions
 require_once "stats.php";
@@ -9,8 +9,11 @@ if (file_exists("config.php")) {
     require_once "config.php";
 }
 // if environment variables are not loaded, display error
-elseif (!getenv("TOKEN")) {
-    die(generateErrorCard("/src/config.php was not found. Check Contributing.md for details."));
+if (!getenv("TOKEN") || !getenv("USERNAME")) {
+    $message = file_exists("config.php")
+    ? "Missing token or username in config. Check Contributing.md for details."
+    : "src/config.php was not found. Check Contributing.md for details.";
+    die(generateErrorCard($message));
 }
 
 // set cache to refresh once per day
@@ -32,8 +35,7 @@ if (!isset($_REQUEST["user"])) {
 try {
     // get streak stats for user given in query string
     $stats = getContributionStats($_REQUEST["user"]);
-}
-catch (InvalidArgumentException $error) {
+} catch (InvalidArgumentException $error) {
     die(generateErrorCard($error->getMessage()));
 }
 
