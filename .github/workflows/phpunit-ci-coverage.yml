@@ -12,7 +12,7 @@ jobs:
         uses: php-actions/phpunit@v2
         with:
           bootstrap: vendor/autoload.php
-          configuration: tests/phpunit.xml
+          configuration: tests/phpunit/phpunit.xml
           args: --testdox
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}

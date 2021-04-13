@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 // load functions
 require_once "src/card.php";
 
-final class CardTest extends TestCase
+final class OptionsTest extends TestCase
 {
     private $defaultTheme = array(
         "background" => "#fffefe",
