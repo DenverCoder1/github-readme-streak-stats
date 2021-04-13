@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
 /**
  * Convert date from YYYY-MM-DD to more human-readable format

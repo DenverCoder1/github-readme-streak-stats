@@ -20,7 +20,7 @@ let preview = {
             value = value.replace(/(F|f){2}$/, "");
           }
         }
-        obj[next.id] = value; 
+        obj[next.id] = value;
         return obj;
       },
       {}
