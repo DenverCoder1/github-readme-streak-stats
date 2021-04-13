@@ -57,9 +57,9 @@ putenv("USERNAME=DenverCoder1");
 composer start
 ```
 
-Open http://localhost:8000/src/?user=DenverCoder1 to run the project locally
+Open http://localhost:8000/?user=DenverCoder1 to run the project locally
 
-Open http://localhost:8000/src/demo/ to run the demo site
+Open http://localhost:8000/demo/ to run the demo site
 
 ### Running the tests
 
