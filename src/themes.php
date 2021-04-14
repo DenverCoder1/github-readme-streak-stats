@@ -699,4 +699,16 @@ return array(
         "sideNums" => "#F8D866",
         "stroke" => "#4A4F64",
     ],
+    "city-lights" => [
+        "background" => "#1D252C",
+        "border" => "#1D252C",
+        "currStreakLabel" => "#5D8CB3",
+        "currStreakNum" => "#5D8CB3",
+        "dates" => "#5D8CB3",
+        "fire" => "#718CA1",
+        "ring" => "#718CA1",
+        "sideLabels" => "#5D8CB3",
+        "sideNums" => "#61788A",
+        "stroke" => "#536676",
+    ],
 );
