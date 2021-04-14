@@ -282,7 +282,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of you
 
 `city-lights`
 
-![image](https://user-images.githubusercontent.com/78041469/114711250-fb55b580-9d43-11eb-8fba-de3432ad0358.png)
+![image](https://user-images.githubusercontent.com/78041469/114711562-57203e80-9d44-11eb-9f3c-fd0ae0eb2d66.png)
 
 ### Can't find the theme you like?
 
