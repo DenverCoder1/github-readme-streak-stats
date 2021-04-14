@@ -54,7 +54,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
 ```
 
-|     Theme      |                             Screenshot                              |
+|     Theme      |                              Preview                                |
 | :------------: | :-----------------------------------------------------------------: |
 |   `default`    |             ![default](https://i.imgur.com/IaTuYdS.png)             |
 |     `dark`     |              ![dark](https://i.imgur.com/bUrsjlp.png)               |
