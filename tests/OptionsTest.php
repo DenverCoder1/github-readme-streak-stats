@@ -20,7 +20,7 @@ final class OptionsTest extends TestCase
     );
 
     /**
-     * Test theme parameters
+     * Test theme request parameters return colors for theme
      */
     public function testThemes(): void
     {
@@ -54,6 +54,13 @@ final class OptionsTest extends TestCase
         $themes = include "src/themes.php";
         $hexRegex = "/^#([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/";
         foreach ($themes as $theme => $colors) {
+            // check that there are no extra keys in the theme
+            $this->assertEquals(
+                array_diff_key($colors, $this->defaultTheme), 
+                array(),
+                "The theme '$theme' contains invalid parameters."
+            );
+            # check that no parameters are missing and all values are valid
             foreach (array_keys($this->defaultTheme) as $param) {
                 // check that the key exists
                 $this->assertArrayHasKey(
@@ -111,7 +118,7 @@ final class OptionsTest extends TestCase
         $expected = $this->defaultTheme;
         foreach ($validInputTypes as $input => $output) {
             // set request parameter
-            $_REQUEST = [ "background" => $input ];
+            $_REQUEST = ["background" => $input];
             // update parameter in expected result
             $expected = array_merge(
                 $expected,
@@ -135,7 +142,7 @@ final class OptionsTest extends TestCase
         ];
         foreach ($invalidInputTypes as $input) {
             // set request parameter
-            $_REQUEST = [ "background" => $input ];
+            $_REQUEST = ["background" => $input];
             // test that theme is still default
             $this->assertEquals($this->defaultTheme, getRequestedTheme());
         }
