@@ -693,7 +693,6 @@ return array(
         "currStreakNum" => "#F8D866",
         "dates" => "#9CA2B8",
         "fire" => "#FC9867",
-        "hide_border" => "true",
         "ring" => "#FC9867",
         "sideLabels" => "#F85D7F",
         "sideNums" => "#F8D866",
