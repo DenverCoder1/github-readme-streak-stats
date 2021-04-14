@@ -280,6 +280,9 @@ To enable a theme, append `&theme=` followed by the theme name to the end of you
 
 ![image](https://user-images.githubusercontent.com/20955511/114599323-9e9ec000-9c9b-11eb-89d2-8e2f2dffa7ad.png)
 
+`city-lights`
+![image](https://user-images.githubusercontent.com/78041469/114709841-4d95d700-9d42-11eb-8f62-53b0c2862867.png)
+
 ### Can't find the theme you like?
 
 You can now customize your stats card with [url parameters](/README.md#-options). or by using the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/).
