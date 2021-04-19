@@ -34,7 +34,8 @@ if (!isset($_REQUEST["user"])) {
 
 try {
     // get streak stats for user given in query string
-    $stats = getContributionStats($_REQUEST["user"]);
+    $contributions = getContributionDates($_REQUEST["user"]);
+    $stats = getContributionStats($contributions);
 } catch (InvalidArgumentException $error) {
     die(generateErrorCard($error->getMessage()));
 }

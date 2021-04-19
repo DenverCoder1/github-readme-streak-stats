@@ -134,9 +134,8 @@ function getYearJoined(string $user): int
 /**
  * Get a stats array with the contribution count, streak, and dates
  */
-function getContributionStats(string $user): array
+function getContributionStats(array $contributions): array
 {
-    $contributions = getContributionDates($user);
     $today = array_key_last($contributions);
     $stats = [
         "totalContributions" => 0,
@@ -182,6 +181,8 @@ function getContributionStats(string $user): array
         elseif ($date != $today) {
             // reset streak
             $stats["currentStreak"]["length"] = 0;
+            $stats["currentStreak"]["start"] = $today;
+            $stats["currentStreak"]["end"] = $today;
         }
     }
     return $stats;
