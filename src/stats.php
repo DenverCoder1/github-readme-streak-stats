@@ -67,7 +67,9 @@ function getContributionDates(string $user): array
             if (isset($dateMatch[1]) && isset($countMatch[1])) {
                 $date = $dateMatch[1];
                 $count = (int) $countMatch[1];
-                if ($date <= $currentDate) {
+                // count contributions up until today
+                // also count next day if user contributed already
+                if ($date <= $currentDate || $count > 0) {
                     // add contributions to the array
                     $contributions[$date] = $count;
                 }
