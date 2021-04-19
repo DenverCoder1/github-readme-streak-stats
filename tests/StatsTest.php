@@ -23,7 +23,8 @@ final class StatsTest extends TestCase
      */
     public function testValidUsername(): void
     {
-        $stats = getContributionStats("DenverCoder1");
+        $contributions = getContributionDates("DenverCoder1");
+        $stats = getContributionStats($contributions);
         // test total contributions
         $this->assertIsInt($stats["totalContributions"]);
         $this->assertGreaterThan(2300, $stats["totalContributions"]);
@@ -60,7 +61,7 @@ final class StatsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("User could not be found.");
-        getContributionStats("help");
+        getContributionDates("help");
     }
 
     /**
@@ -70,6 +71,120 @@ final class StatsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("The username given is not a user.");
-        getContributionStats("DenverCoderOne");
+        getContributionDates("DenverCoderOne");
+    }
+
+    /**
+     * Test stats contributed today
+     */
+    public function testContributedToday(): void
+    {
+        $contributions = array(
+            "2021-04-15" => 5,
+            "2021-04-16" => 3,
+            "2021-04-17" => 2,
+            "2021-04-18" => 7,
+        );
+        $stats = getContributionStats($contributions);
+        $expected = array(
+            "totalContributions" => 17,
+            "firstContribution" => "2021-04-15",
+            "longestStreak" => [
+                "start" => "2021-04-15",
+                "end" => "2021-04-18",
+                "length" => 4,
+            ],
+            "currentStreak" => [
+                "start" => "2021-04-15",
+                "end" => "2021-04-18",
+                "length" => 4,
+            ],
+        );
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test stats missing today
+     */
+    public function testMissingToday(): void
+    {
+        $contributions = array(
+            "2021-04-15" => 5,
+            "2021-04-16" => 3,
+            "2021-04-17" => 2,
+            "2021-04-18" => 0,
+        );
+        $stats = getContributionStats($contributions);
+        $expected = array(
+            "totalContributions" => 10,
+            "firstContribution" => "2021-04-15",
+            "longestStreak" => [
+                "start" => "2021-04-15",
+                "end" => "2021-04-17",
+                "length" => 3,
+            ],
+            "currentStreak" => [
+                "start" => "2021-04-15",
+                "end" => "2021-04-17",
+                "length" => 3,
+            ],
+        );
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test stats missing 2 days
+     */
+    public function testMissingTwoDays(): void
+    {
+        $contributions = array(
+            "2021-04-15" => 5,
+            "2021-04-16" => 3,
+            "2021-04-17" => 0,
+            "2021-04-18" => 0,
+        );
+        $stats = getContributionStats($contributions);
+        $expected = array(
+            "totalContributions" => 8,
+            "firstContribution" => "2021-04-15",
+            "longestStreak" => [
+                "start" => "2021-04-15",
+                "end" => "2021-04-16",
+                "length" => 2,
+            ],
+            "currentStreak" => [
+                "start" => "2021-04-18",
+                "end" => "2021-04-18",
+                "length" => 0,
+            ],
+        );
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test multiple year streak
+     */
+    public function testMultipleYearStreak(): void
+    {
+        $contributions = array();
+        for ($i = 369; $i >= 0; --$i) {
+            $contributions[date('Y-m-d', strtotime("$i days ago"))] = 1;
+        }
+        $stats = getContributionStats($contributions);
+        $expected = array(
+            "totalContributions" => 370,
+            "firstContribution" => date('Y-m-d', strtotime('369 days ago')),
+            "longestStreak" => [
+                "start" => date('Y-m-d', strtotime('369 days ago')),
+                "end" => date('Y-m-d'),
+                "length" => 370,
+            ],
+            "currentStreak" => [
+                "start" => date('Y-m-d', strtotime('369 days ago')),
+                "end" => date('Y-m-d'),
+                "length" => 370,
+            ],
+        );
+        $this->assertEquals($expected, $stats);
     }
 }
