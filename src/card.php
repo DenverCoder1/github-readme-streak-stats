@@ -1,7 +1,10 @@
 <?php declare (strict_types = 1);
 
 /**
- * Convert date from YYYY-MM-DD to more human-readable format
+ * Convert date from Y-M-D to more human-readable format
+ * 
+ * @param string $dateString String in Y-M-D format
+ * @return string formatted date string
  */
 function formatDate(string $dateString): string
 {
@@ -16,6 +19,8 @@ function formatDate(string $dateString): string
 
 /**
  * Check theme and color customization parameters to generate a theme mapping
+ * 
+ * @return array<string, string> the chosen theme or default
  */
 function getRequestedTheme(): array
 {
@@ -60,6 +65,11 @@ function getRequestedTheme(): array
 
 /**
  * Generate SVG output for a stats array
+ * 
+ * @param array<string, mixed> $stats Streak Stats
+ * @param array<string, string>|NULL $theme the selected theme
+ * 
+ * @return string The generated SVG Streak Stats card
  */
 function generateCard(array $stats, array $theme = null): string
 {
@@ -214,6 +224,11 @@ function generateCard(array $stats, array $theme = null): string
 
 /**
  * Generate SVG displaying an error message
+ * 
+ * @param string $message The error message to display
+ * @param array<string, string>|NULL $theme The selected theme
+ * 
+ * @return string The generated SVG error card
  */
 function generateErrorCard(string $message, array $theme = null): string
 {

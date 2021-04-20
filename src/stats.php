@@ -2,6 +2,9 @@
 
 /**
  * Get all HTTP request responses for user's contributions
+ *
+ * @param string $user GitHub username to get graphs for
+ * @return array<string> List of HTML contribution graphs
  */
 function getContributionGraphs(string $user): array
 {
@@ -49,6 +52,9 @@ function getContributionGraphs(string $user): array
 
 /**
  * Get an array of all dates with the number of contributions
+ *
+ * @param array<string> $contributionGraphs List of HTML pages with contributions
+ * @return array<string, int>
  */
 function getContributionDates(string $user): array
 {
@@ -82,6 +88,9 @@ function getContributionDates(string $user): array
 
 /**
  * Get the contents of a single URL
+ * 
+ * @param string $url URL to fetch
+ * @return string contents of the page
  */
 function curl_get_contents(string $url): string
 {
@@ -107,6 +116,9 @@ function curl_get_contents(string $url): string
 
 /**
  * Get the first year a user contributed
+ * 
+ * @param string $user GitHub username to look up
+ * @return int first contribution year
  */
 function getYearJoined(string $user): int
 {
@@ -136,6 +148,9 @@ function getYearJoined(string $user): int
 
 /**
  * Get a stats array with the contribution count, streak, and dates
+ * 
+ * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
+ * @return array<string, mixed> streak stats
  */
 function getContributionStats(array $contributions): array
 {
