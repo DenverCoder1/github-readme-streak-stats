@@ -1,7 +1,10 @@
 <?php declare (strict_types = 1);
 
 /**
- * Convert date from YYYY-MM-DD to more human-readable format
+ * Convert date from Y-M-D to more human-readable format
+ *
+ * @param string $dateString String in Y-M-D format
+ * @return string formatted Date string
  */
 function formatDate(string $dateString): string
 {
@@ -16,34 +19,47 @@ function formatDate(string $dateString): string
 
 /**
  * Check theme and color customization parameters to generate a theme mapping
+ *
+ * @param array<string, string> $params Request parameters
+ * @return array<string, string> The chosen theme or default
  */
-function getRequestedTheme(): array
+function getRequestedTheme(array $params): array
 {
+    /**
+     * @var array<string, array<string, string>> $THEMES
+     * List of theme names mapped to labeled colors
+     */
+    $THEMES = include "themes.php";
+
+    /**
+     * @var array<string> $CSS_COLORS
+     * List of valid CSS colors
+     */
+    $CSS_COLORS = include "colors.php";
+
     // get theme colors
-    $themes = include "themes.php";
-    if (isset($_REQUEST["theme"]) && array_key_exists($_REQUEST["theme"], $themes)) {
-        $theme = $themes[$_REQUEST["theme"]];
+    if (isset($params["theme"]) && array_key_exists($params["theme"], $THEMES)) {
+        $theme = $THEMES[$params["theme"]];
     }
     // no theme specified, get default
     else {
-        $theme = $themes["default"];
+        $theme = $THEMES["default"];
     }
 
     // personal theme customizations
     $properties = array_keys($theme);
-    $cssColors = include "colors.php";
     foreach ($properties as $prop) {
         // check if each property was passed as a parameter
-        if (isset($_REQUEST[$prop])) {
+        if (isset($params[$prop])) {
             // ignore case
-            $param = strtolower($_REQUEST[$prop]);
+            $param = strtolower($params[$prop]);
             // check if color is valid hex color (3, 4, 6, or 8 hex digits)
             if (preg_match("/^([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/", $param)) {
                 // set property
                 $theme[$prop] = "#" . $param;
             }
             // check if color is valid css color
-            else if (in_array($param, $cssColors)) {
+            else if (in_array($param, $CSS_COLORS)) {
                 // set property
                 $theme[$prop] = $param;
             }
@@ -51,7 +67,7 @@ function getRequestedTheme(): array
     }
 
     // hide borders
-    if (isset($_REQUEST["hide_border"]) && $_REQUEST["hide_border"] == "true") {
+    if (isset($params["hide_border"]) && $params["hide_border"] == "true") {
         $theme["border"] = "#0000"; // transparent
     }
 
@@ -60,11 +76,16 @@ function getRequestedTheme(): array
 
 /**
  * Generate SVG output for a stats array
+ *
+ * @param array<string, mixed> $stats Streak stats
+ * @param array<string, string>|NULL $params Request parameters
+ *
+ * @return string The generated SVG Streak Stats card
  */
-function generateCard(array $stats, array $theme = null): string
+function generateCard(array $stats, array $params = null): string
 {
-    // get requested theme if $theme is null
-    $theme = $theme ?? getRequestedTheme();
+    // get requested theme, use $_REQUEST if no params array specified
+    $theme = getRequestedTheme($params ?? $_REQUEST);
 
     // total contributions
     $totalContributions = $stats["totalContributions"];
@@ -214,11 +235,16 @@ function generateCard(array $stats, array $theme = null): string
 
 /**
  * Generate SVG displaying an error message
+ *
+ * @param string $message The error message to display
+ * @param array<string, string>|NULL $params Request parameters
+ *
+ * @return string The generated SVG error card
  */
-function generateErrorCard(string $message, array $theme = null): string
+function generateErrorCard(string $message, array $params = null): string
 {
-    // get requested theme if $theme is null
-    $theme = $theme ?? getRequestedTheme();
+    // get requested theme, use $_REQUEST if no params array specified
+    $theme = getRequestedTheme($params ?? $_REQUEST);
 
     return "
     <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>

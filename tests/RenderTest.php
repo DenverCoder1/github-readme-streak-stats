@@ -6,17 +6,17 @@ require_once "src/card.php";
 
 final class RenderTest extends TestCase
 {
-    private $testTheme = array(
-        "background" => "#000000",
-        "border" => "#111111",
-        "stroke" => "#222222",
-        "ring" => "#333333",
-        "fire" => "#444444",
-        "currStreakNum" => "#555555",
-        "sideNums" => "#666666",
-        "currStreakLabel" => "#777777",
-        "sideLabels" => "#888888",
-        "dates" => "#999999",
+    private $testParams = array(
+        "background" => "000000",
+        "border" => "111111",
+        "stroke" => "222222",
+        "ring" => "333333",
+        "fire" => "444444",
+        "currStreakNum" => "555555",
+        "sideNums" => "666666",
+        "currStreakLabel" => "777777",
+        "sideLabels" => "888888",
+        "dates" => "999999",
     );
 
     private $testStats = array(
@@ -40,7 +40,7 @@ final class RenderTest extends TestCase
     public function testCardRender(): void
     {
         // check that getRequestedTheme returns correct colors for each theme
-        $render = generateCard($this->testStats, $this->testTheme);
+        $render = generateCard($this->testStats, $this->testParams);
         $expected = file_get_contents("tests/svg/test_card.svg");
         $this->assertEquals($expected, $render);
     }
@@ -51,7 +51,7 @@ final class RenderTest extends TestCase
     public function testErrorCardRender(): void
     {
         // check that getRequestedTheme returns correct colors for each theme
-        $render = generateErrorCard("An unknown error occurred", $this->testTheme);
+        $render = generateErrorCard("An unknown error occurred", $this->testParams);
         $expected = file_get_contents("tests/svg/test_error_card.svg");
         $this->assertEquals($expected, $render);
     }

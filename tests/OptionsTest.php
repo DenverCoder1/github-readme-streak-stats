@@ -27,8 +27,8 @@ final class OptionsTest extends TestCase
         // check that getRequestedTheme returns correct colors for each theme
         $themes = include "src/themes.php";
         foreach ($themes as $theme => $colors) {
-            $_REQUEST = ["theme" => $theme];
-            $actualColors = getRequestedTheme();
+            $params = ["theme" => $theme];
+            $actualColors = getRequestedTheme($params);
             $this->assertEquals($colors, $actualColors);
         }
     }
@@ -40,9 +40,9 @@ final class OptionsTest extends TestCase
     {
         // check that getRequestedTheme returns default for invalid theme
         // request parameters
-        $_REQUEST = ["theme" => "not a theme name"];
+        $params = ["theme" => "not a theme name"];
         // test that invalid theme name gives default values
-        $this->assertEquals($this->defaultTheme, getRequestedTheme());
+        $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
     }
 
     /**
@@ -84,19 +84,19 @@ final class OptionsTest extends TestCase
     public function testColorOverrideParameters(): void
     {
         // clear request parameters
-        $_REQUEST = [];
+        $params = [];
         // set default expected value
         $expected = $this->defaultTheme;
         foreach (array_keys($this->defaultTheme) as $param) {
             // set request parameter
-            $_REQUEST[$param] = "f00";
+            $params[$param] = "f00";
             // update parameter in expected result
             $expected = array_merge(
                 $expected,
                 [$param => "#f00"],
             );
             // test color change
-            $this->assertEquals($expected, getRequestedTheme());
+            $this->assertEquals($expected, getRequestedTheme($params));
         }
     }
 
@@ -118,14 +118,14 @@ final class OptionsTest extends TestCase
         $expected = $this->defaultTheme;
         foreach ($validInputTypes as $input => $output) {
             // set request parameter
-            $_REQUEST = ["background" => $input];
+            $params = ["background" => $input];
             // update parameter in expected result
             $expected = array_merge(
                 $expected,
                 ["background" => $output],
             );
             // test color change
-            $this->assertEquals($expected, getRequestedTheme());
+            $this->assertEquals($expected, getRequestedTheme($params));
         }
     }
 
@@ -142,9 +142,9 @@ final class OptionsTest extends TestCase
         ];
         foreach ($invalidInputTypes as $input) {
             // set request parameter
-            $_REQUEST = ["background" => $input];
+            $params = ["background" => $input];
             // test that theme is still default
-            $this->assertEquals($this->defaultTheme, getRequestedTheme());
+            $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
         }
     }
 
@@ -154,12 +154,12 @@ final class OptionsTest extends TestCase
     public function testHideBorder(): void
     {
         // check that getRequestedTheme returns transparent border when hide_border is true
-        $_REQUEST = ["hide_border" => "true"];
-        $theme = getRequestedTheme();
+        $params = ["hide_border" => "true"];
+        $theme = getRequestedTheme($params);
         $this->assertEquals("#0000", $theme["border"]);
         // check that getRequestedTheme returns solid border when hide_border is not true
-        $_REQUEST = ["hide_border" => "false"];
-        $theme = getRequestedTheme();
+        $params = ["hide_border" => "false"];
+        $theme = getRequestedTheme($params);
         $this->assertEquals($this->defaultTheme["border"], $theme["border"]);
     }
 

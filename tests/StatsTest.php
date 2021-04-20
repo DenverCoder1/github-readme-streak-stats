@@ -23,7 +23,8 @@ final class StatsTest extends TestCase
      */
     public function testValidUsername(): void
     {
-        $contributions = getContributionDates("DenverCoder1");
+        $contributionGraphs = getContributionGraphs("DenverCoder1");
+        $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
         // test total contributions
         $this->assertIsInt($stats["totalContributions"]);
@@ -61,7 +62,7 @@ final class StatsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("User could not be found.");
-        getContributionDates("help");
+        getContributionGraphs("help");
     }
 
     /**
@@ -71,7 +72,7 @@ final class StatsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("The username given is not a user.");
-        getContributionDates("DenverCoderOne");
+        getContributionGraphs("DenverCoderOne");
     }
 
     /**
@@ -183,6 +184,41 @@ final class StatsTest extends TestCase
                 "start" => date('Y-m-d', strtotime('369 days ago')),
                 "end" => date('Y-m-d'),
                 "length" => 370,
+            ],
+        );
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test future commits
+     * Tomorrow should count because of timezone differences, but further ahead should not
+     */
+    public function testFutureCommits(): void
+    {
+        $yesterday = date('Y-m-d', strtotime('yesterday'));
+        $today = date('Y-m-d', strtotime('today'));
+        $tomorrow = date('Y-m-d', strtotime('tomorrow'));
+        $inTwoDays = date('Y-m-d', strtotime("$today +2 days"));
+        $contributionGraphs = [
+            "<rect width=\"10\" height=\"10\" x=\"-2\" y=\"13\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$yesterday\" data-level=\"1\"></rect>
+            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"26\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$today\" data-level=\"2\"></rect>
+            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"39\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$tomorrow\" data-level=\"0\"></rect>
+            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"52\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$inTwoDays\" data-level=\"0\"></rect>"
+        ];
+        $contributions = getContributionDates($contributionGraphs);
+        $stats = getContributionStats($contributions);
+        $expected = array(
+            "totalContributions" => 3,
+            "firstContribution" => date('Y-m-d', strtotime('yesterday')),
+            "longestStreak" => [
+                "start" => date('Y-m-d', strtotime('yesterday')),
+                "end" => date('Y-m-d', strtotime('tomorrow')),
+                "length" => 3,
+            ],
+            "currentStreak" => [
+                "start" => date('Y-m-d', strtotime('yesterday')),
+                "end" => date('Y-m-d', strtotime('tomorrow')),
+                "length" => 3,
             ],
         );
         $this->assertEquals($expected, $stats);
