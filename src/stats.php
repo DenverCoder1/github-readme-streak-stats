@@ -56,7 +56,8 @@ function getContributionDates(string $user): array
     $contributionsHTML = getContributionGraphs($user);
     // get contributions from HTML
     $contributions = array();
-    $currentDate = date("Y-m-d");
+    $today = date("Y-m-d");
+    $tomorrow = date("Y-m-d", strtotime("tomorrow"));
     foreach ($contributionsHTML as $html) {
         // split into lines
         $lines = explode("\n", $html);
@@ -69,7 +70,7 @@ function getContributionDates(string $user): array
                 $count = (int) $countMatch[1];
                 // count contributions up until today
                 // also count next day if user contributed already
-                if ($date <= $currentDate || $count > 0) {
+                if ($date <= $today || ($date == $tomorrow && $count > 0)) {
                     // add contributions to the array
                     $contributions[$date] = $count;
                 }
