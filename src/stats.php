@@ -88,7 +88,7 @@ function getContributionDates(array $contributionGraphs): array
  * Get the contents of a single URL passing headers for GitHub API
  * 
  * @param string $url URL to fetch
- * @return string contents of the page
+ * @return string Response from page as a string
  */
 function getGitHubApiResponse(string $url): string
 {
@@ -148,7 +148,7 @@ function getYearJoined(string $user): int
  * Get a stats array with the contribution count, streak, and dates
  * 
  * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
- * @return array<string, mixed> streak stats
+ * @return array<string, mixed> Streak stats
  */
 function getContributionStats(array $contributions): array
 {
