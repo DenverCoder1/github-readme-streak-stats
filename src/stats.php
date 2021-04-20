@@ -54,19 +54,17 @@ function getContributionGraphs(string $user): array
  * Get an array of all dates with the number of contributions
  *
  * @param array<string> $contributionGraphs List of HTML pages with contributions
- * @return array<string, int>
+ * @return array<string, int> Y-M-D dates mapped to the number of contributions
  */
-function getContributionDates(string $user): array
+function getContributionDates(array $contributionGraphs): array
 {
-    // fetch html for all contribution graphs
-    $contributionsHTML = getContributionGraphs($user);
     // get contributions from HTML
     $contributions = array();
     $today = date("Y-m-d");
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
-    foreach ($contributionsHTML as $html) {
+    foreach ($contributionGraphs as $graph) {
         // split into lines
-        $lines = explode("\n", $html);
+        $lines = explode("\n", $graph);
         // add the dates and contribution counts to the array
         foreach ($lines as $line) {
             preg_match("/ data-date=\"([0-9\-]{10})\"/", $line, $dateMatch);
@@ -87,12 +85,12 @@ function getContributionDates(string $user): array
 }
 
 /**
- * Get the contents of a single URL
+ * Get the contents of a single URL passing headers for GitHub API
  * 
  * @param string $url URL to fetch
  * @return string contents of the page
  */
-function curl_get_contents(string $url): string
+function getGitHubApiResponse(string $url): string
 {
     $ch = curl_init();
     $token = getenv("TOKEN");
@@ -123,7 +121,7 @@ function curl_get_contents(string $url): string
 function getYearJoined(string $user): int
 {
     // load the user's profile info
-    $response = curl_get_contents("https://api.github.com/users/${user}");
+    $response = getGitHubApiResponse("https://api.github.com/users/${user}");
     $json = json_decode($response);
     // find the year the user was created
     if ($json && isset($json->type) && $json->type == "User" && isset($json->created_at)) {

@@ -23,7 +23,8 @@ final class StatsTest extends TestCase
      */
     public function testValidUsername(): void
     {
-        $contributions = getContributionDates("DenverCoder1");
+        $contributionGraphs = getContributionGraphs("DenverCoder1");
+        $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
         // test total contributions
         $this->assertIsInt($stats["totalContributions"]);
@@ -61,7 +62,7 @@ final class StatsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("User could not be found.");
-        getContributionDates("help");
+        getContributionGraphs("help");
     }
 
     /**
@@ -72,6 +73,7 @@ final class StatsTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("The username given is not a user.");
         getContributionDates("DenverCoderOne");
+        getContributionGraphs("DenverCoderOne");
     }
 
     /**
