@@ -27,7 +27,7 @@ function getRequestedTheme(array $params): array
 {
     /**
      * @var array<string, array<string, string>> $THEMES
-     * Get theme colors
+     * List of theme names mapped to labeled colors
      */
     $THEMES = include "themes.php";
 
@@ -37,6 +37,7 @@ function getRequestedTheme(array $params): array
      */
     $CSS_COLORS = include "colors.php";
 
+    // get theme colors
     if (isset($params["theme"]) && array_key_exists($params["theme"], $THEMES)) {
         $theme = $THEMES[$params["theme"]];
     }
