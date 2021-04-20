@@ -72,7 +72,6 @@ final class StatsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("The username given is not a user.");
-        getContributionDates("DenverCoderOne");
         getContributionGraphs("DenverCoderOne");
     }
 
