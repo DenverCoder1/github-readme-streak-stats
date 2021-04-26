@@ -1,3 +1,5 @@
+<?php $THEMES = include "../themes.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,12 +55,9 @@
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme" placeholder="default">
-<?php
-$themes = include "../themes.php";
-foreach ($themes as $theme => $options) {
-    echo str_repeat("\t", 5) . "<option>{$theme}</option>\n";
-}
-?>
+<?php foreach ($THEMES as $theme => $options): ?>
+                    <option><?php echo $theme; ?></option>
+<?php endforeach;?>
                 </select>
 
                 <label for="hide_border">Hide Border</label>
@@ -72,11 +71,9 @@ foreach ($themes as $theme => $options) {
                     <div class="content parameters">
                         <label for="theme">Add Property</label>
                         <select id="properties" name="properties" placeholder="background">
-<?php
-foreach ($themes["default"] as $option => $color) {
-    echo str_repeat("\t", 7) . "<option>{$option}</option>\n";
-}
-?>
+<?php foreach ($THEMES["default"] as $option => $color): ?>
+                            <option><?php echo $option; ?></option>
+<?php endforeach;?>
                         </select>
                         <button class="plus btn" onclick="return preview.addProperty();">+</button>
                     </div>
