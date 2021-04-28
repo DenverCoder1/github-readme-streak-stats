@@ -15,7 +15,7 @@
         gtag('js', new Date());
         gtag('config', 'G-48CYVH0XEF');
     </script>
-    <title>GitHub Readme Streak Steak</title>
+    <title>GitHub Readme Streak Stats Demo</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
     <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
