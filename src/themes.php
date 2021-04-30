@@ -710,4 +710,16 @@ return array(
         "sideNums" => "#61788A",
         "stroke" => "#536676",
     ],
+    "blux" => [
+        "background" => "#263d46",
+        "border" => "#e4e2e2",
+        "stroke" => "#e4e2e2",
+        "ring" => "#018596",
+        "fire" => "#28ecfa",
+        "currStreakNum" => "#28ecfa",
+        "sideNums" => "#28ecfa",
+        "currStreakLabel" => "#28ecfa",
+        "sideLabels" => "#0F80AA",
+        "dates" => "#ffffff",
+    ],
 );
