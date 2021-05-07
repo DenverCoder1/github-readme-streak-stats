@@ -1,10 +1,8 @@
-const icon = document.querySelector(".darkmode i");
-if (getCookie("darkmode") === null) {
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches == true) {
-    darkmode();
-  } else {
-    lightmode();
-  }
+if (
+  getCookie("darkmode") === null &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches == true
+) {
+  darkmode();
 }
 
 function toggleTheme() {
