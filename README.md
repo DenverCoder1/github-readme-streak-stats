@@ -156,10 +156,11 @@ cd github-readme-streak-stats
 To get the GitHub API to run locally you will need to provide a token.
 
 1. Go to https://github.com/settings/tokens.
-2. Click **"Generate new token"**. 
-3. Add a note (ex. **"GitHub Readme Streak Stats"**), then scroll to the bottom and click **"Generate token"**. 
+2. Click **"Generate new token"**.
+3. Add a note (ex. **"GitHub Readme Streak Stats"**), then scroll to the bottom and click **"Generate token"**.
 4. **Copy** the token to your clipboard.
 5. **Create** a file `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
+
 ```php
 # /src/config.php
 <?php
@@ -173,9 +174,9 @@ putenv("USERNAME=DenverCoder1");
 composer start
 ```
 
-Open http://localhost:8000/?user=DenverCoder1 to run the project locally. 
+Open http://localhost:8000/?user=DenverCoder1 to run the project locally.
 
-Open http://localhost:8000/demo/ to run the demo site. 
+Open http://localhost:8000/demo/ to run the demo site.
 
 ### Running the tests
 
