@@ -18,17 +18,16 @@ function toggleTheme() {
 }
 
 function darkmode() {
-  icon.className = "gg-sun";
+  document.querySelector(".darkmode i").className = "gg-sun";
   setCookie("darkmode", "on", 9999);
   document.body.setAttribute("data-theme", "dark");
 }
 
 function lightmode() {
-  icon.className = "gg-moon";
+  document.querySelector(".darkmode i").className = "gg-moon";
   setCookie("darkmode", "off", 9999);
   document.body.removeAttribute("data-theme");
 }
-
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
