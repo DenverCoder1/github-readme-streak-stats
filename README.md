@@ -41,14 +41,13 @@
 
 Here you can customize your Streak Stats card with a live preview.
 
-http://github-readme-streak-stats.herokuapp.com/demo/
+<http://github-readme-streak-stats.herokuapp.com/demo/>
 
 [![Demo Site](https://user-images.githubusercontent.com/20955511/114579753-dbac8780-9c86-11eb-97dd-207039f67d20.gif "Demo Site")](http://github-readme-streak-stats.herokuapp.com/demo/)
 
 ## 🖌 Themes
 
 To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
-
 
 ```md
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
@@ -85,7 +84,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |   `sideLabels`    |        Total and longest streak labels         |      **hex code** (without `#`) or **css color**      |
 |      `dates`      |             Date range text color              |      **hex code** (without `#`) or **css color**      |
 
-### Example:
+### Example
 
 ```md
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00)](https://git.io/streak-stats)
@@ -125,8 +124,8 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 #### Requirements
 
-* [PHP 7.4+](https://www.apachefriends.org/index.html)
-* [Composer](https://getcomposer.org)
+- [PHP 7.4+](https://www.apachefriends.org/index.html)
+- [Composer](https://getcomposer.org)
 
 #### Linux
 
@@ -146,7 +145,7 @@ Install PHP from [XAMPP](https://www.apachefriends.org/index.html) or [php.net](
 
 ### Clone the repository
 
-```
+```bash
 git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
 cd github-readme-streak-stats
 ```
@@ -155,11 +154,12 @@ cd github-readme-streak-stats
 
 To get the GitHub API to run locally you will need to provide a token.
 
-1. Go to https://github.com/settings/tokens.
-2. Click **"Generate new token."**
-3. Add a note (ex. **"GitHub Readme Streak Stats"**), then scroll to the bottom and click **"Generate token."**
-4. **Copy** the token to your clipboard.
+1. Go to <https://github.com/settings/tokens>
+2. Click **"Generate new token"**
+3. Add a note (ex. **"GitHub Readme Streak Stats"**), then scroll to the bottom and click **"Generate token"**
+4. **Copy** the token to your clipboard
 5. **Create** a file `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
+
 ```php
 # /src/config.php
 <?php
@@ -173,9 +173,9 @@ putenv("USERNAME=DenverCoder1");
 composer start
 ```
 
-Open http://localhost:8000/?user=DenverCoder1 to run the project locally
+Open <http://localhost:8000/?user=DenverCoder1> to run the project locally.
 
-Open http://localhost:8000/demo/ to run the demo site
+Open <http://localhost:8000/demo/> to run the demo site.
 
 ### Running the tests
 
