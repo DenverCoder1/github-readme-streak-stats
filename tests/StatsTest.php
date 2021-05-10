@@ -46,7 +46,7 @@ final class StatsTest extends TestCase
         // test current streak end date are in form YYYY-MM-DD
         $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["currentStreak"]["end"]);
         // test current streak end date is today or yesterday
-        $this->assertContains($stats["currentStreak"]["end"], [date("Y-m-d"), date("Y-m-d", strtotime("yesterday"))]);
+        $this->assertContains($stats["currentStreak"]["end"], [date("Y-m-d"), date("Y-m-d", strtotime("yesterday")), date("Y-m-d", strtotime("tomorrow"))]);
         // test length of longest streak matches time between start and end dates
         $longestStreakDelta = strtotime($stats["longestStreak"]["end"]) - strtotime($stats["longestStreak"]["start"]);
         $this->assertEquals($longestStreakDelta / 60 / 60 / 24 + 1, $stats["longestStreak"]["length"]);
@@ -203,7 +203,7 @@ final class StatsTest extends TestCase
             "<rect width=\"10\" height=\"10\" x=\"-2\" y=\"13\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$yesterday\" data-level=\"1\"></rect>
             <rect width=\"10\" height=\"10\" x=\"-2\" y=\"26\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$today\" data-level=\"2\"></rect>
             <rect width=\"10\" height=\"10\" x=\"-2\" y=\"39\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$tomorrow\" data-level=\"0\"></rect>
-            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"52\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$inTwoDays\" data-level=\"0\"></rect>"
+            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"52\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$inTwoDays\" data-level=\"0\"></rect>",
         ];
         $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
