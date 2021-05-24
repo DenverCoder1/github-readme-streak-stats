@@ -65,7 +65,8 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |      `dark-smoky`      | ![image](https://user-images.githubusercontent.com/74750414/114088204-6893c180-98d2-11eb-80ee-9c3e351de6bb.png) |
 |  `monokai-metallian`   | ![image](https://user-images.githubusercontent.com/20955511/114599323-9e9ec000-9c9b-11eb-89d2-8e2f2dffa7ad.png) |
 |     `city-lights`      | ![image](https://user-images.githubusercontent.com/20955511/114738104-542b4b00-9d50-11eb-87cd-2446b4e5d1a7.png) |
-|        `blux`          | ![image](https://user-images.githubusercontent.com/73984717/116656177-7068f200-a9b6-11eb-91c5-5f0f1997720d.png) |
+|         `blux`         | ![image](https://user-images.githubusercontent.com/73984717/116656177-7068f200-a9b6-11eb-91c5-5f0f1997720d.png) |
+|        `earth`         | ![image](https://user-images.githubusercontent.com/20955511/119410749-fcd6ae00-bcf1-11eb-8737-c78566e9e8f3.png) |
 
 ### Can't find the theme you like?
 

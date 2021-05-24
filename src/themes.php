@@ -722,4 +722,16 @@ return array(
         "sideLabels" => "#0F80AA",
         "dates" => "#ffffff",
     ],
+    "earth" => [
+        "background" => "#1E1615",
+        "border" => "#BA9D6F",
+        "stroke" => "#BA9D6F",
+        "ring" => "#C48519",
+        "fire" => "#C48519",
+        "currStreakNum" => "#639E29",
+        "sideNums" => "#639E29",
+        "currStreakLabel" => "#C48519",
+        "sideLabels" => "#C48519",
+        "dates" => "#BA9D6F",
+    ],
 );
