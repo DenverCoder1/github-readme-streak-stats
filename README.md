@@ -112,6 +112,8 @@ Doing this can lead to better uptime and more control over customization (you ca
 
 You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
 
+### Deploy Streak Stats instantly
+
 <details>
   <summary>Deploying to Heroku</summary> <br>
   
