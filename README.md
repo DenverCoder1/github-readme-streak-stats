@@ -131,7 +131,7 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 ![image](https://user-images.githubusercontent.com/20955511/119405989-cd707300-bcea-11eb-96a2-ea17f1877623.png)
 
-9. Click **"Open App"** at the top to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+9. Scroll down to the **Domains** section to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
 
 
 ## 🤗 Contributing
