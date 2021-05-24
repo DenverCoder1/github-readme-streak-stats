@@ -112,26 +112,52 @@ Doing this can lead to better uptime and more control over customization (you ca
 
 You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
 
-### Deploying to Heroku
+<details>
+  <summary>Deploying to Heroku</summary> <br>
+  
+  1. Sign in to **Heroku** or create a new account at <https://heroku.com>
+  2. Click the Deploy button below
 
-1. Sign in to **Heroku** or create a new account at <https://heroku.com>
-2. Click the Deploy button below
+  <p align="center">
+    <a href="https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main">
+      <img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy to Heroku" alt="Deploy"/></a>
+  </p>
 
-<p align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main">
-    <img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy to Heroku" alt="Deploy"/></a>
-</p>
+  3. On the page that comes up, click **"Deploy App"** at the end of the form
+  4. Once the app is deployed, click **"Manage App"** to go to the dashboard
+  5. Visit the **"Settings"** tab and click **"Reveal Config Vars"**
+  6. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  7. Scroll to the bottom and click **"Generate token"**
+  8. **Add the token** as a Config Var with the key `TOKEN` and your username with the key `USERNAME`:
 
-3. On the page that comes up, click **"Deploy App"** at the end of the form
-4. Once the app is deployed, click **"Manage App"** to go to the dashboard
-5. Visit the **"Settings"** tab and click **"Reveal Config Vars"**
-6. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
-7. Scroll to the bottom and click **"Generate token"**
-8. **Add the token** as a Config Var with the key `TOKEN` and your username with the key `USERNAME`:
+  ![image](https://user-images.githubusercontent.com/20955511/119405989-cd707300-bcea-11eb-96a2-ea17f1877623.png)
 
-![image](https://user-images.githubusercontent.com/20955511/119405989-cd707300-bcea-11eb-96a2-ea17f1877623.png)
+  9. Scroll down to the **Domains** section to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+  
+</details>
+  
+<details>
+  <summary>Deploying to Zeet</summary> <br>
+  
+  1. Sign in to **Zeet** or create a new account at <https://zeet.co>
+  2. Click the Deploy button below
 
-9. Scroll down to the **Domains** section to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+  <p align="center">
+    <a href="https://deploy.zeet.co/?url=https://github.com/DenverCoder1/github-readme-streak-stats">
+      <img src="https://deploy.zeet.co/github-readme-streak-stats.svg" title="Deploy to Zeet" alt="Deploy"/></a>
+  </p>
+
+  3. On the page that comes up, click **"Deploy Now"**
+  4. Visit the **"Settings"** tab and scroll down to **Environment Variables**
+  6. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  7. Scroll to the bottom and click **"Generate token"**
+  8. **Add the token** to the environment variables with the label `TOKEN` and your username as `USERNAME`, then click Save.
+
+  ![image](https://user-images.githubusercontent.com/20955511/119417271-1bdb3d00-bcfe-11eb-977a-eec5e3b623c8.png)
+
+  9. Click the **Deployments** tab to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+  
+</details>
 
 
 ## 🤗 Contributing
