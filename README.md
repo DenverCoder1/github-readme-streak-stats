@@ -149,13 +149,13 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
   3. On the page that comes up, click **"Deploy Now"**
   4. Visit the **"Settings"** tab and scroll down to **Environment Variables**
-  6. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
-  7. Scroll to the bottom and click **"Generate token"**
-  8. **Add the token** to the environment variables with the label `TOKEN` and your username as `USERNAME`, then click Save.
+  5. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  6. Scroll to the bottom and click **"Generate token"**
+  7. **Add the token** to the environment variables with the label `TOKEN` and your username as `USERNAME`, then click Save.
 
-  ![image](https://user-images.githubusercontent.com/20955511/119417271-1bdb3d00-bcfe-11eb-977a-eec5e3b623c8.png)
+  ![image](https://user-images.githubusercontent.com/20955511/119418221-2b5b8580-bd00-11eb-8d4b-05e98c74c0e1.png)
 
-  9. Click the **Deployments** tab to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+  8. Click the **Deployments** tab to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
   
 </details>
 
