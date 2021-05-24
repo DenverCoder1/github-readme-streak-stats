@@ -127,12 +127,11 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 5. Visit the **"Settings"** tab and click **"Reveal Config Vars"**
 6. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
 7. Scroll to the bottom and click **"Generate token"**
-8. **Copy** the token to your clipboard
-9. **Add** the token as a Config Var with the key **"TOKEN"** and your username with the key **"USERNAME"**:
+8. **Add the token** as a Config Var with the key `TOKEN` and your username with the key `USERNAME`:
 
 ![image](https://user-images.githubusercontent.com/20955511/119405989-cd707300-bcea-11eb-96a2-ea17f1877623.png)
 
-10. Click **"Open App"** at the top to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+9. Click **"Open App"** at the top to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
 
 
 ## 🤗 Contributing
@@ -177,8 +176,7 @@ To get the GitHub API to run locally you will need to provide a token.
 
 1. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
 2. Scroll to the bottom and click **"Generate token"**
-3. **Copy** the token to your clipboard
-4. **Create** a file `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
+3. **Create a file** `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
 
 ```php
 # /src/config.php
