@@ -116,6 +116,7 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 [![heroku](https://user-images.githubusercontent.com/20955511/119420596-8479e800-bd05-11eb-9665-6f1aaa6c4a3e.png)](https://heroku.com)
 [![zeet](https://user-images.githubusercontent.com/20955511/119420611-9065aa00-bd05-11eb-9050-e79cddc57d3d.png)](https://zeet.co)
+[![vercel](https://user-images.githubusercontent.com/20955511/119424229-b5f6b180-bd0d-11eb-9944-2289e9a4fbb5.png)](https://vercel.com)
 
 <details>
   <summary>Deploying to Heroku</summary>
@@ -165,6 +166,33 @@ You can deploy the PHP files on any website server with PHP installed or as a He
   ![image](https://user-images.githubusercontent.com/20955511/119418221-2b5b8580-bd00-11eb-8d4b-05e98c74c0e1.png)
 
   8. Click the **Deployments** tab to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+  
+</details>
+  
+<details>
+  <summary>Deploying to Vercel</summary>
+  
+  ### Step-by-step instructions for deploying to Vercel
+  
+  1. Sign in to **Vercel** or create a new account at <https://vercel.com>
+  2. Click the Deploy button below
+
+  <p align="center">
+    <a href="https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats&env=TOKEN,USERNAME&envDescription=GitHub%20Personal%20Access%20Token%20for%20accessing%20the%20GitHub%20API">
+      <img src="https://vercel.com/button" title="Deploy with Vercel" alt="Deploy"/></a>
+  </p>
+
+  3. Enter a project name and follow the steps to clone the repo
+  4. On the **Import Project** page you will need to enter **Environment Variables** as described below
+  5. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  6. Scroll to the bottom and click **"Generate token"**
+  7. **Add the token** to the environment variables field labeled `TOKEN` and your username in the `USERNAME` field
+  8. Click "Deploy" and wait for it to complete
+  ![vercel](https://user-images.githubusercontent.com/20955511/119424220-b2632a80-bd0d-11eb-9093-9871b93733b4.png)
+
+  ![image](https://user-images.githubusercontent.com/20955511/119423841-f144b080-bd0c-11eb-9b57-47acde0e71fc.png)
+  
+  9. Open the **dashboard** to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
   
 </details>
 
