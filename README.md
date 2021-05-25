@@ -188,7 +188,6 @@ You can deploy the PHP files on any website server with PHP installed or as a He
   6. Scroll to the bottom and click **"Generate token"**
   7. **Add the token** to the environment variables field labeled `TOKEN` and your username in the `USERNAME` field
   8. Click "Deploy" and wait for it to complete
-  ![vercel](https://user-images.githubusercontent.com/20955511/119424220-b2632a80-bd0d-11eb-9093-9871b93733b4.png)
 
   ![image](https://user-images.githubusercontent.com/20955511/119423841-f144b080-bd0c-11eb-9b57-47acde0e71fc.png)
   
