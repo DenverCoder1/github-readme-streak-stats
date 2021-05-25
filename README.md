@@ -114,8 +114,13 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 ### Deploy Streak Stats instantly
 
+[![heroku](https://user-images.githubusercontent.com/20955511/119420596-8479e800-bd05-11eb-9665-6f1aaa6c4a3e.png)](https://heroku.com)
+[![zeet](https://user-images.githubusercontent.com/20955511/119420611-9065aa00-bd05-11eb-9050-e79cddc57d3d.png)](https://zeet.co)
+
 <details>
-  <summary>Deploying to Heroku</summary> <br>
+  <summary>Deploying to Heroku</summary>
+  
+  ### Step-by-step instructions for deploying to Heroku
   
   1. Sign in to **Heroku** or create a new account at <https://heroku.com>
   2. Click the Deploy button below
@@ -139,7 +144,9 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 </details>
   
 <details>
-  <summary>Deploying to Zeet</summary> <br>
+  <summary>Deploying to Zeet</summary>
+  
+  ### Step-by-step instructions for deploying to Zeet
   
   1. Sign in to **Zeet** or create a new account at <https://zeet.co>
   2. Click the Deploy button below
