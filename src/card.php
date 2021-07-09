@@ -142,7 +142,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Total Contributions Big Number -->
                 <g transform='translate(1,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["sideNums"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["sideNums"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
                         {$totalContributions}
                     </text>
                 </g>
@@ -150,7 +150,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Total Contributions Label -->
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
                         Total Contributions
                     </text>
                 </g>
@@ -158,7 +158,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- total contributions range -->
                 <g transform='translate(1,114)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
                         {$totalContributionsRange}
                     </text>
                 </g>
@@ -167,7 +167,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["currStreakNum"]};stroke:none;animation: currstreak 0.6s linear forwards;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["currStreakNum"]};stroke:none;animation: currstreak 0.6s linear forwards;'>
                         {$currentStreak}
                     </text>
                 </g>
@@ -175,7 +175,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Current Streak Label -->
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         Current Streak
                     </text>
                 </g>
@@ -183,7 +183,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Current Streak Range -->
                 <g transform='translate(166,145)'>
                     <rect width='163' height='26' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='13' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
+                    <text x='81.5' y='13' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         {$currentStreakRange}
                     </text>
                 </g>
@@ -207,7 +207,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Longest Streak Big Number -->
                 <g transform='translate(331,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["sideNums"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 1.2s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["sideNums"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 1.2s;'>
                         {$longestStreak}
                     </text>
                 </g>
@@ -215,7 +215,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Longest Streak Label -->
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
                         Longest Streak
                     </text>
                 </g>
@@ -223,7 +223,7 @@ function generateCard(array $stats, array $params = null): string
                 <!-- Longest Streak Range -->
                 <g transform='translate(331,114)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='25' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
+                    <text x='81.5' y='25' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
                         {$longestStreakRange}
                     </text>
                 </g>
@@ -265,7 +265,7 @@ function generateErrorCard(string $message, array $params = null): string
                 <!-- Error Label -->
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='50' dominant-baseline='middle' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;'>
+                    <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:&quot;Open Sans&quot;, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;'>
                         {$message}
                     </text>
                 </g>
