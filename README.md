@@ -55,7 +55,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
 ```
 
-|     Theme      |                              Preview                                |
+|     Theme      |                               Preview                               |
 | :------------: | :-----------------------------------------------------------------: |
 |   `default`    |             ![default](https://i.imgur.com/IaTuYdS.png)             |
 |     `dark`     |              ![dark](https://i.imgur.com/bUrsjlp.png)               |
@@ -75,16 +75,17 @@ If the `theme` parameter is specified, any color customizations specified will b
 |      `user`       |       GitHub username to show stats for        |                    `DenverCoder1`                     |
 |      `theme`      |    The theme to apply (Default: `default`)     | `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md) |
 |   `hide_border`   | Make the border transparent (Default: `false`) |                   `true` or `false`                   |
-|   `background`    |                Background color                |      **hex code** (without `#`) or **css color**      |
-|     `border`      |                  Border color                  |      **hex code** (without `#`) or **css color**      |
-|     `stroke`      |       Stroke line color between sections       |      **hex code** (without `#`) or **css color**      |
-|      `ring`       |  Color of the ring around the current streak   |      **hex code** (without `#`) or **css color**      |
-|      `fire`       |         Color of the fire in the ring          |      **hex code** (without `#`) or **css color**      |
-|  `currStreakNum`  |             Current streak number              |      **hex code** (without `#`) or **css color**      |
-|    `sideNums`     |        Total and longest streak numbers        |      **hex code** (without `#`) or **css color**      |
-| `currStreakLabel` |              Current streak label              |      **hex code** (without `#`) or **css color**      |
-|   `sideLabels`    |        Total and longest streak labels         |      **hex code** (without `#`) or **css color**      |
-|      `dates`      |             Date range text color              |      **hex code** (without `#`) or **css color**      |
+|   `background`    |                Background color                |       **hex code** without `#` or **css color**       |
+|     `border`      |                  Border color                  |       **hex code** without `#` or **css color**       |
+|     `stroke`      |       Stroke line color between sections       |       **hex code** without `#` or **css color**       |
+|      `ring`       |  Color of the ring around the current streak   |       **hex code** without `#` or **css color**       |
+|      `fire`       |         Color of the fire in the ring          |       **hex code** without `#` or **css color**       |
+|  `currStreakNum`  |             Current streak number              |       **hex code** without `#` or **css color**       |
+|    `sideNums`     |        Total and longest streak numbers        |       **hex code** without `#` or **css color**       |
+| `currStreakLabel` |              Current streak label              |       **hex code** without `#` or **css color**       |
+|   `sideLabels`    |        Total and longest streak labels         |       **hex code** without `#` or **css color**       |
+|      `dates`      |             Date range text color              |       **hex code** without `#` or **css color**       |
+|      `type`       |         Output format (Default: `svg`)         |           Current options: `svg` or `json`            |
 
 ### Example
 
