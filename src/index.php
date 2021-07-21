@@ -23,9 +23,6 @@ header("Last-Modified: $timestamp");
 header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
 
-// set content type to SVG image
-header("Content-Type: image/svg+xml");
-
 // redirect to demo site if user is not given
 if (!isset($_REQUEST["user"])) {
     header('Location: demo/');
@@ -40,6 +37,18 @@ try {
 } catch (InvalidArgumentException $error) {
     die(generateErrorCard($error->getMessage()));
 }
+
+if (isset($_REQUEST["type"]) && $_REQUEST["type"] === "json") {
+    // set content type to JSON
+    header('Content-Type: application/json');
+    // echo JSON data for streak stats
+    echo json_encode($stats);
+    // exit
+    exit;
+}
+
+// set content type to SVG image
+header("Content-Type: image/svg+xml");
 
 // echo SVG data for streak stats
 echo generateCard($stats);

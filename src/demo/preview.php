@@ -2,9 +2,6 @@
 
 require_once "../card.php";
 
-// set content type to SVG image
-header("Content-Type: image/svg+xml");
-
 // generate demo stats
 $demoStats = [
     "totalContributions" => 2048,
@@ -20,6 +17,9 @@ $demoStats = [
         "length" => 16,
     ],
 ];
+
+// set content type to SVG image
+header("Content-Type: image/svg+xml");
 
 // echo SVG data for demo stats
 echo generateCard($demoStats);
