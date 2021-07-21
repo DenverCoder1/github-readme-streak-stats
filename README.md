@@ -23,18 +23,9 @@
 - [⚙ Demo Site](#-demo-site)
 - [🖌 Themes](#-themes)
 - [🔧 Options](#-options)
-  - [Example](#example)
 - [ℹ️ How these stats are calculated](#ℹ️-how-these-stats-are-calculated)
 - [📤 Deploying it on your own](#-deploying-it-on-your-own)
-  - [Deploy Streak Stats instantly](#deploy-streak-stats-instantly)
-  - [Step-by-step instructions for deploying to Heroku](#step-by-step-instructions-for-deploying-to-heroku)
-  - [Step-by-step instructions for deploying to Zeet](#step-by-step-instructions-for-deploying-to-zeet)
 - [🤗 Contributing](#-contributing)
-  - [Installing Requirements](#installing-requirements)
-  - [Clone the repository](#clone-the-repository)
-  - [Authorization](#authorization)
-  - [Running the app locally](#running-the-app-locally)
-  - [Running the tests](#running-the-tests)
 - [🙋‍♂️ Support](#️-support)
 
 ## ⚡ Quick setup
