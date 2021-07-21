@@ -39,9 +39,9 @@ final class RenderTest extends TestCase
      */
     public function testCardRender(): void
     {
-        // check that getRequestedTheme returns correct colors for each theme
+        // Check that the card is rendered as expected
         $render = generateCard($this->testStats, $this->testParams);
-        $expected = file_get_contents("tests/svg/test_card.svg");
+        $expected = file_get_contents("tests/expected/test_card.svg");
         $this->assertEquals($expected, $render);
     }
 
@@ -50,9 +50,20 @@ final class RenderTest extends TestCase
      */
     public function testErrorCardRender(): void
     {
-        // check that getRequestedTheme returns correct colors for each theme
+        // Check that error card is returned when no stats are provided
         $render = generateErrorCard("An unknown error occurred", $this->testParams);
-        $expected = file_get_contents("tests/svg/test_error_card.svg");
+        $expected = file_get_contents("tests/expected/test_error_card.svg");
+        $this->assertEquals($expected, $render);
+    }
+
+    /**
+     * Test JSON render
+     */
+    public function testJsonRender(): void
+    {
+        // Check json that is returned
+        $render = json_encode($this->testStats);
+        $expected = file_get_contents("tests/expected/test_stats.json");
         $this->assertEquals($expected, $render);
     }
 }
