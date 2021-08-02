@@ -67,7 +67,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |     `city-lights`      | ![image](https://user-images.githubusercontent.com/20955511/114738104-542b4b00-9d50-11eb-87cd-2446b4e5d1a7.png) |
 |         `blux`         | ![image](https://user-images.githubusercontent.com/73984717/116656177-7068f200-a9b6-11eb-91c5-5f0f1997720d.png) |
 |        `earth`         | ![image](https://user-images.githubusercontent.com/20955511/119410749-fcd6ae00-bcf1-11eb-8737-c78566e9e8f3.png) |
-
+|        `deepBlue`      | ![image](https://github-readme-streak-stats.herokuapp.com?user=SuhasBRao&stroke=38DD69&background=165795&ring=37DD57&fire=1CD577&sideNums=120E5BF2&sideLabels=1ADD40&currStreakLabel=10EF24&dates=11E2E7)
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/) or by customizing the [url parameters](/README.md#-options).
