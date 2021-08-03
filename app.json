@@ -4,5 +4,21 @@
   "repository": "https://github.com/DenverCoder1/github-readme-streak-stats/",
   "logo": "https://i.imgur.com/Z4bDOxC.png",
   "keywords": ["github", "dynamic", "readme", "contributions", "streak", "stats"],
-  "addons": []
+  "addons": [],
+  "env": {
+    "TOKEN": {
+      "description": "GitHub personal access token obtained from https://github.com/settings/tokens/new",
+      "required": false
+    },
+    "USERNAME": {
+      "description": "GitHub username associated with the token",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
 }
