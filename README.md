@@ -133,16 +133,14 @@ You can deploy the PHP files on any website server with PHP installed or as a He
       <img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy to Heroku" alt="Deploy"/></a>
   </p>
 
-  3. On the page that comes up, click **"Deploy App"** at the end of the form
-  4. Once the app is deployed, click **"Manage App"** to go to the dashboard
-  5. Visit the **"Settings"** tab and click **"Reveal Config Vars"**
-  6. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
-  7. Scroll to the bottom and click **"Generate token"**
-  8. **Add the token** as a Config Var with the key `TOKEN` and your username with the key `USERNAME`:
+  3. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  4. Scroll to the bottom and click **"Generate token"**
+  5. **Add the token** as a Config Var with the key `TOKEN` and your username with the key `USERNAME`:
 
-  ![image](https://user-images.githubusercontent.com/20955511/119405989-cd707300-bcea-11eb-96a2-ea17f1877623.png)
-
-  9. Scroll down to the **Domains** section to find the URL you will use in place of `github-readme-streak-stats.herokuapp.com`
+  ![image](https://user-images.githubusercontent.com/20955511/128092565-937c3df0-6087-40b5-bec7-2744a3467680.png)
+  
+  6. Click **"Deploy App"** at the end of the form
+  7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `github-readme-streak-stats.herokuapp.com`
   
 </details>
   
