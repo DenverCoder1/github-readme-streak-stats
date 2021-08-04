@@ -734,4 +734,16 @@ return array(
         "sideLabels" => "#C48519",
         "dates" => "#BA9D6F",
     ],
+    "deepBlue" => [
+        "background" => "#165795FF",
+        "border" => "#BA9D6F",
+        "stroke" => "#38DD69FF",
+        "ring" => "#37DD57FF",
+        "fire" => "#1CD577FF",
+        "currStreakNum" => "#639E29",
+        "sideNums" => "#120E5BF2",
+        "currStreakLabel" => "#0FDD21FF",
+        "sideLabels" => "#1ADD40FF",
+        "dates" => "#11E2E7FF",
+    ],
 );
