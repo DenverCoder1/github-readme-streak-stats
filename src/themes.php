@@ -740,6 +740,7 @@ return array(
         "stroke" => "#38DD69FF",
         "ring" => "#37DD57FF",
         "fire" => "#1CD577FF",
+        "currStreakNum" => "#639E29",
         "sideNums" => "#120E5BF2",
         "currStreakLabel" => "#0FDD21FF",
         "sideLabels" => "#1ADD40FF",
