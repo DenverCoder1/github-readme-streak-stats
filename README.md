@@ -16,18 +16,6 @@
     <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
 </p>
 
-## 📃 Table of Contents
-
-- [📃 Table of Contents](#-table-of-contents)
-- [⚡ Quick setup](#-quick-setup)
-- [⚙ Demo Site](#-demo-site)
-- [🖌 Themes](#-themes)
-- [🔧 Options](#-options)
-- [ℹ️ How these stats are calculated](#ℹ️-how-these-stats-are-calculated)
-- [📤 Deploying it on your own](#-deploying-it-on-your-own)
-- [🤗 Contributing](#-contributing)
-- [🙋‍♂️ Support](#️-support)
-
 ## ⚡ Quick setup
 
 1. Copy-paste the markdown below into your GitHub profile README
