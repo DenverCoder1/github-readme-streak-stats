@@ -17,4 +17,3 @@ jobs:
           days-before-close: 5
           exempt-issue-labels: 'blocked,must,should,keep'
           stale-issue-label: 'no-issue-activity'
-          stale-pr-label: 'no-pr-activity'
