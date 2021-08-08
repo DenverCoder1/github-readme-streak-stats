@@ -3,6 +3,7 @@
     "description": "🔥 Stay motivated and show off your contribution streak! 🌟 Display your total contributions, current streak, and longest streak on your GitHub profile README.",
     "keywords": ["github", "dynamic", "readme", "contributions", "streak", "stats"],
     "license": "MIT",
+    "version": "0.1.0",
     "homepage": "https://github.com/DenverCoder1/github-readme-streak-stats",
     "autoload": {
         "classmap": [
