@@ -68,7 +68,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |         `blux`         | ![image](https://user-images.githubusercontent.com/73984717/116656177-7068f200-a9b6-11eb-91c5-5f0f1997720d.png) |
 |        `earth`         | ![image](https://user-images.githubusercontent.com/20955511/119410749-fcd6ae00-bcf1-11eb-8737-c78566e9e8f3.png) |
 |       `deepBlue`       | ![image](https://user-images.githubusercontent.com/20955511/127893911-23e6c0c6-2d97-4028-a2b9-1fa1063db776.png) |
-|       `holi-theme`       | ![image](https://user-images.githubusercontent.com/62163030/129030429-0a4d48aa-d61f-4d0c-ae82-891d1b2476d7.png) |
+|      `holi-theme`      | ![image](https://user-images.githubusercontent.com/62163030/129030429-0a4d48aa-d61f-4d0c-ae82-891d1b2476d7.png) |
 
 ### Can't find the theme you like?
 
