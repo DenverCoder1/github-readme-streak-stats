@@ -1,9 +1,7 @@
-name: Automated Releases
+name: Manual Release
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   changelog:
@@ -19,6 +17,7 @@ jobs:
           github-token: ${{ secrets.CHANGELOG_RELEASE }}
           version-file: './composer.json'
           output-file: 'false'
+          skip-on-empty: 'false'
 
       - name: create release
         uses: actions/create-release@v1
