@@ -746,4 +746,16 @@ return array(
         "sideLabels" => "#1ADD40FF",
         "dates" => "#11E2E7FF",
     ],
+    "holi-theme" => [
+        "background" => "#030314FF",
+        "border" => "#85A4C0FF",
+        "stroke" => "#2A4555FF",
+        "ring" => "#D6E7FFFF",
+        "currStreakNum" => "#5FABEEFF",
+        "fire" => "#D6E7FFFF",
+        "sideNums" => "#5FABEEFF",
+        "currStreakLabel" => "#D6E7FFFF",
+        "sideLabels" => "#D6E7FFFF",
+        "dates" => "#85A4C0FF",
+    ],
 );
