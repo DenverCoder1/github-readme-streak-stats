@@ -4,17 +4,19 @@
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
- * @return string formatted Date string
+ * @param string $format Date format to use
+ * @return string Formatted Date string
  */
-function formatDate(string $dateString): string
+function formatDate(string $dateString, string $format): string
 {
     $date = new DateTime($dateString);
     // if current year, display only month and day
     if (date_format($date, "Y") == date("Y")) {
-        return date_format($date, "M j");
+        // remove brackets and all text within them
+        return date_format($date, preg_replace("/\[.*?\]/", "", $format));
     }
-    // otherwise, display month, day, and year
-    return date_format($date, "M j, Y");
+    // otherwise, display month, day, and year (just brackets removed)
+    return date_format($date, str_replace(array("[", "]"), "", $format));
 }
 
 /**
@@ -87,15 +89,20 @@ function generateCard(array $stats, array $params = null): string
     // get requested theme, use $_REQUEST if no params array specified
     $theme = getRequestedTheme($params ?? $_REQUEST);
 
+    // get date format
+    $dateFormat = isset(($params ?? $_REQUEST)["date_format"]) 
+        ? ($params ?? $_REQUEST)["date_format"] 
+        : "M j[, Y]";
+
     // total contributions
     $totalContributions = $stats["totalContributions"];
-    $firstContribution = formatDate($stats["firstContribution"]);
+    $firstContribution = formatDate($stats["firstContribution"], $dateFormat);
     $totalContributionsRange = $firstContribution . " - Present";
 
     // current streak
     $currentStreak = $stats["currentStreak"]["length"];
-    $currentStreakStart = formatDate($stats["currentStreak"]["start"]);
-    $currentStreakEnd = formatDate($stats["currentStreak"]["end"]);
+    $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat);
+    $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat);
     $currentStreakRange = $currentStreakStart;
     if ($currentStreakStart != $currentStreakEnd) {
         $currentStreakRange .= " - " . $currentStreakEnd;
@@ -103,8 +110,8 @@ function generateCard(array $stats, array $params = null): string
 
     // longest streak
     $longestStreak = $stats["longestStreak"]["length"];
-    $longestStreakStart = formatDate($stats["longestStreak"]["start"]);
-    $longestStreakEnd = formatDate($stats["longestStreak"]["end"]);
+    $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat);
+    $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat);
     $longestStreakRange = $longestStreakStart;
     if ($longestStreakStart != $longestStreakEnd) {
         $longestStreakRange .= " - " . $longestStreakEnd;
