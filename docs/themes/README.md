@@ -69,6 +69,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |        `earth`         | ![image](https://user-images.githubusercontent.com/20955511/119410749-fcd6ae00-bcf1-11eb-8737-c78566e9e8f3.png) |
 |       `deepBlue`       | ![image](https://user-images.githubusercontent.com/20955511/127893911-23e6c0c6-2d97-4028-a2b9-1fa1063db776.png) |
 |      `holi-theme`      | ![image](https://user-images.githubusercontent.com/62163030/129030429-0a4d48aa-d61f-4d0c-ae82-891d1b2476d7.png) |
+|       `ayu-light`      | ![image](https://user-images.githubusercontent.com/37243931/131808768-8617176a-fe84-4873-b9c2-f9ee74b30d87.png) |
 
 ### Can't find the theme you like?
 
