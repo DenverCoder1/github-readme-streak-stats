@@ -758,4 +758,16 @@ return array(
         "sideLabels" => "#D6E7FFFF",
         "dates" => "#85A4C0FF",
     ],
+    "ayu-light" => [
+        "background" => "#FAFAFAFF",
+        "border" => "#F0F0F0FF",
+        "stroke" => "#BAE67EFF",
+        "ring" => "#FF9940FF",
+        "currStreakNum" => "#F07171FF",
+        "fire" => "#FF9940FF",
+        "sideNums" => "#55B4D4FF",
+        "currStreakLabel" => "#F07171FF",
+        "sideLabels" => "#55B4D4FF",
+        "dates" => "#575F66FF",
+    ],
 );
