@@ -203,7 +203,6 @@ To get the GitHub API to run locally you will need to provide a token.
 3. **Create a file** `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
 
 ```php
-# /src/config.php
 <?php
 putenv("TOKEN=ghp_example123");
 putenv("USERNAME=DenverCoder1");
