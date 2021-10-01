@@ -61,7 +61,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     Parameter     |                    Details                     |                        Example                        |
 | :---------------: | :--------------------------------------------: | :---------------------------------------------------: |
 |      `user`       |       GitHub username to show stats for        |                    `DenverCoder1`                     |
-|   `date_format`   |       Date format (Default: `M j[, Y]`)        |           See note below on format strings            |
+|   `date_format`   |       Date format (Default: `M j[, Y]`)        |    See note below on [Date Formats](#date-formats)    |
 |      `theme`      |    The theme to apply (Default: `default`)     | `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md) |
 |   `hide_border`   | Make the border transparent (Default: `false`) |                   `true` or `false`                   |
 |   `background`    |                Background color                |       **hex code** without `#` or **css color**       |
@@ -92,6 +92,12 @@ When the contribution year is equal to the current year, the characters in brack
 |  <pre>j/n/Y</pre>   |   <pre>"2020-04-14" => "14/4/2020"<br/><br/>"2021-04-14" => "14/4/2021"</pre>   |
 | <pre>[Y.]n.j</pre>  |     <pre>"2020-04-14" => "2020.4.14"<br/><br/>"2021-04-14" => "4.14"</pre>      |
 | <pre>M j[, Y]</pre> |   <pre>"2020-04-14" => "Apr 14, 2020"<br/><br/>"2021-04-14" => "Apr 14"</pre>   |
+
+### Example
+
+```md
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&date_format=[Y.]n.j)](https://git.io/streak-stats)
+```
 
 ## ℹ️ How these stats are calculated
 
