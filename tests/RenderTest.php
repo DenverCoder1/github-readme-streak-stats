@@ -57,6 +57,20 @@ final class RenderTest extends TestCase
     }
 
     /**
+     * Test date_format parameter in render
+     */
+    public function testDateFormatRender(): void
+    {
+        $year = date("Y");
+        $this->testStats["currentStreak"]["end"] = "$year-04-12";
+        $this->testParams["date_format"] = "[Y-]m-d";
+        // Check that the card is rendered as expected
+        $render = generateCard($this->testStats, $this->testParams);
+        $expected = file_get_contents("tests/expected/test_date_card.svg");
+        $this->assertEquals($expected, $render);
+    }
+
+    /**
      * Test JSON render
      */
     public function testJsonRender(): void

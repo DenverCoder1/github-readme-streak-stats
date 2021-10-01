@@ -73,12 +73,30 @@ If the `theme` parameter is specified, any color customizations specified will b
 | `currStreakLabel` |              Current streak label              |       **hex code** without `#` or **css color**       |
 |   `sideLabels`    |        Total and longest streak labels         |       **hex code** without `#` or **css color**       |
 |      `dates`      |             Date range text color              |       **hex code** without `#` or **css color**       |
+|   `date_format`   |       Date format (Default: `M j[, Y]`)        |    See note below on [Date Formats](#date-formats)    |
 |      `type`       |         Output format (Default: `svg`)         |           Current options: `svg` or `json`            |
+
+### Date Formats
+
+A custom date format can be specified by passing a string to the `date_format` parameter.
+
+The required format is to use format string characters from [PHP's date function](https://www.php.net/manual/en/datetime.format.php) with brackets around the part representing the year.
+
+When the contribution year is equal to the current year, the characters in brackets will be omitted.
+
+**Examples:**
+
+|     Date Format     |                                     Result                                      |
+| :-----------------: | :-----------------------------------------------------------------------------: |
+| <pre>d F[, Y]</pre> | <pre>"2020-04-14" => "14 April, 2020"<br/><br/>"2021-04-14" => "14 April"</pre> |
+|  <pre>j/n/Y</pre>   |   <pre>"2020-04-14" => "14/4/2020"<br/><br/>"2021-04-14" => "14/4/2021"</pre>   |
+| <pre>[Y.]n.j</pre>  |     <pre>"2020-04-14" => "2020.4.14"<br/><br/>"2021-04-14" => "4.14"</pre>      |
+| <pre>M j[, Y]</pre> |   <pre>"2020-04-14" => "Apr 14, 2020"<br/><br/>"2021-04-14" => "Apr 14"</pre>   |
 
 ### Example
 
 ```md
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00)](https://git.io/streak-stats)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&date_format=[Y.]n.j)](https://git.io/streak-stats)
 ```
 
 ## ℹ️ How these stats are calculated
