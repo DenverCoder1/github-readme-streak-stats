@@ -76,7 +76,7 @@ let preview = {
       input.id = property;
       input.name = property;
       input.setAttribute("data-property", property);
-      input.setAttribute("data-jscolor", "{ format: 'hexa' }");
+      input.setAttribute("data-jscolor", "{ format: 'hexa', onInput: 'pickerChange(this, \"" + property + "\")' }");
       input.value = value;
       // removal button
       const minus = document.createElement("button");
@@ -95,6 +95,9 @@ let preview = {
 
       //initialise jscolor on element
       jscolor.install(parent);
+
+      // check initial color value
+      checkColor(value, property);
 
       // update and exit
       this.update();
@@ -171,3 +174,15 @@ window.addEventListener(
   },
   false
 );
+
+function checkColor(color, input){
+  if (color.length == 9 && color.slice(-2) == "FF") {
+    // if color has hex alpha value -> remove it
+    document.getElementById(input).value = color.slice(0, -2);
+  }
+}
+
+function pickerChange(picker, input) {
+  // color was changed by picker - check it
+  checkColor(picker.toHEXAString(), input);
+}
