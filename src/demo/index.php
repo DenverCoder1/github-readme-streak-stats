@@ -68,8 +68,13 @@
                     <option>true</option>
                 </select>
 
-                <label for="date_format" class="date_tooltip">Date Format</label>
-                <input class="param" type="text" id="date_format" name="date_format" value="M j[, Y]" placeholder="d F[, Y] – j/n/Y – [Y.]n.j">
+                <label for="date_format">Date Format</label>
+                <select class="param" id="date_format" name="date_format" placeholder="M j[, Y]">
+                    <option>M j[, Y]</option>
+                    <option>d F[, Y]</option>
+                    <option>j/n/Y</option>
+                    <option>[Y.]n.j</option>
+                </select>
 
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
