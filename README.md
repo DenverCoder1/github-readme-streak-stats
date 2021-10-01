@@ -61,7 +61,6 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     Parameter     |                    Details                     |                        Example                        |
 | :---------------: | :--------------------------------------------: | :---------------------------------------------------: |
 |      `user`       |       GitHub username to show stats for        |                    `DenverCoder1`                     |
-|   `date_format`   |       Date format (Default: `M j[, Y]`)        |    See note below on [Date Formats](#date-formats)    |
 |      `theme`      |    The theme to apply (Default: `default`)     | `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md) |
 |   `hide_border`   | Make the border transparent (Default: `false`) |                   `true` or `false`                   |
 |   `background`    |                Background color                |       **hex code** without `#` or **css color**       |
@@ -74,6 +73,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 | `currStreakLabel` |              Current streak label              |       **hex code** without `#` or **css color**       |
 |   `sideLabels`    |        Total and longest streak labels         |       **hex code** without `#` or **css color**       |
 |      `dates`      |             Date range text color              |       **hex code** without `#` or **css color**       |
+|   `date_format`   |       Date format (Default: `M j[, Y]`)        |    See note below on [Date Formats](#date-formats)    |
 |      `type`       |         Output format (Default: `svg`)         |           Current options: `svg` or `json`            |
 
 ### Date Formats
