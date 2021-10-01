@@ -61,6 +61,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     Parameter     |                    Details                     |                        Example                        |
 | :---------------: | :--------------------------------------------: | :---------------------------------------------------: |
 |      `user`       |       GitHub username to show stats for        |                    `DenverCoder1`                     |
+|   `date_format`   |       Date format (Default: `M j[, Y]`)        |           See note below on format strings            |
 |      `theme`      |    The theme to apply (Default: `default`)     | `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md) |
 |   `hide_border`   | Make the border transparent (Default: `false`) |                   `true` or `false`                   |
 |   `background`    |                Background color                |       **hex code** without `#` or **css color**       |
@@ -75,11 +76,22 @@ If the `theme` parameter is specified, any color customizations specified will b
 |      `dates`      |             Date range text color              |       **hex code** without `#` or **css color**       |
 |      `type`       |         Output format (Default: `svg`)         |           Current options: `svg` or `json`            |
 
-### Example
+### Date Formats
 
-```md
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=denvercoder1&currStreakNum=2FD3EB&fire=pink&sideLabels=F00)](https://git.io/streak-stats)
-```
+A custom date format can be specified by passing a string to the `date_format` parameter.
+
+The required format is to use format string characters from [PHP's date function](https://www.php.net/manual/en/datetime.format.php) with brackets around the part representing the year.
+
+When the contribution year is equal to the current year, the characters in brackets will be omitted.
+
+**Examples:**
+
+|     Date Format     |                                     Result                                      |
+| :-----------------: | :-----------------------------------------------------------------------------: |
+| <pre>d F[, Y]</pre> | <pre>"2020-04-14" => "14 April, 2020"<br/><br/>"2021-04-14" => "14 April"</pre> |
+|  <pre>j/n/Y</pre>   |   <pre>"2020-04-14" => "14/4/2020"<br/><br/>"2021-04-14" => "14/4/2021"</pre>   |
+| <pre>[Y.]n.j</pre>  |     <pre>"2020-04-14" => "2020.4.14"<br/><br/>"2021-04-14" => "4.14"</pre>      |
+| <pre>M j[, Y]</pre> |   <pre>"2020-04-14" => "Apr 14, 2020"<br/><br/>"2021-04-14" => "Apr 14"</pre>   |
 
 ## ℹ️ How these stats are calculated
 
