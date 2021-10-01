@@ -28,7 +28,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
-<body <?php echo $_COOKIE["darkmode"] == "on" ? 'data-theme="dark"' : ""; ?>>
+<body <?php echo (isset($_COOKIE["darkmode"]) && $_COOKIE["darkmode"] == "on") ? 'data-theme="dark"' : ""; ?>>
     <h1>🔥 GitHub Readme Streak Stats</h1>
 
     <!-- GitHub badges/links section -->
