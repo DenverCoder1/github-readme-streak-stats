@@ -74,7 +74,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |   `sideLabels`    |        Total and longest streak labels         |       **hex code** without `#` or **css color**       |
 |      `dates`      |             Date range text color              |       **hex code** without `#` or **css color**       |
 |   `date_format`   |       Date format (Default: `M j[, Y]`)        |    See note below on [Date Formats](#date-formats)    |
-|      `type`       |         Output format (Default: `svg`)         |           Current options: `svg` or `json`            |
+|      `type`       |         Output format (Default: `svg`)         |           Current options: `svg`, `png` or `json`            |
 
 ### Date Formats
 
