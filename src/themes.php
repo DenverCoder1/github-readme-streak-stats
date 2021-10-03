@@ -770,4 +770,16 @@ return array(
         "sideLabels" => "#55B4D4FF",
         "dates" => "#575F66FF",
     ],
+    "noctis-minimus" => [
+        "background" => "#1b2932",
+        "border" => "#F0F0F0FF",
+        "stroke" => "#c5cdd3",
+        "ring" => "#d3b692",
+        "currStreakNum" => "#72b7c0",
+        "fire" => "#d3b692",
+        "sideNums" => "#72b7c0",
+        "currStreakLabel" => "#72b7c0",
+        "sideLabels" => "#d3b692",
+        "dates" => "#c5cdd3",
+    ],
 );
