@@ -329,7 +329,7 @@ function echoAsPng(string $svg): void
     $imagick->setBackgroundColor(new ImagickPixel('transparent'));
 
     // add svg image
-    $imagick->readImageBlob($svg);
+    $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
     $imagick->setImageFormat('png');
 
     // echo PNG data
