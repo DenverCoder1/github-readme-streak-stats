@@ -18,8 +18,9 @@
 
 ## ⚡ Quick setup
 
-1. Copy-paste the markdown below into your GitHub profile README
-2. Replace the value after `?user=` with your GitHub username
+1. Install the package with `composer install`
+2. Copy-paste the markdown below into your GitHub profile README
+3. Replace the value after `?user=` with your GitHub username
 
 ```md
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1)](https://git.io/streak-stats)
@@ -74,7 +75,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |   `sideLabels`    |        Total and longest streak labels         |       **hex code** without `#` or **css color**       |
 |      `dates`      |             Date range text color              |       **hex code** without `#` or **css color**       |
 |   `date_format`   |       Date format (Default: `M j[, Y]`)        |    See note below on [Date Formats](#date-formats)    |
-|      `type`       |         Output format (Default: `svg`)         |           Current options: `svg`, `png` or `json`            |
+|      `type`       |         Output format (Default: `svg`)         |       Current options: `svg`, `png` or `json`         |
 
 ### Date Formats
 
@@ -188,6 +189,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 - [PHP 7.4+](https://www.apachefriends.org/index.html)
 - [Composer](https://getcomposer.org)
+- [Imagick](https://www.php.net/imagick)
 
 #### Linux
 
