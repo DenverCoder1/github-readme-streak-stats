@@ -312,14 +312,14 @@ function convertSvgToPng(string $svg): string
     $svg = preg_replace('/(animation: fadein.*?;)/m', 'opacity: 1;', $svg);
     $svg = preg_replace('/(animation: currentstreak.*?;)/m', 'font-size: 28px;', $svg);
 
-    // create canvas
-    $imagick = new Imagick();
-    $imagick->setBackgroundColor(new ImagickPixel('transparent'));
+    // save SVG in a unique filename
+    $filename = md5($svg) . ".svg";
+    file_put_contents($filename, '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
 
-    // add svg image
-    $imagick->setFormat('svg');
-    $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
-    $imagick->setFormat('png');
+    // create Imagick object from SVG
+    $imagick = new Imagick($filename);
+    $imagick->setImageFormat("png");
+    $imagick->setBackgroundColor(new ImagickPixel('transparent'));
 
     // get PNG data
     $png = $imagick->getImageBlob();
