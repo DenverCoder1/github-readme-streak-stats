@@ -72,7 +72,6 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |       `ayu-light`      | ![image](https://user-images.githubusercontent.com/37243931/131808768-8617176a-fe84-4873-b9c2-f9ee74b30d87.png) |
 |       `javascript`     | ![image](https://user-images.githubusercontent.com/62628408/135756315-7a4b8134-8558-4e74-9f24-f8a1a2173b6f.png) |
 |     `noctis-minimus`   | ![image](https://user-images.githubusercontent.com/20955511/135754306-58ceccde-90d9-46f9-a7b2-1cb54b6fbe24.png) |
-
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/) or by customizing the [url parameters](/README.md#-options).
