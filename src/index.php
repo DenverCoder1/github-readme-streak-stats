@@ -21,7 +21,7 @@ if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
         ? "Missing token or username in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
 
-    createCards($stats, $card, $requestedType, 'error');
+    renderOutput(generateErrorCard($message));
 }
 
 
@@ -44,21 +44,9 @@ try {
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
 } catch (InvalidArgumentException $error) {
-    $card = generateErrorCard($error->getMessage());
-    createCards($stats, $card, $requestedType, 'error');
+    renderOutput(generateErrorCard($error->getMessage()));
 }
 
-
-function createCards($param, $card, $requestedType, $cardType = null)
-{
-    if ($cardType == 'error') {
-        $card = generateErrorCard($param);
-    } else {
-        $card = generateCard($param);
-    }
-
-
-}
 function renderOutput(string $output): void
 {
     $requestedType = $_REQUEST['type'] ?? 'svg';
