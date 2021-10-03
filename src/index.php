@@ -8,7 +8,7 @@ require_once "card.php";
 
 // load .env
 
-$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__,1));
+$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 
 $requestedType = $_REQUEST['type'] ?? 'svg';
