@@ -21,6 +21,13 @@
     <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/toggle-dark.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="mask-icon" href="icon.svg" color="#fb8c00">
+
     <script type="text/javascript" src="./js/script.js" defer></script>
     <script type="text/javascript" src="./js/accordion.js" defer></script>
     <script type="text/javascript" src="./js/toggle-dark.js" defer></script>
@@ -66,6 +73,16 @@
                 <select class="param" id="hide_border" name="hide_border" placeholder="false">
                     <option>false</option>
                     <option>true</option>
+                </select>
+
+                <label for="date_format">Date Format</label>
+                <select class="param" id="date_format" name="date_format">
+                    <option value="M j[, Y]">Aug 10, 2016</option>
+                    <option value="j M[ Y]">10 Aug 2016</option>
+                    <option value="[Y ]M j">2016 Aug 10</option>
+                    <option value="j/n[/Y]">10/8/2016</option>
+                    <option value="n/j[/Y]">8/10/2016</option>
+                    <option value="[Y.]n.j">2016.8.10</option>
                 </select>
 
                 <details class="advanced">
