@@ -71,12 +71,17 @@ let preview = {
       label.innerText = property;
       label.setAttribute("data-property", property);
       // color picker
+      const jscolorConfig = {
+        format: 'hexa',
+        onChange: 'pickerChange(this, "'+property+'")',
+        onInput: 'pickerChange(this, "'+property+'")'
+      };
       const input = document.createElement("input");
       input.className = "param jscolor";
       input.id = property;
       input.name = property;
       input.setAttribute("data-property", property);
-      input.setAttribute("data-jscolor", "{ format: 'hex', onInput: 'pickerChange(this, \"" + property + "\")' }");
+      input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
       input.value = value;
       // removal button
       const minus = document.createElement("button");
