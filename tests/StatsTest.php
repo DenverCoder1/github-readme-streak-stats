@@ -2,17 +2,20 @@
 use PHPUnit\Framework\TestCase;
 
 // load functions
+require_once dirname(__DIR__,1).'/vendor/autoload.php';
 require_once "src/stats.php";
 
-// load config if the file exists
-if (file_exists("src/config.php")) {
-    require_once "src/config.php";
-}
+// load .env
+$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__,1));
+$dotenv->safeLoad();
+
+
 // if environment variables are not loaded, display error
-if (!getenv("TOKEN") || !getenv("USERNAME")) {
-    $message = file_exists("config.php")
+if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
+    $message = file_exists(dirname(__DIR__.'.env',1))
     ? "Missing token or username in config. Check Contributing.md for details."
-    : "src/config.php was not found. Check Contributing.md for details.";
+    : ".env was not found. Check Contributing.md for details.";
+
     die($message);
 }
 

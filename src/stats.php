@@ -93,8 +93,8 @@ function getContributionDates(array $contributionGraphs): array
 function getGitHubApiResponse(string $url): string
 {
     $ch = curl_init();
-    $token = getenv("TOKEN");
-    $username = getenv("USERNAME");
+    $token = $_SERVER["TOKEN"];
+    $username = $_SERVER["USERNAME"];
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "Accept: application/vnd.github.v3+json",
         "Authorization: token $token",
@@ -108,7 +108,9 @@ function getGitHubApiResponse(string $url): string
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $response = curl_exec($ch);
+
     curl_close($ch);
+
     return $response;
 }
 

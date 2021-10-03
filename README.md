@@ -226,12 +226,11 @@ To get the GitHub API to run locally you will need to provide a token.
 
 1. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
 2. Scroll to the bottom and click **"Generate token"**
-3. **Create a file** `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
+3. **Copy and paste** `.env.example` in the root `.env` directory and replace `TOKEN=` with **your token** and `USERNAME=` with **your username**:
 
 ```php
-<?php
-putenv("TOKEN=ghp_example123");
-putenv("USERNAME=DenverCoder1");
+TOKEN=
+USERNAME=
 ```
 
 ### Running the app locally
