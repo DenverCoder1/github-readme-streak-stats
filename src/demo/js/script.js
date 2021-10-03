@@ -76,7 +76,7 @@ let preview = {
       input.id = property;
       input.name = property;
       input.setAttribute("data-property", property);
-      input.setAttribute("data-jscolor", "{ format: 'hexa', onInput: 'pickerChange(this, \"" + property + "\")' }");
+      input.setAttribute("data-jscolor", "{ format: 'hex', onInput: 'pickerChange(this, \"" + property + "\")' }");
       input.value = value;
       // removal button
       const minus = document.createElement("button");
