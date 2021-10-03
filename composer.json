@@ -25,7 +25,10 @@
     "phpunit/phpunit": "^9"
   },
   "scripts": {
-    "start": "php -S localhost:8000 -t src",
+    "start": [
+      "Composer\\Config::disableProcessTimeout",
+      "php -S localhost:8000 -t src"
+    ],
     "test": "./vendor/bin/phpunit --testdox tests"
   }
 }
