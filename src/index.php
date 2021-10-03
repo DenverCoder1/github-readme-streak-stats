@@ -8,13 +8,25 @@ require_once "card.php";
 if (file_exists("config.php")) {
     require_once "config.php";
 }
+
+$requestedType = $_REQUEST['type'] ?? 'svg';
+
 // if environment variables are not loaded, display error
 if (!getenv("TOKEN") || !getenv("USERNAME")) {
     $message = file_exists("config.php")
     ? "Missing token or username in config. Check Contributing.md for details."
     : "src/config.php was not found. Check Contributing.md for details.";
-    die(generateErrorCard($message));
+
+
+    $card = generateErrorCard($message);
+    if ($requestedType === "png") {
+        echoAsPng($card);
+    }
+    echoAsSvg($card);
+
+    exit;
 }
+
 
 // set cache to refresh once per day
 $timestamp = gmdate("D, d M Y 23:59:00") . " GMT";
@@ -35,10 +47,16 @@ try {
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
 } catch (InvalidArgumentException $error) {
-    die(generateErrorCard($error->getMessage()));
+    $card = generateErrorCard($error->getMessage());
+    if ($requestedType === "png") {
+        echoAsPng($card);
+    }
+    echoAsSvg($card);
+
+    exit;
 }
 
-if (isset($_REQUEST["type"]) && $_REQUEST["type"] === "json") {
+if ($requestedType === "json") {
     // set content type to JSON
     header('Content-Type: application/json');
     // echo JSON data for streak stats
@@ -47,8 +65,8 @@ if (isset($_REQUEST["type"]) && $_REQUEST["type"] === "json") {
     exit;
 }
 
-// set content type to SVG image
-header("Content-Type: image/svg+xml");
-
-// echo SVG data for streak stats
-echo generateCard($stats);
+$card = generateCard($stats);
+if ($requestedType === "png") {
+    echoAsPng($card);
+}
+echoAsSvg($card);
