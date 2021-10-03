@@ -114,6 +114,7 @@ function getGitHubApiResponse(string $url): string
         {
             throw new InvalidArgumentException("You don't have valid SSL Certificate installed or XAMPP.");
         }
+        throw new InvalidArgumentException("Something is wrong with getGitHubApiResponse().");
     }
 
     curl_close($ch);
