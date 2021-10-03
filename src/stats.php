@@ -110,9 +110,8 @@ function getGitHubApiResponse(string $url): string
     $response = curl_exec($ch);
 
     //Handles curl errors
-    if($response==false){
-        if(str_contains(curl_error($ch),'unable to get local issuer certificate'))
-        {
+    if($response === false) {
+        if(str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
             throw new InvalidArgumentException("You don't have valid SSL Certificate installed or XAMPP.");
         }
         throw new InvalidArgumentException("Something is wrong with getGitHubApiResponse().");
