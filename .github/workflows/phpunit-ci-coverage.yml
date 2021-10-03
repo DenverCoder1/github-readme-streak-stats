@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Imagick
-        run: sudo apt install php-imagick -y
       - uses: php-actions/composer@v6
+        with:
+          php_extensions: imagick
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
