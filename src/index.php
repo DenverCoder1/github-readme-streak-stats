@@ -1,4 +1,6 @@
-<?php declare (strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 
 // load functions
@@ -15,9 +17,9 @@ $requestedType = $_REQUEST['type'] ?? 'svg';
 
 // if environment variables are not loaded, display error
 if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
-    $message = file_exists(dirname(__DIR__.'.env',1))
-    ? "Missing token or username in config. Check Contributing.md for details."
-    : ".env was not found. Check Contributing.md for details.";
+    $message = file_exists(dirname(__DIR__ . '.env', 1))
+        ? "Missing token or username in config. Check Contributing.md for details."
+        : ".env was not found. Check Contributing.md for details.";
 
     $card = generateErrorCard($message);
     if ($requestedType === "png") {

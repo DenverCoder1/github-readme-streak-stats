@@ -1,4 +1,7 @@
-<?php declare (strict_types = 1);
+<?php
+
+declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase;
 
 // load functions
@@ -56,7 +59,7 @@ final class OptionsTest extends TestCase
         foreach ($themes as $theme => $colors) {
             // check that there are no extra keys in the theme
             $this->assertEquals(
-                array_diff_key($colors, $this->defaultTheme), 
+                array_diff_key($colors, $this->defaultTheme),
                 array(),
                 "The theme '$theme' contains invalid parameters."
             );
