@@ -19,7 +19,8 @@
   },
   "require": {
     "php": "^7.4|^8.0",
-    "ext-imagick": "*"
+    "ext-imagick": "*",
+    "vlucas/phpdotenv": "^5.3"
   },
   "require-dev": {
     "phpunit/phpunit": "^9"
