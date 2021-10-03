@@ -48,6 +48,13 @@ try {
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
 } catch (InvalidArgumentException $error) {
+    if ($requestedType === "json") {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // echo JSON error message
+        echo json_encode(array("error"=>"User could not be found."));
+        exit;
+    }
     $card = generateErrorCard($error->getMessage());
     if ($requestedType === "png") {
         echoAsPng($card);
