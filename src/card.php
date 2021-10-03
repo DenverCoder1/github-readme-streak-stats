@@ -305,7 +305,7 @@ function convertSvgToPng(string $svg): string
 {
     // trim off all whitespaces to make it a valid SVG string
     $svg = trim($svg);
-    
+
     // remove style and animations
     $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
     $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
