@@ -13,8 +13,6 @@ require_once "card.php";
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 
-$requestedType = $_REQUEST['type'] ?? 'svg';
-
 // if environment variables are not loaded, display error
 if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
     $message = file_exists(dirname(__DIR__ . '.env', 1))
@@ -44,27 +42,8 @@ try {
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
 } catch (InvalidArgumentException $error) {
-    renderOutput(generateErrorCard($error->getMessage()));
+    renderOutput(generateErrorCard($error->getMessage()),true);
 }
+renderOutput(generateCard($stats));
 
-function renderOutput(string $output): void
-{
-    $requestedType = $_REQUEST['type'] ?? 'svg';
-    // set headers and echo response based on type
 
-    if ($requestedType === "png") {
-        echoAsPng($output);
-        exit;
-    }
-
-    if ($requestedType === "json") {
-        // set content type to JSON
-        header('Content-Type: application/json');
-        // echo JSON data for streak stats
-        echo json_encode($output);
-        // exit
-        exit;
-    }
-
-    echoAsSvg($output);
-}

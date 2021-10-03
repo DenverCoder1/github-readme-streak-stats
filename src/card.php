@@ -3,6 +3,43 @@
 declare(strict_types=1);
 
 /**
+ * Set headers and echo response based on type
+ *
+ * @param string $output
+ * @param string If a message is a error
+ * @return void 
+ */
+function renderOutput(string $output, bool $error = false): void
+{
+    $requestedType = $_REQUEST['type'] ?? 'svg';
+
+    if ($requestedType === "json" && $error === false) {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // echo JSON data for streak stats
+        echo json_encode($output);
+        // exit
+        exit;
+    }
+
+    if ($requestedType === "json" && $error === true) {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // echo JSON error message
+        echo json_encode(array("error" => $output));
+        exit;
+    }
+
+    if ($requestedType === "png") {
+        echoAsPng($output);
+        exit;
+    }
+    
+    echoAsSvg($output);
+}
+
+
+/**
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
