@@ -71,6 +71,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |      `holi-theme`      | ![image](https://user-images.githubusercontent.com/62163030/129030429-0a4d48aa-d61f-4d0c-ae82-891d1b2476d7.png) |
 |       `ayu-light`      | ![image](https://user-images.githubusercontent.com/37243931/131808768-8617176a-fe84-4873-b9c2-f9ee74b30d87.png) |
 |       `javascript`     | ![image](https://user-images.githubusercontent.com/62628408/135756315-7a4b8134-8558-4e74-9f24-f8a1a2173b6f.png) |
+|   `javascript-dark`    | ![image](https://user-images.githubusercontent.com/62628408/135761927-a4acd543-c90b-430d-92a3-c96b32bfc390.png) |
 |     `noctis-minimus`   | ![image](https://user-images.githubusercontent.com/20955511/135754306-58ceccde-90d9-46f9-a7b2-1cb54b6fbe24.png) |
 ### Can't find the theme you like?
 
