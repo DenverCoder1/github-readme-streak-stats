@@ -108,9 +108,7 @@ function getGitHubApiResponse(string $url): string
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $response = curl_exec($ch);
-
     curl_close($ch);
-
     return $response;
 }
 
