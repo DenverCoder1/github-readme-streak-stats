@@ -289,3 +289,47 @@ function generateErrorCard(string $message, array $params = null): string
     </svg>
 ";
 }
+
+/**
+ * Displays a card as an SVG image
+ *
+ * @param string $svg The SVG for the card to display
+ */
+function echoAsSvg(string $svg): void {
+    // set content type to SVG image
+    header("Content-Type: image/svg+xml");
+
+    // echo SVG data for streak stats
+    echo $svg;
+}
+
+/**
+ * Displays a card as a PNG image
+ *
+ * @param string $svg The SVG for the card to display
+ *
+ * @throws ImagickException
+ */
+function echoAsPng(string $svg): void {
+    // remove style and animations
+    $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
+    $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
+    $svg = preg_replace('/(animation: fadein.*?;)/m', 'opacity: 1;', $svg);
+    $svg = preg_replace('/(animation: currentstreak.*?;)/m', 'font-size: 28px;', $svg);
+
+    // create canvas
+    $imagick = new Imagick();
+    $imagick->setBackgroundColor(new ImagickPixel('transparent'));
+
+    // add svg image
+    $imagick->readImageBlob($svg);
+    $imagick->setImageFormat('png');
+
+    // echo PNG data
+    header('Content-Type: image/png');
+    echo $imagick->getImageBlob();
+
+    // clean up memory
+    $imagick->clear();
+    $imagick->destroy();
+}
