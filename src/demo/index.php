@@ -68,6 +68,16 @@
                     <option>true</option>
                 </select>
 
+                <label for="date_format">Date Format</label>
+                <select class="param" id="date_format" name="date_format">
+                    <option value="M j[, Y]">Aug 10, 2016</option>
+                    <option value="j M[ Y]">10 Aug 2016</option>
+                    <option value="[Y ]M j">2016 Aug 10</option>
+                    <option value="j/n[/Y]">10/8/2016</option>
+                    <option value="n/j[/Y]">8/10/2016</option>
+                    <option value="[Y.]n.j">2016.8.10</option>
+                </select>
+
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
                     <div class="content parameters">
