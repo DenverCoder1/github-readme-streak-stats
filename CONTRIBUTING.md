@@ -11,6 +11,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 * [PHP 7.4+](https://www.apachefriends.org/index.html)
 * [Composer](https://getcomposer.org)
+* [Imagick](https://www.php.net/imagick)
 
 #### Linux
 
@@ -51,6 +52,13 @@ putenv("TOKEN=ghp_example123");
 putenv("USERNAME=DenverCoder1");
 ```
 
+### Install dependencies
+Run the following command to install all the required dependencies to work on this project.
+
+```bash
+composer install
+```
+
 ### Running the app locally
 
 ```bash
@@ -62,12 +70,6 @@ Open http://localhost:8000/?user=DenverCoder1 to run the project locally
 Open http://localhost:8000/demo/ to run the demo site
 
 ### Running the tests
-
-Before you can run tests, PHPUnit must be installed. You can install it using Composer by running the following command.
-
-```bash
-composer install
-```
 
 Run the following command to run the PHPUnit test script which will verify that the tested functionality is still working.
 

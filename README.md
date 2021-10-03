@@ -18,9 +18,8 @@
 
 ## ⚡ Quick setup
 
-1. Install the package with `composer install`
-2. Copy-paste the markdown below into your GitHub profile README
-3. Replace the value after `?user=` with your GitHub username
+1. Copy-paste the markdown below into your GitHub profile README
+2. Replace the value after `?user=` with your GitHub username
 
 ```md
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1)](https://git.io/streak-stats)
@@ -214,6 +213,13 @@ git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
 cd github-readme-streak-stats
 ```
 
+### Install dependencies
+Run the following command to install all the required dependencies to work on this project.
+
+```bash
+composer install
+```
+
 ### Authorization
 
 To get the GitHub API to run locally you will need to provide a token.
@@ -239,12 +245,6 @@ Open <http://localhost:8000/?user=DenverCoder1> to run the project locally.
 Open <http://localhost:8000/demo/> to run the demo site.
 
 ### Running the tests
-
-Before you can run tests, PHPUnit must be installed. You can install it using Composer by running the following command.
-
-```bash
-composer install
-```
 
 Run the following command to run the PHPUnit test script which will verify that the tested functionality is still working.
 
