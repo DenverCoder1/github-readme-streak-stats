@@ -48,14 +48,7 @@ try {
     createCards($stats, $card, $requestedType, 'error');
 }
 
-if ($requestedType === "json") {
-    // set content type to JSON
-    header('Content-Type: application/json');
-    // echo JSON data for streak stats
-    echo json_encode($stats);
-    // exit
-    exit;
-}
+
 function createCards($param, $card, $requestedType, $cardType = null)
 {
     if ($cardType == 'error') {
@@ -64,9 +57,26 @@ function createCards($param, $card, $requestedType, $cardType = null)
         $card = generateCard($param);
     }
 
+
+}
+function renderOutput(string $output): void
+{
+    $requestedType = $_REQUEST['type'] ?? 'svg';
+    // set headers and echo response based on type
+
     if ($requestedType === "png") {
-        echoAsPng($card);
+        echoAsPng($output);
         exit;
     }
-    echoAsSvg($card);
+
+    if ($requestedType === "json") {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // echo JSON data for streak stats
+        echo json_encode($output);
+        // exit
+        exit;
+    }
+
+    echoAsSvg($output);
 }
