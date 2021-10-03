@@ -770,4 +770,16 @@ return array(
         "sideLabels" => "#55B4D4FF",
         "dates" => "#575F66FF",
     ],
+    "JavaScript" => [
+        "background" => "#FFD600FF",
+        "border" => "#000000",
+        "stroke" => "#000000",
+        "ring" => "#000000",
+        "currStreakNum" => "#000000",
+        "fire" => "#FFFFFF",
+        "sideNums" => "#000000",
+        "currStreakLabel" => "#000000",
+        "sideLabels" => "#000000",
+        "dates" => "#000000",
+    ],
 );
