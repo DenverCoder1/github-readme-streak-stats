@@ -110,6 +110,15 @@ function getGitHubApiResponse(string $url): string
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $response = curl_exec($ch);
+
+    //Handles curl errors
+    if($response === false) {
+        if(str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
+            throw new InvalidArgumentException("You don't have valid SSL Certificate installed or XAMPP.");
+        }
+        throw new InvalidArgumentException("Something is wrong with getGitHubApiResponse().");
+    }
+
     curl_close($ch);
     return $response;
 }
