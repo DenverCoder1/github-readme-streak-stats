@@ -1,4 +1,6 @@
-<?php declare (strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Convert date from Y-M-D to more human-readable format
@@ -295,7 +297,8 @@ function generateErrorCard(string $message, array $params = null): string
  *
  * @param string $svg The SVG for the card to display
  */
-function echoAsSvg(string $svg): void {
+function echoAsSvg(string $svg): void
+{
     // set content type to SVG image
     header("Content-Type: image/svg+xml");
 
@@ -310,10 +313,11 @@ function echoAsSvg(string $svg): void {
  *
  * @throws ImagickException
  */
-function echoAsPng(string $svg): void {
+function echoAsPng(string $svg): void
+{
     // trim off all whitespaces to make it a valid SVG string
     $svg = trim($svg);
-
+    
     // remove style and animations
     $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
     $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
