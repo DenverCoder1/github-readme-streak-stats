@@ -90,6 +90,8 @@
                         <button class="plus btn" onclick="return preview.addProperty();">+</button>
                     </div>
                 </details>
+                <button class="btn" type="button" onclick='return exportPhp()'>button</button>
+                <textarea id="test"></textarea>
 
                 <input class="btn" type="submit" value="Submit">
             </form>

@@ -12,7 +12,7 @@ let preview = {
         let obj = { ...acc };
         let value = next.value;
 
-        if (value.indexOf('#') >= 0) {
+        if (value.indexOf("#") >= 0) {
           // if the value is colour, remove the hash sign
           value = value.replace(/#/g, "");
           if (value.length > 6) {
@@ -76,7 +76,12 @@ let preview = {
       input.id = property;
       input.name = property;
       input.setAttribute("data-property", property);
-      input.setAttribute("data-jscolor", "{ format: 'hexa', onInput: 'pickerChange(this, \"" + property + "\")' }");
+      input.setAttribute(
+        "data-jscolor",
+        "{ format: 'hexa', onInput: 'pickerChange(this, \"" +
+          property +
+          "\")' }"
+      );
       input.value = value;
       // removal button
       const minus = document.createElement("button");
@@ -175,7 +180,53 @@ window.addEventListener(
   false
 );
 
-function checkColor(color, input){
+function exportPhp() {
+  let properties = [
+    "border",
+    "stroke",
+    "ring",
+    "fire",
+    "currStreakNum",
+    "sideNums",
+    "currStreakLabel",
+    "sideLabels",
+    "dates",
+    "background",
+  ];
+  let array = Array.from(document.querySelectorAll(".param")).reduce(
+    (acc, next) => {
+      let obj = { ...acc };
+      let value = next.value;
+      if (value.indexOf("#") >= 0) {
+        // if the value is colour, remove the hash sign
+        value = value.replace(/#/g, "");
+        if (value.length > 6) {
+          // if the value is in hexa and opacity is 1, remove FF
+          value = value.replace(/(F|f){2}$/, "");
+        }
+      }
+      obj[next.id] = value;
+      return obj;
+    },
+    {}
+  );
+  var exportPhp = {};
+
+  for (const [key, val] of Object.entries(array)) {
+    if (properties.includes(key) > 0) {
+      exportPhp[key] = val;
+    }
+  }
+
+  fetch("/demo/json_decode.php", {
+    method: "POST",
+    body: JSON.stringify({ json: exportPhp }),
+  })
+    .then((response) => response.text())
+    .then((html) => (document.getElementById("test").value = html));
+}
+
+function checkColor(color, input) {
   if (color.length == 9 && color.slice(-2) == "FF") {
     // if color has hex alpha value -> remove it
     document.getElementById(input).value = color.slice(0, -2);
