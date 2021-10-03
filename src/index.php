@@ -21,6 +21,14 @@ if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
         ? "Missing token or username in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
 
+    if ($requestedType === "json") {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // echo JSON error message
+        echo json_encode(array("error" => $message));
+        exit;
+    }
+    
     $card = generateErrorCard($message);
     if ($requestedType === "png") {
         echoAsPng($card);
@@ -50,6 +58,13 @@ try {
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
 } catch (InvalidArgumentException $error) {
+    if ($requestedType === "json") {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // echo JSON error message
+        echo json_encode(array("error" => $error->getMessage()));
+        exit;
+    }
     $card = generateErrorCard($error->getMessage());
     if ($requestedType === "png") {
         echoAsPng($card);
