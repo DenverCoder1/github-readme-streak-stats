@@ -196,11 +196,11 @@ function generateCard(array $stats, array $params = null): string
 
                 <!-- ring around number -->
                 <circle cx='247.5' cy='71' r='40' style='fill:none;stroke:{$theme["ring"]};stroke-width:5;opacity: 0; animation: fadein 0.5s linear forwards 0.4s;'></circle>
-                <ellipse cx='247.5' cy='32' rx='13' ry='18' fill='{$theme["background"]}' />
+                <ellipse cx='247.5' cy='32' rx='13' ry='18' fill='{$theme["background"]}' stroke-opacity='0' />
                 <!-- fire icon -->
-                <g style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
-                    <path d=' M 235.5 19.5 L 259.5 19.5 L 259.5 43.5 L 235.5 43.5 L 235.5 19.5 Z ' fill='none'/>
-                    <path d=' M 249 20.17 C 249 20.17 249.74 22.82 249.74 24.97 C 249.74 27.03 248.39 28.7 246.33 28.7 C 244.26 28.7 242.7 27.03 242.7 24.97 L 242.73 24.61 C 240.71 27.01 239.5 30.12 239.5 33.5 C 239.5 37.92 243.08 41.5 247.5 41.5 C 251.92 41.5 255.5 37.92 255.5 33.5 C 255.5 28.11 252.91 23.3 249 20.17 Z  M 247.21 38.5 C 245.43 38.5 243.99 37.1 243.99 35.36 C 243.99 33.74 245.04 32.6 246.8 32.24 C 248.57 31.88 250.4 31.03 251.42 29.66 C 251.81 30.95 252.01 32.31 252.01 33.7 C 252.01 36.35 249.86 38.5 247.21 38.5 Z ' fill='{$theme["fire"]}'/>
+                <g style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s; stroke-opacity: 0;'>
+                    <path d=' M 235.5 19.5 L 259.5 19.5 L 259.5 43.5 L 235.5 43.5 L 235.5 19.5 Z ' fill='none' stroke-opacity='0'/>
+                    <path d=' M 249 20.17 C 249 20.17 249.74 22.82 249.74 24.97 C 249.74 27.03 248.39 28.7 246.33 28.7 C 244.26 28.7 242.7 27.03 242.7 24.97 L 242.73 24.61 C 240.71 27.01 239.5 30.12 239.5 33.5 C 239.5 37.92 243.08 41.5 247.5 41.5 C 251.92 41.5 255.5 37.92 255.5 33.5 C 255.5 28.11 252.91 23.3 249 20.17 Z  M 247.21 38.5 C 245.43 38.5 243.99 37.1 243.99 35.36 C 243.99 33.74 245.04 32.6 246.8 32.24 C 248.57 31.88 250.4 31.03 251.42 29.66 C 251.81 30.95 252.01 32.31 252.01 33.7 C 252.01 36.35 249.86 38.5 247.21 38.5 Z ' fill='{$theme["fire"]}' stroke-opacity='0'/>
                 </g>
 
             </g>
@@ -311,6 +311,9 @@ function echoAsSvg(string $svg): void {
  * @throws ImagickException
  */
 function echoAsPng(string $svg): void {
+    // trim off all whitespaces to make it a valid SVG string
+    $svg = trim($svg);
+
     // remove style and animations
     $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
     $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
