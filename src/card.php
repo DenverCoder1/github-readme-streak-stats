@@ -13,8 +13,10 @@ function renderOutput(string|array $output, bool $error = false): void
 {
     $requestedType = $_REQUEST['type'] ?? 'svg';
 
+    $card = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
+
     if ($requestedType === "json") {
-        $data = $error ? array("error" => $output) : $output;
+        $data = gettype($output) === "string" ? array("error" => $output) : $output;
         // set content type to JSON
         header('Content-Type: application/json');
         // echo JSON error message
@@ -23,11 +25,11 @@ function renderOutput(string|array $output, bool $error = false): void
     }
 
     if ($requestedType === "png") {
-        echoAsPng($output);
+        echoAsPng($card);
         exit;
     }
     
-    echoAsSvg($output);
+    echoAsSvg($card);
 }
 
 
