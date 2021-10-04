@@ -163,18 +163,19 @@ function getYearJoined(string $user): int
  */
 function getContributionStats(array $contributions): array
 {
-    $today = array_key_last($contributions);
+    $today = array_key_last($contributions) ?? date("Y-m-d");
+    $first = array_key_first($contributions) ?? date("Y-m-d");
     $stats = [
         "totalContributions" => 0,
         "firstContribution" => "",
         "longestStreak" => [
-            "start" => array_key_first($contributions),
-            "end" => array_key_first($contributions),
+            "start" => $first,
+            "end" => $first,
             "length" => 0,
         ],
         "currentStreak" => [
-            "start" => array_key_first($contributions),
-            "end" => array_key_first($contributions),
+            "start" => $first,
+            "end" => $first,
             "length" => 0,
         ],
     ];
