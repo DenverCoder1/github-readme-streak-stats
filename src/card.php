@@ -358,7 +358,7 @@ function echoAsPng(string $svg): void
 {
     // trim off all whitespaces to make it a valid SVG string
     $svg = trim($svg);
-    
+
     // remove style and animations
     $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
     $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
@@ -370,8 +370,9 @@ function echoAsPng(string $svg): void
     $imagick->setBackgroundColor(new ImagickPixel('transparent'));
 
     // add svg image
+    $imagick->setFormat('svg');
     $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
-    $imagick->setImageFormat('png');
+    $imagick->setFormat('png');
 
     // echo PNG data
     header('Content-Type: image/png');
