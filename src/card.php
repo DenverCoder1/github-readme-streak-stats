@@ -38,7 +38,7 @@ function echoAsJson(array $data): void
 {
 // set content type to JSON
     header('Content-Type: application/json');
-    // echo JSON error message
+    // echo JSON data
     echo json_encode($data);
 }
 
