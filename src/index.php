@@ -19,7 +19,7 @@ if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
         ? "Missing token or username in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
 
-    renderOutput(generateErrorCard($message));
+    renderOutput($message);
 }
 
 
@@ -41,9 +41,9 @@ try {
     $contributionGraphs = getContributionGraphs($_REQUEST["user"]);
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
-    renderOutput(generateCard($stats));
+    renderOutput($stats);
 } catch (InvalidArgumentException $error) {
-    renderOutput(generateErrorCard($error->getMessage()));
+    renderOutput($error->getMessage());
 }
 
 
