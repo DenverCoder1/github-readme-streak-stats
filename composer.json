@@ -18,7 +18,7 @@
     ]
   },
   "require": {
-    "php": "^7.4|^8.0",
+    "php": "^8.0",
     "ext-imagick": "*",
     "vlucas/phpdotenv": "^5.3"
   },
