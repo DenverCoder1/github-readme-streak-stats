@@ -13,29 +13,13 @@ require_once "card.php";
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 
-$requestedType = $_REQUEST['type'] ?? 'svg';
-
 // if environment variables are not loaded, display error
 if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
     $message = file_exists(dirname(__DIR__ . '.env', 1))
         ? "Missing token or username in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
 
-    if ($requestedType === "json") {
-        // set content type to JSON
-        header('Content-Type: application/json');
-        // echo JSON error message
-        echo json_encode(array("error" => $message));
-        exit;
-    }
-    
-    $card = generateErrorCard($message);
-    if ($requestedType === "png") {
-        echoAsPng($card);
-    }
-    echoAsSvg($card);
-
-    exit;
+    renderOutput($message);
 }
 
 
@@ -57,34 +41,9 @@ try {
     $contributionGraphs = getContributionGraphs($_REQUEST["user"]);
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
+    renderOutput($stats);
 } catch (InvalidArgumentException $error) {
-    if ($requestedType === "json") {
-        // set content type to JSON
-        header('Content-Type: application/json');
-        // echo JSON error message
-        echo json_encode(array("error" => $error->getMessage()));
-        exit;
-    }
-    $card = generateErrorCard($error->getMessage());
-    if ($requestedType === "png") {
-        echoAsPng($card);
-    }
-    echoAsSvg($card);
-
-    exit;
+    renderOutput($error->getMessage());
 }
 
-if ($requestedType === "json") {
-    // set content type to JSON
-    header('Content-Type: application/json');
-    // echo JSON data for streak stats
-    echo json_encode($stats);
-    // exit
-    exit;
-}
 
-$card = generateCard($stats);
-if ($requestedType === "png") {
-    echoAsPng($card);
-}
-echoAsSvg($card);
