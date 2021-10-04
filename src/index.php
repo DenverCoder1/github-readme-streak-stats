@@ -43,7 +43,7 @@ try {
     $stats = getContributionStats($contributions);
     renderOutput(generateCard($stats));
 } catch (InvalidArgumentException $error) {
-    renderOutput(generateErrorCard($error->getMessage()),true);
+    renderOutput(generateErrorCard($error->getMessage()));
 }
 
 

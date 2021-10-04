@@ -5,11 +5,10 @@ declare(strict_types=1);
 /**
  * Set headers and echo response based on type
  *
- * @param string $output
- * @param string If a message is a error
- * @return void 
+ * @param string|array $output
+ * @return void
  */
-function renderOutput(string|array $output, bool $error = false): void
+function renderOutput(string|array $output): void
 {
     $requestedType = $_REQUEST['type'] ?? 'svg';
 
