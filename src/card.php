@@ -30,9 +30,11 @@ function renderOutput(string|array $output): void
 }
 
 /**
- * @param array|string $data
+ * Displays an array as JSON
+ * 
+ * @param array $data The data array to output
  */
-function echoAsJson(array|string $data): void
+function echoAsJson(array $data): void
 {
 // set content type to JSON
     header('Content-Type: application/json');
