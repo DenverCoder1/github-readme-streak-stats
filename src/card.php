@@ -3,6 +3,47 @@
 declare(strict_types=1);
 
 /**
+ * Set headers and echo response based on type
+ *
+ * @param string|array $output
+ * @return void
+ */
+function renderOutput(string|array $output): void
+{
+    $requestedType = $_REQUEST['type'] ?? 'svg';
+
+    $card = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
+
+    if ($requestedType === "json") {
+        $data = gettype($output) === "string" ? array("error" => $output) : $output;
+        echoAsJson($data);
+        exit;
+    }
+
+    if ($requestedType === "png") {
+        echoAsPng($card);
+        exit;
+    }
+    
+    echoAsSvg($card);
+    exit;
+}
+
+/**
+ * Displays an array as JSON
+ * 
+ * @param array $data The data array to output
+ */
+function echoAsJson(array $data): void
+{
+// set content type to JSON
+    header('Content-Type: application/json');
+    // echo JSON data
+    echo json_encode($data);
+}
+
+
+/**
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
