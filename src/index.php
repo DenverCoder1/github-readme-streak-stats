@@ -22,13 +22,10 @@ if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
     renderOutput($message);
 }
 
-
-// set cache to refresh once per day
-$timestamp = gmdate("D, d M Y 23:59:00") . " GMT";
-header("Expires: $timestamp");
-header("Last-Modified: $timestamp");
-header("Pragma: no-cache");
-header("Cache-Control: no-cache, must-revalidate");
+// set cache to refresh once per hour
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + 3600) . " GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: public, max-age=3600");
 
 // redirect to demo site if user is not given
 if (!isset($_REQUEST["user"])) {
@@ -46,6 +43,6 @@ try {
     }
     $stats = getContributionStats($contributions);
     renderOutput($stats);
-} catch (InvalidArgumentException|AssertionError $error) {
+} catch (InvalidArgumentException | AssertionError $error) {
     renderOutput($error->getMessage());
 }
