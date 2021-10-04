@@ -3,47 +3,6 @@
 declare(strict_types=1);
 
 /**
- * Set headers and echo response based on type
- *
- * @param string|array $output
- * @return void
- */
-function renderOutput(string|array $output): void
-{
-    $requestedType = $_REQUEST['type'] ?? 'svg';
-
-    $card = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
-
-    if ($requestedType === "json") {
-        $data = gettype($output) === "string" ? array("error" => $output) : $output;
-        echoAsJson($data);
-        exit;
-    }
-
-    if ($requestedType === "png") {
-        echoAsPng($card);
-        exit;
-    }
-    
-    echoAsSvg($card);
-    exit;
-}
-
-/**
- * Displays an array as JSON
- * 
- * @param array $data The data array to output
- */
-function echoAsJson(array $data): void
-{
-// set content type to JSON
-    header('Content-Type: application/json');
-    // echo JSON data
-    echo json_encode($data);
-}
-
-
-/**
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
@@ -334,27 +293,15 @@ function generateErrorCard(string $message, array $params = null): string
 }
 
 /**
- * Displays a card as an SVG image
+ * Converts an SVG card to a PNG image
  *
- * @param string $svg The SVG for the card to display
- */
-function echoAsSvg(string $svg): void
-{
-    // set content type to SVG image
-    header("Content-Type: image/svg+xml");
-
-    // echo SVG data for streak stats
-    echo $svg;
-}
-
-/**
- * Displays a card as a PNG image
- *
- * @param string $svg The SVG for the card to display
+ * @param string $svg The SVG for the card as a string
+ * 
+ * @return string The generated PNG data
  *
  * @throws ImagickException
  */
-function echoAsPng(string $svg): void
+function convertSvgToPng(string $svg): string
 {
     // trim off all whitespaces to make it a valid SVG string
     $svg = trim($svg);
@@ -374,11 +321,42 @@ function echoAsPng(string $svg): void
     $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
     $imagick->setFormat('png');
 
-    // echo PNG data
-    header('Content-Type: image/png');
-    echo $imagick->getImageBlob();
+    // get PNG data
+    $png = $imagick->getImageBlob();
 
     // clean up memory
     $imagick->clear();
     $imagick->destroy();
+
+    return $png;
+}
+
+/**
+ * Set headers and echo response based on type
+ *
+ * @param string|array $output The stats (array) or error message (string) to display
+ */
+function renderOutput(string|array $output): void
+{
+    $requestedType = $_REQUEST['type'] ?? 'svg';
+
+    // output JSON data
+    if ($requestedType === "json") {
+        // set content type to JSON
+        header('Content-Type: application/json');
+        // generate array from output
+        $data = gettype($output) === "string" ? array("error" => $output) : $output;
+        // output as JSON
+        echo json_encode($data);
+    }
+    // output SVG or PNG card
+    else {
+        // set content type to SVG or PNG
+        header("Content-Type: image/" . ($requestedType === "png" ? "png" : "svg+xml"));
+        // render SVG card
+        $svg = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
+        // output PNG if PNG is requested, otherwise output SVG
+        echo $requestedType === "png" ? convertSvgToPng($svg) : $svg;
+    }
+    exit;
 }

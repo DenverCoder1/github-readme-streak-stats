@@ -110,15 +110,14 @@ function getGitHubApiResponse(string $url): string
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $response = curl_exec($ch);
-
-    //Handles curl errors
-    if($response === false) {
-        if(str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
-            throw new InvalidArgumentException("You don't have valid SSL Certificate installed or XAMPP.");
+    // handle curl errors
+    if ($response === false) {
+        if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
+            throw new InvalidArgumentException("You don't have a valid SSL Certificate installed or XAMPP.");
         }
-        throw new InvalidArgumentException("Something is wrong with getGitHubApiResponse().");
+        throw new InvalidArgumentException("An error occurred when getting a response from GitHub.");
     }
-
+    // close curl handle and return response
     curl_close($ch);
     return $response;
 }
@@ -163,8 +162,8 @@ function getYearJoined(string $user): int
  */
 function getContributionStats(array $contributions): array
 {
-    $today = array_key_last($contributions) ?? date("Y-m-d");
-    $first = array_key_first($contributions) ?? date("Y-m-d");
+    $today = array_key_last($contributions);
+    $first = array_key_first($contributions);
     $stats = [
         "totalContributions" => 0,
         "firstContribution" => "",

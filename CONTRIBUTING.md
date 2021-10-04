@@ -9,7 +9,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 #### Requirements
 
-* [PHP 7.4+](https://www.apachefriends.org/index.html)
+* [PHP 8.0+](https://www.apachefriends.org/index.html)
 * [Composer](https://getcomposer.org)
 * [Imagick](https://www.php.net/imagick)
 
