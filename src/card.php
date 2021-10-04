@@ -9,24 +9,16 @@ declare(strict_types=1);
  * @param string If a message is a error
  * @return void 
  */
-function renderOutput(string $output, bool $error = false): void
+function renderOutput(string|array $output, bool $error = false): void
 {
     $requestedType = $_REQUEST['type'] ?? 'svg';
 
-    if ($requestedType === "json" && $error === false) {
-        // set content type to JSON
-        header('Content-Type: application/json');
-        // echo JSON data for streak stats
-        echo json_encode($output);
-        // exit
-        exit;
-    }
-
-    if ($requestedType === "json" && $error === true) {
+    if ($requestedType === "json") {
+        $data = $error ? array("error" => $output) : $output;
         // set content type to JSON
         header('Content-Type: application/json');
         // echo JSON error message
-        echo json_encode(array("error" => $output));
+        echo json_encode($data);
         exit;
     }
 

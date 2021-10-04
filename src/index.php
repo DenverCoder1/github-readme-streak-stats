@@ -41,9 +41,9 @@ try {
     $contributionGraphs = getContributionGraphs($_REQUEST["user"]);
     $contributions = getContributionDates($contributionGraphs);
     $stats = getContributionStats($contributions);
+    renderOutput(generateCard($stats));
 } catch (InvalidArgumentException $error) {
     renderOutput(generateErrorCard($error->getMessage()),true);
 }
-renderOutput(generateCard($stats));
 
 
