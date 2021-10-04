@@ -16,10 +16,7 @@ function renderOutput(string|array $output): void
 
     if ($requestedType === "json") {
         $data = gettype($output) === "string" ? array("error" => $output) : $output;
-        // set content type to JSON
-        header('Content-Type: application/json');
-        // echo JSON error message
-        echo json_encode($data);
+        echoAsJson($data);
         exit;
     }
 
@@ -29,6 +26,18 @@ function renderOutput(string|array $output): void
     }
     
     echoAsSvg($card);
+    exit;
+}
+
+/**
+ * @param array|string $data
+ */
+function echoAsJson(array|string $data): void
+{
+// set content type to JSON
+    header('Content-Type: application/json');
+    // echo JSON error message
+    echo json_encode($data);
 }
 
 
