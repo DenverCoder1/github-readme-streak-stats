@@ -1,6 +1,9 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>
             @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+            a {
+                fill: #999999;
+            }
         </style>
         <defs>
             <clipPath id='_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw'>
