@@ -818,4 +818,16 @@ return array(
         "sideLabels" => "#FFFFFF",
         "dates" => "#39D353",
     ],
+    "github-light" => [
+      "background" => "#FFFFFF",
+      "border" => "#39D353",
+      "stroke" => "#39D353",
+      "ring" => "#39D353",
+      "currStreakNum" => "#39D353",
+      "fire" => "#39D353",
+      "sideNums" => "#39D353",
+      "currStreakLabel" => "#24292F",
+      "sideLabels" => "#24292F",
+      "dates" => "#1F6FEB",
+  ],
 );
