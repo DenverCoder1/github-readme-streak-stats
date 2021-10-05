@@ -73,6 +73,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |       `javascript`     | ![image](https://user-images.githubusercontent.com/62628408/135756315-7a4b8134-8558-4e74-9f24-f8a1a2173b6f.png) |
 |   `javascript-dark`    | ![image](https://user-images.githubusercontent.com/62628408/135761927-a4acd543-c90b-430d-92a3-c96b32bfc390.png) |
 |     `noctis-minimus`   | ![image](https://user-images.githubusercontent.com/20955511/135754306-58ceccde-90d9-46f9-a7b2-1cb54b6fbe24.png) |
+|     `github-dark`      | ![image](https://user-images.githubusercontent.com/62628408/135931624-9e6bf6b8-4965-4c7d-87f6-08217ea9274f.png) |
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/) or by customizing the [url parameters](/README.md#-options).
