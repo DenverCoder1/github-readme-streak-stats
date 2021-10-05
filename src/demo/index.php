@@ -11,7 +11,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-48CYVH0XEF"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-48CYVH0XEF');
     </script>
@@ -41,17 +44,11 @@
     <!-- GitHub badges/links section -->
     <div class="github">
         <!-- GitHub Sponsors -->
-        <a class="github-button" href="https://github.com/sponsors/denvercoder1"
-            data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-heart"
-            data-size="large" aria-label="Sponsor @denvercoder1 on GitHub">Sponsor</a>
+        <a class="github-button" href="https://github.com/sponsors/denvercoder1" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @denvercoder1 on GitHub">Sponsor</a>
         <!-- View on GitHub -->
-        <a class="github-button" href="https://github.com/denvercoder1/github-readme-streak-stats"
-            data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large"
-            aria-label="View denvercoder1/github-readme-streak-stats on GitHub">View on GitHub</a>
+        <a class="github-button" href="https://github.com/denvercoder1/github-readme-streak-stats" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="View denvercoder1/github-readme-streak-stats on GitHub">View on GitHub</a>
         <!-- GitHub Star -->
-        <a class="github-button" href="https://github.com/denvercoder1/github-readme-streak-stats"
-            data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star"
-            data-size="large" data-show-count="true" aria-label="Star denvercoder1/github-readme-streak-stats on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/denvercoder1/github-readme-streak-stats" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star denvercoder1/github-readme-streak-stats on GitHub">Star</a>
     </div>
 
     <div class="container">
@@ -59,14 +56,13 @@
             <h2>Properties</h2>
             <form class="parameters">
                 <label for="user">Username<span title="required">*</span></label>
-                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" required
-                        pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
+                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" required pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme" placeholder="default">
-<?php foreach ($THEMES as $theme => $options): ?>
-                    <option><?php echo $theme; ?></option>
-<?php endforeach;?>
+                    <?php foreach ($THEMES as $theme => $options) : ?>
+                        <option><?php echo $theme; ?></option>
+                    <?php endforeach; ?>
                 </select>
 
                 <label for="hide_border">Hide Border</label>
@@ -90,9 +86,9 @@
                     <div class="content parameters">
                         <label for="theme">Add Property</label>
                         <select id="properties" name="properties" placeholder="background">
-<?php foreach ($THEMES["default"] as $option => $color): ?>
-                            <option><?php echo $option; ?></option>
-<?php endforeach;?>
+                            <?php foreach ($THEMES["default"] as $option => $color) : ?>
+                                <option><?php echo $option; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <button class="plus btn" onclick="return preview.addProperty();">+</button>
                     </div>
@@ -121,7 +117,7 @@
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo $_COOKIE["darkmode"] == "on" ? 'gg-sun' : "gg-moon"; ?>"></i>
+        <i class="<?php echo (isset($_COOKIE["darkmode"]) && $_COOKIE["darkmode"] == "on") ? 'gg-sun' : "gg-moon"; ?>"></i>
     </a>
 </body>
 
