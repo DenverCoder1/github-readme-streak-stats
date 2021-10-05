@@ -307,10 +307,11 @@ function convertSvgToPng(string $svg): string
     $svg = trim($svg);
 
     // remove style and animations
-    $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
+    $svg = preg_replace('/(<style>\X*?<\/style>)/m', '', $svg);
     $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
     $svg = preg_replace('/(animation: fadein.*?;)/m', 'opacity: 1;', $svg);
     $svg = preg_replace('/(animation: currentstreak.*?;)/m', 'font-size: 28px;', $svg);
+    $svg = preg_replace('/<a href\X*?>(\X*?)<\/a>/m', '\1', $svg);
 
     // create canvas
     $imagick = new Imagick();

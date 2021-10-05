@@ -67,7 +67,7 @@ function getContributionDates(array $contributionGraphs): array
     foreach ($contributionGraphs as $graph) {
         // if HTML contains "Please wait", we are being rate-limited
         if (strpos($graph, "Please wait") !== false) {
-            throw new AssertionError("Oh no! We are being rate-limited!");
+            throw new AssertionError("We are being rate-limited! Check <a href='https://git.io/streak-ratelimit' font-weight='bold'>git.io/streak-ratelimit</a> for details.");
         }
         // split into lines
         $lines = explode("\n", $graph);
