@@ -252,6 +252,9 @@ function generateErrorCard(string $message, array $params = null): string
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>
             @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+            a {
+                fill: {$theme["dates"]};
+            }
         </style>
         <defs>
             <clipPath id='_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw'>
@@ -307,11 +310,11 @@ function convertSvgToPng(string $svg): string
     $svg = trim($svg);
 
     // remove style and animations
-    $svg = preg_replace('/(<style>\X*?<\/style>)/m', '', $svg);
+    $svg = preg_replace('/(<style>\X*<\/style>)/m', '', $svg);
     $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
     $svg = preg_replace('/(animation: fadein.*?;)/m', 'opacity: 1;', $svg);
     $svg = preg_replace('/(animation: currentstreak.*?;)/m', 'font-size: 28px;', $svg);
-    $svg = preg_replace('/<a href\X*?>(\X*?)<\/a>/m', '\1', $svg);
+    $svg = preg_replace('/<a \X*?>(\X*?)<\/a>/m', '\1', $svg);
 
     // create canvas
     $imagick = new Imagick();
