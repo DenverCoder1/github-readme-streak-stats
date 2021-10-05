@@ -37,10 +37,6 @@ try {
     // get streak stats for user given in query string
     $contributionGraphs = getContributionGraphs($_REQUEST["user"]);
     $contributions = getContributionDates($contributionGraphs);
-    // if no contributions, display error
-    if (count($contributions) === 0) {
-        throw new AssertionError("No contributions found.");
-    }
     $stats = getContributionStats($contributions);
     renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {

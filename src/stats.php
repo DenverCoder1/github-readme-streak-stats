@@ -65,6 +65,10 @@ function getContributionDates(array $contributionGraphs): array
     $today = date("Y-m-d");
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
     foreach ($contributionGraphs as $graph) {
+        // if HTML contains "Please wait", we are being rate-limited
+        if (strpos($graph, "Please wait") !== false) {
+            throw new AssertionError("Oh no! We are being rate-limited!");
+        }
         // split into lines
         $lines = explode("\n", $graph);
         // add the dates and contribution counts to the array
@@ -162,6 +166,10 @@ function getYearJoined(string $user): int
  */
 function getContributionStats(array $contributions): array
 {
+    // if no contributions, display error
+    if (empty($contributions)) {
+        throw new AssertionError("No contributions found.");
+    }
     $today = array_key_last($contributions);
     $first = array_key_first($contributions);
     $stats = [
