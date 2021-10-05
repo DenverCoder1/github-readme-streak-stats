@@ -12,13 +12,18 @@ declare(strict_types=1);
 function formatDate(string $dateString, string $format): string
 {
     $date = new DateTime($dateString);
+    $formatted = "";
     // if current year, display only month and day
     if (date_format($date, "Y") == date("Y")) {
         // remove brackets and all text within them
-        return date_format($date, preg_replace("/\[.*?\]/", "", $format));
+        $formatted = date_format($date, preg_replace("/\[.*?\]/", "", $format));
     }
     // otherwise, display month, day, and year (just brackets removed)
-    return date_format($date, str_replace(array("[", "]"), "", $format));
+    else {
+        $formatted = date_format($date, str_replace(array("[", "]"), "", $format));
+    }
+    // sanitize and return formatted date
+    return htmlspecialchars($formatted);
 }
 
 /**
