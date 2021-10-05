@@ -806,4 +806,16 @@ return array(
         "sideLabels" => "#d3b692",
         "dates" => "#c5cdd3",
     ],
+    "github-dark" => [
+        "background" => "#0D1117FF",
+        "border" => "#39D353",
+        "stroke" => "#39D353",
+        "ring" => "#39D353",
+        "currStreakNum" => "#FFFFFF",
+        "fire" => "#1F6FEB",
+        "sideNums" => "#FFFFFF",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#FFFFFF",
+        "dates" => "#39D353",
+    ],
 );
