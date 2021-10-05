@@ -139,7 +139,7 @@ You can deploy the PHP files on any website server with PHP installed or as a He
       <img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy to Heroku" alt="Deploy"/></a>
   </p>
 
-  3. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  3. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
   4. Scroll to the bottom and click **"Generate token"**
   5. **Add the token** as a Config Var with the key `TOKEN` and your username with the key `USERNAME`:
 
@@ -165,7 +165,7 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
   3. On the page that comes up, click **"Deploy Now"**
   4. Visit the **"Settings"** tab and scroll down to **Environment Variables**
-  5. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+  5. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
   6. Scroll to the bottom and click **"Generate token"**
   7. **Add the token** to the environment variables with the label `TOKEN` and your username as `USERNAME`, then click Save.
 
