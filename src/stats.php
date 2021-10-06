@@ -6,33 +6,41 @@ declare(strict_types=1);
  * Get all HTTP request responses for user's contributions
  *
  * @param string $user GitHub username to get graphs for
- * @return array<string> List of HTML contribution graphs
+ * 
+ * @return array<stdClass> List of contribution graph response objects
  */
 function getContributionGraphs(string $user): array
 {
-    // get the start year based on when the user first contributed
-    $startYear = getYearJoined($user);
-    $currentYear = intval(date("Y"));
+    // Get the years the user has contributed
+    $contributionYears = getContributionYears($user);
     // build a list of individual requests
-    $urls = array();
-    for ($year = $currentYear; $year >= $startYear; $year--) {
-        // create url with year set as end date
-        $url = "https://github.com/users/${user}/contributions?to=${year}-12-31";
+    $requests = array();
+    foreach ($contributionYears as $year) {
+        // create query for year
+        $start = "$year-01-01T00:00:00Z";
+        $end = "$year-12-31T23:59:59Z";
+        $query = "query {
+            user(login: \"$user\") {
+                contributionsCollection(from: \"$start\", to: \"$end\") {
+                    contributionCalendar {
+                        totalContributions
+                        weeks {
+                            contributionDays {
+                            contributionCount
+                            date
+                            }
+                        }
+                    }
+                }
+            }
+        }";
         // create curl request
-        $urls[$year] = curl_init();
-        // set options for curl
-        curl_setopt($urls[$year], CURLOPT_AUTOREFERER, true);
-        curl_setopt($urls[$year], CURLOPT_HEADER, false);
-        curl_setopt($urls[$year], CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($urls[$year], CURLOPT_URL, $url);
-        curl_setopt($urls[$year], CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($urls[$year], CURLOPT_VERBOSE, false);
-        curl_setopt($urls[$year], CURLOPT_SSL_VERIFYPEER, true);
+        $requests[$year] = getGraphQLCurlHandle($query);
     }
     // build multi-curl handle
     $multi = curl_multi_init();
-    foreach ($urls as $url) {
-        curl_multi_add_handle($multi, $url);
+    foreach ($requests as $request) {
+        curl_multi_add_handle($multi, $request);
     }
     // execute queries
     $running = null;
@@ -40,22 +48,106 @@ function getContributionGraphs(string $user): array
         curl_multi_exec($multi, $running);
     } while ($running);
     // close the handles
-    foreach ($urls as $url) {
-        curl_multi_remove_handle($multi, $url);
+    foreach ($requests as $request) {
+        curl_multi_remove_handle($multi, $request);
     }
     curl_multi_close($multi);
     // collect responses from last to first
     $response = array();
-    foreach ($urls as $url) {
-        array_unshift($response, curl_multi_getcontent($url));
+    foreach ($requests as $request) {
+        array_unshift($response, json_decode(curl_multi_getcontent($request)));
     }
     return $response;
+}
+
+/** Create a CurlHandle for a POST request to GitHub's GraphQL API
+ * 
+ * @param string $query GraphQL query
+ * 
+ * @return CurlHandle The curl handle for the request
+ */
+function getGraphQLCurlHandle(string $query)
+{
+    $token = $_SERVER["TOKEN"];
+    $headers = array(
+        "Authorization: bearer $token",
+        "Content-Type: application/json",
+        "Accept: application/vnd.github.v4.idl",
+        "User-Agent: GitHub-Readme-Streak-Stats"
+    );
+    $body = array("query" => $query);
+    // create curl request
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://api.github.com/graphql");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_VERBOSE, false);
+    return $ch;
+}
+
+/**
+ * Create a POST request to GitHub's GraphQL API
+ * 
+ * @param string $query GraphQL query
+ * 
+ * @return stdClass An object from the json response of the request
+ * 
+ * @throws AssertionError If SSL verification fails
+ */
+function fetchGraphQL(string $query): stdClass
+{
+    $ch = getGraphQLCurlHandle($query);
+    $response = curl_exec($ch);
+    // handle curl errors
+    if ($response === false) {
+        if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
+            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.");
+        }
+        throw new AssertionError("An error occurred when getting a response from GitHub.");
+    }
+    curl_close($ch);
+    return json_decode($response);
+}
+
+/**
+ * Get the years the user has contributed
+ * 
+ * @param string $user GitHub username to get years for
+ * 
+ * @return array List of years the user has contributed
+ * 
+ * @throws InvalidArgumentException If the user doesn't exist or there is an error
+ */
+function getContributionYears(string $user): array
+{
+    $query = "query {
+        user(login: \"$user\") {
+            contributionsCollection {
+                contributionYears
+            }
+        }
+    }";
+    $response = fetchGraphQL($query);
+    // User not found
+    if (!empty($response->errors) && $response->errors[0]->type === "NOT_FOUND") {
+        throw new InvalidArgumentException("Could not find a user with that name.");
+    }
+    // API Error
+    if (!empty($response->errors)) {
+        // Other errors that contain a message field
+        throw new InvalidArgumentException($response->data->errors[0]->message);
+    }
+    return $response->data->user->contributionsCollection->contributionYears;
 }
 
 /**
  * Get an array of all dates with the number of contributions
  *
- * @param array<string> $contributionGraphs List of HTML pages with contributions
+ * @param array<string> $contributionCalendars List of GraphQL response objects
+ * 
  * @return array<string, int> Y-M-D dates mapped to the number of contributions
  */
 function getContributionDates(array $contributionGraphs): array
@@ -65,19 +157,14 @@ function getContributionDates(array $contributionGraphs): array
     $today = date("Y-m-d");
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
     foreach ($contributionGraphs as $graph) {
-        // if HTML contains "Please wait", we are being rate-limited
-        if (strpos($graph, "Please wait") !== false) {
-            throw new AssertionError("We are being rate-limited! Check <a href='https://git.io/streak-ratelimit' font-weight='bold'>git.io/streak-ratelimit</a> for details.");
+        if (!empty($graph->errors)) {
+            throw new AssertionError($graph->data->errors[0]->message);
         }
-        // split into lines
-        $lines = explode("\n", $graph);
-        // add the dates and contribution counts to the array
-        foreach ($lines as $line) {
-            preg_match("/ data-date=\"([0-9\-]{10})\"/", $line, $dateMatch);
-            preg_match("/ data-count=\"(\d+?)\"/", $line, $countMatch);
-            if (isset($dateMatch[1]) && isset($countMatch[1])) {
-                $date = $dateMatch[1];
-                $count = (int) $countMatch[1];
+        $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
+        foreach ($weeks as $week) {
+            foreach ($week->contributionDays as $day) {
+                $date = $day->date;
+                $count = $day->contributionCount;
                 // count contributions up until today
                 // also count next day if user contributed already
                 if ($date <= $today || ($date == $tomorrow && $count > 0)) {
@@ -88,74 +175,6 @@ function getContributionDates(array $contributionGraphs): array
         }
     }
     return $contributions;
-}
-
-/**
- * Get the contents of a single URL passing headers for GitHub API
- * 
- * @param string $url URL to fetch
- * @return string Response from page as a string
- */
-function getGitHubApiResponse(string $url): string
-{
-    $ch = curl_init();
-    $token = $_SERVER["TOKEN"];
-    $username = $_SERVER["USERNAME"];
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        "Accept: application/vnd.github.v3+json",
-        "Authorization: token $token",
-        "User-Agent: $username",
-    ]);
-    curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_VERBOSE, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-    $response = curl_exec($ch);
-    // handle curl errors
-    if ($response === false) {
-        if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
-            throw new InvalidArgumentException("You don't have a valid SSL Certificate installed or XAMPP.");
-        }
-        throw new InvalidArgumentException("An error occurred when getting a response from GitHub.");
-    }
-    // close curl handle and return response
-    curl_close($ch);
-    return $response;
-}
-
-/**
- * Get the first year a user contributed
- * 
- * @param string $user GitHub username to look up
- * @return int first contribution year
- */
-function getYearJoined(string $user): int
-{
-    // load the user's profile info
-    $response = getGitHubApiResponse("https://api.github.com/users/${user}");
-    $json = json_decode($response);
-    // find the year the user was created
-    if ($json && isset($json->type) && $json->type == "User" && isset($json->created_at)) {
-        return intval(substr($json->created_at, 0, 4));
-    }
-    // Account is not a user (eg. Organization account)
-    if (isset($json->type)) {
-        throw new InvalidArgumentException("The username given is not a user.");
-    }
-    // API Error
-    if ($json && isset($json->message)) {
-        // User not found
-        if ($json->message == "Not Found") {
-            throw new InvalidArgumentException("User could not be found.");
-        }
-        // Other errors that contain a message field
-        throw new InvalidArgumentException($json->message);
-    }
-    // Response doesn't contain a message field
-    throw new InvalidArgumentException("An unknown error occurred.");
 }
 
 /**

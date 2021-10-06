@@ -51,16 +51,12 @@ cd github-readme-streak-stats
 
 To get the GitHub API to run locally you will need to provide a token.
 
-1. Go to https://github.com/settings/tokens.
-2. Click **"Generate new token."**
-3. Add a note (ex. **"GitHub Readme Streak Stats"**), then scroll to the bottom and click **"Generate token."**
-4. **Copy** the token to your clipboard.
-5. **Create** a file `config.php` in the `src` directory and replace `ghp_example123` with **your token** and `DenverCoder1` with **your username**:
+1. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
+2. Scroll to the bottom and click **"Generate token"**
+3. **Make a copy** of `.env.example` named `.env` in the root directory and add **your token** after `TOKEN=`.
 
 ```php
-<?php
-putenv("TOKEN=ghp_example123");
-putenv("USERNAME=DenverCoder1");
+TOKEN=<your-token>
 ```
 
 ### Install dependencies

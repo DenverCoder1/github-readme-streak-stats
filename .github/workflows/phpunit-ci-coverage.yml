@@ -23,4 +23,3 @@ jobs:
           args: --testdox
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: DenverCoder1

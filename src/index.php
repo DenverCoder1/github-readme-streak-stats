@@ -14,11 +14,10 @@ $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 
 // if environment variables are not loaded, display error
-if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
-    $message = file_exists(dirname(__DIR__ . '.env', 1))
-        ? "Missing token or username in config. Check Contributing.md for details."
+if (!isset($_SERVER["TOKEN"])) {
+    $message = file_exists(dirname(__DIR__ . '../.env', 1))
+        ? "Missing token in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
-
     renderOutput($message);
 }
 

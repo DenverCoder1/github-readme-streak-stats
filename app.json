@@ -9,10 +9,6 @@
     "TOKEN": {
       "description": "GitHub personal access token obtained from https://github.com/settings/tokens/new",
       "required": false
-    },
-    "USERNAME": {
-      "description": "GitHub username associated with the token",
-      "required": false
     }
   },
   "formation": {
