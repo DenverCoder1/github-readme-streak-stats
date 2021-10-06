@@ -14,9 +14,9 @@ $dotenv->safeLoad();
 
 
 // if environment variables are not loaded, display error
-if (!$_SERVER["TOKEN"] || !$_SERVER["USERNAME"]) {
-    $message = file_exists(dirname(__DIR__ . '.env', 1))
-        ? "Missing token or username in config. Check Contributing.md for details."
+if (!isset($_SERVER["TOKEN"])) {
+    $message = file_exists(dirname(__DIR__ . '../.env', 1))
+        ? "Missing token in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
 
     die($message);
@@ -67,7 +67,7 @@ final class StatsTest extends TestCase
     public function testInvalidUsername(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("User could not be found.");
+        $this->expectExceptionMessage("Could not find a user with that name.");
         getContributionGraphs("help");
     }
 
@@ -77,7 +77,7 @@ final class StatsTest extends TestCase
     public function testOrganizationName(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("The username given is not a user.");
+        $this->expectExceptionMessage("Could not find a user with that name.");
         getContributionGraphs("DenverCoderOne");
     }
 
@@ -206,10 +206,38 @@ final class StatsTest extends TestCase
         $tomorrow = date('Y-m-d', strtotime('tomorrow'));
         $inTwoDays = date('Y-m-d', strtotime("$today +2 days"));
         $contributionGraphs = [
-            "<rect width=\"10\" height=\"10\" x=\"-2\" y=\"13\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$yesterday\" data-level=\"1\"></rect>
-            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"26\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$today\" data-level=\"2\"></rect>
-            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"39\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$tomorrow\" data-level=\"0\"></rect>
-            <rect width=\"10\" height=\"10\" x=\"-2\" y=\"52\" class=\"ContributionCalendar-day\" rx=\"2\" ry=\"2\" data-count=\"1\" data-date=\"$inTwoDays\" data-level=\"0\"></rect>",
+            (object) [
+                "data" => (object) [
+                    "user" => (object) [
+                        "contributionsCollection" => (object) [
+                            "contributionCalendar" => (object) [
+                                "weeks" => (object) [
+                                    (object) [
+                                        "contributionDays" => (object) [
+                                            (object) [
+                                                "contributionCount" => 1,
+                                                "date" => $yesterday,
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 1,
+                                                "date" => $today,
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 1,
+                                                "date" => $tomorrow,
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 1,
+                                                "date" => $inTwoDays,
+                                            ],
+                                        ],
+                                    ]
+                                ]
+                            ]
+                        ],
+                    ],
+                ]
+            ]
         ];
         $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
