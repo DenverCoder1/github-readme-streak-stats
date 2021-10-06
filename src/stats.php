@@ -101,15 +101,24 @@ function fetchGraphQL(string $query): stdClass
 {
     $ch = getGraphQLCurlHandle($query);
     $response = curl_exec($ch);
+    curl_close($ch);
+    $obj = json_decode($response);
     // handle curl errors
-    if ($response === false) {
+    if ($response === false || $obj === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
+        // set response code to curl error code
+        http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+        // Missing SSL certificate
         if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
             throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.");
         }
-        throw new AssertionError("An error occurred when getting a response from GitHub.");
+        // Handle errors such as "Bad credentials"
+        if ($obj && $obj->message) {
+            throw new AssertionError("Error: $obj->message \n<!-- $response -->");
+        }
+        // TODO: Make the $response part get passed into a custom error and render the commented details in the SVG card generator
+        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->");
     }
-    curl_close($ch);
-    return json_decode($response);
+    return $obj;
 }
 
 /**
@@ -139,6 +148,11 @@ function getContributionYears(string $user): array
     if (!empty($response->errors)) {
         // Other errors that contain a message field
         throw new InvalidArgumentException($response->data->errors[0]->message);
+    }
+    // API did not return data
+    if (!isset($response->data) && isset($response->message)) {
+        // Other errors that contain a message field
+        throw new InvalidArgumentException($response->message);
     }
     return $response->data->user->contributionsCollection->contributionYears;
 }
