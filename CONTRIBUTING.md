@@ -8,7 +8,7 @@ This documentation contains a set of guidelines to help you during the contribut
 
 ### Need some help regarding the basics?
 
-You can refer to the following articles on basics of Git and Github in case you are stuck:
+You can refer to the following articles on the basics of Git and GitHub in case you are stuck:
 
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 - [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
@@ -102,7 +102,7 @@ Below you will find the process and workflow used to review and merge your chang
 
 ### Step 1 : Fork the Project
 
-- Fork this repository. This will create a copy of this repository on your Github profile.
+- Fork this repository. This will create a copy of this repository on your GitHub profile.
 Keep a reference to the original project in the `upstream` remote.  
 
 ```bash
@@ -150,8 +150,8 @@ git add <some files (with path)>
 - Commit a descriptive message using:
 
 ```bash
-# This message get associated with all files you have changed  
-git commit -m "message"  
+# This message will get associated with all files you have changed
+git commit -m "message"
 ```
 
 ### Step 5 : Work Remotely
@@ -169,12 +169,12 @@ git push -u origin Branch_Name
 
 ### Step 6 : Pull Request
 
-- Go to your forked repository in your browser and click on "Compare and pull requests". Then add a title and description to your pull request that explains your contribution.  
+- Go to your forked repository in your browser and click on "Compare and pull request". Then add a title and description to your pull request that explains your contribution.  
 
 <img width="700" alt="compare and pull request" src="https://user-images.githubusercontent.com/63443481/136186304-c0a767ea-1fd2-4b0c-b5a8-3e366ddc06a3.PNG">  
 
 <img width="882" alt="opening pull request" src="https://user-images.githubusercontent.com/63443481/136186322-bfd5f333-136a-4d2f-8891-e8f97c379ba8.PNG">  
 
-- Voila! Your Pull Request has been submitted and it's ready to be merged.🥳 <br />
+- Voila! Your Pull Request has been submitted and it's ready to be merged.🥳
 
 #### Happy Contributing!
