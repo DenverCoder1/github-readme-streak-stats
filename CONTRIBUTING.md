@@ -6,10 +6,9 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 This documentation contains a set of guidelines to help you during the contribution process.
 
-### Need some help regarding the basics?🤔
+### Need some help regarding the basics?
 
-You can refer to the following articles on basics of Git and Github,
-in case you are stuck:
+You can refer to the following articles on basics of Git and Github in case you are stuck:
 
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 - [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
@@ -95,16 +94,16 @@ Below you will find the process and workflow used to review and merge your chang
 
 ### Step 0 : Find an issue
 
-- Take a look at the Existing Issues or create your **own** Issues!
-- Wait for the Issue to be assigned to you after which you can start working on it.
+- Take a look at the existing issues or create your **own** issues!
+- Wait for the issue to be assigned to you after which you can start working on it.
 
-![SC1](https://user-images.githubusercontent.com/63443481/136185624-24447858-de8d-4b0a-bb6b-2528d9031196.PNG)
+![issues tab](https://user-images.githubusercontent.com/63443481/136185624-24447858-de8d-4b0a-bb6b-2528d9031196.PNG)
 
 
 ### Step 1 : Fork the Project
 
-- Fork this Repository. This will create a Local Copy of this Repository on your Github Profile.
-Keep a reference to the original project in `upstream` remote.  
+- Fork this repository. This will create a copy of this repository on your Github profile.
+Keep a reference to the original project in the `upstream` remote.  
 
 ```bash
 git clone https://github.com/<your-username>/github-readme-streak-stats.git  
@@ -112,7 +111,7 @@ cd github-readme-streak-stats
 git remote add upstream https://github.com/DenverCoder1/github-readme-streak-stats.git  
 ```  
 
-![SC2](https://user-images.githubusercontent.com/63443481/136185816-0b6770d7-0b00-4951-861a-dd15e3954918.PNG)
+![fork button](https://user-images.githubusercontent.com/63443481/136185816-0b6770d7-0b00-4951-861a-dd15e3954918.PNG)
   
 
 - If you have already forked the project, update your copy before working.
@@ -129,26 +128,26 @@ Create a new branch. Use its name to identify the issue your addressing.
 
 ```bash
 # It will create a new branch with name Branch_Name and switch to that branch 
-git checkout -b branch_name
+git checkout -b Branch_Name
 ```
 
 ### Step 3 : Work on the issue assigned
 
 - Work on the issue(s) assigned to you.
 - Make all the necessary changes to the codebase.
-- After you've made changes or made your contribution to the project add changes to the branch you've just created by:
+- After you've made changes or made your contribution to the project, add changes to the branch you've just created using:
 
 ```bash  
-# To add all new files to branch Branch_Name  
+# To add all new files to the branch  
 git add .  
 
-# To add only a few files to Branch_Name
+# To add only a few files to the branch
 git add <some files (with path)>
 ```
 
 ### Step 4 : Commit
 
-- To commit give a descriptive message by:
+- Commit a descriptive message using:
 
 ```bash
 # This message get associated with all files you have changed  
@@ -157,7 +156,7 @@ git commit -m "message"
 
 ### Step 5 : Work Remotely
 
-- Now you are ready to your work to the remote repository.
+- Now you are ready to your work on the remote repository.
 - When your work is ready and complies with the project conventions, upload your changes to your fork:
 
 ```bash  
@@ -166,15 +165,15 @@ git push -u origin Branch_Name
 ```
 
 - Here is how your branch will look.
-![SC3](https://user-images.githubusercontent.com/63443481/136186235-204f5c7a-1129-44b5-af20-89aa6a68d952.PNG)
+![forked branch](https://user-images.githubusercontent.com/63443481/136186235-204f5c7a-1129-44b5-af20-89aa6a68d952.PNG)
 
 ### Step 6 : Pull Request
 
-- Go to your repository in browser and click on compare and pull requests.
-Then add a title and description to your pull request that explains your contribution.  
-<img width="700" alt="pr" src="https://user-images.githubusercontent.com/63443481/136186304-c0a767ea-1fd2-4b0c-b5a8-3e366ddc06a3.PNG">  
+- Go to your forked repository in your browser and click on "Compare and pull requests". Then add a title and description to your pull request that explains your contribution.  
 
-<img width="882" alt="pullr" src="https://user-images.githubusercontent.com/63443481/136186322-bfd5f333-136a-4d2f-8891-e8f97c379ba8.PNG">  
+<img width="700" alt="compare and pull request" src="https://user-images.githubusercontent.com/63443481/136186304-c0a767ea-1fd2-4b0c-b5a8-3e366ddc06a3.PNG">  
+
+<img width="882" alt="opening pull request" src="https://user-images.githubusercontent.com/63443481/136186322-bfd5f333-136a-4d2f-8891-e8f97c379ba8.PNG">  
 
 - Voila! Your Pull Request has been submitted and it's ready to be merged.🥳 <br />
 
