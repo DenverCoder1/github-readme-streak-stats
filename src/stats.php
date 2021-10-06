@@ -105,6 +105,8 @@ function fetchGraphQL(string $query): stdClass
     $obj = json_decode($response);
     // handle curl errors
     if ($response === false || $obj === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
+        // set response code to curl error code
+        http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
         if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
             throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.");
