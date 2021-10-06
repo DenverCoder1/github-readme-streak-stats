@@ -1,9 +1,21 @@
-## Contributing
+## Contributing Guidelines
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
+This documentation contains a set of guidelines to help you during the contribution process.
+
+### Need some help regarding the basics?🤔
+
+You can refer to the following articles on basics of Git and Github,
+in case you are stuck:
+
+- [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+- [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
+- [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)
+- [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
+- [Learn GitHub from Scratch](https://lab.github.com/githubtraining/introduction-to-github)
 
 ### Installing Requirements
 
@@ -76,3 +88,94 @@ Run the following command to run the PHPUnit test script which will verify that 
 ```bash
 composer test
 ```
+
+## Submitting Contributions 👨‍💻
+
+Below you will find the process and workflow used to review and merge your changes.
+
+### Step 0 : Find an issue
+
+- Take a look at the Existing Issues or create your **own** Issues!
+- Wait for the Issue to be assigned to you after which you can start working on it.
+
+![SC1](https://user-images.githubusercontent.com/63443481/136185624-24447858-de8d-4b0a-bb6b-2528d9031196.PNG)
+
+
+### Step 1 : Fork the Project
+
+- Fork this Repository. This will create a Local Copy of this Repository on your Github Profile.
+Keep a reference to the original project in `upstream` remote.  
+
+```bash
+git clone https://github.com/<your-username>/github-readme-streak-stats.git  
+cd github-readme-streak-stats  
+git remote add upstream https://github.com/DenverCoder1/github-readme-streak-stats.git  
+```  
+
+![SC2](https://user-images.githubusercontent.com/63443481/136185816-0b6770d7-0b00-4951-861a-dd15e3954918.PNG)
+  
+
+- If you have already forked the project, update your copy before working.
+
+```bash
+git remote update
+git checkout <branch-name>
+git rebase upstream/<branch-name>
+```  
+
+### Step 2 : Branch
+
+Create a new branch. Use its name to identify the issue your addressing.
+
+```bash
+# It will create a new branch with name Branch_Name and switch to that branch 
+git checkout -b branch_name
+```
+
+### Step 3 : Work on the issue assigned
+
+- Work on the issue(s) assigned to you.
+- Make all the necessary changes to the codebase.
+- After you've made changes or made your contribution to the project add changes to the branch you've just created by:
+
+```bash  
+# To add all new files to branch Branch_Name  
+git add .  
+
+# To add only a few files to Branch_Name
+git add <some files (with path)>
+```
+
+### Step 4 : Commit
+
+- To commit give a descriptive message by:
+
+```bash
+# This message get associated with all files you have changed  
+git commit -m "message"  
+```
+
+### Step 5 : Work Remotely
+
+- Now you are ready to your work to the remote repository.
+- When your work is ready and complies with the project conventions, upload your changes to your fork:
+
+```bash  
+# To push your work to your remote repository
+git push -u origin Branch_Name
+```
+
+- Here is how your branch will look.
+![SC3](https://user-images.githubusercontent.com/63443481/136186235-204f5c7a-1129-44b5-af20-89aa6a68d952.PNG)
+
+### Step 6 : Pull Request
+
+- Go to your repository in browser and click on compare and pull requests.
+Then add a title and description to your pull request that explains your contribution.  
+<img width="700" alt="pr" src="https://user-images.githubusercontent.com/63443481/136186304-c0a767ea-1fd2-4b0c-b5a8-3e366ddc06a3.PNG">  
+
+<img width="882" alt="pullr" src="https://user-images.githubusercontent.com/63443481/136186322-bfd5f333-136a-4d2f-8891-e8f97c379ba8.PNG">  
+
+- Voila! Your Pull Request has been submitted and it's ready to be merged.🥳 <br />
+
+#### Happy Contributing!
