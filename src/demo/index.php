@@ -100,8 +100,6 @@
                     <textarea id="exportedPhp" hidden></textarea>
 
                 </details>
-                <button class="btn" type="button" onclick='return exportPhp()'>button</button>
-                <textarea id="test"></textarea>
 
                 <input class="btn" type="submit" value="Submit">
             </form>
