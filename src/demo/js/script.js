@@ -7,24 +7,9 @@ let preview = {
   // update the preview
   update: function () {
     // get parameter values from all .param elements
-    const params = Array.from(document.querySelectorAll(".param")).reduce(
-      (acc, next) => {
-        let obj = { ...acc };
-        let value = next.value;
 
-        if (value.indexOf("#") >= 0) {
-          // if the value is colour, remove the hash sign
-          value = value.replace(/#/g, "");
-          if (value.length > 6) {
-            // if the value is in hexa and opacity is 1, remove FF
-            value = value.replace(/(F|f){2}$/, "");
-          }
-        }
-        obj[next.id] = value;
-        return obj;
-      },
-      {}
-    );
+    const params = objectFromElements(document.querySelectorAll(".param"))
+
     // convert parameters to query string
     const encode = encodeURIComponent;
     const query = Object.keys(params)
@@ -179,21 +164,10 @@ window.addEventListener(
   },
   false
 );
-function exportPhp() {
-  let properties = [
-    "border",
-    "stroke",
-    "ring",
-    "fire",
-    "currStreakNum",
-    "sideNums",
-    "currStreakLabel",
-    "sideLabels",
-    "dates",
-    "background",
-  ];
-  let array = Array.from(document.querySelectorAll(".param")).reduce(
-    (acc, next) => {
+function objectFromElements(elements)
+{
+    // create a key value mapping of parameter values from all elements in a Node list
+    return Array.from(elements).reduce((acc, next) => {
       let obj = { ...acc };
       let value = next.value;
       if (value.indexOf("#") >= 0) {
@@ -206,24 +180,20 @@ function exportPhp() {
       }
       obj[next.id] = value;
       return obj;
-    },
-    {}
-  );
-  var exportPhp = {};
-
-  for (const [key, val] of Object.entries(array)) {
-    if (properties.includes(key) > 0) {
-      exportPhp[key] = val;
-    }
-  }
-
+    }, {});
+}
+function exportPhp() {
+  let params = objectFromElements(document.querySelectorAll(".advanced .param.jscolor"))
   const output =
     "[\n" +
-    Object.keys(exportPhp)
-      .map((key) => `\t"${key}" => "#${exportPhp[key]}",\n`)
+    Object.keys(params)
+      .map((key) => `\t"${key}" => "#${params[key]}",\n`)
       .join("") +
     "]";
-  document.getElementById('test').value = output;
+
+  let textarea = document.getElementById('exportedPhp')
+  textarea.value = output
+  textarea.hidden = 0
   console.log(output);
 }
 
