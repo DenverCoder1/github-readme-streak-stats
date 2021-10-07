@@ -219,8 +219,8 @@ function exportPhp() {
 
   const output =
     "[\n" +
-    Object.keys(exportPhp)
-      .map((key) => `\t"${key}" => "#${exportPhp[key]}",\n`)
+    Object.keys(params)
+      .map((key) => `\t"${key}" => "#${params[key]}",\n`)
       .join("") +
     "]";
   document.getElementById('test').value = output;
