@@ -60,6 +60,29 @@ function getContributionGraphs(string $user): array
     return $response;
 }
 
+/** 
+ * Get all tokens from environment variables (TOKEN, TOKEN2, TOKEN3, etc.) if they are set
+ * 
+ * @return array<string> List of tokens
+ */
+function getGitHubTokens() {
+    // result is already calculated
+    if (isset($GLOBALS["ALL_TOKENS"])) {
+        return $GLOBALS["ALL_TOKENS"];
+    }
+    // find all tokens in environment variables
+    $tokens = array($_SERVER["TOKEN"] ?? "");
+    for ($i = 2; $i < 4; $i++) {
+        if (isset($_SERVER["TOKEN$i"])) {
+            // add token to list
+            $tokens[] = $_SERVER["TOKEN$i"];
+        }
+    }
+    // store for future use
+    $GLOBALS["ALL_TOKENS"] = $tokens;
+    return $tokens;
+}
+
 /** Create a CurlHandle for a POST request to GitHub's GraphQL API
  * 
  * @param string $query GraphQL query
@@ -68,7 +91,8 @@ function getContributionGraphs(string $user): array
  */
 function getGraphQLCurlHandle(string $query)
 {
-    $token = $_SERVER["TOKEN"];
+    $all_tokens = getGitHubTokens();
+    $token = $all_tokens[array_rand($all_tokens)];
     $headers = array(
         "Authorization: bearer $token",
         "Content-Type: application/json",
@@ -147,7 +171,7 @@ function getContributionYears(string $user): array
     // API Error
     if (!empty($response->errors)) {
         // Other errors that contain a message field
-        throw new InvalidArgumentException($response->data->errors[0]->message);
+        throw new InvalidArgumentException($response->errors[0]->message);
     }
     // API did not return data
     if (!isset($response->data) && isset($response->message)) {
