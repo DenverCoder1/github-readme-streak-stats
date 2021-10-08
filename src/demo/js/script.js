@@ -191,10 +191,9 @@ function exportPhp() {
       .join("") +
     "]";
 
-  let textarea = document.getElementById('exportedPhp')
-  textarea.value = output
-  textarea.hidden = 0
-  console.log(output);
+  let textarea = document.getElementById('exportedPhp');
+  textarea.value = output;
+  textarea.hidden = false;
 }
 
 function checkColor(color, input) {
