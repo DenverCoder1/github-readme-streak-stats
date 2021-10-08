@@ -7,24 +7,9 @@ let preview = {
   // update the preview
   update: function () {
     // get parameter values from all .param elements
-    const params = Array.from(document.querySelectorAll(".param")).reduce(
-      (acc, next) => {
-        let obj = { ...acc };
-        let value = next.value;
 
-        if (value.indexOf('#') >= 0) {
-          // if the value is colour, remove the hash sign
-          value = value.replace(/#/g, "");
-          if (value.length > 6) {
-            // if the value is in hexa and opacity is 1, remove FF
-            value = value.replace(/(F|f){2}$/, "");
-          }
-        }
-        obj[next.id] = value;
-        return obj;
-      },
-      {}
-    );
+    const params = objectFromElements(document.querySelectorAll(".param"))
+
     // convert parameters to query string
     const encode = encodeURIComponent;
     const query = Object.keys(params)
@@ -72,9 +57,9 @@ let preview = {
       label.setAttribute("data-property", property);
       // color picker
       const jscolorConfig = {
-        format: 'hexa',
-        onChange: 'pickerChange(this, "'+property+'")',
-        onInput: 'pickerChange(this, "'+property+'")'
+        format: "hexa",
+        onChange: 'pickerChange(this, "' + property + '")',
+        onInput: 'pickerChange(this, "' + property + '")',
       };
       const input = document.createElement("input");
       input.className = "param jscolor";
@@ -179,8 +164,39 @@ window.addEventListener(
   },
   false
 );
+function objectFromElements(elements)
+{
+    // create a key value mapping of parameter values from all elements in a Node list
+    return Array.from(elements).reduce((acc, next) => {
+      let obj = { ...acc };
+      let value = next.value;
+      if (value.indexOf("#") >= 0) {
+        // if the value is colour, remove the hash sign
+        value = value.replace(/#/g, "");
+        if (value.length > 6) {
+          // if the value is in hexa and opacity is 1, remove FF
+          value = value.replace(/(F|f){2}$/, "");
+        }
+      }
+      obj[next.id] = value;
+      return obj;
+    }, {});
+}
+function exportPhp() {
+  let params = objectFromElements(document.querySelectorAll(".advanced .param.jscolor"))
+  const output =
+    "[\n" +
+    Object.keys(params)
+      .map((key) => `    "${key}" => "#${params[key]}",\n`)
+      .join("") +
+    "]";
 
-function checkColor(color, input){
+  let textarea = document.getElementById('exportedPhp');
+  textarea.value = output;
+  textarea.hidden = false;
+}
+
+function checkColor(color, input) {
   if (color.length == 9 && color.slice(-2) == "FF") {
     // if color has hex alpha value -> remove it
     document.getElementById(input).value = color.slice(0, -2);

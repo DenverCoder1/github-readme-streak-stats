@@ -294,3 +294,10 @@ input:focus:invalid {
 .btn.tooltip:disabled:before {
   content: "You must first input a valid username.";
 }
+
+textarea#exportedPhp {
+  margin-top: 10px;
+  width: 100%;
+  resize: vertical;
+  height: 100px;
+}
