@@ -187,7 +187,7 @@ function exportPhp() {
   const output =
     "[\n" +
     Object.keys(params)
-      .map((key) => `\t"${key}" => "#${params[key]}",\n`)
+      .map((key) => `    "${key}" => "#${params[key]}",\n`)
       .join("") +
     "]";
 
