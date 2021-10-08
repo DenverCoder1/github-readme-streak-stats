@@ -187,14 +187,13 @@ function exportPhp() {
   const output =
     "[\n" +
     Object.keys(params)
-      .map((key) => `\t"${key}" => "#${params[key]}",\n`)
+      .map((key) => `    "${key}" => "#${params[key]}",\n`)
       .join("") +
     "]";
 
-  let textarea = document.getElementById('exportedPhp')
-  textarea.value = output
-  textarea.hidden = 0
-  console.log(output);
+  let textarea = document.getElementById('exportedPhp');
+  textarea.value = output;
+  textarea.hidden = false;
 }
 
 function checkColor(color, input) {
