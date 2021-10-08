@@ -296,7 +296,6 @@ input:focus:invalid {
 }
 
 textarea#exportedPhp {
-  display: block;
   margin-top: 10px;
   width: 100%;
   resize: vertical;
