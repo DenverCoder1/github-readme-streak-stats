@@ -330,7 +330,7 @@ function convertSvgToPng(string $svg): string
  * Set headers and echo response based on type
  *
  * @param string|array $output The stats (array) or error message (string) to display
- * @param int|bool $response_code Returns http response code (200, 400, etc...)
+ * @param int|bool $response_code Returns http response code (200, 400, etc...  )
  */
 function renderOutput(string|array $output, int|bool $response_code = 200): void
 {
