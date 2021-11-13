@@ -345,10 +345,10 @@ function convertSvgToPng(string $svg): string
  *
  * @param string|array $output The stats (array) or error message (string) to display
  */
-function renderOutput(string|array $output, int $response_code = 200): void
+function renderOutput(string|array $output, int $respondeCode = 200): void
 {
     $requestedType = $_REQUEST['type'] ?? 'svg';
-    http_response_code($response_code);
+    http_response_code($respondeCode);
 
     // output JSON data
     if ($requestedType === "json") {
