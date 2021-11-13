@@ -39,5 +39,5 @@ try {
     $stats = getContributionStats($contributions);
     renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {
-    renderOutput($error->getMessage());
+    renderOutput($error->getMessage(), $error->getCode());
 }
