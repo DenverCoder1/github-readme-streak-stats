@@ -133,14 +133,14 @@ function fetchGraphQL(string $query): stdClass
         http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
         if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
-            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.");
+            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
         }
         // Handle errors such as "Bad credentials"
         if ($obj && $obj->message) {
-            throw new AssertionError("Error: $obj->message \n<!-- $response -->");
+            throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
         }
         // TODO: Make the $response part get passed into a custom error and render the commented details in the SVG card generator
-        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->");
+        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
     }
     return $obj;
 }
@@ -166,17 +166,17 @@ function getContributionYears(string $user): array
     $response = fetchGraphQL($query);
     // User not found
     if (!empty($response->errors) && $response->errors[0]->type === "NOT_FOUND") {
-        throw new InvalidArgumentException("Could not find a user with that name.");
+        throw new InvalidArgumentException("Could not find a user with that name.", 404);
     }
     // API Error
     if (!empty($response->errors)) {
         // Other errors that contain a message field
-        throw new InvalidArgumentException($response->errors[0]->message);
+        throw new InvalidArgumentException($response->errors[0]->message, 500);
     }
     // API did not return data
     if (!isset($response->data) && isset($response->message)) {
         // Other errors that contain a message field
-        throw new InvalidArgumentException($response->message);
+        throw new InvalidArgumentException($response->message, 204);
     }
     return $response->data->user->contributionsCollection->contributionYears;
 }
@@ -196,7 +196,7 @@ function getContributionDates(array $contributionGraphs): array
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
     foreach ($contributionGraphs as $graph) {
         if (!empty($graph->errors)) {
-            throw new AssertionError($graph->data->errors[0]->message);
+            throw new AssertionError($graph->data->errors[0]->message, 502);
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
@@ -225,7 +225,7 @@ function getContributionStats(array $contributions): array
 {
     // if no contributions, display error
     if (empty($contributions)) {
-        throw new AssertionError("No contributions found.");
+        throw new AssertionError("No contributions found.", 204);
     }
     $today = array_key_last($contributions);
     $first = array_key_first($contributions);
