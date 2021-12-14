@@ -348,7 +348,7 @@ function convertSvgToPng(string $svg): string
 function renderOutput(string|array $output, int $respondeCode = 200): void
 {
     $requestedType = $_REQUEST['type'] ?? 'svg';
-    http_response_code($respondeCode);
+    http_response_code($responseCode);
 
     // output JSON data
     if ($requestedType === "json") {
