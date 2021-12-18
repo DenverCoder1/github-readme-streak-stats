@@ -830,4 +830,30 @@ return array(
       "sideLabels" => "#24292F",
       "dates" => "#1F6FEB",
   ],
+    "elegant" => [
+      "background" => "#03071e",
+      "border" => "#abcdef",
+      "stroke" => "#abcdef",
+      "ring" => "#ca6702",
+      "currStreakNum" => "#abcdef",
+      "fire" => "#e85d04",
+      "sideNums" => "#abdcfe",
+      "currStreakLabel" => "#abcdef",
+      "sideLabels" => "#fedcba",
+      "dates" => "#ff7b00",
+  ],
+
+  "leafy" => [
+      "background" => "#081c15",
+      "border" => "#abcdef",
+      "stroke" => "#081c15",
+      "ring" => "#abcdef",
+      "currStreakNum" => "#ff5400",
+      "fire" => "#abcdef",
+      "sideNums" => "#ff5400",
+      "currStreakLabel" => "#ff5400",
+      "sideLabels" => "#abcabc",
+      "dates" => "#fecfec",
+  ],
+
 );
