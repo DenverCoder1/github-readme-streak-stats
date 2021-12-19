@@ -842,7 +842,6 @@ return array(
       "sideLabels" => "#fedcba",
       "dates" => "#ff7b00",
   ],
-
   "leafy" => [
       "background" => "#081c15",
       "border" => "#abcdef",
@@ -855,5 +854,4 @@ return array(
       "sideLabels" => "#abcabc",
       "dates" => "#fecfec",
   ],
-
 );
