@@ -1,6 +1,5 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>
-            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
             a {
                 fill: #999999;
             }
@@ -19,7 +18,7 @@
                 <!-- Error Label -->
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;'>
+                    <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;'>
                         An unknown error occurred
                     </text>
                 </g>

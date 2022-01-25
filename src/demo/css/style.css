@@ -44,7 +44,7 @@ html {
 
 body {
   background: var(--background);
-  font-family: "Open Sans", Roboto, Arial, sans-serif;
+  font-family: Segoe UI, Ubuntu, sans-serif;
   padding-top: 10px;
   color: var(--text);
 }
