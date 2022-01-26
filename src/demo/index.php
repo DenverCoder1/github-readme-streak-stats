@@ -19,7 +19,6 @@
         gtag('config', 'G-48CYVH0XEF');
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/toggle-dark.css">
