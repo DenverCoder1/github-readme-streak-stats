@@ -1,6 +1,5 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>
-            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
             @keyframes currstreak {
                 0% { font-size: 3px; opacity: 0.2; }
                 80% { font-size: 34px; opacity: 1; }
@@ -29,7 +28,7 @@
                 <!-- Total Contributions Big Number -->
                 <g transform='translate(1,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#666666;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#666666;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
                         2048
                     </text>
                 </g>
@@ -37,7 +36,7 @@
                 <!-- Total Contributions Label -->
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
                         Total Contributions
                     </text>
                 </g>
@@ -45,7 +44,7 @@
                 <!-- total contributions range -->
                 <g transform='translate(1,114)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
                         Aug 10, 2016 - Present
                     </text>
                 </g>
@@ -54,7 +53,7 @@
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#555555;stroke:none;animation: currstreak 0.6s linear forwards;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#555555;stroke:none;animation: currstreak 0.6s linear forwards;'>
                         16
                     </text>
                 </g>
@@ -62,7 +61,7 @@
                 <!-- Current Streak Label -->
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:#777777;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:#777777;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         Current Streak
                     </text>
                 </g>
@@ -70,7 +69,7 @@
                 <!-- Current Streak Range -->
                 <g transform='translate(166,145)'>
                     <rect width='163' height='26' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='21' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
+                    <text x='81.5' y='21' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         Mar 28, 2019 - Apr 12, 2019
                     </text>
                 </g>
@@ -89,7 +88,7 @@
                 <!-- Longest Streak Big Number -->
                 <g transform='translate(331,48)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#666666;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 1.2s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#666666;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 1.2s;'>
                         86
                     </text>
                 </g>
@@ -97,7 +96,7 @@
                 <!-- Longest Streak Label -->
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
                         Longest Streak
                     </text>
                 </g>
@@ -105,7 +104,7 @@
                 <!-- Longest Streak Range -->
                 <g transform='translate(331,114)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
-                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Open Sans, Roboto, system-ui, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
+                    <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
                         Dec 19, 2016 - Mar 14, 2016
                     </text>
                 </g>
