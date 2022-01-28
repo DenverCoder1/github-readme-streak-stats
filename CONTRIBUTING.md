@@ -53,7 +53,7 @@ To get the GitHub API to run locally you will need to provide a token.
 
 1. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
 2. Scroll to the bottom and click **"Generate token"**
-3. **Make a copy** of `.env.example` named `.env` in the root directory and add **your token** after `TOKEN=`.
+3. **Make a copy** of the `.env.example` named `.env` in the root directory and add **your token** after `TOKEN=`.
 
 ```php
 TOKEN=<your-token>
@@ -120,10 +120,10 @@ git rebase upstream/<branch-name>
 
 ### Step 2 : Branch
 
-Create a new branch. Use its name to identify the issue your addressing.
+Create a new branch. Use its name to identify the issue you're addressing.
 
 ```bash
-# It will create a new branch with name Branch_Name and switch to that branch 
+# It will create a new branch with the name Branch_Name and switch to that branch 
 git checkout -b Branch_Name
 ```
 
@@ -172,5 +172,4 @@ git push -u origin Branch_Name
 <img width="882" alt="opening pull request" src="https://user-images.githubusercontent.com/63443481/136186322-bfd5f333-136a-4d2f-8891-e8f97c379ba8.PNG">  
 
 - Voila! Your Pull Request has been submitted and it's ready to be merged.🥳
-
 #### Happy Contributing!
