@@ -137,11 +137,15 @@ function generateCard(array $stats, array $params = null): string
             }
         </style>
         <defs>
-            <clipPath id='_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw'>
+            <clipPath id='outer_rectangle'>
                 <rect width='495' height='195'/>
             </clipPath>
+            <mask id='mask_out_ring_behind_fire'>
+                <rect width='495' height='195' fill='white'/>
+                <ellipse id='mask-ellipse' cx='247.5' cy='32' rx='13' ry='18' fill='black'/>
+            </mask>
         </defs>
-        <g clip-path='url(#_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw)'>
+        <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
                 <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
                       style='stroke: {$theme["border"]}; fill: {$theme["background"]};stroke-miterlimit:10;rx: 4.5;'/>
@@ -201,8 +205,9 @@ function generateCard(array $stats, array $params = null): string
                 </g>
 
                 <!-- ring around number -->
-                <circle cx='247.5' cy='71' r='40' style='fill:none;stroke:{$theme["ring"]};stroke-width:5;opacity: 0; animation: fadein 0.5s linear forwards 0.4s;'></circle>
-                <ellipse cx='247.5' cy='32' rx='13' ry='18' fill='{$theme["background"]}' stroke-opacity='0' />
+                <g mask='url(#mask_out_ring_behind_fire)'>
+                    <circle cx='247.5' cy='71' r='40' style='fill:none;stroke:{$theme["ring"]};stroke-width:5;opacity: 0; animation: fadein 0.5s linear forwards 0.4s;'></circle>
+                </g>
                 <!-- fire icon -->
                 <g style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s; stroke-opacity: 0;'>
                     <path d=' M 235.5 19.5 L 259.5 19.5 L 259.5 43.5 L 235.5 43.5 L 235.5 19.5 Z ' fill='none' stroke-opacity='0'/>
@@ -260,11 +265,11 @@ function generateErrorCard(string $message, array $params = null): string
             }
         </style>
         <defs>
-            <clipPath id='_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw'>
+            <clipPath id='outer_rectangle'>
                 <rect width='495' height='195'/>
             </clipPath>
         </defs>
-        <g clip-path='url(#_clipPath_OZGVUqgkTHHpPTYeqOmK3uLgktRVSwWw)'>
+        <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
                 <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
                     style='stroke: {$theme["border"]}; fill: {$theme["background"]};stroke-miterlimit:10;rx: 4.5;'/>
