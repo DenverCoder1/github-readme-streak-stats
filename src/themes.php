@@ -854,4 +854,16 @@ return array(
       "sideLabels" => "#abcabc",
       "dates" => "#fecfec",
   ],
+  "navy-gear" => [
+      "background" => "#000021",
+      "border" => "#FFFFFF",
+      "stroke" => "#FFFFFF",
+      "ring" => "#1FA0DD",
+      "fire" => "#1FA0DD",
+      "currStreakNum" => "#C3DD00",
+      "sideNums" => "#C3DD00",
+      "currStreakLabel" => "#C3DD00",
+      "sideLabels" => "#C3DD00",
+      "dates" => "#1FA0DD",
+   ],
 );
