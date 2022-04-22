@@ -878,4 +878,16 @@ return array(
       "sideLabels" => "#C3DD00",
       "dates" => "#1FA0DD",
    ],
+   "hacker" => [
+        "background" => "#000000",
+        "border" => "#20C20E",
+        "stroke" => "#20C20E",
+        "ring" => "#20C20E",
+        "fire" => "#20C20E",
+        "currStreakNum" => "#20C20E",
+        "sideNums" => "#20C20E",
+        "currStreakLabel" => "#20C20E",
+        "sideLabels" => "#20C20E",
+        "dates" => "#20C20E",
+    ],
 );
