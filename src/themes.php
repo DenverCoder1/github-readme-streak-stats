@@ -890,4 +890,16 @@ return array(
         "sideLabels" => "#20C20E",
         "dates" => "#20C20E",
     ],
+    "garden" => [
+        "background" => "#094A4A",
+        "border" => "#000000",
+        "stroke" => "#DDD4A8",
+        "ring" => "#D2DD3B",
+        "fire" => "#D2DD3B",
+        "currStreakNum" => "#D2DD3B",
+        "sideNums" => "#D2DD3B",
+        "currStreakLabel" => "#6FDD6C",
+        "sideLabels" => "#6FDD6C",
+        "dates" => "#6FDD6C",
+    ],
 );

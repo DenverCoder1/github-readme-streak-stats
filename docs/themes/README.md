@@ -80,6 +80,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |      `leafy`           | ![image](https://user-images.githubusercontent.com/69510006/146630969-ff7bc045-518e-43c0-83df-2d275f3e4b1d.jpg) |
 |      `navy-gear`       | ![image](https://user-images.githubusercontent.com/20955511/153954354-60438cfa-d0a0-4737-936c-65b61faf637d.png) |
 |      `hacker`          | ![image](https://user-images.githubusercontent.com/20955511/164965194-724816b5-5aa0-4c36-8bae-f3cbafd2c2a4.png) |
+|      `garden`          | ![image](https://user-images.githubusercontent.com/44000014/165035015-153d9b3a-bd3a-4e34-b252-3c64ab081b75.png) |
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/) or by customizing the [url parameters](/README.md#-options).
