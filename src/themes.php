@@ -890,7 +890,7 @@ return array(
         "sideLabels" => "#20C20E",
         "dates" => "#20C20E",
     ],
-    "garden" =>[
+    "garden" => [
         "background" => "#094A4A",
         "border" => "#000000",
         "stroke" => "#DDD4A8",
@@ -901,5 +901,5 @@ return array(
         "currStreakLabel" => "#6FDD6C",
         "sideLabels" => "#6FDD6C",
         "dates" => "#6FDD6C",
-    ]
+    ],
 );
