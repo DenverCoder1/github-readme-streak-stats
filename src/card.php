@@ -90,16 +90,27 @@ function getRequestedTheme(array $params): array
  * @param array<string, string>|NULL $params Request parameters
  *
  * @return string The generated SVG Streak Stats card
+ * 
+ * @throws InvalidArgumentException If a locale does not exist
  */
 function generateCard(array $stats, array $params = null): string
 {
-    // get requested theme, use $_REQUEST if no params array specified
-    $theme = getRequestedTheme($params ?? $_REQUEST);
+    $params = $params ?? $_REQUEST;
+
+    // get requested theme
+    $theme = getRequestedTheme($params);
+
+    // get the labels from the translations file
+    $labels = include "translations.php";
+    // get requested locale, default to English
+    $locale = $params["locale"] ?? "en";
+    // if the locale does not exist in the first value of the labels array, throw an exception
+    if (!isset(reset($labels)[$locale])) {
+        throw new InvalidArgumentException("That locale is not supported. You can help by adding it to the translations file.");
+    }
 
     // get date format
-    $dateFormat = isset(($params ?? $_REQUEST)["date_format"])
-        ? ($params ?? $_REQUEST)["date_format"]
-        : "M j[, Y]";
+    $dateFormat = $params["date_format"] ?? "M j[, Y]";
 
     // total contributions
     $totalContributions = $stats["totalContributions"];
@@ -167,7 +178,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        Total Contributions
+                        {$labels["totalContributions"][$locale]}
                     </text>
                 </g>
 
@@ -192,7 +203,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        Current Streak
+                        {$labels["currentStreak"][$locale]}
                     </text>
                 </g>
 
@@ -228,7 +239,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        Longest Streak
+                        {$labels["longestStreak"][$locale]}
                     </text>
                 </g>
 
@@ -255,8 +266,10 @@ function generateCard(array $stats, array $params = null): string
  */
 function generateErrorCard(string $message, array $params = null): string
 {
+    $params = $params ?? $_REQUEST;
+
     // get requested theme, use $_REQUEST if no params array specified
-    $theme = getRequestedTheme($params ?? $_REQUEST);
+    $theme = getRequestedTheme($params);
 
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>

@@ -2,6 +2,7 @@ let preview = {
   // default values
   defaults: {
     theme: "default",
+    locale: "en",
     hide_border: "false",
   },
   // update the preview

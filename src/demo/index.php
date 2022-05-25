@@ -1,4 +1,11 @@
-<?php $THEMES = include "../themes.php"; ?>
+<?php
+
+$THEMES = include "../themes.php";
+$TRANSLATIONS = include "../translations.php";
+// Get the keys of the first value in the translations array
+$LOCALES = array_keys(reset($TRANSLATIONS));
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,6 +84,13 @@
                     <option value="j/n[/Y]">10/8/2016</option>
                     <option value="n/j[/Y]">8/10/2016</option>
                     <option value="[Y.]n.j">2016.8.10</option>
+                </select>
+
+                <label for="locale">Locale</label>
+                <select class="param" id="locale" name="locale">
+                    <?php foreach ($LOCALES as $locale) : ?>
+                        <option value="<?php echo $locale; ?>"><?php echo Locale::getDisplayLanguage($locale, $locale) . " (" . $locale . ")"; ?></option>
+                    <?php endforeach; ?>
                 </select>
 
                 <details class="advanced">
