@@ -89,7 +89,7 @@ $LOCALES = array_keys(reset($TRANSLATIONS));
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
                     <?php foreach ($LOCALES as $locale) : ?>
-                        <option value="<?php echo $locale; ?>"><?php echo $locale; ?></option>
+                        <option value="<?php echo $locale; ?>"><?php echo Locale::getDisplayLanguage($locale, $locale) . " (" . $locale . ")"; ?></option>
                     <?php endforeach; ?>
                 </select>
 
