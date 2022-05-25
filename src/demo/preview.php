@@ -23,5 +23,8 @@ $demoStats = [
 // set content type to SVG image
 header("Content-Type: image/svg+xml");
 
-// echo SVG data for demo stats
-echo generateCard($demoStats);
+try {
+    renderOutput($demoStats);
+} catch (InvalidArgumentException | AssertionError $error) {
+    renderOutput($error->getMessage(), $error->getCode());
+}
