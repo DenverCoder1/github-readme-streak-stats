@@ -41,7 +41,7 @@
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        総貢献数
+                        総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数
                     </text>
                 </g>
 
@@ -102,7 +102,7 @@
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        最長ストリーク
+                        最長のストリーク
                     </text>
                 </g>
 
