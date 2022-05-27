@@ -7,10 +7,10 @@ return [
     ],
     "totalContributions" => [
         "en" => "Total Contributions",
-        "ja" => "総貢献数",
+        "ja" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
     ],
     "longestStreak" => [
         "en" => "Longest Streak",
-        "ja" => "最長ストリーク",
+        "ja" => "最長のストリーク",
     ],
 ];
