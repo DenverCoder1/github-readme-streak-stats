@@ -28,6 +28,11 @@ return [
         "Current Streak" => "Current Streak",
         "Longest Streak" => "Longest Streak",
     ],
+    "de" => [
+        "Total Contributions" => "Gesamte Beiträge",
+        "Current Streak" => "Aktuelle Serie",
+        "Longest Streak" => "Längste Serie",
+    ],
     "es" => [
         "Total Contributions" => "Todas Contribuciones",
         "Current Streak" => "Racha Actual",
