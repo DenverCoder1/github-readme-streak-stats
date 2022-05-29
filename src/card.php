@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
- * @param string|null $format Date format to use
+ * @param string|null $format Date format to use, or null to use locale default
  * @param string $locale Locale code
  * @return string Formatted Date string
  */
@@ -23,7 +23,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
         } else {
             // format without year using locale
             $pattern = $patternGenerator->getBestPattern("MMM d");
-            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, null, null, $pattern);
+            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, pattern: $pattern);
             $formatted = $dateFormatter->format($date);
         }
     }
@@ -35,7 +35,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
         } else {
             // format with year using locale
             $pattern = $patternGenerator->getBestPattern("YYYY MMM d");
-            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, null, null, $pattern);
+            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, pattern: $pattern);
             $formatted = $dateFormatter->format($date);
         }
     }

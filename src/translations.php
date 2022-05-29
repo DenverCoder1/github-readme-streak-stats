@@ -7,13 +7,11 @@
  * 
  * Date Format
  * -----------
- * Supplying a date format is *optional* and will be used instead of the default.
+ * Supplying a date format is optional and will be used instead of the default locale date format.
+ * If the default date format for the locale displays correctly, you should omit the date_format parameter.
  * 
  * Different year   Same year   Format string
  * --------------   ---------   -------------
- * Aug 10, 2016     Aug 10      M j[, Y]
- * 10 Aug 2016      10 Aug      j M[ Y]
- * 2016 Aug 10      Aug 10      [Y ]M j
  * 10/8/2016        10/8        j/n[/Y]
  * 8/10/2016        8/10        n/j[/Y]
  * 2016.8.10        8.10        [Y.]n.j
