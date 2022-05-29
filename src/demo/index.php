@@ -3,7 +3,7 @@
 $THEMES = include "../themes.php";
 $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
-$LOCALES = array_keys(reset($TRANSLATIONS));
+$LOCALES = array_keys($TRANSLATIONS);
 
 ?>
 
