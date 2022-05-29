@@ -22,7 +22,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
             $formatted = date_format($date, preg_replace("/\[.*?\]/", "", $format));
         } else {
             // format without year using locale
-            $pattern = $patternGenerator->getBestPattern("MMM dd");
+            $pattern = $patternGenerator->getBestPattern("MMM d");
             $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, null, null, $pattern);
             $formatted = $dateFormatter->format($date);
         }
@@ -34,7 +34,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
             $formatted = date_format($date, str_replace(array("[", "]"), "", $format));
         } else {
             // format with year using locale
-            $pattern = $patternGenerator->getBestPattern("YYYY MMM dd");
+            $pattern = $patternGenerator->getBestPattern("YYYY MMM d");
             $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, null, null, $pattern);
             $formatted = $dateFormatter->format($date);
         }
