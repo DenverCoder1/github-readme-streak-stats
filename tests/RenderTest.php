@@ -78,10 +78,22 @@ final class RenderTest extends TestCase
      */
     public function testLocaleRender(): void
     {
+        $this->testParams["locale"] = "es";
+        // Check that the card is rendered as expected
+        $render = generateCard($this->testStats, $this->testParams);
+        $expected = file_get_contents("tests/expected/test_locale_es_card.svg");
+        $this->assertEquals($expected, $render);
+    }
+
+    /**
+     * Test locale parameter in render with date_format in translation file
+     */
+    public function testLocaleRenderDateFormat(): void
+    {
         $this->testParams["locale"] = "ja";
         // Check that the card is rendered as expected
         $render = generateCard($this->testStats, $this->testParams);
-        $expected = file_get_contents("tests/expected/test_locale_card.svg");
+        $expected = file_get_contents("tests/expected/test_locale_ja_card.svg");
         $this->assertEquals($expected, $render);
     }
 
