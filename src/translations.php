@@ -8,7 +8,7 @@ return [
     ],
     "totalContributions" => [
         "en" => "Total Contributions",
-        "es" => "Número de Contribuciones",
+        "es" => "Todas Contribuciones",
         "ja" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
     ],
     "longestStreak" => [
