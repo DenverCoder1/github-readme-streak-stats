@@ -101,24 +101,24 @@ function generateCard(array $stats, array $params = null): string
     $theme = getRequestedTheme($params);
 
     // get the labels from the translations file
-    $labels = include "translations.php";
+    $translations = include "translations.php";
     // get requested locale, default to English
-    $locale = $params["locale"] ?? "en";
-    // if the locale does not exist in the first value of the labels array, throw an exception
-    if (!isset(reset($labels)[$locale])) {
-        throw new InvalidArgumentException("That locale is not supported. You can help by adding it to the translations file.");
-    }
+    $locale_code = $params["locale"] ?? "en";
+    $locale = $translations[$locale_code] ?? $translations["en"];
 
     // get date format
-    $dateFormat = $params["date_format"] ?? "M j[, Y]";
+    $dateFormat = $params["date_format"] ?? $locale["date_format"] ?? "M j[, Y]";
+
+    // number formatter
+    $numFormatter = new NumberFormatter($locale_code, NumberFormatter::DECIMAL);
 
     // total contributions
-    $totalContributions = $stats["totalContributions"];
+    $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat);
     $totalContributionsRange = $firstContribution . " - Present";
 
     // current streak
-    $currentStreak = $stats["currentStreak"]["length"];
+    $currentStreak = $numFormatter->format($stats["currentStreak"]["length"]);
     $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat);
     $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat);
     $currentStreakRange = $currentStreakStart;
@@ -127,7 +127,7 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // longest streak
-    $longestStreak = $stats["longestStreak"]["length"];
+    $longestStreak = $numFormatter->format($stats["longestStreak"]["length"]);
     $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat);
     $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat);
     $longestStreakRange = $longestStreakStart;
@@ -178,7 +178,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        {$labels["totalContributions"][$locale]}
+                        {$locale["Total Contributions"]}
                     </text>
                 </g>
 
@@ -203,7 +203,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        {$labels["currentStreak"][$locale]}
+                        {$locale["Current Streak"]}
                     </text>
                 </g>
 
@@ -239,7 +239,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        {$labels["longestStreak"][$locale]}
+                        {$locale["Longest Streak"]}
                     </text>
                 </g>
 
