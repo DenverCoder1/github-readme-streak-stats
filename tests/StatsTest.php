@@ -92,14 +92,14 @@ final class StatsTest extends TestCase
      */
     public function testContributedToday(): void
     {
-        $contributions = array(
+        $contributions = [
             "2021-04-15" => 5,
             "2021-04-16" => 3,
             "2021-04-17" => 2,
             "2021-04-18" => 7,
-        );
+        ];
         $stats = getContributionStats($contributions);
-        $expected = array(
+        $expected = [
             "totalContributions" => 17,
             "firstContribution" => "2021-04-15",
             "longestStreak" => [
@@ -112,7 +112,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-18",
                 "length" => 4,
             ],
-        );
+        ];
         $this->assertEquals($expected, $stats);
     }
 
@@ -121,14 +121,14 @@ final class StatsTest extends TestCase
      */
     public function testMissingToday(): void
     {
-        $contributions = array(
+        $contributions = [
             "2021-04-15" => 5,
             "2021-04-16" => 3,
             "2021-04-17" => 2,
             "2021-04-18" => 0,
-        );
+        ];
         $stats = getContributionStats($contributions);
-        $expected = array(
+        $expected = [
             "totalContributions" => 10,
             "firstContribution" => "2021-04-15",
             "longestStreak" => [
@@ -141,7 +141,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-17",
                 "length" => 3,
             ],
-        );
+        ];
         $this->assertEquals($expected, $stats);
     }
 
@@ -150,14 +150,14 @@ final class StatsTest extends TestCase
      */
     public function testMissingTwoDays(): void
     {
-        $contributions = array(
+        $contributions = [
             "2021-04-15" => 5,
             "2021-04-16" => 3,
             "2021-04-17" => 0,
             "2021-04-18" => 0,
-        );
+        ];
         $stats = getContributionStats($contributions);
-        $expected = array(
+        $expected = [
             "totalContributions" => 8,
             "firstContribution" => "2021-04-15",
             "longestStreak" => [
@@ -170,7 +170,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-18",
                 "length" => 0,
             ],
-        );
+        ];
         $this->assertEquals($expected, $stats);
     }
 
@@ -179,12 +179,12 @@ final class StatsTest extends TestCase
      */
     public function testMultipleYearStreak(): void
     {
-        $contributions = array();
+        $contributions = [];
         for ($i = 369; $i >= 0; --$i) {
             $contributions[date('Y-m-d', strtotime("$i days ago"))] = 1;
         }
         $stats = getContributionStats($contributions);
-        $expected = array(
+        $expected = [
             "totalContributions" => 370,
             "firstContribution" => date('Y-m-d', strtotime('369 days ago')),
             "longestStreak" => [
@@ -197,7 +197,7 @@ final class StatsTest extends TestCase
                 "end" => date('Y-m-d'),
                 "length" => 370,
             ],
-        );
+        ];
         $this->assertEquals($expected, $stats);
     }
 
@@ -247,7 +247,7 @@ final class StatsTest extends TestCase
         ];
         $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
-        $expected = array(
+        $expected = [
             "totalContributions" => 3,
             "firstContribution" => date('Y-m-d', strtotime('yesterday')),
             "longestStreak" => [
@@ -260,7 +260,7 @@ final class StatsTest extends TestCase
                 "end" => date('Y-m-d', strtotime('tomorrow')),
                 "length" => 3,
             ],
-        );
+        ];
         $this->assertEquals($expected, $stats);
     }
 }

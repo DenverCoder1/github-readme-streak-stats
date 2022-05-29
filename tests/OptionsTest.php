@@ -9,7 +9,7 @@ require_once "src/card.php";
 
 final class OptionsTest extends TestCase
 {
-    private $defaultTheme = array(
+    private $defaultTheme = [
         "background" => "#fffefe",
         "border" => "#e4e2e2",
         "stroke" => "#e4e2e2",
@@ -20,7 +20,7 @@ final class OptionsTest extends TestCase
         "currStreakLabel" => "#fb8c00",
         "sideLabels" => "#151515",
         "dates" => "#464646",
-    );
+    ];
 
     /**
      * Test theme request parameters return colors for theme
@@ -60,7 +60,7 @@ final class OptionsTest extends TestCase
             // check that there are no extra keys in the theme
             $this->assertEquals(
                 array_diff_key($colors, $this->defaultTheme),
-                array(),
+                [],
                 "The theme '$theme' contains invalid parameters."
             );
             # check that no parameters are missing and all values are valid
@@ -172,7 +172,7 @@ final class OptionsTest extends TestCase
     public function testDateFormatSameYear(): void
     {
         $year = date("Y");
-        $formatted = formatDate("$year-04-12", "M j[, Y]");
+        $formatted = formatDate("$year-04-12", "M j[, Y]", "en");
         $this->assertEquals("Apr 12", $formatted);
     }
 
@@ -181,7 +181,7 @@ final class OptionsTest extends TestCase
      */
     public function testDateFormatDifferentYear(): void
     {
-        $formatted = formatDate("2000-04-12", "M j[, Y]");
+        $formatted = formatDate("2000-04-12", "M j[, Y]", "en");
         $this->assertEquals("Apr 12, 2000", $formatted);
     }
 
@@ -190,7 +190,7 @@ final class OptionsTest extends TestCase
      */
     public function testDateFormatNoBracketsDiffYear(): void
     {
-        $formatted = formatDate("2000-04-12", "Y/m/d");
+        $formatted = formatDate("2000-04-12", "Y/m/d", "en");
         $this->assertEquals("2000/04/12", $formatted);
     }
 
@@ -200,7 +200,7 @@ final class OptionsTest extends TestCase
     public function testDateFormatNoBracketsSameYear(): void
     {
         $year = date("Y");
-        $formatted = formatDate("$year-04-12", "Y/m/d");
+        $formatted = formatDate("$year-04-12", "Y/m/d", "en");
         $this->assertEquals("$year/04/12", $formatted);
     }
 }

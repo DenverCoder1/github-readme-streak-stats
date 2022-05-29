@@ -18,6 +18,7 @@ jobs:
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
+          php_extensions: imagick intl
           bootstrap: vendor/autoload.php
           configuration: tests/phpunit/phpunit.xml
           args: --testdox

@@ -6,21 +6,38 @@ declare(strict_types=1);
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
- * @param string $format Date format to use
+ * @param string|null $format Date format to use, or null to use locale default
+ * @param string $locale Locale code
  * @return string Formatted Date string
  */
-function formatDate(string $dateString, string $format): string
+function formatDate(string $dateString, string|null $format, string $locale): string
 {
     $date = new DateTime($dateString);
     $formatted = "";
+    $patternGenerator = new IntlDatePatternGenerator($locale);
     // if current year, display only month and day
     if (date_format($date, "Y") == date("Y")) {
-        // remove brackets and all text within them
-        $formatted = date_format($date, preg_replace("/\[.*?\]/", "", $format));
+        if ($format) {
+            // remove brackets and all text within them
+            $formatted = date_format($date, preg_replace("/\[.*?\]/", "", $format));
+        } else {
+            // format without year using locale
+            $pattern = $patternGenerator->getBestPattern("MMM d");
+            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, pattern: $pattern);
+            $formatted = $dateFormatter->format($date);
+        }
     }
-    // otherwise, display month, day, and year (just brackets removed)
+    // otherwise, display month, day, and year
     else {
-        $formatted = date_format($date, str_replace(array("[", "]"), "", $format));
+        if ($format) {
+            // remove brackets, but leave text within them
+            $formatted = date_format($date, str_replace(["[", "]"], "", $format));
+        } else {
+            // format with year using locale
+            $pattern = $patternGenerator->getBestPattern("YYYY MMM d");
+            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, pattern: $pattern);
+            $formatted = $dateFormatter->format($date);
+        }
     }
     // sanitize and return formatted date
     return htmlspecialchars($formatted);
@@ -101,35 +118,36 @@ function generateCard(array $stats, array $params = null): string
     $theme = getRequestedTheme($params);
 
     // get the labels from the translations file
-    $labels = include "translations.php";
+    $translations = include "translations.php";
     // get requested locale, default to English
-    $locale = $params["locale"] ?? "en";
-    // if the locale does not exist in the first value of the labels array, throw an exception
-    if (!isset(reset($labels)[$locale])) {
-        throw new InvalidArgumentException("That locale is not supported. You can help by adding it to the translations file.");
-    }
+    $localeCode = $params["locale"] ?? "en";
+    $localeTranslations = $translations[$localeCode] ?? $translations["en"];
 
     // get date format
-    $dateFormat = $params["date_format"] ?? "M j[, Y]";
+    // locale date formatter (used only if date_format is not specified)
+    $dateFormat = $params["date_format"] ?? $localeTranslations["date_format"] ?? null;
+
+    // number formatter
+    $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
 
     // total contributions
-    $totalContributions = $stats["totalContributions"];
-    $firstContribution = formatDate($stats["firstContribution"], $dateFormat);
+    $totalContributions = $numFormatter->format($stats["totalContributions"]);
+    $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
     $totalContributionsRange = $firstContribution . " - Present";
 
     // current streak
-    $currentStreak = $stats["currentStreak"]["length"];
-    $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat);
-    $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat);
+    $currentStreak = $numFormatter->format($stats["currentStreak"]["length"]);
+    $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat, $localeCode);
+    $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat, $localeCode);
     $currentStreakRange = $currentStreakStart;
     if ($currentStreakStart != $currentStreakEnd) {
         $currentStreakRange .= " - " . $currentStreakEnd;
     }
 
     // longest streak
-    $longestStreak = $stats["longestStreak"]["length"];
-    $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat);
-    $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat);
+    $longestStreak = $numFormatter->format($stats["longestStreak"]["length"]);
+    $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat, $localeCode);
+    $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat, $localeCode);
     $longestStreakRange = $longestStreakStart;
     if ($longestStreakStart != $longestStreakEnd) {
         $longestStreakRange .= " - " . $longestStreakEnd;
@@ -178,7 +196,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        {$labels["totalContributions"][$locale]}
+                        {$localeTranslations["Total Contributions"]}
                     </text>
                 </g>
 
@@ -203,7 +221,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        {$labels["currentStreak"][$locale]}
+                        {$localeTranslations["Current Streak"]}
                     </text>
                 </g>
 
@@ -239,7 +257,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        {$labels["longestStreak"][$locale]}
+                        {$localeTranslations["Longest Streak"]}
                     </text>
                 </g>
 
@@ -371,7 +389,7 @@ function renderOutput(string|array $output, int $responseCode = 200): void
         // set content type to JSON
         header('Content-Type: application/json');
         // generate array from output
-        $data = gettype($output) === "string" ? array("error" => $output) : $output;
+        $data = gettype($output) === "string" ? ["error" => $output] : $output;
         // output as JSON
         echo json_encode($data);
     }

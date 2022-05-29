@@ -2,8 +2,9 @@ let preview = {
   // default values
   defaults: {
     theme: "default",
-    locale: "en",
     hide_border: "false",
+    date_format: "",
+    locale: "en",
   },
   // update the preview
   update: function () {
