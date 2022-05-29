@@ -7,7 +7,7 @@
  * 
  * Date Format
  * -----------
- * Supplying a date format is optional and will be used instead of the default.
+ * Supplying a date format is *optional* and will be used instead of the default.
  * 
  * Different year   Same year   Format string
  * --------------   ---------   -------------
@@ -23,7 +23,6 @@
 
 return [
     "en" => [
-        "date_format" => "M j[, Y]",
         "Total Contributions" => "Total Contributions",
         "Current Streak" => "Current Streak",
         "Longest Streak" => "Longest Streak",
