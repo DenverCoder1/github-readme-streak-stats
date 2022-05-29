@@ -9,7 +9,7 @@ require_once "src/card.php";
 
 final class RenderTest extends TestCase
 {
-    private $testParams = array(
+    private $testParams = [
         "background" => "000000",
         "border" => "111111",
         "stroke" => "222222",
@@ -20,9 +20,9 @@ final class RenderTest extends TestCase
         "currStreakLabel" => "777777",
         "sideLabels" => "888888",
         "dates" => "999999",
-    );
+    ];
 
-    private $testStats = array(
+    private $testStats = [
         "totalContributions" => 2048,
         "firstContribution" => "2016-08-10",
         "longestStreak" => [
@@ -35,7 +35,7 @@ final class RenderTest extends TestCase
             "end" => "2019-04-12",
             "length" => 16,
         ],
-    );
+    ];
 
     /**
      * Test normal card render

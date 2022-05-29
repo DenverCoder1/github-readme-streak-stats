@@ -1,7 +1,7 @@
 <?php
 
 // return a list of valid CSS colors
-return array(
+return [
     "aliceblue",
     "antiquewhite",
     "aqua",
@@ -150,4 +150,4 @@ return array(
     "whitesmoke",
     "yellow",
     "yellowgreen",
-);
+];

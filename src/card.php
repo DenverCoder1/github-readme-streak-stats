@@ -14,7 +14,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 {
     $date = new DateTime($dateString);
     $formatted = "";
-    $patternGenerator = new \IntlDatePatternGenerator($locale);
+    $patternGenerator = new IntlDatePatternGenerator($locale);
     // if current year, display only month and day
     if (date_format($date, "Y") == date("Y")) {
         if ($format) {
@@ -30,8 +30,8 @@ function formatDate(string $dateString, string|null $format, string $locale): st
     // otherwise, display month, day, and year
     else {
         if ($format) {
-            // remove brackets and all text within them
-            $formatted = date_format($date, str_replace(array("[", "]"), "", $format));
+            // remove brackets, but leave text within them
+            $formatted = date_format($date, str_replace(["[", "]"], "", $format));
         } else {
             // format with year using locale
             $pattern = $patternGenerator->getBestPattern("YYYY MMM d");
@@ -389,7 +389,7 @@ function renderOutput(string|array $output, int $responseCode = 200): void
         // set content type to JSON
         header('Content-Type: application/json');
         // generate array from output
-        $data = gettype($output) === "string" ? array("error" => $output) : $output;
+        $data = gettype($output) === "string" ? ["error" => $output] : $output;
         // output as JSON
         echo json_encode($data);
     }
