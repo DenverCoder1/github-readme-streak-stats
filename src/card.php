@@ -103,14 +103,15 @@ function generateCard(array $stats, array $params = null): string
     // get the labels from the translations file
     $translations = include "translations.php";
     // get requested locale, default to English
-    $locale_code = $params["locale"] ?? "en";
-    $locale = $translations[$locale_code] ?? $translations["en"];
+    $localeCode = $params["locale"] ?? "en";
+    $localeTranslations = $translations[$localeCode] ?? $translations["en"];
 
     // get date format
-    $dateFormat = $params["date_format"] ?? $locale["date_format"] ?? "M j[, Y]";
+    // locale date formatter (used only if date_format is not specified)
+    $dateFormat = $params["date_format"] ?? $localeTranslations["date_format"] ?? "M j[, Y]";
 
     // number formatter
-    $numFormatter = new NumberFormatter($locale_code, NumberFormatter::DECIMAL);
+    $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
 
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
@@ -178,7 +179,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        {$locale["Total Contributions"]}
+                        {$localeTranslations["Total Contributions"]}
                     </text>
                 </g>
 
@@ -203,7 +204,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        {$locale["Current Streak"]}
+                        {$localeTranslations["Current Streak"]}
                     </text>
                 </g>
 
@@ -239,7 +240,7 @@ function generateCard(array $stats, array $params = null): string
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        {$locale["Longest Streak"]}
+                        {$localeTranslations["Longest Streak"]}
                     </text>
                 </g>
 
