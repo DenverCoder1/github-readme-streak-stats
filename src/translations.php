@@ -41,4 +41,9 @@ return [
         "Current Streak" => "現在のストリーク",
         "Longest Streak" => "最長のストリーク",
     ],
+    "tr" => [
+        "Total Contributions" => "Toplam Katkı",
+        "Current Streak" => "Güncel Seri",
+        "Longest Streak" => "En Uzun Seri",
+    ],
 ];
