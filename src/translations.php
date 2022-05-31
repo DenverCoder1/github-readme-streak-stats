@@ -46,4 +46,9 @@ return [
         "Current Streak" => "Güncel Seri",
         "Longest Streak" => "En Uzun Seri",
     ],
+    "pt-br" => [
+        "Total Contributions" => "Total de Contribuições",
+        "Current Streak" => "Atual Sequência",
+        "Longest Streak" => "Maior Sequência",
+    ],
 ];
