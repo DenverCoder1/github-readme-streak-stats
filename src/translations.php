@@ -53,7 +53,7 @@ return [
         "Current Streak" => "Atual Sequência",
         "Longest Streak" => "Maior Sequência",
     ],
-    "cn" => [
+    "zh" => [
         "Total Contributions" => "合计贡献",
         "Current Streak" => "最近连续贡献",
         "Longest Streak" => "最长连续贡献",
