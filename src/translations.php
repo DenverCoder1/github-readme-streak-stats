@@ -52,6 +52,7 @@ return [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
         "Longest Streak" => "Maior Sequência",
+        "Present" => "Atualmente",
     ],
     "zh" => [
         "Total Contributions" => "合计贡献",
