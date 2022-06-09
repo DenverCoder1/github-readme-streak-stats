@@ -121,7 +121,9 @@ function generateCard(array $stats, array $params = null): string
     $translations = include "translations.php";
     // get requested locale, default to English
     $localeCode = $params["locale"] ?? "en";
-    $localeTranslations = $translations[$localeCode] ?? $translations["en"];
+    $localeTranslations = $translations[$localeCode] ?? [];
+    // add missing translations from English
+    $localeTranslations += $translations["en"];
 
     // get date format
     // locale date formatter (used only if date_format is not specified)
@@ -133,7 +135,7 @@ function generateCard(array $stats, array $params = null): string
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
-    $totalContributionsRange = $firstContribution . " - Present";
+    $totalContributionsRange = $firstContribution . " - " . $localeTranslations["Present"];
 
     // current streak
     $currentStreak = $numFormatter->format($stats["currentStreak"]["length"]);
