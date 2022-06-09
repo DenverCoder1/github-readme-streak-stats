@@ -37,6 +37,7 @@ return [
         "Total Contributions" => "Todas Contribuciones",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
+        "Present" => "Presente",
     ],
     "ja" => [
         "date_format" => "[Y.]n.j",
