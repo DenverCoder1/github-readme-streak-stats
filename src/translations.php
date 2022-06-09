@@ -40,6 +40,7 @@ return [
         "Total Contributions" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
         "Current Streak" => "現在のストリーク",
         "Longest Streak" => "最長のストリーク",
+        "Present" => "今",
     ],
     "tr" => [
         "Total Contributions" => "Toplam Katkı",
@@ -50,5 +51,11 @@ return [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
         "Longest Streak" => "Maior Sequência",
+    ],
+    "cn" => [
+        "Total Contributions" => "合计贡献",
+        "Current Streak" => "最近连续贡献",
+        "Longest Streak" => "最长连续贡献",
+        "Present" => "至今",
     ],
 ];
