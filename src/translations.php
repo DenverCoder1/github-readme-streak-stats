@@ -20,12 +20,14 @@
  */
 
 return [
+    // "en" is the default locale
     "en" => [
         "Total Contributions" => "Total Contributions",
         "Current Streak" => "Current Streak",
         "Longest Streak" => "Longest Streak",
         "Present" => "Present",
     ],
+    // Locales below are sorted alphabetically
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
         "Current Streak" => "Aktuelle Serie",
@@ -35,6 +37,7 @@ return [
         "Total Contributions" => "Todas Contribuciones",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
+        "Present" => "Presente",
     ],
     "ja" => [
         "date_format" => "[Y.]n.j",
@@ -43,16 +46,16 @@ return [
         "Longest Streak" => "最長のストリーク",
         "Present" => "今",
     ],
-    "tr" => [
-        "Total Contributions" => "Toplam Katkı",
-        "Current Streak" => "Güncel Seri",
-        "Longest Streak" => "En Uzun Seri",
-    ],
     "pt-br" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
         "Longest Streak" => "Maior Sequência",
         "Present" => "Atualmente",
+    ],
+    "tr" => [
+        "Total Contributions" => "Toplam Katkı",
+        "Current Streak" => "Güncel Seri",
+        "Longest Streak" => "En Uzun Seri",
     ],
     "zh" => [
         "Total Contributions" => "合计贡献",
