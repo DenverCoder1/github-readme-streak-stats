@@ -24,6 +24,7 @@ return [
         "Total Contributions" => "Total Contributions",
         "Current Streak" => "Current Streak",
         "Longest Streak" => "Longest Streak",
+        "Present" => "Present",
     ],
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
