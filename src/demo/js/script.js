@@ -15,7 +15,7 @@ const preview = {
   /**
    * Update the preview with the current parameters
    */
-  update: function () {
+  update() {
     // get parameter values from all .param elements
     const params = this.objectFromElements(document.querySelectorAll(".param"));
     // convert parameters to query string
@@ -44,7 +44,7 @@ const preview = {
    * @param {string} value - the value to set the property to
    * @returns {false} false to prevent the default action
    */
-  addProperty: function (property, value = "#DD2727FF") {
+  addProperty(property, value = "#DD2727FF") {
     const selectElement = document.querySelector("#properties");
     // if no property passed, get the currently selected property
     const propertyName = property || selectElement.value;
@@ -104,7 +104,7 @@ const preview = {
    * @param {string} property - the name of the property to remove
    * @returns {false} false to prevent the default action
    */
-  removeProperty: function (property) {
+  removeProperty(property) {
     const parent = document.querySelector(".advanced .parameters");
     const selectElement = document.querySelector("#properties");
     // remove all elements for given property
@@ -123,7 +123,7 @@ const preview = {
    * @param {NodeList} elements - the elements to get the values from
    * @returns {Object} the key-value mapping
    */
-  objectFromElements: function (elements) {
+  objectFromElements(elements) {
     return Array.from(elements).reduce((acc, next) => {
       const obj = { ...acc };
       let value = next.value;
@@ -143,7 +143,7 @@ const preview = {
   /**
    * Export the advanced parameters to PHP code for creating a new theme
    */
-  exportPhp: function () {
+  exportPhp() {
     const params = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
     const output =
       "[\n" +
@@ -162,7 +162,7 @@ const preview = {
    * @param {string} color - the hex color
    * @param {string} input - the property name, or id of the element to update
    */
-  checkColor: function (color, input) {
+  checkColor(color, input) {
     if (color.length === 9 && color.slice(-2) === "FF") {
       // if color has hex alpha value -> remove it
       document.getElementById(input).value = color.slice(0, -2);
@@ -174,7 +174,7 @@ const preview = {
    * @param {Object} picker - the JSColor picker object
    * @param {string} input - the property name, or id of the element to update
    */
-  pickerChange: function (picker, input) {
+  pickerChange(picker, input) {
     // color was changed by picker - check it
     this.checkColor(picker.toHEXAString(), input);
   },
@@ -185,7 +185,7 @@ const clipboard = {
    * Copy the content of an element to the clipboard
    * @param {Element} el - the element to copy
    */
-  copy: function (el) {
+  copy(el) {
     // create input box to copy from
     const input = document.createElement("input");
     input.value = document.querySelector(".md code").innerText;
@@ -207,7 +207,7 @@ const tooltip = {
    * Reset the tooltip text
    * @param {Element} el - the element to reset the tooltip for
    */
-  reset: function (el) {
+  reset(el) {
     // remove tooltip text
     el.removeAttribute("title");
   },
