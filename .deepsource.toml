@@ -1,12 +1,20 @@
 version = 1
 
+test_patterns = [
+  "tests/**"
+]
+
+exclude_patterns = [
+  "vendor/**",
+  "*.min.js"
+]
+
 [[analyzers]]
 name = "php"
 enabled = true
 
-[[analyzers]]
-name = "shell"
-enabled = true
+  [analyzers.meta]
+  skip_doc_coverage = ["class", "magic"]
 
 [[analyzers]]
 name = "javascript"
