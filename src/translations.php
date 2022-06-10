@@ -56,16 +56,12 @@ return [
         "Total Contributions" => "Toplam Katkı",
         "Current Streak" => "Güncel Seri",
         "Longest Streak" => "En Uzun Seri",
+        "Present" => "Şu an",
     ],
     "zh" => [
         "Total Contributions" => "合计贡献",
         "Current Streak" => "最近连续贡献",
         "Longest Streak" => "最长连续贡献",
         "Present" => "至今",
-    ],
-    "tr" => [
-        "Total Contributions" => "Toplam Katkı",
-        "Current Streak" => "Güncel Seri",
-        "Longest Streak" => "En Uzun Seri",
     ],
 ];
