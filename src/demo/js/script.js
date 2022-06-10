@@ -145,12 +145,10 @@ const preview = {
    */
   exportPhp() {
     const params = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
-    const output =
-      "[\n" +
-      Object.keys(params)
-        .map((key) => `    "${key}" => "#${params[key]}",\n`)
-        .join("") +
-      "]";
+    const mappings = Object.keys(params)
+      .map((key) => `    "${key}" => "#${params[key]}",`)
+      .join("\n");
+    const output = `[\n${mappings}\n]`;
 
     const textarea = document.getElementById("exportedPhp");
     textarea.value = output;
