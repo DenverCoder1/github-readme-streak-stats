@@ -20,7 +20,8 @@ function getCookie(name) {
   const dc = document.cookie;
   const prefix = `${name}=`;
   let begin = dc.indexOf(`; ${prefix}`);
-  let end;
+  /** @type {Number?} */
+  let end = null;
   if (begin === -1) {
     begin = dc.indexOf(prefix);
     if (begin !== 0) return null;
