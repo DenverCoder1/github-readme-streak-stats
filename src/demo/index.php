@@ -105,7 +105,7 @@ $LOCALES = array_keys($TRANSLATIONS);
                         </select>
                         <button class="plus btn" onclick="return preview.addProperty();">+</button>
                     </div>
-                    <button class="btn" type="button" onclick='return exportPhp()'>Export to PHP</button>
+                    <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
                     <textarea id="exportedPhp" hidden></textarea>
 
                 </details>

@@ -17,7 +17,7 @@ const preview = {
    */
   update: function () {
     // get parameter values from all .param elements
-    const params = objectFromElements(document.querySelectorAll(".param"));
+    const params = this.objectFromElements(document.querySelectorAll(".param"));
     // convert parameters to query string
     const encode = encodeURIComponent;
     const query = Object.keys(params)
@@ -65,8 +65,8 @@ const preview = {
       // color picker
       const jscolorConfig = {
         format: "hexa",
-        onChange: 'pickerChange(this, "' + propertyName + '")',
-        onInput: 'pickerChange(this, "' + propertyName + '")',
+        onChange: 'preview.pickerChange(this, "' + propertyName + '")',
+        onInput: 'preview.pickerChange(this, "' + propertyName + '")',
       };
       const input = document.createElement("input");
       input.className = "param jscolor";
@@ -91,7 +91,7 @@ const preview = {
       jscolor.install(parent);
 
       // check initial color value
-      checkColor(value, propertyName);
+      this.checkColor(value, propertyName);
 
       // update and exit
       this.update();
@@ -116,6 +116,67 @@ const preview = {
     // update and exit
     this.update();
     return false;
+  },
+
+  /**
+   * Create a key-value mapping of ids to values from all elements in a Node list
+   * @param {NodeList} elements - the elements to get the values from
+   * @returns {Object} the key-value mapping
+   */
+  objectFromElements: function (elements) {
+    return Array.from(elements).reduce((acc, next) => {
+      const obj = { ...acc };
+      let value = next.value;
+      if (value.indexOf("#") >= 0) {
+        // if the value is colour, remove the hash sign
+        value = value.replace(/#/g, "");
+        if (value.length > 6) {
+          // if the value is in hexa and opacity is 1, remove FF
+          value = value.replace(/[Ff]{2}$/, "");
+        }
+      }
+      obj[next.id] = value;
+      return obj;
+    }, {});
+  },
+
+  /**
+   * Export the advanced parameters to PHP code for creating a new theme
+   */
+  exportPhp: function () {
+    const params = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
+    const output =
+      "[\n" +
+      Object.keys(params)
+        .map((key) => `    "${key}" => "#${params[key]}",\n`)
+        .join("") +
+      "]";
+
+    const textarea = document.getElementById("exportedPhp");
+    textarea.value = output;
+    textarea.hidden = false;
+  },
+
+  /**
+   * Remove "FF" from a hex color if opacity is 1
+   * @param {string} color - the hex color
+   * @param {string} input - the property name, or id of the element to update
+   */
+  checkColor: function (color, input) {
+    if (color.length === 9 && color.slice(-2) === "FF") {
+      // if color has hex alpha value -> remove it
+      document.getElementById(input).value = color.slice(0, -2);
+    }
+  },
+
+  /**
+   * Check a color when the picker changes
+   * @param {Object} picker - the JSColor picker object
+   * @param {string} input - the property name, or id of the element to update
+   */
+  pickerChange: function (picker, input) {
+    // color was changed by picker - check it
+    this.checkColor(picker.toHEXAString(), input);
   },
 };
 
@@ -151,67 +212,6 @@ const tooltip = {
     el.removeAttribute("title");
   },
 };
-
-/**
- * Create a key-value mapping of ids to values from all elements in a Node list
- * @param {NodeList} elements - the elements to get the values from
- * @returns {Object} the key-value mapping
- */
-function objectFromElements(elements) {
-  return Array.from(elements).reduce((acc, next) => {
-    const obj = { ...acc };
-    let value = next.value;
-    if (value.indexOf("#") >= 0) {
-      // if the value is colour, remove the hash sign
-      value = value.replace(/#/g, "");
-      if (value.length > 6) {
-        // if the value is in hexa and opacity is 1, remove FF
-        value = value.replace(/[Ff]{2}$/, "");
-      }
-    }
-    obj[next.id] = value;
-    return obj;
-  }, {});
-}
-
-/**
- * Export the advanced parameters to PHP code for creating a new theme
- */
-function exportPhp() {
-  const params = objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
-  const output =
-    "[\n" +
-    Object.keys(params)
-      .map((key) => `    "${key}" => "#${params[key]}",\n`)
-      .join("") +
-    "]";
-
-  const textarea = document.getElementById("exportedPhp");
-  textarea.value = output;
-  textarea.hidden = false;
-}
-
-/**
- * Remove "FF" from a hex color if opacity is 1
- * @param {string} color - the hex color
- * @param {string} input - the property name, or id of the element to update
- */
-function checkColor(color, input) {
-  if (color.length === 9 && color.slice(-2) === "FF") {
-    // if color has hex alpha value -> remove it
-    document.getElementById(input).value = color.slice(0, -2);
-  }
-}
-
-/**
- * Check a color when the picker changes
- * @param {Object} picker - the JSColor picker object
- * @param {string} input - the property name, or id of the element to update
- */
-function pickerChange(picker, input) {
-  // color was changed by picker - check it
-  checkColor(picker.toHEXAString(), input);
-}
 
 // refresh preview on interactions with the page
 document.addEventListener("keyup", () => preview.update(), false);
