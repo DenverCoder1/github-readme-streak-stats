@@ -32,6 +32,7 @@ return [
         "Total Contributions" => "Gesamte Beiträge",
         "Current Streak" => "Aktuelle Serie",
         "Longest Streak" => "Längste Serie",
+        "Present" => "Gegenwart",
     ],
     "es" => [
         "Total Contributions" => "Todas Contribuciones",
