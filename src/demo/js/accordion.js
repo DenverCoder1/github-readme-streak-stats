@@ -13,6 +13,9 @@ class Accordion {
     this.isClosing = false;
     // Store if the element is expanding
     this.isExpanding = false;
+  }
+
+  init() {
     // Detect user clicks on the summary element
     this.summary.addEventListener("click", (e) => this.onClick(e));
   }
@@ -75,9 +78,7 @@ class Accordion {
     // Get the current fixed height of the element
     const startHeight = `${this.el.offsetHeight}px`;
     // Calculate the open height of the element (summary height + content height)
-    const endHeight = `${
-      this.summary.offsetHeight + this.content.offsetHeight
-    }px`;
+    const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
     // If there is already an animation running
     if (this.animation) {
       // Cancel the current animation
@@ -114,5 +115,6 @@ class Accordion {
 }
 
 document.querySelectorAll("details").forEach((el) => {
-  new Accordion(el);
+  const accordion = new Accordion(el);
+  accordion.init();
 });

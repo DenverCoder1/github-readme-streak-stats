@@ -140,7 +140,6 @@ function fetchGraphQL(string $query): stdClass
         if ($obj && $obj->message) {
             throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
         }
-        // TODO: Make the $response part get passed into a custom error and render the commented details in the SVG card generator
         throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
     }
     return $obj;
