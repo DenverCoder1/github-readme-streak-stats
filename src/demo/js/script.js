@@ -65,8 +65,8 @@ const preview = {
       // color picker
       const jscolorConfig = {
         format: "hexa",
-        onChange: 'preview.pickerChange(this, "' + propertyName + '")',
-        onInput: 'preview.pickerChange(this, "' + propertyName + '")',
+        onChange: `preview.pickerChange(this, '${propertyName}')`,
+        onInput: `preview.pickerChange(this, '${propertyName}')`,
       };
       const input = document.createElement("input");
       input.className = "param jscolor";
