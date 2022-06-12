@@ -19,6 +19,6 @@ jobs:
       - name: Prettify code
         uses: creyD/prettier_action@v4.2
         with:
-          prettier_options: "--write **/*.{php,md,js,css} !**/*.min.js --print-width 100"
+          prettier_options: "--write **/*.{php,md,js,css} !**/*.min.js --print-width 120"
           commit_message: "style: Formatted code with Prettier"
           prettier_plugins: "@prettier/plugin-php"
