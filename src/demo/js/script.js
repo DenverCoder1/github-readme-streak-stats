@@ -144,12 +144,20 @@ const preview = {
    * Export the advanced parameters to PHP code for creating a new theme
    */
   exportPhp() {
-    const params = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
+    // get default values from the currently selected theme
+    const themeSelect = document.querySelector("#theme");
+    const selectedOption = themeSelect.options[themeSelect.selectedIndex];
+    const defaultParams = selectedOption.dataset;
+    // get parameters with the advanced options
+    const advancedParams = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
+    // update default values with the advanced options
+    const params = { ...defaultParams, ...advancedParams };
+    // convert parameters to PHP code
     const mappings = Object.keys(params)
       .map((key) => `    "${key}" => "#${params[key]}",`)
       .join("\n");
     const output = `[\n${mappings}\n]`;
-
+    // set the textarea value to the output
     const textarea = document.getElementById("exportedPhp");
     textarea.value = output;
     textarea.hidden = false;
