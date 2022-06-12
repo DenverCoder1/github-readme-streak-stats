@@ -20,9 +20,9 @@ You can refer to the following articles on the basics of Git and GitHub in case 
 
 #### Requirements
 
-* [PHP 8.1+](https://www.apachefriends.org/index.html)
-* [Composer](https://getcomposer.org)
-* [Imagick](https://www.php.net/imagick)
+- [PHP 8.1+](https://www.apachefriends.org/index.html)
+- [Composer](https://getcomposer.org)
+- [Imagick](https://www.php.net/imagick)
 
 #### Linux
 
