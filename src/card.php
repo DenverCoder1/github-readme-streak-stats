@@ -10,8 +10,11 @@ declare(strict_types=1);
  * @param string $locale Locale code
  * @return string Formatted Date string
  */
-function formatDate(string $dateString, string|null $format, string $locale): string
-{
+function formatDate(
+    string $dateString,
+    string|null $format,
+    string $locale
+): string {
     $date = new DateTime($dateString);
     $formatted = "";
     $patternGenerator = new IntlDatePatternGenerator($locale);
@@ -19,11 +22,19 @@ function formatDate(string $dateString, string|null $format, string $locale): st
     if (date_format($date, "Y") == date("Y")) {
         if ($format) {
             // remove brackets and all text within them
-            $formatted = date_format($date, preg_replace("/\[.*?\]/", "", $format));
+            $formatted = date_format(
+                $date,
+                preg_replace("/\[.*?\]/", "", $format)
+            );
         } else {
             // format without year using locale
             $pattern = $patternGenerator->getBestPattern("MMM d");
-            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, pattern: $pattern);
+            $dateFormatter = new IntlDateFormatter(
+                $locale,
+                IntlDateFormatter::MEDIUM,
+                IntlDateFormatter::NONE,
+                pattern: $pattern
+            );
             $formatted = $dateFormatter->format($date);
         }
     }
@@ -31,11 +42,19 @@ function formatDate(string $dateString, string|null $format, string $locale): st
     else {
         if ($format) {
             // remove brackets, but leave text within them
-            $formatted = date_format($date, str_replace(["[", "]"], "", $format));
+            $formatted = date_format(
+                $date,
+                str_replace(["[", "]"], "", $format)
+            );
         } else {
             // format with year using locale
             $pattern = $patternGenerator->getBestPattern("YYYY MMM d");
-            $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE, pattern: $pattern);
+            $dateFormatter = new IntlDateFormatter(
+                $locale,
+                IntlDateFormatter::MEDIUM,
+                IntlDateFormatter::NONE,
+                pattern: $pattern
+            );
             $formatted = $dateFormatter->format($date);
         }
     }
@@ -64,7 +83,10 @@ function getRequestedTheme(array $params): array
     $CSS_COLORS = include "colors.php";
 
     // get theme colors
-    if (isset($params["theme"]) && array_key_exists($params["theme"], $THEMES)) {
+    if (
+        isset($params["theme"]) &&
+        array_key_exists($params["theme"], $THEMES)
+    ) {
         $theme = $THEMES[$params["theme"]];
     }
     // no theme specified, get default
@@ -80,12 +102,17 @@ function getRequestedTheme(array $params): array
             // ignore case
             $param = strtolower($params[$prop]);
             // check if color is valid hex color (3, 4, 6, or 8 hex digits)
-            if (preg_match("/^([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/", $param)) {
+            if (
+                preg_match(
+                    "/^([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/",
+                    $param
+                )
+            ) {
                 // set property
                 $theme[$prop] = "#" . $param;
             }
             // check if color is valid css color
-            else if (in_array($param, $CSS_COLORS)) {
+            elseif (in_array($param, $CSS_COLORS)) {
                 // set property
                 $theme[$prop] = $param;
             }
@@ -107,7 +134,7 @@ function getRequestedTheme(array $params): array
  * @param array<string, string>|NULL $params Request parameters
  *
  * @return string The generated SVG Streak Stats card
- * 
+ *
  * @throws InvalidArgumentException If a locale does not exist
  */
 function generateCard(array $stats, array $params = null): string
@@ -127,20 +154,34 @@ function generateCard(array $stats, array $params = null): string
 
     // get date format
     // locale date formatter (used only if date_format is not specified)
-    $dateFormat = $params["date_format"] ?? $localeTranslations["date_format"] ?? null;
+    $dateFormat =
+        $params["date_format"] ?? ($localeTranslations["date_format"] ?? null);
 
     // number formatter
     $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
 
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
-    $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
-    $totalContributionsRange = $firstContribution . " - " . $localeTranslations["Present"];
+    $firstContribution = formatDate(
+        $stats["firstContribution"],
+        $dateFormat,
+        $localeCode
+    );
+    $totalContributionsRange =
+        $firstContribution . " - " . $localeTranslations["Present"];
 
     // current streak
     $currentStreak = $numFormatter->format($stats["currentStreak"]["length"]);
-    $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat, $localeCode);
-    $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat, $localeCode);
+    $currentStreakStart = formatDate(
+        $stats["currentStreak"]["start"],
+        $dateFormat,
+        $localeCode
+    );
+    $currentStreakEnd = formatDate(
+        $stats["currentStreak"]["end"],
+        $dateFormat,
+        $localeCode
+    );
     $currentStreakRange = $currentStreakStart;
     if ($currentStreakStart != $currentStreakEnd) {
         $currentStreakRange .= " - " . $currentStreakEnd;
@@ -148,8 +189,16 @@ function generateCard(array $stats, array $params = null): string
 
     // longest streak
     $longestStreak = $numFormatter->format($stats["longestStreak"]["length"]);
-    $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat, $localeCode);
-    $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat, $localeCode);
+    $longestStreakStart = formatDate(
+        $stats["longestStreak"]["start"],
+        $dateFormat,
+        $localeCode
+    );
+    $longestStreakEnd = formatDate(
+        $stats["longestStreak"]["end"],
+        $dateFormat,
+        $localeCode
+    );
     $longestStreakRange = $longestStreakStart;
     if ($longestStreakStart != $longestStreakEnd) {
         $longestStreakRange .= " - " . $longestStreakEnd;
@@ -351,20 +400,26 @@ function convertSvgToPng(string $svg): string
     $svg = trim($svg);
 
     // remove style and animations
-    $svg = preg_replace('/(<style>\X*?<\/style>)/m', '', $svg);
-    $svg = preg_replace('/(opacity: 0;)/m', 'opacity: 1;', $svg);
-    $svg = preg_replace('/(animation: fadein.*?;)/m', 'opacity: 1;', $svg);
-    $svg = preg_replace('/(animation: currentstreak.*?;)/m', 'font-size: 28px;', $svg);
-    $svg = preg_replace('/<a \X*?>(\X*?)<\/a>/m', '\1', $svg);
+    $svg = preg_replace("/(<style>\X*?<\/style>)/m", "", $svg);
+    $svg = preg_replace("/(opacity: 0;)/m", "opacity: 1;", $svg);
+    $svg = preg_replace("/(animation: fadein.*?;)/m", "opacity: 1;", $svg);
+    $svg = preg_replace(
+        "/(animation: currentstreak.*?;)/m",
+        "font-size: 28px;",
+        $svg
+    );
+    $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
 
     // create canvas
     $imagick = new Imagick();
-    $imagick->setBackgroundColor(new ImagickPixel('transparent'));
+    $imagick->setBackgroundColor(new ImagickPixel("transparent"));
 
     // add svg image
-    $imagick->setFormat('svg');
-    $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
-    $imagick->setFormat('png');
+    $imagick->setFormat("svg");
+    $imagick->readImageBlob(
+        '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg
+    );
+    $imagick->setFormat("png");
 
     // get PNG data
     $png = $imagick->getImageBlob();
@@ -383,13 +438,13 @@ function convertSvgToPng(string $svg): string
  */
 function renderOutput(string|array $output, int $responseCode = 200): void
 {
-    $requestedType = $_REQUEST['type'] ?? 'svg';
+    $requestedType = $_REQUEST["type"] ?? "svg";
     http_response_code($responseCode);
 
     // output JSON data
     if ($requestedType === "json") {
         // set content type to JSON
-        header('Content-Type: application/json');
+        header("Content-Type: application/json");
         // generate array from output
         $data = gettype($output) === "string" ? ["error" => $output] : $output;
         // output as JSON
@@ -398,11 +453,17 @@ function renderOutput(string|array $output, int $responseCode = 200): void
     // output SVG or PNG card
     else {
         // set content type to SVG or PNG
-        header("Content-Type: image/" . ($requestedType === "png" ? "png" : "svg+xml"));
+        header(
+            "Content-Type: image/" .
+                ($requestedType === "png" ? "png" : "svg+xml")
+        );
         // render SVG card
-        $svg = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
+        $svg =
+            gettype($output) === "string"
+                ? generateErrorCard($output)
+                : generateCard($output);
         // output PNG if PNG is requested, otherwise output SVG
         echo $requestedType === "png" ? convertSvgToPng($svg) : $svg;
     }
-    exit;
+    exit();
 }

@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Get all HTTP request responses for user's contributions
  *
  * @param string $user GitHub username to get graphs for
- * 
+ *
  * @return array<stdClass> List of contribution graph response objects
  */
 function getContributionGraphs(string $user): array
@@ -60,9 +60,9 @@ function getContributionGraphs(string $user): array
     return $response;
 }
 
-/** 
+/**
  * Get all tokens from environment variables (TOKEN, TOKEN2, TOKEN3, etc.) if they are set
- * 
+ *
  * @return array<string> List of tokens
  */
 function getGitHubTokens()
@@ -85,9 +85,9 @@ function getGitHubTokens()
 }
 
 /** Create a CurlHandle for a POST request to GitHub's GraphQL API
- * 
+ *
  * @param string $query GraphQL query
- * 
+ *
  * @return CurlHandle The curl handle for the request
  */
 function getGraphQLCurlHandle(string $query)
@@ -98,7 +98,7 @@ function getGraphQLCurlHandle(string $query)
         "Authorization: bearer $token",
         "Content-Type: application/json",
         "Accept: application/vnd.github.v4.idl",
-        "User-Agent: GitHub-Readme-Streak-Stats"
+        "User-Agent: GitHub-Readme-Streak-Stats",
     ];
     $body = ["query" => $query];
     // create curl request
@@ -115,11 +115,11 @@ function getGraphQLCurlHandle(string $query)
 
 /**
  * Create a POST request to GitHub's GraphQL API
- * 
+ *
  * @param string $query GraphQL query
- * 
+ *
  * @return stdClass An object from the json response of the request
- * 
+ *
  * @throws AssertionError If SSL verification fails
  */
 function fetchGraphQL(string $query): stdClass
@@ -129,29 +129,47 @@ function fetchGraphQL(string $query): stdClass
     curl_close($ch);
     $obj = json_decode($response);
     // handle curl errors
-    if ($response === false || $obj === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
+    if (
+        $response === false ||
+        $obj === null ||
+        curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400
+    ) {
         // set response code to curl error code
         http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
-        if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
-            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
+        if (
+            str_contains(
+                curl_error($ch),
+                "unable to get local issuer certificate"
+            )
+        ) {
+            throw new AssertionError(
+                "You don't have a valid SSL Certificate installed or XAMPP.",
+                400
+            );
         }
         // Handle errors such as "Bad credentials"
         if ($obj && $obj->message) {
-            throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
+            throw new AssertionError(
+                "Error: $obj->message \n<!-- $response -->",
+                401
+            );
         }
-        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
+        throw new AssertionError(
+            "An error occurred when getting a response from GitHub.\n<!-- $response -->",
+            502
+        );
     }
     return $obj;
 }
 
 /**
  * Get the years the user has contributed
- * 
+ *
  * @param string $user GitHub username to get years for
- * 
+ *
  * @return array List of years the user has contributed
- * 
+ *
  * @throws InvalidArgumentException If the user doesn't exist or there is an error
  */
 function getContributionYears(string $user): array
@@ -165,8 +183,14 @@ function getContributionYears(string $user): array
     }";
     $response = fetchGraphQL($query);
     // User not found
-    if (!empty($response->errors) && $response->errors[0]->type === "NOT_FOUND") {
-        throw new InvalidArgumentException("Could not find a user with that name.", 404);
+    if (
+        !empty($response->errors) &&
+        $response->errors[0]->type === "NOT_FOUND"
+    ) {
+        throw new InvalidArgumentException(
+            "Could not find a user with that name.",
+            404
+        );
     }
     // API Error
     if (!empty($response->errors)) {
@@ -185,7 +209,7 @@ function getContributionYears(string $user): array
  * Get an array of all dates with the number of contributions
  *
  * @param array<string> $contributionCalendars List of GraphQL response objects
- * 
+ *
  * @return array<string, int> Y-M-D dates mapped to the number of contributions
  */
 function getContributionDates(array $contributionGraphs): array
@@ -198,7 +222,9 @@ function getContributionDates(array $contributionGraphs): array
         if (!empty($graph->errors)) {
             throw new AssertionError($graph->data->errors[0]->message, 502);
         }
-        $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
+        $weeks =
+            $graph->data->user->contributionsCollection->contributionCalendar
+                ->weeks;
         foreach ($weeks as $week) {
             foreach ($week->contributionDays as $day) {
                 $date = $day->date;
@@ -217,7 +243,7 @@ function getContributionDates(array $contributionGraphs): array
 
 /**
  * Get a stats array with the contribution count, streak, and dates
- * 
+ *
  * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
  * @return array<string, mixed> Streak stats
  */
@@ -262,11 +288,16 @@ function getContributionStats(array $contributions): array
                 $stats["firstContribution"] = $date;
             }
             // update longestStreak
-            if ($stats["currentStreak"]["length"] > $stats["longestStreak"]["length"]) {
+            if (
+                $stats["currentStreak"]["length"] >
+                $stats["longestStreak"]["length"]
+            ) {
                 // copy current streak start, end, and length into longest streak
-                $stats["longestStreak"]["start"] = $stats["currentStreak"]["start"];
+                $stats["longestStreak"]["start"] =
+                    $stats["currentStreak"]["start"];
                 $stats["longestStreak"]["end"] = $stats["currentStreak"]["end"];
-                $stats["longestStreak"]["length"] = $stats["currentStreak"]["length"];
+                $stats["longestStreak"]["length"] =
+                    $stats["currentStreak"]["length"];
             }
         }
         // reset streak but give exception for today

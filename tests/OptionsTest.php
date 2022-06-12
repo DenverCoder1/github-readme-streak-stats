@@ -94,10 +94,7 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params[$param] = "f00";
             // update parameter in expected result
-            $expected = array_merge(
-                $expected,
-                [$param => "#f00"],
-            );
+            $expected = array_merge($expected, [$param => "#f00"]);
             // test color change
             $this->assertEquals($expected, getRequestedTheme($params));
         }
@@ -123,10 +120,7 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // update parameter in expected result
-            $expected = array_merge(
-                $expected,
-                ["background" => $output],
-            );
+            $expected = array_merge($expected, ["background" => $output]);
             // test color change
             $this->assertEquals($expected, getRequestedTheme($params));
         }
@@ -147,7 +141,10 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // test that theme is still default
-            $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+            $this->assertEquals(
+                $this->defaultTheme,
+                getRequestedTheme($params)
+            );
         }
     }
 

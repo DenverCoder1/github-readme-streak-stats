@@ -15,8 +15,8 @@ Fixes # <!-- add issue number -->
 
 ## How Has This Been Tested?
 
-<!-- 
-If you have changed a feature of the stats cards, please describe the tests you made to verify your changes. 
+<!--
+If you have changed a feature of the stats cards, please describe the tests you made to verify your changes.
 Changes strictly related to documentation can skip this section.
 -->
 
