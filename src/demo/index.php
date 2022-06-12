@@ -85,7 +85,7 @@ function camel_to_skewer(string $str): string
                         $dataAttrs = "";
                         foreach ($options as $key => $value) {
                           // convert key from camelCase to skewer-case
-                          $keySkewer = camel_to_skewer($key);
+                          $key = camel_to_skewer($key);
                           // remove '#' from hex color value
                           $value = preg_replace("/^\#/", "", $value);
                           // add data attribute
