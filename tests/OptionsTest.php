@@ -141,10 +141,7 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // test that theme is still default
-            $this->assertEquals(
-                $this->defaultTheme,
-                getRequestedTheme($params)
-            );
+            $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
         }
     }
 

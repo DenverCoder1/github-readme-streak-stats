@@ -54,10 +54,7 @@ final class RenderTest extends TestCase
     public function testErrorCardRender(): void
     {
         // Check that error card is returned when no stats are provided
-        $render = generateErrorCard(
-            "An unknown error occurred",
-            $this->testParams
-        );
+        $render = generateErrorCard("An unknown error occurred", $this->testParams);
         $expected = file_get_contents("tests/expected/test_error_card.svg");
         $this->assertEquals($expected, $render);
     }

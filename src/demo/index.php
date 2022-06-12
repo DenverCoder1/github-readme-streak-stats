@@ -106,10 +106,7 @@ $LOCALES = array_keys($TRANSLATIONS);
                     <div class="content parameters">
                         <label for="theme">Add Property</label>
                         <select id="properties" name="properties" placeholder="background">
-                            <?php foreach (
-                                $THEMES["default"]
-                                as $option => $color
-                            ): ?>
+                            <?php foreach ($THEMES["default"] as $option => $color): ?>
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -143,8 +140,7 @@ $LOCALES = array_keys($TRANSLATIONS);
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo isset($_COOKIE["darkmode"]) &&
-        $_COOKIE["darkmode"] == "on"
+        <i class="<?php echo isset($_COOKIE["darkmode"]) && $_COOKIE["darkmode"] == "on"
             ? "gg-sun"
             : "gg-moon"; ?>"></i>
     </a>

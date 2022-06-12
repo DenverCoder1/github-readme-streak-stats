@@ -48,9 +48,6 @@ final class TranslationsTest extends TestCase
             return $arr;
         }, $remaining_locales);
         // check that the remaining locales are sorted alphabetically
-        $this->assertEquals(
-            implode(", ", $sorted_locales),
-            implode(", ", $remaining_locales)
-        );
+        $this->assertEquals(implode(", ", $sorted_locales), implode(", ", $remaining_locales));
     }
 }

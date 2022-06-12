@@ -70,18 +70,14 @@ final class StatsTest extends TestCase
         ]);
         // test length of longest streak matches time between start and end dates
         $longestStreakDelta =
-            strtotime($stats["longestStreak"]["end"]) -
-            strtotime($stats["longestStreak"]["start"]);
+            strtotime($stats["longestStreak"]["end"]) - strtotime($stats["longestStreak"]["start"]);
         $this->assertEquals(
             $longestStreakDelta / 60 / 60 / 24 + 1,
             $stats["longestStreak"]["length"]
         );
         // if the current streak is 0, the start date should be the same as the end date
         if ($stats["currentStreak"]["length"] == 0) {
-            $this->assertEquals(
-                $stats["currentStreak"]["start"],
-                $stats["currentStreak"]["end"]
-            );
+            $this->assertEquals($stats["currentStreak"]["start"], $stats["currentStreak"]["end"]);
         }
         // test length of current streak matches time between start and end dates
         else {
