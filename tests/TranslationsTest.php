@@ -16,19 +16,10 @@ final class TranslationsTest extends TestCase
     {
         $translations = include "src/translations.php";
         $locales = array_keys($translations);
-        $valid_phrases = [
-            "date_format",
-            "Total Contributions",
-            "Current Streak",
-            "Longest Streak",
-            "Present",
-        ];
+        $valid_phrases = ["date_format", "Total Contributions", "Current Streak", "Longest Streak", "Present"];
         foreach ($locales as $locale) {
             $phrases = array_keys($translations[$locale]);
-            $this->assertEmpty(
-                array_diff($phrases, $valid_phrases),
-                "Locale $locale contains invalid phrases"
-            );
+            $this->assertEmpty(array_diff($phrases, $valid_phrases), "Locale $locale contains invalid phrases");
         }
     }
 

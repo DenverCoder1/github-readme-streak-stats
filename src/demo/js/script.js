@@ -50,10 +50,7 @@ const preview = {
     const propertyName = property || selectElement.value;
     if (!selectElement.disabled) {
       // disable option in menu
-      Array.prototype.find.call(
-        selectElement.options,
-        (o) => o.value === propertyName
-      ).disabled = true;
+      Array.prototype.find.call(selectElement.options, (o) => o.value === propertyName).disabled = true;
       // select first unselected option
       const firstAvailable = Array.prototype.find.call(selectElement.options, (o) => !o.disabled);
       if (firstAvailable) {
@@ -81,10 +78,7 @@ const preview = {
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
-      minus.setAttribute(
-        "onclick",
-        "return preview.removeProperty(this.getAttribute('data-property'));"
-      );
+      minus.setAttribute("onclick", "return preview.removeProperty(this.getAttribute('data-property'));");
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
       // add elements

@@ -66,11 +66,7 @@ final class OptionsTest extends TestCase
             # check that no parameters are missing and all values are valid
             foreach (array_keys($this->defaultTheme) as $param) {
                 // check that the key exists
-                $this->assertArrayHasKey(
-                    $param,
-                    $colors,
-                    "The theme '$theme' is missing the key '$param'."
-                );
+                $this->assertArrayHasKey($param, $colors, "The theme '$theme' is missing the key '$param'.");
                 // check that the key is a valid hex color
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
