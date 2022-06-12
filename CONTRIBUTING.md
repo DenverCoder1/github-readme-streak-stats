@@ -92,7 +92,6 @@ Below you will find the process and workflow used to review and merge your chang
 ### Step 0 : Find an issue
 
 - Take a look at the existing issues or create your **own** issues!
-- Wait for the issue to be assigned to you after which you can start working on it.
 
 ![issues tab](https://user-images.githubusercontent.com/63443481/136185624-24447858-de8d-4b0a-bb6b-2528d9031196.PNG)
 
@@ -122,8 +121,8 @@ git rebase upstream/<branch-name>
 Create a new branch. Use its name to identify the issue you're addressing.
 
 ```bash
-# It will create a new branch with the name Branch_Name and switch to that branch
-git checkout -b Branch_Name
+# Creates a new branch with the name feature_name and switches to it
+git checkout -b feature_name
 ```
 
 ### Step 3 : Work on the issue assigned
@@ -160,6 +159,7 @@ git push -u origin Branch_Name
 ```
 
 - Here is how your branch will look.
+
   ![forked branch](https://user-images.githubusercontent.com/63443481/136186235-204f5c7a-1129-44b5-af20-89aa6a68d952.PNG)
 
 ### Step 6 : Pull Request
