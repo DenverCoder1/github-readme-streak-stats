@@ -12,13 +12,13 @@ $LOCALES = array_keys($TRANSLATIONS);
  */
 function camel_to_skewer(string $str): string
 {
-  return preg_replace_callback(
-    "/([A-Z])/",
-    function ($matches) {
-      return "-" . strtolower($matches[0]);
-    },
-    $str
-  );
+    return preg_replace_callback(
+        "/([A-Z])/",
+        function ($matches) {
+            return "-" . strtolower($matches[0]);
+        },
+        $str
+    );
 }
 ?>
 
@@ -84,12 +84,12 @@ function camel_to_skewer(string $str): string
                         <?php
                         $dataAttrs = "";
                         foreach ($options as $key => $value) {
-                          // convert key from camelCase to skewer-case
-                          $key = camel_to_skewer($key);
-                          // remove '#' from hex color value
-                          $value = preg_replace("/^\#/", "", $value);
-                          // add data attribute
-                          $dataAttrs .= "data-" . $keySkewer . "=\"" . $value . "\" ";
+                            // convert key from camelCase to skewer-case
+                            $key = camel_to_skewer($key);
+                            // remove '#' from hex color value
+                            $value = preg_replace("/^\#/", "", $value);
+                            // add data attribute
+                            $dataAttrs .= "data-" . $key . "=\"" . $value . "\" ";
                         }
                         ?>
                         <option value="<?php echo $theme; ?>" <?php echo $dataAttrs; ?>><?php echo $theme; ?></option>
