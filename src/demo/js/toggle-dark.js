@@ -67,6 +67,9 @@ function toggleTheme() {
 }
 
 // set the theme based on the cookie
-if (getCookie("darkmode") === null && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+if (
+  getCookie("darkmode") === null &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
   darkmode();
 }

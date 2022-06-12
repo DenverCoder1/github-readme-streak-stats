@@ -78,7 +78,9 @@ class Accordion {
     // Get the current fixed height of the element
     const startHeight = `${this.el.offsetHeight}px`;
     // Calculate the open height of the element (summary height + content height)
-    const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
+    const endHeight = `${
+      this.summary.offsetHeight + this.content.offsetHeight
+    }px`;
     // If there is already an animation running
     if (this.animation) {
       // Cancel the current animation

@@ -5,17 +5,16 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
 // load functions
-require_once dirname(__DIR__, 1) . '/vendor/autoload.php';
+require_once dirname(__DIR__, 1) . "/vendor/autoload.php";
 require_once "src/stats.php";
 
 // load .env
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 
-
 // if environment variables are not loaded, display error
 if (!isset($_SERVER["TOKEN"])) {
-    $message = file_exists(dirname(__DIR__ . '../.env', 1))
+    $message = file_exists(dirname(__DIR__ . "../.env", 1))
         ? "Missing token in config. Check Contributing.md for details."
         : ".env was not found. Check Contributing.md for details.";
 
@@ -44,26 +43,55 @@ final class StatsTest extends TestCase
         $this->assertIsInt($stats["currentStreak"]["length"]);
         $this->assertGreaterThanOrEqual(0, $stats["currentStreak"]["length"]);
         // test longest streak start date are in form YYYY-MM-DD
-        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["longestStreak"]["start"]);
+        $this->assertMatchesRegularExpression(
+            "/2\d{3}-[01]\d-[0-3]\d/",
+            $stats["longestStreak"]["start"]
+        );
         // test longest streak end date are in form YYYY-MM-DD
-        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["longestStreak"]["end"]);
+        $this->assertMatchesRegularExpression(
+            "/2\d{3}-[01]\d-[0-3]\d/",
+            $stats["longestStreak"]["end"]
+        );
         // test current streak start date are in form YYYY-MM-DD
-        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["currentStreak"]["start"]);
+        $this->assertMatchesRegularExpression(
+            "/2\d{3}-[01]\d-[0-3]\d/",
+            $stats["currentStreak"]["start"]
+        );
         // test current streak end date are in form YYYY-MM-DD
-        $this->assertMatchesRegularExpression("/2\d{3}-[01]\d-[0-3]\d/", $stats["currentStreak"]["end"]);
+        $this->assertMatchesRegularExpression(
+            "/2\d{3}-[01]\d-[0-3]\d/",
+            $stats["currentStreak"]["end"]
+        );
         // test current streak end date is today or yesterday
-        $this->assertContains($stats["currentStreak"]["end"], [date("Y-m-d"), date("Y-m-d", strtotime("yesterday")), date("Y-m-d", strtotime("tomorrow"))]);
+        $this->assertContains($stats["currentStreak"]["end"], [
+            date("Y-m-d"),
+            date("Y-m-d", strtotime("yesterday")),
+            date("Y-m-d", strtotime("tomorrow")),
+        ]);
         // test length of longest streak matches time between start and end dates
-        $longestStreakDelta = strtotime($stats["longestStreak"]["end"]) - strtotime($stats["longestStreak"]["start"]);
-        $this->assertEquals($longestStreakDelta / 60 / 60 / 24 + 1, $stats["longestStreak"]["length"]);
+        $longestStreakDelta =
+            strtotime($stats["longestStreak"]["end"]) -
+            strtotime($stats["longestStreak"]["start"]);
+        $this->assertEquals(
+            $longestStreakDelta / 60 / 60 / 24 + 1,
+            $stats["longestStreak"]["length"]
+        );
         // if the current streak is 0, the start date should be the same as the end date
         if ($stats["currentStreak"]["length"] == 0) {
-            $this->assertEquals($stats["currentStreak"]["start"], $stats["currentStreak"]["end"]);
+            $this->assertEquals(
+                $stats["currentStreak"]["start"],
+                $stats["currentStreak"]["end"]
+            );
         }
         // test length of current streak matches time between start and end dates
         else {
-            $currentStreakDelta = strtotime($stats["currentStreak"]["end"]) - strtotime($stats["currentStreak"]["start"]);
-            $this->assertEquals($currentStreakDelta / 60 / 60 / 24 + 1, $stats["currentStreak"]["length"]);
+            $currentStreakDelta =
+                strtotime($stats["currentStreak"]["end"]) -
+                strtotime($stats["currentStreak"]["start"]);
+            $this->assertEquals(
+                $currentStreakDelta / 60 / 60 / 24 + 1,
+                $stats["currentStreak"]["length"]
+            );
         }
     }
 
@@ -181,20 +209,20 @@ final class StatsTest extends TestCase
     {
         $contributions = [];
         for ($i = 369; $i >= 0; --$i) {
-            $contributions[date('Y-m-d', strtotime("$i days ago"))] = 1;
+            $contributions[date("Y-m-d", strtotime("$i days ago"))] = 1;
         }
         $stats = getContributionStats($contributions);
         $expected = [
             "totalContributions" => 370,
-            "firstContribution" => date('Y-m-d', strtotime('369 days ago')),
+            "firstContribution" => date("Y-m-d", strtotime("369 days ago")),
             "longestStreak" => [
-                "start" => date('Y-m-d', strtotime('369 days ago')),
-                "end" => date('Y-m-d'),
+                "start" => date("Y-m-d", strtotime("369 days ago")),
+                "end" => date("Y-m-d"),
                 "length" => 370,
             ],
             "currentStreak" => [
-                "start" => date('Y-m-d', strtotime('369 days ago')),
-                "end" => date('Y-m-d'),
+                "start" => date("Y-m-d", strtotime("369 days ago")),
+                "end" => date("Y-m-d"),
                 "length" => 370,
             ],
         ];
@@ -207,10 +235,10 @@ final class StatsTest extends TestCase
      */
     public function testFutureCommits(): void
     {
-        $yesterday = date('Y-m-d', strtotime('yesterday'));
-        $today = date('Y-m-d', strtotime('today'));
-        $tomorrow = date('Y-m-d', strtotime('tomorrow'));
-        $inTwoDays = date('Y-m-d', strtotime("$today +2 days"));
+        $yesterday = date("Y-m-d", strtotime("yesterday"));
+        $today = date("Y-m-d", strtotime("today"));
+        $tomorrow = date("Y-m-d", strtotime("tomorrow"));
+        $inTwoDays = date("Y-m-d", strtotime("$today +2 days"));
         $contributionGraphs = [
             (object) [
                 "data" => (object) [
@@ -237,27 +265,27 @@ final class StatsTest extends TestCase
                                                 "date" => $inTwoDays,
                                             ],
                                         ],
-                                    ]
-                                ]
-                            ]
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
         $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
         $expected = [
             "totalContributions" => 3,
-            "firstContribution" => date('Y-m-d', strtotime('yesterday')),
+            "firstContribution" => date("Y-m-d", strtotime("yesterday")),
             "longestStreak" => [
-                "start" => date('Y-m-d', strtotime('yesterday')),
-                "end" => date('Y-m-d', strtotime('tomorrow')),
+                "start" => date("Y-m-d", strtotime("yesterday")),
+                "end" => date("Y-m-d", strtotime("tomorrow")),
                 "length" => 3,
             ],
             "currentStreak" => [
-                "start" => date('Y-m-d', strtotime('yesterday')),
-                "end" => date('Y-m-d', strtotime('tomorrow')),
+                "start" => date("Y-m-d", strtotime("yesterday")),
+                "end" => date("Y-m-d", strtotime("tomorrow")),
                 "length" => 3,
             ],
         ];
