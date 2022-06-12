@@ -4,6 +4,22 @@ $THEMES = include "../themes.php";
 $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
 $LOCALES = array_keys($TRANSLATIONS);
+
+/**
+ * Convert a camelCase string to a skewer-case string
+ * @param string $str The camelCase string
+ * @return string The skewer-case string
+ */
+function camel_to_skewer(string $str): string
+{
+  return preg_replace_callback(
+    "/([A-Z])/",
+    function ($matches) {
+      return "-" . strtolower($matches[0]);
+    },
+    $str
+  );
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +81,18 @@ $LOCALES = array_keys($TRANSLATIONS);
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme" placeholder="default">
                     <?php foreach ($THEMES as $theme => $options): ?>
-                        <option><?php echo $theme; ?></option>
+                        <?php
+                        $dataAttrs = "";
+                        foreach ($options as $key => $value) {
+                          // convert key from camelCase to skewer-case
+                          $keySkewer = camel_to_skewer($key);
+                          // remove '#' from hex color value
+                          $value = preg_replace("/^\#/", "", $value);
+                          // add data attribute
+                          $dataAttrs .= "data-" . $keySkewer . "=\"" . $value . "\" ";
+                        }
+                        ?>
+                        <option value="<?php echo $theme; ?>" <?php echo $dataAttrs; ?>><?php echo $theme; ?></option>
                     <?php endforeach; ?>
                 </select>
 
