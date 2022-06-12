@@ -5,6 +5,21 @@ $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
 $LOCALES = array_keys($TRANSLATIONS);
 
+/**
+ * Convert a camelCase string to a skewer-case string
+ * @param string $str The camelCase string
+ * @return string The skewer-case string
+ */
+function camel_to_skewer(string $str): string
+{
+    return preg_replace_callback(
+        "/([A-Z])/",
+        function ($matches) {
+            return "-" . strtolower($matches[0]);
+        },
+        $str
+    );
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +58,7 @@ $LOCALES = array_keys($TRANSLATIONS);
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
-<body <?php echo (isset($_COOKIE["darkmode"]) && $_COOKIE["darkmode"] == "on") ? 'data-theme="dark"' : ""; ?>>
+<body <?php echo ($_COOKIE["darkmode"] ?? null) == "on" ? 'data-theme="dark"' : ""; ?>>
     <h1>🔥 GitHub Readme Streak Stats</h1>
 
     <!-- GitHub badges/links section -->
@@ -65,8 +80,19 @@ $LOCALES = array_keys($TRANSLATIONS);
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme" placeholder="default">
-                    <?php foreach ($THEMES as $theme => $options) : ?>
-                        <option><?php echo $theme; ?></option>
+                    <?php foreach ($THEMES as $theme => $options): ?>
+                        <?php
+                        $dataAttrs = "";
+                        foreach ($options as $key => $value) {
+                            // convert key from camelCase to skewer-case
+                            $key = camel_to_skewer($key);
+                            // remove '#' from hex color value
+                            $value = preg_replace("/^\#/", "", $value);
+                            // add data attribute
+                            $dataAttrs .= "data-" . $key . "=\"" . $value . "\" ";
+                        }
+                        ?>
+                        <option value="<?php echo $theme; ?>" <?php echo $dataAttrs; ?>><?php echo $theme; ?></option>
                     <?php endforeach; ?>
                 </select>
 
@@ -89,8 +115,11 @@ $LOCALES = array_keys($TRANSLATIONS);
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
-                    <?php foreach ($LOCALES as $locale) : ?>
-                        <option value="<?php echo $locale; ?>"><?php echo Locale::getDisplayLanguage($locale, $locale) . " (" . $locale . ")"; ?></option>
+                    <?php foreach ($LOCALES as $locale): ?>
+                        <option value="<?php echo $locale; ?>">
+                            <?php $display = Locale::getDisplayLanguage($locale, $locale); ?>
+                            <?php echo $display . " (" . $locale . ")"; ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
 
@@ -99,7 +128,7 @@ $LOCALES = array_keys($TRANSLATIONS);
                     <div class="content parameters">
                         <label for="theme">Add Property</label>
                         <select id="properties" name="properties" placeholder="background">
-                            <?php foreach ($THEMES["default"] as $option => $color) : ?>
+                            <?php foreach ($THEMES["default"] as $option => $color): ?>
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -133,7 +162,7 @@ $LOCALES = array_keys($TRANSLATIONS);
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo (isset($_COOKIE["darkmode"]) && $_COOKIE["darkmode"] == "on") ? 'gg-sun' : "gg-moon"; ?>"></i>
+        <i class="<?php echo ($_COOKIE["darkmode"] ?? null) == "on" ? "gg-sun" : "gg-moon"; ?>"></i>
     </a>
 </body>
 

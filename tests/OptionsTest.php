@@ -66,11 +66,7 @@ final class OptionsTest extends TestCase
             # check that no parameters are missing and all values are valid
             foreach (array_keys($this->defaultTheme) as $param) {
                 // check that the key exists
-                $this->assertArrayHasKey(
-                    $param,
-                    $colors,
-                    "The theme '$theme' is missing the key '$param'."
-                );
+                $this->assertArrayHasKey($param, $colors, "The theme '$theme' is missing the key '$param'.");
                 // check that the key is a valid hex color
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
@@ -94,10 +90,7 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params[$param] = "f00";
             // update parameter in expected result
-            $expected = array_merge(
-                $expected,
-                [$param => "#f00"],
-            );
+            $expected = array_merge($expected, [$param => "#f00"]);
             // test color change
             $this->assertEquals($expected, getRequestedTheme($params));
         }
@@ -123,10 +116,7 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // update parameter in expected result
-            $expected = array_merge(
-                $expected,
-                ["background" => $output],
-            );
+            $expected = array_merge($expected, ["background" => $output]);
             // test color change
             $this->assertEquals($expected, getRequestedTheme($params));
         }
