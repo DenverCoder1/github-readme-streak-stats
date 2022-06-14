@@ -73,11 +73,11 @@ function getGitHubTokens()
     }
     // find all tokens in environment variables
     $tokens = isset($_SERVER["TOKEN"]) ? [$_SERVER["TOKEN"]] : [];
-    for ($i = 2; $i < 4; $i++) {
-        if (isset($_SERVER["TOKEN$i"])) {
-            // add token to list
-            $tokens[] = $_SERVER["TOKEN$i"];
-        }
+    $index = 2;
+    while (isset($_SERVER["TOKEN{$index}"])) {
+        // add token to list
+        $tokens[] = $_SERVER["TOKEN{$index}"];
+        $index++;
     }
     // store for future use
     $GLOBALS["ALL_TOKENS"] = $tokens;
