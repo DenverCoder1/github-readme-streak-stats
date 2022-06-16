@@ -51,7 +51,7 @@ return [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
         "Longest Streak" => "Maior Sequência",
-        "Present" => "Atualmente",
+        "Present" => "Presente",
     ],
     "tr" => [
         "Total Contributions" => "Toplam Katkı",
