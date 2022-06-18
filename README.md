@@ -43,11 +43,11 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
 ```
 
-|     Theme      |                               Preview                               |
-| :------------: | :-----------------------------------------------------------------: |
-|   `default`    |             ![default](https://i.imgur.com/IaTuYdS.png)             |
-|     `dark`     |              ![dark](https://i.imgur.com/bUrsjlp.png)               |
-| `highcontrast` |          ![highcontrast](https://i.imgur.com/ovrVrTY.png)           |
+|     Theme      |                               Preview                                |
+| :------------: | :------------------------------------------------------------------: |
+|   `default`    |             ![default](https://i.imgur.com/IaTuYdS.png)              |
+|     `dark`     |               ![dark](https://i.imgur.com/bUrsjlp.png)               |
+| `highcontrast` |           ![highcontrast](https://i.imgur.com/ovrVrTY.png)           |
 |  More themes!  | **🎨 [See a list of all available themes](./docs/themes/README.md)** |
 
 > If you have come up with a new theme you'd like to share with others, open an issue to add it!
@@ -138,15 +138,14 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 [![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main "Deploy to Heroku")
 
-  5. **Add the token** as a Config Var with the key `TOKEN`:
+5. **Add the token** as a Config Var with the key `TOKEN`:
 
-  ![heroku config variables](https://user-images.githubusercontent.com/20955511/136292022-a8d9b3b5-d7d8-4a5e-a049-8d23b51ce9d7.png)
-  
-  6. Click **"Deploy App"** at the end of the form
-  7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `github-readme-streak-stats.herokuapp.com`
-  
+![heroku config variables](https://user-images.githubusercontent.com/20955511/136292022-a8d9b3b5-d7d8-4a5e-a049-8d23b51ce9d7.png)
+
+6. Click **"Deploy App"** at the end of the form
+7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `github-readme-streak-stats.herokuapp.com`
+
 </details>
-
 
 ## 🤗 Contributing
 
@@ -158,7 +157,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 #### Requirements
 
-- [PHP 8.0+](https://www.apachefriends.org/index.html)
+- [PHP 8.1+](https://www.apachefriends.org/index.html)
 - [Composer](https://getcomposer.org)
 - [Imagick](https://www.php.net/imagick)
 
@@ -186,6 +185,7 @@ cd github-readme-streak-stats
 ```
 
 ### Install dependencies
+
 Run the following command to install all the required dependencies to work on this project.
 
 ```bash

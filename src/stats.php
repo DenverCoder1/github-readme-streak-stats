@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Get all HTTP request responses for user's contributions
  *
  * @param string $user GitHub username to get graphs for
- * 
+ *
  * @return array<stdClass> List of contribution graph response objects
  */
 function getContributionGraphs(string $user): array
@@ -60,9 +60,9 @@ function getContributionGraphs(string $user): array
     return $response;
 }
 
-/** 
+/**
  * Get all tokens from environment variables (TOKEN, TOKEN2, TOKEN3, etc.) if they are set
- * 
+ *
  * @return array<string> List of tokens
  */
 function getGitHubTokens()
@@ -73,11 +73,11 @@ function getGitHubTokens()
     }
     // find all tokens in environment variables
     $tokens = isset($_SERVER["TOKEN"]) ? [$_SERVER["TOKEN"]] : [];
-    for ($i = 2; $i < 4; $i++) {
-        if (isset($_SERVER["TOKEN$i"])) {
-            // add token to list
-            $tokens[] = $_SERVER["TOKEN$i"];
-        }
+    $index = 2;
+    while (isset($_SERVER["TOKEN{$index}"])) {
+        // add token to list
+        $tokens[] = $_SERVER["TOKEN{$index}"];
+        $index++;
     }
     // store for future use
     $GLOBALS["ALL_TOKENS"] = $tokens;
@@ -85,9 +85,9 @@ function getGitHubTokens()
 }
 
 /** Create a CurlHandle for a POST request to GitHub's GraphQL API
- * 
+ *
  * @param string $query GraphQL query
- * 
+ *
  * @return CurlHandle The curl handle for the request
  */
 function getGraphQLCurlHandle(string $query)
@@ -98,7 +98,7 @@ function getGraphQLCurlHandle(string $query)
         "Authorization: bearer $token",
         "Content-Type: application/json",
         "Accept: application/vnd.github.v4.idl",
-        "User-Agent: GitHub-Readme-Streak-Stats"
+        "User-Agent: GitHub-Readme-Streak-Stats",
     ];
     $body = ["query" => $query];
     // create curl request
@@ -115,11 +115,11 @@ function getGraphQLCurlHandle(string $query)
 
 /**
  * Create a POST request to GitHub's GraphQL API
- * 
+ *
  * @param string $query GraphQL query
- * 
+ *
  * @return stdClass An object from the json response of the request
- * 
+ *
  * @throws AssertionError If SSL verification fails
  */
 function fetchGraphQL(string $query): stdClass
@@ -133,7 +133,7 @@ function fetchGraphQL(string $query): stdClass
         // set response code to curl error code
         http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
-        if (str_contains(curl_error($ch), 'unable to get local issuer certificate')) {
+        if (str_contains(curl_error($ch), "unable to get local issuer certificate")) {
             throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
         }
         // Handle errors such as "Bad credentials"
@@ -147,11 +147,11 @@ function fetchGraphQL(string $query): stdClass
 
 /**
  * Get the years the user has contributed
- * 
+ *
  * @param string $user GitHub username to get years for
- * 
+ *
  * @return array List of years the user has contributed
- * 
+ *
  * @throws InvalidArgumentException If the user doesn't exist or there is an error
  */
 function getContributionYears(string $user): array
@@ -185,7 +185,7 @@ function getContributionYears(string $user): array
  * Get an array of all dates with the number of contributions
  *
  * @param array<string> $contributionCalendars List of GraphQL response objects
- * 
+ *
  * @return array<string, int> Y-M-D dates mapped to the number of contributions
  */
 function getContributionDates(array $contributionGraphs): array
@@ -217,7 +217,7 @@ function getContributionDates(array $contributionGraphs): array
 
 /**
  * Get a stats array with the contribution count, streak, and dates
- * 
+ *
  * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
  * @return array<string, mixed> Streak stats
  */

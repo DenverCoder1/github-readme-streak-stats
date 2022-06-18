@@ -69,18 +69,20 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |        `earth`         | ![image](https://user-images.githubusercontent.com/20955511/119410749-fcd6ae00-bcf1-11eb-8737-c78566e9e8f3.png) |
 |       `deepBlue`       | ![image](https://user-images.githubusercontent.com/20955511/127893911-23e6c0c6-2d97-4028-a2b9-1fa1063db776.png) |
 |      `holi-theme`      | ![image](https://user-images.githubusercontent.com/62163030/129030429-0a4d48aa-d61f-4d0c-ae82-891d1b2476d7.png) |
-|       `ayu-light`      | ![image](https://user-images.githubusercontent.com/37243931/131808768-8617176a-fe84-4873-b9c2-f9ee74b30d87.png) |
-|       `javascript`     | ![image](https://user-images.githubusercontent.com/62628408/135756315-7a4b8134-8558-4e74-9f24-f8a1a2173b6f.png) |
+|      `ayu-light`       | ![image](https://user-images.githubusercontent.com/37243931/131808768-8617176a-fe84-4873-b9c2-f9ee74b30d87.png) |
+|      `javascript`      | ![image](https://user-images.githubusercontent.com/62628408/135756315-7a4b8134-8558-4e74-9f24-f8a1a2173b6f.png) |
 |   `javascript-dark`    | ![image](https://user-images.githubusercontent.com/62628408/135761927-a4acd543-c90b-430d-92a3-c96b32bfc390.png) |
-|     `noctis-minimus`   | ![image](https://user-images.githubusercontent.com/20955511/135754306-58ceccde-90d9-46f9-a7b2-1cb54b6fbe24.png) |
+|    `noctis-minimus`    | ![image](https://user-images.githubusercontent.com/20955511/135754306-58ceccde-90d9-46f9-a7b2-1cb54b6fbe24.png) |
 |     `github-dark`      | ![image](https://user-images.githubusercontent.com/62628408/135931624-9e6bf6b8-4965-4c7d-87f6-08217ea9274f.png) |
 |   `github-dark-blue`   | ![image](https://user-images.githubusercontent.com/20955511/156907315-6141c035-91dc-4cd6-be41-24c130a971dc.png) |
 |     `github-light`     | ![image](https://user-images.githubusercontent.com/62628408/135933355-4f978283-5a3e-44cc-9d12-3a711a79d287.png) |
-|      `elegant`         | ![image](https://user-images.githubusercontent.com/69510006/146630974-9f981228-5680-458b-a1e5-78a15de35690.jpg) |
-|      `leafy`           | ![image](https://user-images.githubusercontent.com/69510006/146630969-ff7bc045-518e-43c0-83df-2d275f3e4b1d.jpg) |
+|       `elegant`        | ![image](https://user-images.githubusercontent.com/69510006/146630974-9f981228-5680-458b-a1e5-78a15de35690.jpg) |
+|        `leafy`         | ![image](https://user-images.githubusercontent.com/69510006/146630969-ff7bc045-518e-43c0-83df-2d275f3e4b1d.jpg) |
 |      `navy-gear`       | ![image](https://user-images.githubusercontent.com/20955511/153954354-60438cfa-d0a0-4737-936c-65b61faf637d.png) |
-|      `hacker`          | ![image](https://user-images.githubusercontent.com/20955511/164965194-724816b5-5aa0-4c36-8bae-f3cbafd2c2a4.png) |
-|      `garden`          | ![image](https://user-images.githubusercontent.com/44000014/165035015-153d9b3a-bd3a-4e34-b252-3c64ab081b75.png) |
+|        `hacker`        | ![image](https://user-images.githubusercontent.com/20955511/164965194-724816b5-5aa0-4c36-8bae-f3cbafd2c2a4.png) |
+|        `garden`        | ![image](https://user-images.githubusercontent.com/44000014/165035015-153d9b3a-bd3a-4e34-b252-3c64ab081b75.png) |
+| `github-green-purple`  | ![image](https://user-images.githubusercontent.com/20955511/173238945-f572fdfb-dbf6-4141-8ee6-b70f6186548e.png) |
+
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://github-readme-streak-stats.herokuapp.com/demo/) or by customizing the [url parameters](/README.md#-options).

@@ -902,4 +902,16 @@ return [
         "sideLabels" => "#6FDD6C",
         "dates" => "#6FDD6C",
     ],
+    "github-green-purple" => [
+        "background" => "#000",
+        "border" => "#000",
+        "stroke" => "#e4e2e2",
+        "ring" => "#7fff00",
+        "fire" => "#7fff00",
+        "currStreakNum" => "#800080",
+        "sideNums" => "#7fff00",
+        "currStreakLabel" => "#800080",
+        "sideLabels" => "#7fff00",
+        "dates" => "#fff",
+    ],
 ];
