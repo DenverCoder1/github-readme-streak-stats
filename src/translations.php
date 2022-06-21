@@ -53,6 +53,12 @@ return [
         "Longest Streak" => "Maior Sequência",
         "Present" => "Presente",
     ],
+    "ru" => [
+        "Total Contributions" => "Общий вклад",
+        "Current Streak" => "Теущая серия",
+        "Longest Streak" => "Самая длинная серия",
+        "Present" => "Сейчас",
+    ],
     "tr" => [
         "Total Contributions" => "Toplam Katkı",
         "Current Streak" => "Güncel Seri",
