@@ -40,6 +40,12 @@ return [
         "Longest Streak" => "Racha Más Larga",
         "Present" => "Presente",
     ],
+    "id" => [
+        "Total Contributions" => "Total Kontribusi",
+        "Current Streak" => "Aksi Saat Ini",
+        "Longest Streak" => "Aksi Terpanjang",
+        "Present" => "Sekarang",
+    ],
     "ja" => [
         "date_format" => "[Y.]n.j",
         "Total Contributions" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
