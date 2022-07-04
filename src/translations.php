@@ -59,6 +59,12 @@ return [
         "Longest Streak" => "最長のストリーク",
         "Present" => "今",
     ],
+    "nl" => [
+        "Total Contributions" => "Totale Bijdrage",
+        "Current Streak" => "Huidige Serie",
+        "Longest Streak" => "Langste Serie",
+        "Present" => "Vandaag",
+    ],
     "pt-br" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
