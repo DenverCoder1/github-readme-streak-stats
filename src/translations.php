@@ -64,7 +64,7 @@ return [
         "Current Streak" => "Huidige Serie",
         "Longest Streak" => "Langste Serie",
         "Present" => "Vandaag",
-    ], 
+    ],
     "pt-br" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
