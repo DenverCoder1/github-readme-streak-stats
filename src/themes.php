@@ -26,6 +26,18 @@ return [
         "sideLabels" => "#fefefe",
         "dates" => "#9e9e9e",
     ],
+    "icegray" => [
+    "background" => "#FFFFFF",
+    "border" => "#E7E7E7",
+    "stroke" => "#7A7A7A",
+    "ring" => "#E7E7E7",
+    "fire" => "#C4C4C4",
+    "currStreakNum" => "#ADADAD",
+    "sideNums" => "#C4C4C4",
+    "currStreakLabel" => "#8E8E8E",
+    "sideLabels" => "#565656",
+    "dates" => "#AFAFAF",
+    ],
     "highcontrast" => [
         "background" => "#000000",
         "border" => "#bebebe",
