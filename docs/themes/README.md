@@ -82,6 +82,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |        `hacker`        | ![image](https://user-images.githubusercontent.com/20955511/164965194-724816b5-5aa0-4c36-8bae-f3cbafd2c2a4.png) |
 |        `garden`        | ![image](https://user-images.githubusercontent.com/20955511/177458181-5c2242f0-1c89-4de0-9965-28c777f9f8d7.png) |
 | `github-green-purple`  | ![image](https://user-images.githubusercontent.com/20955511/173238945-f572fdfb-dbf6-4141-8ee6-b70f6186548e.png) |
+|       `icegray`        | ![image](https://user-images.githubusercontent.com/20955511/177644018-cb9953d0-31a1-4920-a66f-8c08672cec38.png) |
 
 ### Can't find the theme you like?
 

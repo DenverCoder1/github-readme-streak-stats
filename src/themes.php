@@ -914,4 +914,16 @@ return [
         "sideLabels" => "#7fff00",
         "dates" => "#fff",
     ],
+    "icegray" => [
+        "background" => "#FFFFFF",
+        "border" => "#515151",
+        "stroke" => "#515151",
+        "ring" => "#686868",
+        "fire" => "#969696",
+        "currStreakNum" => "#3A3A3AFE",
+        "sideNums" => "#515151FE",
+        "currStreakLabel" => "#515151",
+        "sideLabels" => "#515151",
+        "dates" => "#636363",
+    ],
 ];
