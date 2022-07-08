@@ -926,4 +926,16 @@ return [
         "sideLabels" => "#515151",
         "dates" => "#636363",
     ],
+    "yellowdark" => [
+        "background" => "#000000",
+        "border" => "#000000",
+        "stroke" => "#A5A5A5",
+        "ring" => "#FFEF00",
+        "fire" => "#FF0000",
+        "currStreakNum" => "#FFEF00",
+        "sideNums" => "#FFEF00",
+        "currStreakLabel" => "#FFEF00",
+        "sideLabels" => "#FFEF00",
+        "dates" => "#A5A5A5",
+    ],
 ];
