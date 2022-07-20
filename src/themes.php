@@ -926,6 +926,18 @@ return [
         "sideLabels" => "#515151",
         "dates" => "#636363",
     ],
+    "neon_blurange" => [
+        "background" => "#030D6B",
+        "border" => "#C7CCFF",
+        "stroke" => "#C7CCFF",
+        "ring" => "#FB750B",
+        "fire" => "#FB750B",
+        "currStreakNum" => "#25FB88",
+        "sideNums" => "#FB750B",
+        "currStreakLabel" => "#25FB88",
+        "sideLabels" => "#25FB88",
+        "dates" => "#C7CCFF",
+    ],
     "yellowdark" => [
         "background" => "#000000",
         "border" => "#000000",
