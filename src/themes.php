@@ -943,7 +943,7 @@ return [
         "border" => "#000000",
         "stroke" => "#A5A5A5",
         "ring" => "#FFEF00",
-        "fire" => "#FF0000",
+        "fire" => "#FF8000",
         "currStreakNum" => "#FFEF00",
         "sideNums" => "#FFEF00",
         "currStreakLabel" => "#FFEF00",
