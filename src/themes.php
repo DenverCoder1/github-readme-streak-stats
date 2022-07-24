@@ -950,4 +950,16 @@ return [
         "sideLabels" => "#FFEF00",
         "dates" => "#A5A5A5",
     ],
+    "java-dark" => [
+        "background" => "#000000",
+        "border" => "#F89820",
+        "stroke" => "#F89820",
+        "ring" => "#F89820",
+        "fire" => "#F89820",
+        "currStreakNum" => "#5382A1",
+        "sideNums" => "#5382A1",
+        "currStreakLabel" => "#F89820",
+        "sideLabels" => "#F89820",
+        "dates" => "#5382A1",
+    ],
 ];
