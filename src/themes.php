@@ -962,4 +962,16 @@ return [
         "sideLabels" => "#F89820",
         "dates" => "#5382A1",
     ],
+    "java-dark" => [
+    "background" => "#000000",
+    "border" => "#3DDC84",
+    "stroke" => "#3DDC84",
+    "ring" => "#3DDC84",
+    "fire" => "#3DDC84",
+    "currStreakNum" => "#3DDC84",
+    "sideNums" => "#3DDC84",
+    "currStreakLabel" => "#3DDC84",
+    "sideLabels" => "#3DDC84",
+    "dates" => "#3DDC84",
+    ],
 ];
