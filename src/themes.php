@@ -962,7 +962,7 @@ return [
         "sideLabels" => "#F89820",
         "dates" => "#5382A1",
     ],
-    "java-dark" => [
+    "android-dark" => [
         "background" => "#000000",
         "border" => "#3DDC84",
         "stroke" => "#3DDC84",
