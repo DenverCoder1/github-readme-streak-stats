@@ -86,6 +86,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |    `neon_blurange`     | ![image](https://user-images.githubusercontent.com/45172775/180076569-3af18421-56f5-49bd-b62e-2dec8edc0502.png)  |
 |      `yellowdark`      | ![image](https://user-images.githubusercontent.com/103951737/180445402-360653bf-b85d-4e53-a1e1-cbda4135326b.png) |
 |      `java-dark`       | ![image](https://user-images.githubusercontent.com/103951737/180605906-b04afca3-da60-4ad9-95d3-8be5ef0a96e3.png) |
+|     `android-dark`     | ![image](https://user-images.githubusercontent.com/103951737/180728986-e39e7828-dc41-4f07-97d2-db75673ba0c3.png) |
 
 ### Can't find the theme you like?
 
