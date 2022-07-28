@@ -974,4 +974,16 @@ return [
         "sideLabels" => "#3DDC84",
         "dates" => "#3DDC84",
     ],
+    "deuteranopia-friendly-theme" => [
+        "background" => "#000000",
+        "border" => "#E4E2E2",
+        "stroke" => "#E4E2E2",
+        "ring" => "#E69F00",
+        "fire" => "#E69F00",
+        "currStreakNum" => "#56B4E9",
+        "sideNums" => "#F0E442",
+        "currStreakLabel" => "#0072B2",
+        "sideLabels" => "#CC79A7",
+        "dates" => "#009E73",
+    ],
 ];
