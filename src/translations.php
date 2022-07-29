@@ -52,6 +52,12 @@ return [
         "Longest Streak" => "Aksi Terpanjang",
         "Present" => "Sekarang",
     ],
+    "it" => [
+        "Total Contributions" => "Tutti i contributi",
+        "Current Streak" => "Serie corrente",
+        "Longest Streak" => "Serie più lunga",
+        "Present" => "Presente",
+    ],
     "ja" => [
         "date_format" => "[Y.]n.j",
         "Total Contributions" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
