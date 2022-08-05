@@ -39,7 +39,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
             $formatted = date_format($date, str_replace(["[", "]"], "", $format));
         } else {
             // format with year using locale
-            $pattern = $patternGenerator->getBestPattern("YYYY MMM d");
+            $pattern = $patternGenerator->getBestPattern("yyyy MMM d");
             $dateFormatter = new IntlDateFormatter(
                 $locale,
                 IntlDateFormatter::MEDIUM,
