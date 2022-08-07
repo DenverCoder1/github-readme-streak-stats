@@ -20,12 +20,13 @@ Markdown files on GitHub support embedded images using Markdown or HTML. You can
 
 ## Why doesn't my Streak Stats match my contribution graph?
 
-GitHub Readme Streak Stats uses the GitHub API to fetch your contribution data. These stats are returned in UTC time which may not match your local time. Additionally, due to caching, the stats may not be updated immediately after a commit. You may need to wait up to a feww hours to see the latest stats.
+GitHub Readme Streak Stats uses the GitHub API to fetch your contribution data. These stats are returned in UTC time which may not match your local time. Additionally, due to caching, the stats may not be updated immediately after a commit. You may need to wait up to a few hours to see the latest stats.
 
 If you think your stats are not showing up because of a time zone issue, you can try one of the following:
 
 1. Change the date of the commit. You can [adjust the time](https://codewithhugo.com/change-the-date-of-a-git-commit/) of a past commit to make it in the middle of the day.
-2. Create a new commit in a repository with the date set to the date that is missing from your streak stats.
+2. Create a new commit in a repository with the date set to the date that is missing from your streak stats:
+
 ```bash
 git commit --date="2022-08-02 12:00" -m "Test commit" --allow-empty
 ```
