@@ -370,9 +370,9 @@ function convertSvgToPng(string $svg): string
     file_put_contents("$filename.svg", $svg);
 
     // convert svg to png
-    $out = shell_exec("inkscape -w 495 -h 195 {$filename}.svg -o {$filename}.png");
+    $out = shell_exec("inkscape -w 495 -h 195 {$filename}.svg -o {$filename}.png"); // skipcq: PHP-A1009
     if ($out !== null) {
-        throw new Exception("Error converting SVG to PNG: $out"); 
+        throw new Exception("Error converting SVG to PNG: $out");
     }
 
     // read png data and delete temporary files
