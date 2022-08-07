@@ -102,6 +102,16 @@ function camel_to_skewer(string $str): string
                     <option>true</option>
                 </select>
 
+                <label for="locale">Locale</label>
+                <select class="param" id="locale" name="locale">
+                    <?php foreach ($LOCALES as $locale): ?>
+                        <option value="<?php echo $locale; ?>">
+                            <?php $display = Locale::getDisplayLanguage($locale, $locale); ?>
+                            <?php echo $display . " (" . $locale . ")"; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
                 <label for="date_format">Date Format</label>
                 <select class="param" id="date_format" name="date_format">
                     <option value="">default</option>
@@ -111,16 +121,6 @@ function camel_to_skewer(string $str): string
                     <option value="j/n[/Y]">10/8/2016</option>
                     <option value="n/j[/Y]">8/10/2016</option>
                     <option value="[Y.]n.j">2016.8.10</option>
-                </select>
-
-                <label for="locale">Locale</label>
-                <select class="param" id="locale" name="locale">
-                    <?php foreach ($LOCALES as $locale): ?>
-                        <option value="<?php echo $locale; ?>">
-                            <?php $display = Locale::getDisplayLanguage($locale, $locale); ?>
-                            <?php echo $display . " (" . $locale . ")"; ?>
-                        </option>
-                    <?php endforeach; ?>
                 </select>
 
                 <details class="advanced">
