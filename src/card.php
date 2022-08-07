@@ -352,8 +352,6 @@ function generateErrorCard(string $message, array $params = null): string
  * @param string $svg The SVG for the card as a string
  *
  * @return string The generated PNG data
- *
- * @throws ImagickException
  */
 function convertSvgToPng(string $svg): string
 {
@@ -367,22 +365,20 @@ function convertSvgToPng(string $svg): string
     $svg = preg_replace("/(animation: currentstreak.*?;)/m", "font-size: 28px;", $svg);
     $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
 
-    // create canvas
-    $imagick = new Imagick();
-    $imagick->setBackgroundColor(new ImagickPixel("transparent"));
+    // save svg to random file
+    $filename = uniqid();
+    file_put_contents("$filename.svg", $svg);
 
-    // add svg image
-    $imagick->setFormat("svg");
-    $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
-    $imagick->setFormat("png");
+    // convert svg to png
+    $out = shell_exec("inkscape -w 495 -h 195 {$filename}.svg -o {$filename}.png");
+    if ($out !== null) {
+        throw new Exception("Error converting SVG to PNG: $out"); 
+    }
 
-    // get PNG data
-    $png = $imagick->getImageBlob();
-
-    // clean up memory
-    $imagick->clear();
-    $imagick->destroy();
-
+    // read png data and delete temporary files
+    $png = file_get_contents("{$filename}.png");
+    unlink("{$filename}.svg");
+    unlink("{$filename}.png");
     return $png;
 }
 
