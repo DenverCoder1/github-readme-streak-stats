@@ -16,5 +16,16 @@
       "quantity": 1,
       "size": "free"
     }
-  }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt"
+    },
+    {
+      "url": "https://github.com/DenverCoder1/heroku-buildpack-fonts-segoe-ui"
+    },
+    {
+      "url": "heroku/php"
+    }
+  ]
 }
