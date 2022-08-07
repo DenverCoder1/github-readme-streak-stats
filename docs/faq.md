@@ -2,7 +2,7 @@
 
 ## How do I include GitHub Readme Streak Stats in my Readme?
 
-Markdown files on GitHub support embedded images using Markdown or HTML. You can customize your SVG on the [demo site](https://github-readme-streak-stats.herokuapp.com/demo/) and use the image source in either of the following ways:
+Markdown files on GitHub support embedded images using Markdown or HTML. You can customize your Streak Stats image on the [demo site](https://github-readme-streak-stats.herokuapp.com/demo/) and use the image source in either of the following ways:
 
 ### Markdown
 
@@ -57,7 +57,7 @@ To center align images, you must use the HTML syntax and wrap it in an element w
 ```
 <!-- prettier-ignore-end -->
 
-## How do I make different SVGs for dark mode and light mode?
+## How do I make different images for dark mode and light mode?
 
 You can [specify theme context](https://github.blog/changelog/2022-05-19-specify-theme-context-for-images-in-markdown-beta/) using the `<picture>` and `<source>` elements as shown below. The dark mode version appears in the `srcset` of the `<source>` tag and the light mode version appears in the `src` of the `<img>` tag.
 
