@@ -1,0 +1,3 @@
+👋 Welcome to Codespaces! You are using the pre-configured image.
+
+Tests can be executed with: composer test

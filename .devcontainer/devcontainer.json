@@ -1,0 +1,6 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "onCreateCommand": "/workspaces/github-readme-streak-stats/.devcontainer/on-create.sh",
+  "postCreateCommand": "/workspaces/github-readme-streak-stats/.devcontainer/post-create.sh"}
