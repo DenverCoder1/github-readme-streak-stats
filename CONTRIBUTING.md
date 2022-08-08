@@ -22,7 +22,7 @@ You can refer to the following articles on the basics of Git and GitHub in case 
 
 - [PHP 8.1+](https://www.apachefriends.org/index.html)
 - [Composer](https://getcomposer.org)
-- [Imagick](https://www.php.net/imagick)
+- [Inkscape](https://inkscape.org) (for PNG rendering)
 
 #### Linux
 
@@ -30,6 +30,7 @@ You can refer to the following articles on the basics of Git and GitHub in case 
 sudo apt-get install php
 sudo apt-get install php-curl
 sudo apt-get install composer
+sudo apt-get install inkscape
 ```
 
 #### Windows

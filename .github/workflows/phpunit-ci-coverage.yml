@@ -14,11 +14,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: php-actions/composer@v6
         with:
-          php_extensions: imagick intl
+          php_extensions: intl
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
-          php_extensions: imagick intl
+          php_extensions: intl
           bootstrap: vendor/autoload.php
           configuration: tests/phpunit/phpunit.xml
           args: --testdox

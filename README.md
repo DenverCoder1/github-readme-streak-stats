@@ -159,7 +159,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 - [PHP 8.1+](https://www.apachefriends.org/index.html)
 - [Composer](https://getcomposer.org)
-- [Imagick](https://www.php.net/imagick)
+- [Inkscape](https://inkscape.org) (for PNG rendering)
 
 #### Linux
 
@@ -167,6 +167,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 sudo apt-get install php
 sudo apt-get install php-curl
 sudo apt-get install composer
+sudo apt-get install inkscape
 ```
 
 #### Windows
