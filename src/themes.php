@@ -986,4 +986,16 @@ return [
         "sideLabels" => "#CC79A7",
         "dates" => "#009E73",
     ],
+    "windows-dark" => [
+    "background" => "#000000",
+    "border" => "#00A4EF",
+    "stroke" => "#00A4EF",
+    "ring" => "#00A4EF",
+    "fire" => "#00A4EF",
+    "currStreakNum" => "#00A4EF",
+    "sideNums" => "#00A4EF",
+    "currStreakLabel" => "#00A4EF",
+    "sideLabels" => "#00A4EF",
+    "dates" => "#00A4EF",
+    ],
 ];
