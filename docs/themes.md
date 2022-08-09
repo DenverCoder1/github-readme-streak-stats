@@ -88,6 +88,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |          `java-dark`          | ![image](https://user-images.githubusercontent.com/20955511/183303686-a652b2fb-daae-4390-b245-71610aa54ef7.png)  |
 |        `android-dark`         | ![image](https://user-images.githubusercontent.com/20955511/183303685-fed30ead-2660-48bc-b724-04fe3c394c7f.png)  |
 | `deuteranopia-friendly-theme` | ![image](https://user-images.githubusercontent.com/107488620/183304765-9d423ff4-52ed-4a27-8a1c-2bcd290f4803.png) |
+|        `windows-dark`         | ![image](https://user-images.githubusercontent.com/103951737/183449796-23096f23-54b5-45af-8078-b8afd4f3baf3.png) |
 
 ### Can't find the theme you like?
 
