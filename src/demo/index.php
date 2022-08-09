@@ -143,21 +143,34 @@ function camel_to_skewer(string $str): string
             </form>
         </div>
 
-        <div class="output">
-            <h2>Preview</h2>
-            <img alt="GitHub Readme Streak Stats" src="preview.php?user=" />
-            <p class="warning">
-                Note: The stats above are just examples and not from your GitHub profile.
-            </p>
+        <div class="output top-bottom-split">
+            <div class="top">
+                <h2>Preview</h2>
+                <img alt="GitHub Readme Streak Stats" src="preview.php?user=" />
+                <p class="warning">
+                    Note: The stats above are just examples and not from your GitHub profile.
+                </p>
 
-            <h2>Markdown</h2>
-            <div class="md">
-                <code></code>
+                <h2>Markdown</h2>
+                <div class="md">
+                    <code></code>
+                </div>
+
+                <button class="copy-button btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+                    Copy To Clipboard
+                </button>
             </div>
-
-            <button class="copy-button btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
-                Copy To Clipboard
-            </button>
+            <div class="bottom">
+                <a href="https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/docs/faq.md" target="_blank" class="underline-hover faq">
+                    Frequently Asked Questions
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v9l-3.794-3.793-5.999 6-1.414-1.414 5.999-6L12 3h9z"></path>
+                        </g>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 
