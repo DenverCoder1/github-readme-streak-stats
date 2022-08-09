@@ -998,4 +998,16 @@ return [
         "sideLabels" => "#00A4EF",
         "dates" => "#00A4EF",
     ],
+    "git-dark" => [
+        "background" => "#000000",
+        "border" => "#F05033",
+        "stroke" => "#F05033",
+        "ring" => "#F05033",
+        "fire" => "#F05033",
+        "currStreakNum" => "#F05033",
+        "sideNums" => "#F05033",
+        "currStreakLabel" => "#F05033",
+        "sideLabels" => "#F05033",
+        "dates" => "#F05033",
+    ],
 ];
