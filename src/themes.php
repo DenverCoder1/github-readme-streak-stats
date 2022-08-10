@@ -1010,4 +1010,16 @@ return [
         "sideLabels" => "#F05033",
         "dates" => "#F05033",
     ],
+    "python-dark" => [
+        "background" => "#000000",
+        "border" => "#4B8BBE",
+        "stroke" => "#4B8BBE",
+        "ring" => "#FFD43B",
+        "fire" => "#FFD43B",
+        "currStreakNum" => "#4B8BBE",
+        "sideNums" => "#4B8BBE",
+        "currStreakLabel" => "#FFD43B",
+        "sideLabels" => "#FFD43B",
+        "dates" => "#FFD43B",
+    ],
 ];
