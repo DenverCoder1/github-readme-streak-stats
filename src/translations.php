@@ -40,6 +40,12 @@ return [
         "Longest Streak" => "Racha Más Larga",
         "Present" => "Presente",
     ],
+    "fr" => [
+        "Total Contributions" => "Contributions totales",
+        "Current Streak" => "Séquence actuelle",
+        "Longest Streak" => "Plus longue séquence",
+        "Present" => "Aujourd'hui",
+    ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
