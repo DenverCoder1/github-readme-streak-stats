@@ -1022,4 +1022,16 @@ return [
         "sideLabels" => "#FFD43B",
         "dates" => "#FFD43B",
     ],
+    "sea" => [
+        "background" => "#0000FE",
+        "border" => "#FFFFFF",
+        "stroke" => "#FFFFFF",
+        "ring" => "#FFFFFF",
+        "fire" => "#FFFFFF",
+        "currStreakNum" => "#FFFFFF",
+        "sideNums" => "#FFFFFF",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#FFFFFF",
+        "dates" => "#FFFFFF",
+    ],
 ];
