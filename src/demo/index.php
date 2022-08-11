@@ -76,10 +76,10 @@ function camel_to_skewer(string $str): string
             <h2>Properties</h2>
             <form class="parameters">
                 <label for="user">Username<span title="required">*</span></label>
-                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" required pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
+                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
 
                 <label for="theme">Theme</label>
-                <select class="param" id="theme" name="theme" placeholder="default">
+                <select class="param" id="theme" name="theme">
                     <?php foreach ($THEMES as $theme => $options): ?>
                         <?php
                         $dataAttrs = "";
@@ -97,7 +97,7 @@ function camel_to_skewer(string $str): string
                 </select>
 
                 <label for="hide_border">Hide Border</label>
-                <select class="param" id="hide_border" name="hide_border" placeholder="false">
+                <select class="param" id="hide_border" name="hide_border">
                     <option>false</option>
                     <option>true</option>
                 </select>
@@ -127,7 +127,7 @@ function camel_to_skewer(string $str): string
                     <summary>⚙ Advanced Options</summary>
                     <div class="content parameters">
                         <label for="theme">Add Property</label>
-                        <select id="properties" name="properties" placeholder="background">
+                        <select id="properties" name="properties">
                             <?php foreach ($THEMES["default"] as $option => $color): ?>
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
@@ -136,10 +136,9 @@ function camel_to_skewer(string $str): string
                     </div>
                     <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
                     <textarea id="exportedPhp" hidden></textarea>
-
                 </details>
 
-                <input class="btn" type="submit" value="Submit">
+                <input class="btn" type="submit" value="Open Permalink">
             </form>
         </div>
 
