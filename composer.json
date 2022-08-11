@@ -31,6 +31,7 @@
       "php -S localhost:8000 -t src"
     ],
     "test": "./vendor/bin/phpunit --testdox tests",
+    "lint": "prettier --check **/*.{php,md,js,css} !**/*.min.js --print-width 120",
     "lint-fix": "prettier --write **/*.{php,md,js,css} !**/*.min.js --print-width 120"
   }
 }
