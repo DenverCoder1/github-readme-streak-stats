@@ -367,7 +367,7 @@ function convertSvgToPng(string $svg): string
 
     // save svg to random file
     $filename = uniqid();
-    file_put_contents("$filename.svg", $svg);
+        file_put_contents("$filename.svg", $svg);
 
     // convert svg to png
     $out = shell_exec("inkscape -w 495 -h 195 {$filename}.svg -o {$filename}.png"); // skipcq: PHP-A1009
