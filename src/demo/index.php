@@ -5,6 +5,8 @@ $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
 $LOCALES = array_keys($TRANSLATIONS);
 
+$darkmode = $_COOKIE["darkmode"] ?? null;
+
 /**
  * Convert a camelCase string to a skewer-case string
  * @param string $str The camelCase string
@@ -58,7 +60,7 @@ function camel_to_skewer(string $str): string
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
-<body <?php echo ($_COOKIE["darkmode"] ?? null) == "on" ? 'data-theme="dark"' : ""; ?>>
+<body <?php echo $darkmode === "on" ? 'data-theme="dark"' : ""; ?>>
     <h1>🔥 GitHub Readme Streak Stats</h1>
 
     <!-- GitHub badges/links section -->
@@ -161,7 +163,7 @@ function camel_to_skewer(string $str): string
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo ($_COOKIE["darkmode"] ?? null) == "on" ? "gg-sun" : "gg-moon"; ?>"></i>
+        <i class="<?php echo $darkmode === "on" ? "gg-sun" : "gg-moon"; ?>"></i>
     </a>
 </body>
 
