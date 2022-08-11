@@ -13,10 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Install prettier and plugin-php
+        run: npm install --global prettier @prettier/plugin-php
 
       - name: Prettify code
-        uses: creyD/prettier_action@v4.2
+        run: composer lint-fix
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          prettier_options: "--write **/*.{php,md,js,css} !**/*.min.js --print-width 120"
           commit_message: "style: Formatted code with Prettier"
-          prettier_plugins: "@prettier/plugin-php"
+          branch: ${{ github.head_ref }}

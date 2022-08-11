@@ -30,6 +30,7 @@
       "Composer\\Config::disableProcessTimeout",
       "php -S localhost:8000 -t src"
     ],
-    "test": "./vendor/bin/phpunit --testdox tests"
+    "test": "./vendor/bin/phpunit --testdox tests",
+    "lint-fix": "prettier --write **/*.{php,md,js,css} !**/*.min.js --print-width 120"
   }
 }
