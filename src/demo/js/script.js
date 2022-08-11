@@ -34,9 +34,7 @@ const preview = {
     document.querySelector(".md code").innerText = md;
     // disable copy button if username is invalid
     const copyButton = document.querySelector(".copy-button");
-    copyButton.disabled = Boolean(
-      document.querySelector("#user:invalid") || !document.querySelector("#user").value
-    );
+    copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
   },
 
   /**
@@ -51,15 +49,9 @@ const preview = {
     const propertyName = property || selectElement.value;
     if (!selectElement.disabled) {
       // disable option in menu
-      Array.prototype.find.call(
-        selectElement.options,
-        (o) => o.value === propertyName
-      ).disabled = true;
+      Array.prototype.find.call(selectElement.options, (o) => o.value === propertyName).disabled = true;
       // select first unselected option
-      const firstAvailable = Array.prototype.find.call(
-        selectElement.options,
-        (o) => !o.disabled
-      );
+      const firstAvailable = Array.prototype.find.call(selectElement.options, (o) => !o.disabled);
       if (firstAvailable) {
         firstAvailable.selected = true;
       } else {
@@ -85,10 +77,7 @@ const preview = {
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
-      minus.setAttribute(
-        "onclick",
-        "return preview.removeProperty(this.getAttribute('data-property'));"
-      );
+      minus.setAttribute("onclick", "return preview.removeProperty(this.getAttribute('data-property'));");
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
       // add elements
@@ -118,14 +107,9 @@ const preview = {
     const parent = document.querySelector(".advanced .parameters");
     const selectElement = document.querySelector("#properties");
     // remove all elements for given property
-    parent
-      .querySelectorAll(`[data-property="${property}"]`)
-      .forEach((x) => parent.removeChild(x));
+    parent.querySelectorAll(`[data-property="${property}"]`).forEach((x) => parent.removeChild(x));
     // enable option in menu
-    const option = Array.prototype.find.call(
-      selectElement.options,
-      (o) => o.value === property
-    );
+    const option = Array.prototype.find.call(selectElement.options, (o) => o.value === property);
     selectElement.disabled = false;
     option.disabled = false;
     // update and exit
@@ -164,9 +148,7 @@ const preview = {
     const selectedOption = themeSelect.options[themeSelect.selectedIndex];
     const defaultParams = selectedOption.dataset;
     // get parameters with the advanced options
-    const advancedParams = this.objectFromElements(
-      document.querySelectorAll(".advanced .param.jscolor")
-    );
+    const advancedParams = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
     // update default values with the advanced options
     const params = { ...defaultParams, ...advancedParams };
     // convert parameters to PHP code
