@@ -91,7 +91,7 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |        `windows-dark`         | ![image](https://user-images.githubusercontent.com/103951737/183449796-23096f23-54b5-45af-8078-b8afd4f3baf3.png) |
 |          `git-dark`           | ![image](https://user-images.githubusercontent.com/103951737/183690748-060943ff-7b39-4229-b32d-806d654bd12d.png) |
 |         `python-dark`         | ![image](https://user-images.githubusercontent.com/103951737/183929763-ae8c93d4-0106-461c-bded-2c2adb0bd6bf.png) |
-|          `sea-dark`           | ![image](https://user-images.githubusercontent.com/103951737/184138502-3cf5d114-53d9-42b6-bd77-6c74759d3152.png) |
+|          `sea-dark`           | ![image](https://user-images.githubusercontent.com/103951737/184301879-953370eb-e61a-4e0f-abf4-7029c336e8f1.png) |
 
 ### Can't find the theme you like?
 
