@@ -8,7 +8,6 @@ require_once "stats.php";
 require_once "card.php";
 
 // load .env
-
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 

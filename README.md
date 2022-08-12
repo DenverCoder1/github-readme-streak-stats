@@ -223,6 +223,18 @@ Run the following command to run the PHPUnit test script which will verify that 
 composer test
 ```
 
+### Linting
+
+This project uses Prettier for formatting PHP, Markdown, JavaScript and CSS files.
+
+```bash
+# Run prettier and show the files that need to be fixed
+composer lint
+
+# Run prettier and fix the files
+composer lint-fix
+```
+
 ## 🙋‍♂️ Support
 
 💙 If you like this project, give it a ⭐ and share it with friends!

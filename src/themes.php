@@ -1022,6 +1022,18 @@ return [
         "sideLabels" => "#FFD43B",
         "dates" => "#FFD43B",
     ],
+    "sea" => [
+        "background" => "#1565C0",
+        "border" => "#FFFFFF",
+        "stroke" => "#FFFFFF",
+        "ring" => "#FFFFFF",
+        "fire" => "#FFFFFF",
+        "currStreakNum" => "#FFFFFF",
+        "sideNums" => "#FFFFFF",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#FFFFFF",
+        "dates" => "#FFFFFF",
+    ],
     "sea-dark" => [
         "background" => "#00C0FF",
         "border" => "#000000",
