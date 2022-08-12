@@ -19,10 +19,9 @@ const preview = {
     // get parameter values from all .param elements
     const params = this.objectFromElements(document.querySelectorAll(".param"));
     // convert parameters to query string
-    const encode = encodeURIComponent;
     const query = Object.keys(params)
       .filter((key) => params[key] !== this.defaults[key])
-      .map((key) => encode(key) + "=" + encode(params[key]))
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
       .join("&");
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
@@ -35,7 +34,7 @@ const preview = {
     document.querySelector(".md code").innerText = md;
     // disable copy button if username is invalid
     const copyButton = document.querySelector(".copy-button");
-    copyButton.disabled = Boolean(document.querySelectorAll("#user:invalid").length);
+    copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
   },
 
   /**
@@ -154,7 +153,7 @@ const preview = {
     const params = { ...defaultParams, ...advancedParams };
     // convert parameters to PHP code
     const mappings = Object.keys(params)
-      .map((key) => `    "${key}" => "#${params[key]}",`)
+      .map((key) => `  "${key}" => "#${params[key]}",`)
       .join("\n");
     const output = `[\n${mappings}\n]`;
     // set the textarea value to the output
