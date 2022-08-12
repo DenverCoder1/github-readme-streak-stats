@@ -30,6 +30,7 @@ jobs:
         run: npm install --global prettier @prettier/plugin-php
 
       - name: Lint with Prettier
+        continue-on-error: true
         run: composer lint
 
       - name: Prettify code
