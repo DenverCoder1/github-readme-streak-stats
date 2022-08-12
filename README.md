@@ -223,7 +223,6 @@ Run the following command to run the PHPUnit test script which will verify that 
 composer test
 ```
 
-
 ### Linting
 
 This project uses Prettier for formatting PHP, Markdown, JavaScript and CSS files.
