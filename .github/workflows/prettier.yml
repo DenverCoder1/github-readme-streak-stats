@@ -29,7 +29,7 @@ jobs:
       - name: Install prettier and plugin-php
         run: npm install --global prettier @prettier/plugin-php
 
-      - name: Show files needed to fix
+      - name: Lint with Prettier
         run: composer lint
 
       - name: Prettify code
