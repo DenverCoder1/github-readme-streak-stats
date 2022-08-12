@@ -1023,7 +1023,7 @@ return [
         "dates" => "#FFD43B",
     ],
     "sea" => [
-        "background" => "#0000FE",
+        "background" => "#1565C0",
         "border" => "#FFFFFF",
         "stroke" => "#FFFFFF",
         "ring" => "#FFFFFF",
