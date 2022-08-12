@@ -88,7 +88,7 @@ composer test
 
 ## Linting
 
-This project uses Prettier for formatting of PHP, Markdown, JavaScript and CSS files.
+This project uses Prettier for formatting PHP, Markdown, JavaScript and CSS files.
 
 ```bash
 # Run prettier and show the files that need to be fixed
