@@ -1046,4 +1046,16 @@ return [
         "sideLabels" => "#000000",
         "dates" => "#000000",
     ],
+    "horizon" => [
+        "background" => "#1C1E26",
+        "border" => "#1C1E26",
+        "stroke" => "#FAB795",
+        "ring" => "#E95678",
+        "fire" => "#E95678",
+        "currStreakNum" => "#59E1E3",
+        "sideNums" => "#59E1E3",
+        "currStreakLabel" => "#23BD87",
+        "sideLabels" => "#23BD87",
+        "dates" => "#FAB795",
+    ],
 ];
