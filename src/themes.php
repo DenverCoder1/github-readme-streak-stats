@@ -1046,6 +1046,18 @@ return [
         "sideLabels" => "#000000",
         "dates" => "#000000",
     ],
+    "violet-dark" => [
+        "background" => "#000000",
+        "border" => "#FF0089",
+        "stroke" => "#FF0089",
+        "ring" => "#FF0089",
+        "fire" => "#FF0089",
+        "currStreakNum" => "#FF0089",
+        "sideNums" => "#FF0089",
+        "currStreakLabel" => "#FF0089",
+        "sideLabels" => "#FF0089",
+        "dates" => "#FF0089",
+    ],
     "horizon" => [
         "background" => "#1C1E26",
         "border" => "#1C1E26",

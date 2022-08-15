@@ -93,7 +93,8 @@ You can also try out and customize these themes on the [Demo Site](https://githu
 |         `python-dark`         | ![image](https://user-images.githubusercontent.com/103951737/183929763-ae8c93d4-0106-461c-bded-2c2adb0bd6bf.png) |
 |             `sea`             | ![image](https://user-images.githubusercontent.com/103951737/184303266-0e5f8a25-bfeb-4876-abf1-91a38ca87680.png) |
 |          `sea-dark`           | ![image](https://user-images.githubusercontent.com/103951737/184301879-953370eb-e61a-4e0f-abf4-7029c336e8f1.png) |
-|           `horizon`           | ![image](https://user-images.githubusercontent.com/3828247/184559656-e1f1b290-0a44-45cc-9681-010577386760.png)   |
+|         `violet-dark`         | ![image](https://user-images.githubusercontent.com/103951737/184529784-05de7e57-b939-42f7-9852-345fa191c343.png) |
+|          `horizon`            | ![image](https://user-images.githubusercontent.com/3828247/184559656-e1f1b290-0a44-45cc-9681-010577386760.png)   |
 
 ### Can't find the theme you like?
 
