@@ -29,6 +29,7 @@ If you think your stats are not showing up because of a time zone issue, you can
 
 ```bash
 git commit --date="2022-08-02 12:00" -m "Test commit" --allow-empty
+git push
 ```
 
 ## What is considered a "contribution"?
