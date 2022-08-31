@@ -1,6 +1,0 @@
- "functions": {
-    "src/index.php": {
-      "runtime": "now-php@0.0.7"
-    }
-  }
-}

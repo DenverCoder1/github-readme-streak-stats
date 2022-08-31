@@ -14,3 +14,4 @@ package.json
 
 # IDE
 .vscode/
+.DS_Store
