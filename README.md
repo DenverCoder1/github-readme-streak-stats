@@ -6,19 +6,17 @@ docker build -t github-readme-streak-stats-mac-arm64 .
 '''
 to run
 '''
-docker run -d --rm  -p 80:80 --name prod github-readme-streak-stats-mac-arm64
+docker run -d --rm -p 80:80 --name prod github-readme-streak-stats-mac-arm64
 '''
 to stop
 '''
 docker stop prod
 '''
 
-or u can pull 
+or u can pull
 '''
 docker pull nishithps/github-readme-streak-stats-mac-arm64
 '''
-
-
 
 <p align="center">
   <img src="https://i.imgur.com/GZHodUG.png" width="100px"/>
