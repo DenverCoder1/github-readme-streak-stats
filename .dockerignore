@@ -1,0 +1,9 @@
+.github/
+.devcontainer/
+docs/
+tests/
+vendor/
+.deepsource.toml
+CONTRIBUTING.md
+README.md
+asdDockerfile

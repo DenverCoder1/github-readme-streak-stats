@@ -1,0 +1,3 @@
+docker build -t github-readme-streak-stats-mac-arm64 .
+docker run -d --rm  -p 80:80 --name prod github-readme-streak-stats-mac-arm64
+docker stop prod
