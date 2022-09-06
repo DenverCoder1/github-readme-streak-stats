@@ -146,29 +146,22 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `github-readme-streak-stats.herokuapp.com`
 
 </details>
+
 ### Docker
-  if using mac docker desktop
-
+ 
 to build
-
 ```
 docker build -t github-readme-streak-stats-mac-arm64 .
 ```
-
 to run
-
 ```
 docker run -d --rm -p 80:80 --name prod github-readme-streak-stats-mac-arm64
 ```
-
 to stop
-
 ```
 docker stop prod
 ```
-
-or u can pull
-
+Or you can pull prebuilt arm64 image
 ```
 docker pull nishithps/github-readme-streak-stats-mac-arm64
 ```
