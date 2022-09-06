@@ -152,13 +152,13 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 to build
 
 ```
-docker build -t github-readme-streak-stats-mac-arm64 .
+docker build -t github-readme-streak-stats-image .
 ```
 
 to run
 
 ```
-docker run -d --rm -p 80:80 --name prod github-readme-streak-stats-mac-arm64
+docker run -d --rm -p 80:80 --name prod github-readme-streak-stats-image
 ```
 
 to stop
