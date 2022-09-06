@@ -148,20 +148,27 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 </details>
 
 ### Docker ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?logo=docker&logoColor=white)
- 
+
 to build
+
 ```
 docker build -t github-readme-streak-stats-mac-arm64 .
 ```
+
 to run
+
 ```
 docker run -d --rm -p 80:80 --name prod github-readme-streak-stats-mac-arm64
 ```
+
 to stop
+
 ```
 docker stop prod
 ```
+
 Or you can pull prebuilt arm64 image
+
 ```
 docker pull nishithps/github-readme-streak-stats-mac-arm64
 ```
