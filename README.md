@@ -173,7 +173,6 @@ or u can pull
 docker pull nishithps/github-readme-streak-stats-mac-arm64
 ```
 
-
 ## 🤗 Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
