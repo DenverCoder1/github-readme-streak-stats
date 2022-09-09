@@ -2,19 +2,19 @@
 
 ## How do I include GitHub Readme Streak Stats in my Readme?
 
-Markdown files on GitHub support embedded images using Markdown or HTML. You can customize your Streak Stats image on the [demo site](https://github-readme-streak-stats.herokuapp.com/demo/) and use the image source in either of the following ways:
+Markdown files on GitHub support embedded images using Markdown or HTML. You can customize your Streak Stats image on the [demo site](https://streak-stats.demolab.com/demo/) and use the image source in either of the following ways:
 
 ### Markdown
 
 ```md
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=DenverCoder1)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=DenverCoder1)](https://git.io/streak-stats)
 ```
 
 ### HTML
 
 <!-- prettier-ignore-start -->
 ```html
-<a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=DenverCoder1"/></a>
+<a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=DenverCoder1"/></a>
 ```
 <!-- prettier-ignore-end -->
 
@@ -53,7 +53,7 @@ To center align images, you must use the HTML syntax and wrap it in an element w
 <!-- prettier-ignore-start -->
 ```html
 <p align="center">
-    <a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=DenverCoder1"/></a>
+    <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=DenverCoder1"/></a>
 </p>
 ```
 <!-- prettier-ignore-end -->
@@ -65,8 +65,8 @@ You can [specify theme context](https://github.blog/changelog/2022-05-19-specify
 <!-- prettier-ignore-start -->
 ```html
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com?user=DenverCoder1&theme=dark" />
-    <img src="https://github-readme-streak-stats.herokuapp.com?user=DenverCoder1&theme=default" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=DenverCoder1&theme=dark" />
+    <img src="https://streak-stats.demolab.com?user=DenverCoder1&theme=default" />
 </picture>
 ```
 <!-- prettier-ignore-end -->
