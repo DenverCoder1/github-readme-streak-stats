@@ -8,6 +8,7 @@ package-lock.json
 
 # Local Configuration
 package.json
+.DS_Store
 
 # Environment
 .env

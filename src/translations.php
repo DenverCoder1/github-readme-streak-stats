@@ -71,6 +71,12 @@ return [
         "Longest Streak" => "最長のストリーク",
         "Present" => "今",
     ],
+    "kn" => [
+        "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
+        "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
+        "Longest Streak" => "ದೊಡ್ಡ ಸ್ಟ್ರೀಕ್",
+        "Present" => "ಪ್ರಸ್ತುತ",
+    ],
     "ko" => [
         "Total Contributions" => "총 기여 수",
         "Current Streak" => "현재 연속 기여 수",
