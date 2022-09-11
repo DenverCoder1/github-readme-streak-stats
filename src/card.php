@@ -182,7 +182,7 @@ function generateCard(array $stats, array $params = null): string
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195' rx='{$borderRadius}'/>
+                <rect width='495' height='195'/>
             </clipPath>
             <mask id='mask_out_ring_behind_fire'>
                 <rect width='495' height='195' fill='white'/>
@@ -191,8 +191,7 @@ function generateCard(array $stats, array $params = null): string
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
-                      style='stroke: {$theme["border"]}; fill: {$theme["background"]};stroke-miterlimit:10;rx: 4.5;'/>
+                <rect style='stroke: {$theme["border"]}; fill: {$theme["background"]}; x: 0.5px; y: 0.5px; rx: {$borderRadius}; width: calc(100% - 1px); height: calc(100% - 1px);'/>
             </g>
             <g style='isolation:isolate'>
                 <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
@@ -315,13 +314,12 @@ function generateErrorCard(string $message, array $params = null): string
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195' rx='{$borderRadius}'/>
+                <rect width='495' height='195'/>
             </clipPath>
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
-                    style='stroke: {$theme["border"]}; fill: {$theme["background"]};stroke-miterlimit:10;rx: 4.5;'/>
+            <rect style='stroke: {$theme["border"]}; fill: {$theme["background"]}; x: 0.5px; y: 0.5px; rx: {$borderRadius}; width: calc(100% - 1px); height: calc(100% - 1px);'/>
             </g>
             <g style='isolation:isolate'>
                 <!-- Error Label -->
