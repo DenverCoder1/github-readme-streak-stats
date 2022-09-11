@@ -319,7 +319,7 @@ function generateErrorCard(string $message, array $params = null): string
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-            <rect style='stroke: {$theme["border"]}; fill: {$theme["background"]}; x: 0.5px; y: 0.5px; rx: {$borderRadius}; width: calc(100% - 1px); height: calc(100% - 1px);'/>
+                <rect style='stroke: {$theme["border"]}; fill: {$theme["background"]}; x: 0.5px; y: 0.5px; rx: {$borderRadius}; width: calc(100% - 1px); height: calc(100% - 1px);'/>
             </g>
             <g style='isolation:isolate'>
                 <!-- Error Label -->
@@ -333,8 +333,8 @@ function generateErrorCard(string $message, array $params = null): string
                 <!-- mask for background behind face -->
                 <defs>
                     <mask id='cut-off-area'>
-                    <rect x='0' y='0' width='500' height='500' fill='white' />
-                    <ellipse cx='247.5' cy='31' rx='13' ry='18'/>
+                        <rect x='0' y='0' width='500' height='500' fill='white' />
+                        <ellipse cx='247.5' cy='31' rx='13' ry='18'/>
                     </mask>
                 </defs>
                 <!-- Sad face -->
