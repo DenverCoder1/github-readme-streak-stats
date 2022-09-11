@@ -142,6 +142,9 @@ function generateCard(array $stats, array $params = null): string
     // number formatter
     $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
 
+    // read border_radius parameter, default to 4.5 if not set
+    $borderRadius = $params["border_radius"] ?? "4.5";
+
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
@@ -179,7 +182,7 @@ function generateCard(array $stats, array $params = null): string
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='{$borderRadius}'/>
             </clipPath>
             <mask id='mask_out_ring_behind_fire'>
                 <rect width='495' height='195' fill='white'/>
@@ -301,6 +304,9 @@ function generateErrorCard(string $message, array $params = null): string
     // get requested theme, use $_REQUEST if no params array specified
     $theme = getRequestedTheme($params);
 
+    // read border_radius parameter, default to 4.5 if not set
+    $borderRadius = $params["border_radius"] ?? "4.5";
+
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
         <style>
             a {
@@ -309,7 +315,7 @@ function generateErrorCard(string $message, array $params = null): string
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='{$borderRadius}'/>
             </clipPath>
         </defs>
         <g clip-path='url(#outer_rectangle)'>
