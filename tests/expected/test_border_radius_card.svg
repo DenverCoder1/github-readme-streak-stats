@@ -21,7 +21,7 @@
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <rect style='stroke: #111111; fill: #000000; x: 0.5px; y: 0.5px; rx: 4.5; width: calc(100% - 1px); height: calc(100% - 1px);'/>
+                <rect style='stroke: #111111; fill: #000000; x: 0.5px; y: 0.5px; rx: 16; width: calc(100% - 1px); height: calc(100% - 1px);'/>
             </g>
             <g style='isolation:isolate'>
                 <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='#222222' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
@@ -40,7 +40,7 @@
                 <g transform='translate(1,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数
+                        Total Contributions
                     </text>
                 </g>
 
@@ -48,7 +48,7 @@
                 <g transform='translate(1,114)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
-                        2016.8.10 - 今
+                        Aug 10, 2016 - Present
                     </text>
                 </g>
             </g>
@@ -65,7 +65,7 @@
                 <g transform='translate(166,108)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:#777777;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        現在のストリーク
+                        Current Streak
                     </text>
                 </g>
 
@@ -73,7 +73,7 @@
                 <g transform='translate(166,145)'>
                     <rect width='163' height='26' stroke='none' fill='none'></rect>
                     <text x='81.5' y='21' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        2019.3.28 - 2019.4.12
+                        Mar 28, 2019 - Apr 12, 2019
                     </text>
                 </g>
 
@@ -101,7 +101,7 @@
                 <g transform='translate(331,84)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        最長のストリーク
+                        Longest Streak
                     </text>
                 </g>
 
@@ -109,7 +109,7 @@
                 <g transform='translate(331,114)'>
                     <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
-                        2016.12.19 - 2016.3.14
+                        Dec 19, 2016 - Mar 14, 2016
                     </text>
                 </g>
             </g>

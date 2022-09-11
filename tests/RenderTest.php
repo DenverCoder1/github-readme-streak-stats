@@ -86,6 +86,18 @@ final class RenderTest extends TestCase
     }
 
     /**
+     * Test border radius
+     */
+    public function testBorderRadius(): void
+    {
+        $this->testParams["border_radius"] = "16";
+        // Check that the card is rendered as expected
+        $render = generateCard($this->testStats, $this->testParams);
+        $expected = file_get_contents("tests/expected/test_border_radius_card.svg");
+        $this->assertEquals($expected, $render);
+    }
+
+    /**
      * Test JSON render
      */
     public function testJsonRender(): void
