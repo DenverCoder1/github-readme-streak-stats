@@ -11,7 +11,7 @@
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <rect style='stroke: #111111; fill: #000000; x: 0.5px; y: 0.5px; rx: 4.5; width: calc(100% - 1px); height: calc(100% - 1px);'/>
+                <rect stroke='#111111' fill='#000000' rx='4.5' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation:isolate'>
                 <!-- Error Label -->
