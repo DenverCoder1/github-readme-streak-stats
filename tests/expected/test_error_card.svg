@@ -6,13 +6,12 @@
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='4.5'/>
             </clipPath>
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <path d='M 4.5 0 L 490.5 0 C 492.984 0 495 2.016 495 4.5 L 495 190.5 C 495 192.984 492.984 195 490.5 195 L 4.5 195 C 2.016 195 0 192.984 0 190.5 L 0 4.5 C 0 2.016 2.016 0 4.5 0 Z'
-                    style='stroke: #111111; fill: #000000;stroke-miterlimit:10;rx: 4.5;'/>
+                <rect stroke='#111111' fill='#000000' rx='4.5' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation:isolate'>
                 <!-- Error Label -->
@@ -26,8 +25,8 @@
                 <!-- mask for background behind face -->
                 <defs>
                     <mask id='cut-off-area'>
-                    <rect x='0' y='0' width='500' height='500' fill='white' />
-                    <ellipse cx='247.5' cy='31' rx='13' ry='18'/>
+                        <rect x='0' y='0' width='500' height='500' fill='white' />
+                        <ellipse cx='247.5' cy='31' rx='13' ry='18'/>
                     </mask>
                 </defs>
                 <!-- Sad face -->
