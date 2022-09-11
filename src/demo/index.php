@@ -105,7 +105,7 @@ function camel_to_skewer(string $str): string
                 </select>
                 
                 <label for="border_radius">Border Radius</label>
-                <input class="param" type="number" id="border_radius" name="border_radius" placeholder="4.5 default, 0 none, 0-xxx" pattern="[0-9]" title="Only Numbers">
+                <input class="param" type="number" id="border_radius" name="border_radius" placeholder="4.5">
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
