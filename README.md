@@ -63,6 +63,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |      `user`       |       GitHub username to show stats for        |                          `DenverCoder1`                           |
 |      `theme`      |    The theme to apply (Default: `default`)     |          `dark`, `radical`, etc. [🎨➜](./docs/themes.md)          |
 |   `hide_border`   | Make the border transparent (Default: `false`) |                         `true` or `false`                         |
+|   `border_radius`   | Make the border edges round (Default: 4.5) |                                0 - 999                              |
 |   `background`    |                Background color                |             **hex code** without `#` or **css color**             |
 |     `border`      |                  Border color                  |             **hex code** without `#` or **css color**             |
 |     `stroke`      |       Stroke line color between sections       |             **hex code** without `#` or **css color**             |
