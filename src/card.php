@@ -182,7 +182,7 @@ function generateCard(array $stats, array $params = null): string
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='{$borderRadius}'/>
             </clipPath>
             <mask id='mask_out_ring_behind_fire'>
                 <rect width='495' height='195' fill='white'/>
@@ -191,7 +191,7 @@ function generateCard(array $stats, array $params = null): string
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <rect style='stroke: {$theme["border"]}; fill: {$theme["background"]}; x: 0.5px; y: 0.5px; rx: {$borderRadius}; width: calc(100% - 1px); height: calc(100% - 1px);'/>
+                <rect stroke='{$theme["border"]}' fill='{$theme["background"]}' rx='{$borderRadius}' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation:isolate'>
                 <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
@@ -314,12 +314,12 @@ function generateErrorCard(string $message, array $params = null): string
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='{$borderRadius}'/>
             </clipPath>
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation:isolate'>
-                <rect style='stroke: {$theme["border"]}; fill: {$theme["background"]}; x: 0.5px; y: 0.5px; rx: {$borderRadius}; width: calc(100% - 1px); height: calc(100% - 1px);'/>
+                <rect stroke='{$theme["border"]}' fill='{$theme["background"]}' rx='{$borderRadius}' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation:isolate'>
                 <!-- Error Label -->
@@ -366,7 +366,7 @@ function convertSvgToPng(string $svg): string
     $svg = preg_replace("/(<style>\X*?<\/style>)/m", "", $svg);
     $svg = preg_replace("/(opacity: 0;)/m", "opacity: 1;", $svg);
     $svg = preg_replace("/(animation: fadein.*?;)/m", "opacity: 1;", $svg);
-    $svg = preg_replace("/(animation: currentstreak.*?;)/m", "font-size: 28px;", $svg);
+    $svg = preg_replace("/(animation: currstreak.*?;)/m", "font-size: 28px;", $svg);
     $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
 
     // save svg to random file
