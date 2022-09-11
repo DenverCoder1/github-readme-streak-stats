@@ -12,7 +12,7 @@
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='16'/>
             </clipPath>
             <mask id='mask_out_ring_behind_fire'>
                 <rect width='495' height='195' fill='white'/>

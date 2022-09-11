@@ -6,7 +6,7 @@
         </style>
         <defs>
             <clipPath id='outer_rectangle'>
-                <rect width='495' height='195'/>
+                <rect width='495' height='195' rx='4.5'/>
             </clipPath>
         </defs>
         <g clip-path='url(#outer_rectangle)'>
