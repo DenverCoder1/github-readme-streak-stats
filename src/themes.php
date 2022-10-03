@@ -386,6 +386,18 @@ return [
         "sideLabels" => "#2aa889",
         "dates" => "#99d1ce",
     ],
+    "material" => [
+        "background" => "#263238",
+        "border" => "#e4e2e2",
+        "stroke" => "#e4e2e2",
+        "ring" => "#80cbc4",
+        "fire" => "#80cbc4",
+        "currStreakNum" => "#ffab91",
+        "sideNums" => "#80cbc4",
+        "currStreakLabel" => "#ffab91",
+        "sideLabels" => "#80cbc4",
+        "dates" => "#b0bec5",
+    ],
     "material-palenight" => [
         "background" => "#292d3e",
         "border" => "#e4e2e2",
