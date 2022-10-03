@@ -95,6 +95,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |          `sea-dark`           | ![image](https://user-images.githubusercontent.com/103951737/184301879-953370eb-e61a-4e0f-abf4-7029c336e8f1.png) |
 |         `violet-dark`         | ![image](https://user-images.githubusercontent.com/103951737/184529784-05de7e57-b939-42f7-9852-345fa191c343.png) |
 |           `horizon`           |  ![image](https://user-images.githubusercontent.com/3828247/184559656-e1f1b290-0a44-45cc-9681-010577386760.png)  |
+|           `material`          |  ![image](https://user-images.githubusercontent.com/77098480/193502319-70b12442-03c2-4db1-ba68-019eb1106349.png) |
 
 ### Can't find the theme you like?
 
