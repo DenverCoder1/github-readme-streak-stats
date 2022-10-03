@@ -107,6 +107,12 @@ return [
         "Longest Streak" => "En Uzun Seri",
         "Present" => "Şu an",
     ],
+    "vi" => [
+        "Total Contributions" => "Tổng số đóng góp",
+        "Current Streak" => "Chuỗi đóng góp hiện tại",
+        "Longest Streak" => "Chuỗi đóng góp lớn nhất",
+        "Present" => "Hiện tại",
+    ],
     "zh" => [
         "Total Contributions" => "合计贡献",
         "Current Streak" => "最近连续贡献",
