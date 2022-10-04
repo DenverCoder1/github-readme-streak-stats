@@ -28,6 +28,12 @@ return [
         "Present" => "Present",
     ],
     // Locales below are sorted alphabetically
+    "da" => [
+        "Total Contributions" => "Totalt Antal Bidrag",
+        "Current Streak" => "Nuværende i Træk",
+        "Longest Streak" => "Længst i Træk",
+        "Present" => "I dag",
+    ],
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
         "Current Streak" => "Aktuelle Serie",
