@@ -25,7 +25,9 @@
 [![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1)](https://git.io/streak-stats)
 ```
 
-> Note: See below for information about deploying the app on your own
+3. Star the repo 😄
+
+> **Note** See below for customization options and about deploying the app on your own.
 
 ## ⚙ Demo Site
 
@@ -34,23 +36,6 @@ Here you can customize your Streak Stats card with a live preview.
 <http://streak-stats.demolab.com/demo/>
 
 [![Demo Site](https://user-images.githubusercontent.com/20955511/114579753-dbac8780-9c86-11eb-97dd-207039f67d20.gif "Demo Site")](http://streak-stats.demolab.com/demo/)
-
-## 🖌 Themes
-
-To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
-
-```md
-[![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
-```
-
-|     Theme      |                            Preview                            |
-| :------------: | :-----------------------------------------------------------: |
-|   `default`    |          ![default](https://i.imgur.com/IaTuYdS.png)          |
-|     `dark`     |           ![dark](https://i.imgur.com/bUrsjlp.png)            |
-| `highcontrast` |       ![highcontrast](https://i.imgur.com/ovrVrTY.png)        |
-|  More themes!  | **🎨 [See a list of all available themes](./docs/themes.md)** |
-
-> If you have come up with a new theme you'd like to share with others, open an issue to add it!
 
 ## 🔧 Options
 
@@ -77,6 +62,23 @@ If the `theme` parameter is specified, any color customizations specified will b
 |   `date_format`   |        Date format (Default: `M j[, Y]`)        |          See note below on [Date Formats](#date-formats)          |
 |     `locale`      |    Locale to use for labels (Default: `en`)     | ISO 639-1 code (See [`translations.php`](./src/translations.php)) |
 |      `type`       |         Output format (Default: `svg`)          |              Current options: `svg`, `png` or `json`              |
+
+## 🖌 Themes
+
+To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
+
+```md
+[![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
+```
+
+|     Theme      |                            Preview                            |
+| :------------: | :-----------------------------------------------------------: |
+|   `default`    |          ![default](https://i.imgur.com/IaTuYdS.png)          |
+|     `dark`     |           ![dark](https://i.imgur.com/bUrsjlp.png)            |
+| `highcontrast` |       ![highcontrast](https://i.imgur.com/ovrVrTY.png)        |
+|  More themes!  | **🎨 [See a list of all available themes](./docs/themes.md)** |
+
+**If you have come up with a new theme you'd like to share with others, open an issue to add it!**
 
 ### Date Formats
 
@@ -107,13 +109,14 @@ This tool uses the contribution graphs on your GitHub profile to calculate which
 
 To include contributions in private repositories, turn on the setting for "Private contributions" from the dropdown menu above the contribution graph on your profile page.
 
-Contributions include commits, pull requests, and issues that you create in standalone repositories ([Learn more about what is considered a contribution](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile)).
+Contributions include commits, pull requests, and issues that you create in standalone repositories.
 
 The longest streak is the highest number of consecutive days on which you have made at least one contribution.
 
 The current streak is the number of consecutive days ending with the current day on which you have made at least one contribution. If you have made a contribution today, it will be counted towards the current streak, however, if you have not made a contribution today, the streak will only count days before today so that your streak will not be zero.
 
-> Note: You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
+> **Note**
+> You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
 
 ## 📤 Deploying it on your own
 
@@ -122,6 +125,8 @@ If you can, it is preferable to host the files on your own server.
 Doing this can lead to better uptime and more control over customization (you can modify the code for your usage).
 
 You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
+
+The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
 ### Deploy Streak Stats instantly
 
@@ -154,87 +159,7 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
-### Installing Requirements
-
-#### Requirements
-
-- [PHP 8.1+](https://www.apachefriends.org/index.html)
-- [Composer](https://getcomposer.org)
-- [Inkscape](https://inkscape.org) (for PNG rendering)
-
-#### Linux
-
-```bash
-sudo apt-get install php
-sudo apt-get install php-curl
-sudo apt-get install composer
-sudo apt-get install inkscape
-```
-
-#### Windows
-
-Install PHP from [XAMPP](https://www.apachefriends.org/index.html) or [php.net](https://windows.php.net/download)
-
-[▶ How to install and run PHP using XAMPP (Windows)](https://www.youtube.com/watch?v=K-qXW9ymeYQ)
-
-[📥 Download Composer](https://getcomposer.org/download/)
-
-### Clone the repository
-
-```bash
-git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
-cd github-readme-streak-stats
-```
-
-### Install dependencies
-
-Run the following command to install all the required dependencies to work on this project.
-
-```bash
-composer install
-```
-
-### Authorization
-
-To get the GitHub API to run locally you will need to provide a token.
-
-1. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token
-2. Scroll to the bottom and click **"Generate token"**
-3. **Make a copy** of `.env.example` named `.env` in the root directory and add **your token** after `TOKEN=`:
-
-```php
-TOKEN=<your-token>
-```
-
-### Running the app locally
-
-```bash
-composer start
-```
-
-Open <http://localhost:8000/?user=DenverCoder1> to run the project locally.
-
-Open <http://localhost:8000/demo/> to run the demo site.
-
-### Running the tests
-
-Run the following command to run the PHPUnit test script which will verify that the tested functionality is still working.
-
-```bash
-composer test
-```
-
-### Linting
-
-This project uses Prettier for formatting PHP, Markdown, JavaScript and CSS files.
-
-```bash
-# Run prettier and show the files that need to be fixed
-composer lint
-
-# Run prettier and fix the files
-composer lint-fix
-```
+Refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for more details on contributing, installing requirements, and running the application.
 
 ## 🙋‍♂️ Support
 
