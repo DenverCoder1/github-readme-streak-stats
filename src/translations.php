@@ -136,4 +136,10 @@ return [
         "Longest Streak" => "最长连续贡献",
         "Present" => "至今",
     ],
+     "ta" => [
+        "Total Contributions" => "மொத்த பங்களிப்புகள்",
+        "Current Streak" => "மிக சமீபத்திய தொடர்ச்சியான பங்களிப்புகள்",
+        "Longest Streak" => "நீண்ட தொடர்ச்சியான பங்களிப்புகள்",
+        "Present" => "இன்றுவரை",
+    ],
 ];
