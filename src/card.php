@@ -135,6 +135,9 @@ function generateCard(array $stats, array $params = null): string
     // add missing translations from English
     $localeTranslations += $translations["en"];
 
+    // whether the locale is right-to-left
+    $direction = $localeTranslations["rtl"] ?? false ? "rtl" : "ltr";
+
     // get date format
     // locale date formatter (used only if date_format is not specified)
     $dateFormat = $params["date_format"] ?? ($localeTranslations["date_format"] ?? null);
@@ -168,7 +171,8 @@ function generateCard(array $stats, array $params = null): string
         $longestStreakRange .= " - " . $longestStreakEnd;
     }
 
-    return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
+    return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
+                style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px' direction='{$direction}'>
         <style>
             @keyframes currstreak {
                 0% { font-size: 3px; opacity: 0.2; }

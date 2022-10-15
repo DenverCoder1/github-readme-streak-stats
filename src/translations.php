@@ -17,6 +17,10 @@
  * 2016.8.10        8.10        [Y.]n.j
  *
  * For info on valid date_format strings, see https://github.com/DenverCoder1/github-readme-streak-stats#date-formats
+ *
+ * Right-to-Left Language Support
+ * ------------------------------
+ * To enable right-to-left language support, add `"rtl" => true` to the locale array (see "he" for an example).
  */
 
 return [
@@ -51,6 +55,13 @@ return [
         "Current Streak" => "Séquence actuelle",
         "Longest Streak" => "Plus longue séquence",
         "Present" => "Aujourd'hui",
+    ],
+    "he" => [
+        "rtl" => true,
+        "Total Contributions" => "סך הכל תרומות",
+        "Current Streak" => "רצף נוכחי",
+        "Longest Streak" => "רצף ארוך ביותר",
+        "Present" => "היום",
     ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",
