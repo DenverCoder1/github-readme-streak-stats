@@ -123,6 +123,7 @@ function getRequestedTheme(array $params): array
  *              a word that is larger than the given width, it is broken apart.
  *              When false the function does not split the word even if the width is smaller
  *              than the word width.
+ * @return string The given string wrapped at the specified length
  */
 function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = false)
 {
@@ -137,6 +138,19 @@ function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = fal
 }
 
 /**
+ * Get the length of a string with utf8 characters
+ *
+ * Similar to `strlen()`, but uses regex and does not break with certain non-ascii characters
+ *
+ * @param string $string The input string
+ * @return int The length of the string
+ */
+function utf8Strlen($string)
+{
+    return preg_match_all("/./us", $string, $matches);
+}
+
+/**
  * Split lines of text using <tspan> elements if it contains a newline or exceeds a maximum number of characters
  *
  * @param string $text Text to split
@@ -148,7 +162,7 @@ function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = fal
 function splitLines(string $text, int $maxChars, int $line1Offset): string
 {
     // if too many characters, insert \n before a " " or "-" if possible
-    if (mb_strlen($text) > $maxChars && strpos($text, "\n") === false) {
+    if (utf8Strlen($text) > $maxChars && strpos($text, "\n") === false) {
         // prefer splitting at " - " if possible
         if (strpos($text, " - ") !== false) {
             $text = str_replace(" - ", "\n- ", $text);
