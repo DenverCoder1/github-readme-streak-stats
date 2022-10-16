@@ -111,17 +111,30 @@ function getRequestedTheme(array $params): array
 }
 
 /**
- * Split lines of text using <tspan> elements if it contains a newline
+ * Split lines of text using <tspan> elements if it contains a newline or exceeds a maximum number of characters
  *
  * @param string $text Text to split
+ * @param int $maxChars Maximum number of characters per line
+ * @param int $line1Offset Offset for the first line
  *
  * @return string Original text if one line, or split text with <tspan> elements
  */
-function splitLines(string $text): string
+function splitLines(string $text, int $maxChars, int $line1Offset): string
 {
+    // if too many characters, insert \n before a " " or "-" if possible
+    if (strlen($text) > $maxChars) {
+        // prefer splitting at " - " if possible
+        if (strpos($text, " - ") !== false) {
+            $text = str_replace(" - ", "\n- ", $text);
+        }
+        // otherwise, use word wrap to split at " "
+        else {
+            $text = wordwrap($text, $maxChars, "\n", true);
+        }
+    }
     return preg_replace(
         "/^(.*)\n(.*)$/",
-        "<tspan x='81.5' dy='-8'>$1</tspan><tspan x='81.5' dy='16'>$2</tspan>",
+        "<tspan x='81.5' dy='{$line1Offset}'>$1</tspan><tspan x='81.5' dy='16'>$2</tspan>",
         $text
     );
 }
@@ -188,9 +201,14 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // if the translations contain a newline, split the text into two tspan elements
-    $totalContributionsText = splitLines($localeTranslations["Total Contributions"]);
-    $currentStreakText = splitLines($localeTranslations["Current Streak"]);
-    $longestStreakText = splitLines($localeTranslations["Longest Streak"]);
+    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -8);
+    $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -8);
+    $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -8);
+
+    // if the ranges contain over 28 characters, split the text into two tspan elements
+    $totalContributionsRange = splitLines($totalContributionsRange, 28, 0);
+    $currentStreakRange = splitLines($currentStreakRange, 28, 0);
+    $longestStreakRange = splitLines($longestStreakRange, 28, 0);
 
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
                 style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px' direction='{$direction}'>
