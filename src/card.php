@@ -201,9 +201,9 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // if the translations contain a newline, split the text into two tspan elements
-    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -10);
-    $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -10);
-    $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -10);
+    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -9);
+    $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -9);
+    $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -9);
 
     // if the ranges contain over 28 characters, split the text into two tspan elements
     $totalContributionsRange = splitLines($totalContributionsRange, 28, 0);
