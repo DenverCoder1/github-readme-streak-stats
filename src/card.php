@@ -122,7 +122,7 @@ function getRequestedTheme(array $params): array
 function splitLines(string $text, int $maxChars, int $line1Offset): string
 {
     // if too many characters, insert \n before a " " or "-" if possible
-    if (strlen($text) > $maxChars) {
+    if (mb_strlen($text) > $maxChars) {
         // prefer splitting at " - " if possible
         if (strpos($text, " - ") !== false) {
             $text = str_replace(" - ", "\n- ", $text);
@@ -201,9 +201,9 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // if the translations contain a newline, split the text into two tspan elements
-    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -8);
-    $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -8);
-    $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -8);
+    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -10);
+    $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -10);
+    $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -10);
 
     // if the ranges contain over 28 characters, split the text into two tspan elements
     $totalContributionsRange = splitLines($totalContributionsRange, 28, 0);
