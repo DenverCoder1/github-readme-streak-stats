@@ -126,7 +126,7 @@ return [
     ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
-        "Current Streak" => "Chuỗi đóng góp hiện tại",
+        "Current Streak" => "Chuỗi đóng góp\nhiện tại",
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
         "Present" => "Hiện tại",
     ],

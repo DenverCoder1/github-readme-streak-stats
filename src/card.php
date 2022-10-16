@@ -111,6 +111,46 @@ function getRequestedTheme(array $params): array
 }
 
 /**
+ * Wraps a string to a given number of characters
+ *
+ * Similar to `wordwrap()`, but uses regex and does not break with certain non-ascii characters
+ *
+ * @param string $string The input string
+ * @param int $width The number of characters at which the string will be wrapped
+ * @param string $break The line is broken using the optional `break` parameter
+ * @param bool $cut_long_words If the `cut_long_words` parameter is set to true, the string is
+ *              the string is always wrapped at or before the specified width. So if you have
+ *              a word that is larger than the given width, it is broken apart.
+ *              When false the function does not split the word even if the width is smaller
+ *              than the word width.
+ * @return string The given string wrapped at the specified length
+ */
+function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = false)
+{
+    // match anything 1 to $width chars long followed by whitespace or EOS
+    $string = preg_replace("/(.{1,$width})(?:\s|$)/uS", "$1$break", $string);
+    // split words that are too long after being broken up
+    if ($cut_long_words) {
+        $string = preg_replace("/(\S{" . $width . "})(?=\S)/u", "$1$break", $string);
+    }
+    // trim any trailing line breaks
+    return rtrim($string, $break);
+}
+
+/**
+ * Get the length of a string with utf8 characters
+ *
+ * Similar to `strlen()`, but uses regex and does not break with certain non-ascii characters
+ *
+ * @param string $string The input string
+ * @return int The length of the string
+ */
+function utf8Strlen($string)
+{
+    return preg_match_all("/./us", $string, $matches);
+}
+
+/**
  * Split lines of text using <tspan> elements if it contains a newline or exceeds a maximum number of characters
  *
  * @param string $text Text to split
@@ -122,18 +162,19 @@ function getRequestedTheme(array $params): array
 function splitLines(string $text, int $maxChars, int $line1Offset): string
 {
     // if too many characters, insert \n before a " " or "-" if possible
-    if (mb_strlen($text) > $maxChars && strpos($text, "\n") === false) {
+    if (utf8Strlen($text) > $maxChars && strpos($text, "\n") === false) {
         // prefer splitting at " - " if possible
         if (strpos($text, " - ") !== false) {
             $text = str_replace(" - ", "\n- ", $text);
         }
-        // otherwise, use word wrap to split at " "
+        // otherwise, use word wrap to split at spaces
         else {
-            $text = wordwrap($text, $maxChars, "\n", true);
+            $text = utf8WordWrap($text, $maxChars, "\n", true);
         }
     }
+    $text = htmlspecialchars($text);
     return preg_replace(
-        "/^(.*)\n(.*)$/",
+        "/^(.*)\n(.*)/",
         "<tspan x='81.5' dy='{$line1Offset}'>$1</tspan><tspan x='81.5' dy='16'>$2</tspan>",
         $text
     );
