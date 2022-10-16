@@ -58,9 +58,9 @@ return [
     ],
     "he" => [
         "rtl" => true,
-        "Total Contributions" => "סך הכל תרומות",
+        "Total Contributions" => "סכום התרומות",
         "Current Streak" => "רצף נוכחי",
-        "Longest Streak" => "רצף ארוך ביותר",
+        "Longest Streak" => "רצף הכי ארוך",
         "Present" => "היום",
     ],
     "hi" => [
