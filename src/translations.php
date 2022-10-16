@@ -139,7 +139,7 @@ return [
      "ta" => [
         "Total Contributions" => "மொத்த பங்களிப்புகள்",
         "Current Streak" => "மிக சமீபத்திய பங்களிப்புகள்",
-        "Longest Streak" => "நீண்ட பங்களிப்புகள்",
+        "Longest Streak" => "நீண்ட தொடர்ச்சியான பங்களிப்புகள்",
         "Present" => "இன்றுவரை",
     ],
 ];
