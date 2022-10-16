@@ -126,19 +126,14 @@ function getRequestedTheme(array $params): array
  */
 function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = false)
 {
+    // match anything 1 to $width chars long followed by whitespace or EOS
+    $string = preg_replace("/(.{1,$width})(?:\s|$)/uS", "$1$break", $string);
+    // split words that are too long after being broken up
     if ($cut_long_words) {
-        // match anything 1 to $width chars long followed by whitespace or EOS
-        $string = preg_replace("/(.{1,$width})(?:\s|$)/uS", "$1$break", $string);
-        // split words that are too long after being broken up
         $string = preg_replace("/(\S{" . $width . "})(?=\S)/u", "$1$break", $string);
-        // trim any trailing line breaks
-        return rtrim($string, $break);
-    } else {
-        // match anything 1 to $width chars long, but don't split words
-        $string = preg_replace("/(.{1,$width})(?:\s|$)/uS", "$1$break", $string);
-        // trim any trailing line breaks
-        return rtrim($string, $break);
     }
+    // trim any trailing line breaks
+    return rtrim($string, $break);
 }
 
 /**
