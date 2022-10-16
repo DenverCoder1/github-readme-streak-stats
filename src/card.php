@@ -122,7 +122,7 @@ function getRequestedTheme(array $params): array
 function splitLines(string $text, int $maxChars, int $line1Offset): string
 {
     // if too many characters, insert \n before a " " or "-" if possible
-    if (mb_strlen($text) > $maxChars) {
+    if (mb_strlen($text) > $maxChars && strpos($text, "\n") === false) {
         // prefer splitting at " - " if possible
         if (strpos($text, " - ") !== false) {
             $text = str_replace(" - ", "\n- ", $text);
