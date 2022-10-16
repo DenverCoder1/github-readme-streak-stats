@@ -118,6 +118,12 @@ return [
         "Longest Streak" => "Самая длинная серия",
         "Present" => "Сейчас",
     ],
+    "ta" => [
+        "Total Contributions" => "மொத்த பங்களிப்புகள்",
+        "Current Streak" => "மிக சமீபத்திய பங்களிப்புகள்",
+        "Longest Streak" => "நீண்ட தொடர்ச்சியான பங்களிப்புகள்",
+        "Present" => "இன்றுவரை",
+    ],
     "tr" => [
         "Total Contributions" => "Toplam Katkı",
         "Current Streak" => "Güncel Seri",
@@ -135,11 +141,5 @@ return [
         "Current Streak" => "最近连续贡献",
         "Longest Streak" => "最长连续贡献",
         "Present" => "至今",
-    ],
-     "ta" => [
-        "Total Contributions" => "மொத்த பங்களிப்புகள்",
-        "Current Streak" => "மிக சமீபத்திய பங்களிப்புகள்",
-        "Longest Streak" => "நீண்ட தொடர்ச்சியான பங்களிப்புகள்",
-        "Present" => "இன்றுவரை",
     ],
 ];
