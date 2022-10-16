@@ -126,10 +126,7 @@ final class RenderTest extends TestCase
             splitLines("Chuỗi đóng\ngóp hiện tại", 22, -9)
         );
         // Check date range label, no split
-        $this->assertEquals(
-            "Mar 28, 2019 – Apr 12, 2019",
-            splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0)
-        );
+        $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
         // Check date range label that is too long, split
         $this->assertEquals(
             "<tspan x='81.5' dy='0'>19 de dez. de 2021</tspan><tspan x='81.5' dy='16'>- 14 de mar.</tspan>",
