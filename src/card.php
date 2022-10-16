@@ -111,6 +111,35 @@ function getRequestedTheme(array $params): array
 }
 
 /**
+ * Split lines of text using <tspan> elements if it contains a newline or exceeds a maximum number of characters
+ *
+ * @param string $text Text to split
+ * @param int $maxChars Maximum number of characters per line
+ * @param int $line1Offset Offset for the first line
+ *
+ * @return string Original text if one line, or split text with <tspan> elements
+ */
+function splitLines(string $text, int $maxChars, int $line1Offset): string
+{
+    // if too many characters, insert \n before a " " or "-" if possible
+    if (mb_strlen($text) > $maxChars && strpos($text, "\n") === false) {
+        // prefer splitting at " - " if possible
+        if (strpos($text, " - ") !== false) {
+            $text = str_replace(" - ", "\n- ", $text);
+        }
+        // otherwise, use word wrap to split at " "
+        else {
+            $text = wordwrap($text, $maxChars, "\n", true);
+        }
+    }
+    return preg_replace(
+        "/^(.*)\n(.*)$/",
+        "<tspan x='81.5' dy='{$line1Offset}'>$1</tspan><tspan x='81.5' dy='16'>$2</tspan>",
+        $text
+    );
+}
+
+/**
  * Generate SVG output for a stats array
  *
  * @param array<string, mixed> $stats Streak stats
@@ -171,6 +200,16 @@ function generateCard(array $stats, array $params = null): string
         $longestStreakRange .= " - " . $longestStreakEnd;
     }
 
+    // if the translations contain a newline, split the text into two tspan elements
+    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -9);
+    $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -9);
+    $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -9);
+
+    // if the ranges contain over 28 characters, split the text into two tspan elements
+    $totalContributionsRange = splitLines($totalContributionsRange, 28, 0);
+    $currentStreakRange = splitLines($currentStreakRange, 28, 0);
+    $longestStreakRange = splitLines($longestStreakRange, 28, 0);
+
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
                 style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px' direction='{$direction}'>
         <style>
@@ -204,7 +243,6 @@ function generateCard(array $stats, array $params = null): string
             <g style='isolation:isolate'>
                 <!-- Total Contributions Big Number -->
                 <g transform='translate(1,48)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["sideNums"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
                         {$totalContributions}
                     </text>
@@ -212,15 +250,13 @@ function generateCard(array $stats, array $params = null): string
 
                 <!-- Total Contributions Label -->
                 <g transform='translate(1,84)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
-                        {$localeTranslations["Total Contributions"]}
+                        {$totalContributionsText}
                     </text>
                 </g>
 
                 <!-- total contributions range -->
                 <g transform='translate(1,114)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
                         {$totalContributionsRange}
                     </text>
@@ -229,7 +265,6 @@ function generateCard(array $stats, array $params = null): string
             <g style='isolation:isolate'>
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,48)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["currStreakNum"]};stroke:none;animation: currstreak 0.6s linear forwards;'>
                         {$currentStreak}
                     </text>
@@ -237,15 +272,13 @@ function generateCard(array $stats, array $params = null): string
 
                 <!-- Current Streak Label -->
                 <g transform='translate(166,108)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:{$theme["currStreakLabel"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
-                        {$localeTranslations["Current Streak"]}
+                        {$currentStreakText}
                     </text>
                 </g>
 
                 <!-- Current Streak Range -->
                 <g transform='translate(166,145)'>
-                    <rect width='163' height='26' stroke='none' fill='none'></rect>
                     <text x='81.5' y='21' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         {$currentStreakRange}
                     </text>
@@ -265,7 +298,6 @@ function generateCard(array $stats, array $params = null): string
             <g style='isolation:isolate'>
                 <!-- Longest Streak Big Number -->
                 <g transform='translate(331,48)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:{$theme["sideNums"]};stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 1.2s;'>
                         {$longestStreak}
                     </text>
@@ -273,15 +305,13 @@ function generateCard(array $stats, array $params = null): string
 
                 <!-- Longest Streak Label -->
                 <g transform='translate(331,84)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
-                        {$localeTranslations["Longest Streak"]}
+                        {$longestStreakText}
                     </text>
                 </g>
 
                 <!-- Longest Streak Range -->
                 <g transform='translate(331,114)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:{$theme["dates"]};stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
                         {$longestStreakRange}
                     </text>
@@ -328,7 +358,6 @@ function generateErrorCard(string $message, array $params = null): string
             <g style='isolation:isolate'>
                 <!-- Error Label -->
                 <g transform='translate(166,108)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:{$theme["sideLabels"]};stroke:none;'>
                         {$message}
                     </text>

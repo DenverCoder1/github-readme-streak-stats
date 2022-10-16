@@ -107,4 +107,30 @@ final class RenderTest extends TestCase
         $expected = file_get_contents("tests/expected/test_stats.json");
         $this->assertEquals($expected, $render);
     }
+
+    /**
+     * Test split lines function
+     */
+    public function testSplitLines(): void
+    {
+        // Check normal label, no split
+        $this->assertEquals("Total Contributions", splitLines("Total Contributions", 24, -9));
+        // Check label that is too long, split
+        $this->assertEquals(
+            "<tspan x='81.5' dy='-9'>Chuỗi đóng góp</tspan><tspan x='81.5' dy='16'>hiện tại</tspan>",
+            splitLines("Chuỗi đóng góp hiện tại", 22, -9)
+        );
+        // Check label with manually inserted line break, split
+        $this->assertEquals(
+            "<tspan x='81.5' dy='-9'>Chuỗi đóng</tspan><tspan x='81.5' dy='16'>góp hiện tại</tspan>",
+            splitLines("Chuỗi đóng\ngóp hiện tại", 22, -9)
+        );
+        // Check date range label, no split
+        $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
+        // Check date range label that is too long, split
+        $this->assertEquals(
+            "<tspan x='81.5' dy='0'>19 de dez. de 2021</tspan><tspan x='81.5' dy='16'>- 14 de mar.</tspan>",
+            splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0)
+        );
+    }
 }
