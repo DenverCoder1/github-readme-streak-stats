@@ -1,4 +1,5 @@
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
+                style='isolation:isolate' viewBox='0 0 495 195' width='495px' height='195px' direction='ltr'>
         <style>
             @keyframes currstreak {
                 0% { font-size: 3px; opacity: 0.2; }
@@ -30,7 +31,6 @@
             <g style='isolation:isolate'>
                 <!-- Total Contributions Big Number -->
                 <g transform='translate(1,48)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#666666;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.6s;'>
                         2,048
                     </text>
@@ -38,7 +38,6 @@
 
                 <!-- Total Contributions Label -->
                 <g transform='translate(1,84)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.7s;'>
                         Total Contributions
                     </text>
@@ -46,7 +45,6 @@
 
                 <!-- total contributions range -->
                 <g transform='translate(1,114)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 0.8s;'>
                         2016-08-10 - Present
                     </text>
@@ -55,7 +53,6 @@
             <g style='isolation:isolate'>
                 <!-- Current Streak Big Number -->
                 <g transform='translate(166,48)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#555555;stroke:none;animation: currstreak 0.6s linear forwards;'>
                         16
                     </text>
@@ -63,7 +60,6 @@
 
                 <!-- Current Streak Label -->
                 <g transform='translate(166,108)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:14px;font-style:normal;fill:#777777;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         Current Streak
                     </text>
@@ -71,7 +67,6 @@
 
                 <!-- Current Streak Range -->
                 <g transform='translate(166,145)'>
-                    <rect width='163' height='26' stroke='none' fill='none'></rect>
                     <text x='81.5' y='21' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 0.9s;'>
                         2019-03-28 - 04-12
                     </text>
@@ -91,7 +86,6 @@
             <g style='isolation:isolate'>
                 <!-- Longest Streak Big Number -->
                 <g transform='translate(331,48)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:700;font-size:28px;font-style:normal;fill:#666666;stroke:none; opacity: 0; animation: fadein 0.5s linear forwards 1.2s;'>
                         86
                     </text>
@@ -99,7 +93,6 @@
 
                 <!-- Longest Streak Label -->
                 <g transform='translate(331,84)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.3s;'>
                         Longest Streak
                     </text>
@@ -107,7 +100,6 @@
 
                 <!-- Longest Streak Range -->
                 <g transform='translate(331,114)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='32' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:12px;font-style:normal;fill:#999999;stroke:none;opacity: 0; animation: fadein 0.5s linear forwards 1.4s;'>
                         2016-12-19 - 2016-03-14
                     </text>

@@ -16,7 +16,6 @@
             <g style='isolation:isolate'>
                 <!-- Error Label -->
                 <g transform='translate(166,108)'>
-                    <rect width='163' height='50' stroke='none' fill='none'></rect>
                     <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' style='font-family:Segoe UI, Ubuntu, sans-serif;font-weight:400;font-size:14px;font-style:normal;fill:#888888;stroke:none;'>
                         An unknown error occurred
                     </text>
