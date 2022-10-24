@@ -1093,5 +1093,5 @@ return [
         "currStreakLabel" => "#FAB795",
         "sideLabels" => "#c770f0",
         "dates" => "#FAB795",
-    ]
+    ],
 ];
