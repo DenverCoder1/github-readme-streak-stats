@@ -1082,7 +1082,7 @@ return [
         "sideLabels" => "#23BD87",
         "dates" => "#FAB795",
     ],
-    "modern_lilac" => [
+    "modern-lilac" => [
         "background" => "#0a0e12",
         "border" => "#1C1E26",
         "stroke" => "#1C1E26",
