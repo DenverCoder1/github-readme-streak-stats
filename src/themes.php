@@ -1094,4 +1094,16 @@ return [
         "sideLabels" => "#c770f0",
         "dates" => "#FAB795",
     ],
+    "modern-lilac2" => [
+        "background" => "#0a0e12",
+        "border" => "#1C1E26",
+        "stroke" => "#1C1E26",
+        "ring" => "#5d417a",
+        "fire" => "#5d417a",
+        "currStreakNum" => "#FFFFFF",
+        "sideNums" => "#c770f0",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#c770f0",
+        "dates" => "#FFFFFF",
+    ],
 ];
