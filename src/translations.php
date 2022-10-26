@@ -142,4 +142,10 @@ return [
         "Longest Streak" => "最长连续贡献",
         "Present" => "至今",
     ],
+    "bn" => [
+        "Total Contributions" => "মোট অবদান",
+        "Current Streak" => "বর্তমান স্ট্রীক",
+        "Longest Streak" => "দীর্ঘতম স্ট্রিক",
+        "Present" => "এখনো পর্যন্ত",
+    ],
 ];
