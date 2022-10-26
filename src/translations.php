@@ -32,6 +32,12 @@ return [
         "Present" => "Present",
     ],
     // Locales below are sorted alphabetically
+    "bn" => [
+        "Total Contributions" => "মোট অবদান",
+        "Current Streak" => "বর্তমান স্ট্রীক",
+        "Longest Streak" => "দীর্ঘতম স্ট্রিক",
+        "Present" => "এখনো পর্যন্ত",
+    ],
     "da" => [
         "Total Contributions" => "Totalt Antal Bidrag",
         "Current Streak" => "Nuværende i Træk",
@@ -141,11 +147,5 @@ return [
         "Current Streak" => "最近连续贡献",
         "Longest Streak" => "最长连续贡献",
         "Present" => "至今",
-    ],
-    "bn" => [
-        "Total Contributions" => "মোট অবদান",
-        "Current Streak" => "বর্তমান স্ট্রীক",
-        "Longest Streak" => "দীর্ঘতম স্ট্রিক",
-        "Present" => "এখনো পর্যন্ত",
     ],
 ];
