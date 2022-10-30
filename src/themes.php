@@ -1106,4 +1106,16 @@ return [
         "sideLabels" => "#c770f0",
         "dates" => "#FFFFFF",
     ],
+    "halloween" => [
+        "background" => "#1C1A2B",
+        "border" => "#FFC400",
+        "stroke" => "#FFC400",
+        "ring" => "#FDEF49",
+        "fire" => "#FDEF49",
+        "currStreakNum" => "#FFC400",
+        "sideNums" => "#FFC400",
+        "currStreakLabel" => "#FB9600",
+        "sideLabels" => "#FB9600",
+        "dates" => "#FFC400",
+    ],
 ];
