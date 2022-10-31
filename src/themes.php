@@ -1118,4 +1118,16 @@ return [
         "sideLabels" => "#FB9600",
         "dates" => "#FFC400",
     ],
+    "violet-punch" => [
+        "background" => "#000000",
+        "border" => "#e4e2e2",
+        "stroke" => "#B170FC",
+        "ring" => "#3934DD",
+        "fire" => "#D0DDAD",
+        "currStreakNum" => "#CB0B45",
+        "sideNums" => "#7B43FF",
+        "currStreakLabel" => "#AFB5DD",
+        "sideLabels" => "#AFB5DD",
+        "dates" => "#DDDDDD",
+    ],
 ];
