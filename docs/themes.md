@@ -99,6 +99,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |        `modern-lilac`         | ![image](https://user-images.githubusercontent.com/20955511/197569406-6ff144c3-1d6e-4500-9f0b-3112a6c62584.png)  |
 |        `modern-lilac2`        | ![image](https://user-images.githubusercontent.com/20955511/197575977-029fc730-9c7e-4556-be7c-a727a1715fa7.png)  |
 |          `halloween`          | ![image](https://user-images.githubusercontent.com/20955511/198897937-a3c918ea-0f35-43a0-9faf-80ad8f254cdf.png)  |
+|          `violet-punch`       | ![image](https://user-images.githubusercontent.com/74862392/199309078-877f74c6-6764-4506-af06-0a403c50433f.png)  |
 
 ### Can't find the theme you like?
 
