@@ -100,7 +100,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |        `modern-lilac2`        | ![image](https://user-images.githubusercontent.com/20955511/197575977-029fc730-9c7e-4556-be7c-a727a1715fa7.png)  |
 |          `halloween`          | ![image](https://user-images.githubusercontent.com/20955511/198897937-a3c918ea-0f35-43a0-9faf-80ad8f254cdf.png)  |
 |        `violet-punch`         | ![image](https://user-images.githubusercontent.com/20955511/199313653-d678d969-facd-4f8d-b36e-2d0ee2ce61a5.png)  |
-|        `submarine-flowers`         | ![image](https://user-images.githubusercontent.com/109996512/201514337-716b62f8-5de6-45cc-a829-6466189e8097.png)  |
+|      `submarine-flowers`      | ![image](https://user-images.githubusercontent.com/20955511/201519290-14d69c90-ce17-4c63-9020-7b244ebc6fab.png)  |
 
 ### Can't find the theme you like?
 
