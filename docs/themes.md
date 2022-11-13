@@ -101,6 +101,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |          `halloween`          | ![image](https://user-images.githubusercontent.com/20955511/198897937-a3c918ea-0f35-43a0-9faf-80ad8f254cdf.png)  |
 |        `violet-punch`         | ![image](https://user-images.githubusercontent.com/20955511/199313653-d678d969-facd-4f8d-b36e-2d0ee2ce61a5.png)  |
 |        `submarine-flowers`         | ![image](https://user-images.githubusercontent.com/109996512/201514337-716b62f8-5de6-45cc-a829-6466189e8097.png)  |
+
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://streak-stats.demolab.com/demo/) or by customizing the [url parameters](/README.md#-options).
