@@ -1130,4 +1130,16 @@ return [
         "sideLabels" => "#AFB5DD",
         "dates" => "#DDDDDD",
     ],
+    "submarine-flowers" => [
+        "background" => "#013E4E",
+        "border" => "#013E4E",
+        "stroke" => "#48FF50",
+        "ring" => "#FF8888",
+        "fire" => "#FF8888",
+        "currStreakNum" => "#FFF000",
+        "sideNums" => "#FFF000",
+        "currStreakLabel" => "#FFF000",
+        "sideLabels" => "#FF8888",
+        "dates" => "#FF8650",
+    ],
 ];
