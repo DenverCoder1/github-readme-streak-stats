@@ -155,7 +155,7 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 ## 🤗 Contributing
 
-Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
+Contributions are welcome! Feel free to [open an issue](https://github.com/DenverCoder1/github-readme-streak-stats/issues/new/choose) or submit a [pull request](https://github.com/DenverCoder1/github-readme-streak-stats/compare) if you have a way to improve this project.
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
