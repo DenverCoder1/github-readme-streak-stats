@@ -69,8 +69,9 @@ final class RenderTest extends TestCase
         $this->testParams["date_format"] = "[Y-]m-d";
         // Check that the card is rendered as expected
         $render = generateCard($this->testStats, $this->testParams);
-        $expected = file_get_contents("tests/expected/test_date_card.svg");
-        $this->assertEquals($expected, $render);
+        $this->assertStringContainsString("2016-08-10 - Present", $render);
+        $this->assertStringContainsString("2019-03-28 - 04-12", $render);
+        $this->assertStringContainsString("2016-12-19 - 2016-03-14", $render);
     }
 
     /**
@@ -81,8 +82,15 @@ final class RenderTest extends TestCase
         $this->testParams["locale"] = "ja";
         // Check that the card is rendered as expected
         $render = generateCard($this->testStats, $this->testParams);
-        $expected = file_get_contents("tests/expected/test_locale_ja_card.svg");
-        $this->assertEquals($expected, $render);
+        $this->assertStringContainsString("2,048", $render);
+        $this->assertStringContainsString("総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数", $render);
+        $this->assertStringContainsString("2016.8.10 - 今", $render);
+        $this->assertStringContainsString("16", $render);
+        $this->assertStringContainsString("現在のストリーク", $render);
+        $this->assertStringContainsString("2019.3.28 - 2019.4.12", $render);
+        $this->assertStringContainsString("86", $render);
+        $this->assertStringContainsString("最長のストリーク", $render);
+        $this->assertStringContainsString("2016.12.19 - 2016.3.14", $render);
     }
 
     /**
@@ -93,8 +101,8 @@ final class RenderTest extends TestCase
         $this->testParams["border_radius"] = "16";
         // Check that the card is rendered as expected
         $render = generateCard($this->testStats, $this->testParams);
-        $expected = file_get_contents("tests/expected/test_border_radius_card.svg");
-        $this->assertEquals($expected, $render);
+        $this->assertStringContainsString("<rect width='495' height='195' rx='16'/>", $render);
+        $this->assertStringContainsString("<rect stroke='#111111' fill='#000000' rx='16' x='0.5' y='0.5' width='494' height='194'/>", $render);
     }
 
     /**
@@ -126,7 +134,10 @@ final class RenderTest extends TestCase
             splitLines("Chuỗi đóng góp\nhiện tại", 22, -9)
         );
         // Check date range label, no split
-        $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
+        $this->assertEquals(
+            "Mar 28, 2019 – Apr 12, 2019",
+            splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0)
+        );
         // Check date range label that is too long, split
         $this->assertEquals(
             "<tspan x='81.5' dy='0'>19 de dez. de 2021</tspan><tspan x='81.5' dy='16'>- 14 de mar.</tspan>",
