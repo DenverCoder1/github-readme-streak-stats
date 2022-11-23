@@ -16,7 +16,7 @@
             <g style='isolation: isolate'>
                 <!-- Error Label -->
                 <g transform='translate(166,108)'>
-                    <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' fill='#888888' stroke='none' style='font-family: "Segoe UI", Ubuntu, sans-serif; font-weight: 400; font-size: 14px; font-style: normal'>
+                    <text x='81.5' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' fill='#888888' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal'>
                         An unknown error occurred
                     </text>
                 </g>
