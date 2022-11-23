@@ -102,7 +102,10 @@ final class RenderTest extends TestCase
         // Check that the card is rendered as expected
         $render = generateCard($this->testStats, $this->testParams);
         $this->assertStringContainsString("<rect width='495' height='195' rx='16'/>", $render);
-        $this->assertStringContainsString("<rect stroke='#111111' fill='#000000' rx='16' x='0.5' y='0.5' width='494' height='194'/>", $render);
+        $this->assertStringContainsString(
+            "<rect stroke='#111111' fill='#000000' rx='16' x='0.5' y='0.5' width='494' height='194'/>",
+            $render
+        );
     }
 
     /**
@@ -134,10 +137,7 @@ final class RenderTest extends TestCase
             splitLines("Chuỗi đóng góp\nhiện tại", 22, -9)
         );
         // Check date range label, no split
-        $this->assertEquals(
-            "Mar 28, 2019 – Apr 12, 2019",
-            splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0)
-        );
+        $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
         // Check date range label that is too long, split
         $this->assertEquals(
             "<tspan x='81.5' dy='0'>19 de dez. de 2021</tspan><tspan x='81.5' dy='16'>- 14 de mar.</tspan>",
