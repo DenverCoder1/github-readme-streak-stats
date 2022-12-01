@@ -198,6 +198,9 @@ function getContributionDates(array $contributionGraphs): array
         if (!empty($graph->errors)) {
             throw new AssertionError($graph->data->errors[0]->message, 502);
         }
+        if (empty($graph)) {
+            continue;
+        }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
             foreach ($week->contributionDays as $day) {
