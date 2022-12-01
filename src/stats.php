@@ -199,7 +199,7 @@ function getContributionDates(array $contributionGraphs): array
             throw new AssertionError($graph->data->errors[0]->message, 502);
         }
         if (empty($graph)) {
-            throw new AssertionError("No data was returned from GitHub.", 502);
+            continue;
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
