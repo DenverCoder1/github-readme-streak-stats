@@ -71,7 +71,7 @@ function progressToBadges(array $progress): string
     $i = 0;
     foreach (array_values($progress) as $data) {
         $line_url = "https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L{$data["line_number"]}";
-        $badges .= "| `{$data["locale"]}` - {$data["locale_name"]} <br /> [![{$data["locale_name"]} {$data["percentage"]}%](https://progress-bar.dev/{$data["percentage"]})]($line_url) ";
+        $badges .= "| [`{$data["locale"]}`]({$line_url}) - {$data["locale_name"]} <br /> [![{$data["locale_name"]} {$data["percentage"]}%](https://progress-bar.dev/{$data["percentage"]})]({$line_url}) ";
         $i++;
         if ($i % $per_row === 0) {
             $badges .= "|\n";
