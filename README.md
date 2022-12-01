@@ -79,7 +79,7 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 | `highcontrast` |       ![highcontrast](https://i.imgur.com/ovrVrTY.png)        |
 |  More themes!  | **🎨 [See a list of all available themes](./docs/themes.md)** |
 
-**If you have come up with a new theme you'd like to share with others, open an issue to add it!**
+**If you have come up with a new theme you'd like to share with others, please see [Issue #32](https://github.com/DenverCoder1/github-readme-streak-stats/issues/32) for more information on how to contribute.**
 
 ### 🗪 Locales
 
