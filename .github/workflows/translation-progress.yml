@@ -8,6 +8,7 @@ on:
     paths:
       - "src/translations.php"
       - "scripts/translation-progress.php"
+      - ".github/workflows/translation-progress.yml"
       - "README.md"
 
 jobs:
