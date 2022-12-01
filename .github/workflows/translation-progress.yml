@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "src/translations.php"
+      - "scripts/translation-progress.php"
+      - ".github/workflows/translation-progress.yml"
+      - "README.md"
 
 jobs:
   build-test:
@@ -25,3 +30,4 @@ jobs:
           author_name: GitHub Actions
           author_email: github-actions[bot]@users.noreply.github.com
           message: "docs(readme): Update translation progress"
+          add: "README.md"
