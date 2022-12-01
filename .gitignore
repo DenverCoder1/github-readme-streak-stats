@@ -12,6 +12,8 @@ package.json
 
 # Environment
 .env
+DOCKER_ENV
+docker_tag
 
 # IDE
 .vscode/
