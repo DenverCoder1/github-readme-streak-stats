@@ -60,7 +60,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |   `sideLabels`    |         Total and longest streak labels         |                 **hex code** without `#` or **css color**                 |
 |      `dates`      |              Date range text color              |                 **hex code** without `#` or **css color**                 |
 |   `date_format`   |        Date format (Default: `M j[, Y]`)        |            See note below on [📅 Date Formats](#-date-formats)            |
-|     `locale`      |    Locale to use for labels (Default: `en`)     |               ISO 639-1 code - See [🗪 Locales](#-locales)                |
+|     `locale`      |    Locale to use for labels (Default: `en`)     |                ISO 639-1 code - See [🗪 Locales](#-locales)                |
 |      `type`       |         Output format (Default: `svg`)          |                  Current options: `svg`, `png` or `json`                  |
 |      `mode`       |         Streak mode (Default: `daily`)          | `daily` (contribute daily) or `weekly` (contribute once per Sun-Sat week) |
 
