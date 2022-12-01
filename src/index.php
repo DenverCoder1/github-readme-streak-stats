@@ -34,7 +34,11 @@ try {
     // get streak stats for user given in query string
     $contributionGraphs = getContributionGraphs($_REQUEST["user"]);
     $contributions = getContributionDates($contributionGraphs);
-    $stats = getContributionStats($contributions);
+    if (isset($_GET["mode"]) && $_GET["mode"] === "weekly") {
+        $stats = getWeeklyContributionStats($contributions);
+    } else {
+        $stats = getContributionStats($contributions);
+    }
     renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {
     renderOutput($error->getMessage(), $error->getCode());

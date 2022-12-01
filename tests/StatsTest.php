@@ -104,6 +104,7 @@ final class StatsTest extends TestCase
         ];
         $stats = getContributionStats($contributions);
         $expected = [
+            "mode" => "daily",
             "totalContributions" => 17,
             "firstContribution" => "2021-04-15",
             "longestStreak" => [
@@ -133,6 +134,7 @@ final class StatsTest extends TestCase
         ];
         $stats = getContributionStats($contributions);
         $expected = [
+            "mode" => "daily",
             "totalContributions" => 10,
             "firstContribution" => "2021-04-15",
             "longestStreak" => [
@@ -162,6 +164,7 @@ final class StatsTest extends TestCase
         ];
         $stats = getContributionStats($contributions);
         $expected = [
+            "mode" => "daily",
             "totalContributions" => 8,
             "firstContribution" => "2021-04-15",
             "longestStreak" => [
@@ -189,6 +192,7 @@ final class StatsTest extends TestCase
         }
         $stats = getContributionStats($contributions);
         $expected = [
+            "mode" => "daily",
             "totalContributions" => 370,
             "firstContribution" => date("Y-m-d", strtotime("369 days ago")),
             "longestStreak" => [
@@ -252,6 +256,7 @@ final class StatsTest extends TestCase
         $contributions = getContributionDates($contributionGraphs);
         $stats = getContributionStats($contributions);
         $expected = [
+            "mode" => "daily",
             "totalContributions" => 3,
             "firstContribution" => date("Y-m-d", strtotime("yesterday")),
             "longestStreak" => [
@@ -263,6 +268,121 @@ final class StatsTest extends TestCase
                 "start" => date("Y-m-d", strtotime("yesterday")),
                 "end" => date("Y-m-d", strtotime("tomorrow")),
                 "length" => 3,
+            ],
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test weekly stats
+     */
+    public function testWeeklyStats(): void
+    {
+        $contributions = [
+            "2022-11-12" => 5,
+            "2022-11-13" => 3, // Sunday
+            "2022-11-14" => 2,
+            "2022-11-15" => 0,
+            "2022-11-16" => 0,
+            "2022-11-17" => 0,
+            "2022-11-18" => 0,
+            "2022-11-19" => 0,
+            "2022-11-20" => 0, // Sunday
+            "2022-11-21" => 1,
+        ];
+        $stats = getWeeklyContributionStats($contributions);
+        $expected = [
+            "mode" => "weekly",
+            "totalContributions" => 11,
+            "firstContribution" => "2022-11-12",
+            "longestStreak" => [
+                "start" => "2022-11-06", // Previous Sunday before 2022-11-12
+                "end" => "2022-11-20",
+                "length" => 3,
+            ],
+            "currentStreak" => [
+                "start" => "2022-11-06",
+                "end" => "2022-11-20",
+                "length" => 3,
+            ],
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test weekly stats missing a week
+     */
+    public function testWeeklyStatsMissingWeek(): void
+    {
+        $contributions = [
+            "2022-11-05" => 2,
+            "2022-11-06" => 0, // Sunday
+            "2022-11-07" => 0,
+            "2022-11-08" => 0,
+            "2022-11-09" => 0,
+            "2022-11-10" => 0,
+            "2022-11-11" => 0,
+            "2022-11-12" => 5,
+            "2022-11-13" => 0, // Sunday
+            "2022-11-14" => 0,
+            "2022-11-15" => 0,
+            "2022-11-16" => 0,
+            "2022-11-17" => 0,
+            "2022-11-18" => 0,
+            "2022-11-19" => 0,
+            "2022-11-20" => 0, // Sunday
+            "2022-11-21" => 1,
+            "2022-11-22" => 1,
+        ];
+        $stats = getWeeklyContributionStats($contributions);
+        $expected = [
+            "mode" => "weekly",
+            "totalContributions" => 9,
+            "firstContribution" => "2022-11-05",
+            "longestStreak" => [
+                "start" => "2022-10-30", // Previous Sunday before 2022-11-05
+                "end" => "2022-11-06",
+                "length" => 2,
+            ],
+            "currentStreak" => [
+                "start" => "2022-11-20",
+                "end" => "2022-11-20",
+                "length" => 1,
+            ],
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test weekly stats missing this week
+     */
+    public function testWeeklyStatsMissingThisWeek(): void
+    {
+        $contributions = [];
+        $thisWeek = getPreviousSunday(date("Y-m-d"));
+        $lastWeek = getPreviousSunday(date("Y-m-d", strtotime("$thisWeek -1 week")));
+        for ($i = 0; $i < 7; $i++) {
+            $date = date("Y-m-d", strtotime("$lastWeek +$i days"));
+            $contributions[$date] = 1;
+        }
+        for ($i = 0; $i < 7; $i++) {
+            $date = date("Y-m-d", strtotime("$thisWeek +$i days"));
+            $contributions[$date] = 0;
+        }
+        $stats = getWeeklyContributionStats($contributions);
+        $expected = [
+            "mode" => "weekly",
+            "totalContributions" => 7,
+            "firstContribution" => $lastWeek,
+            "longestStreak" => [
+                "start" => $lastWeek,
+                "end" => $lastWeek,
+                "length" => 1,
+            ],
+            "currentStreak" => [
+                "start" => $lastWeek,
+                "end" => $lastWeek,
+                "length" => 1,
             ],
         ];
         $this->assertEquals($expected, $stats);

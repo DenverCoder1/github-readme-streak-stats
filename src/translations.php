@@ -29,6 +29,8 @@ return [
         "Total Contributions" => "Total Contributions",
         "Current Streak" => "Current Streak",
         "Longest Streak" => "Longest Streak",
+        "Week Streak" => "Week Streak",
+        "Longest Week Streak" => "Longest Week Streak",
         "Present" => "Present",
     ],
     // Locales below are sorted alphabetically
@@ -67,6 +69,8 @@ return [
         "Total Contributions" => "סכום התרומות",
         "Current Streak" => "רצף נוכחי",
         "Longest Streak" => "רצף הכי ארוך",
+        "Week Streak" => "רצף שבועי",
+        "Longest Week Streak" => "רצף שבועי הכי ארוך",
         "Present" => "היום",
     ],
     "hi" => [
@@ -92,6 +96,8 @@ return [
         "Total Contributions" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
         "Current Streak" => "現在のストリーク",
         "Longest Streak" => "最長のストリーク",
+        "Week Streak" => "週間ストリーク",
+        "Longest Week Streak" => "最長の週間ストリーク",
         "Present" => "今",
     ],
     "kn" => [

@@ -23,6 +23,7 @@ final class RenderTest extends TestCase
     ];
 
     private $testStats = [
+        "mode" => "daily",
         "totalContributions" => 2048,
         "firstContribution" => "2016-08-10",
         "longestStreak" => [
@@ -106,17 +107,6 @@ final class RenderTest extends TestCase
             "<rect stroke='#111111' fill='#000000' rx='16' x='0.5' y='0.5' width='494' height='194'/>",
             $render
         );
-    }
-
-    /**
-     * Test JSON render
-     */
-    public function testJsonRender(): void
-    {
-        // Check json that is returned
-        $render = json_encode($this->testStats);
-        $expected = file_get_contents("tests/expected/test_stats.json");
-        $this->assertEquals($expected, $render);
     }
 
     /**

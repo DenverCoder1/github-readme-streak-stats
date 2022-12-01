@@ -128,6 +128,12 @@ function camel_to_skewer(string $str): string
                     <option value="[Y.]n.j">2016.8.10</option>
                 </select>
 
+                <label for="mode">Streak Mode</label>
+                <select class="param" id="mode" name="mode">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
                     <div class="content parameters">
