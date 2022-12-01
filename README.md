@@ -59,14 +59,14 @@ If the `theme` parameter is specified, any color customizations specified will b
 | `currStreakLabel` |              Current streak label               |                 **hex code** without `#` or **css color**                 |
 |   `sideLabels`    |         Total and longest streak labels         |                 **hex code** without `#` or **css color**                 |
 |      `dates`      |              Date range text color              |                 **hex code** without `#` or **css color**                 |
-|   `date_format`   |        Date format (Default: `M j[, Y]`)        |              See note below on [Date Formats](#date-formats)              |
-|     `locale`      |    Locale to use for labels (Default: `en`)     |     ISO 639-1 code (See [`translations.php`](./src/translations.php))     |
+|   `date_format`   |        Date format (Default: `M j[, Y]`)        |             See note below on [Date Formats](#-date-formats)              |
+|     `locale`      |    Locale to use for labels (Default: `en`)     |                 ISO 639-1 code (See [Locales](#-locales)                  |
 |      `type`       |         Output format (Default: `svg`)          |                  Current options: `svg`, `png` or `json`                  |
 |      `mode`       |         Streak mode (Default: `daily`)          | `daily` (contribute daily) or `weekly` (contribute once per Sun-Sat week) |
 
-## 🖌 Themes
+### 🖌 Themes
 
-To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
+To enable a theme, append `&theme=` followed by the theme name to the end of the source URL:
 
 ```md
 [![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
@@ -81,7 +81,16 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 **If you have come up with a new theme you'd like to share with others, open an issue to add it!**
 
-### Date Formats
+### 🗪 Locales
+
+<!-- prettier-ignore-start -->
+<!-- TRANSLATION_PROGRESS_START -->
+<!-- TRANSLATION_PROGRESS_END -->
+<!-- prettier-ignore-end -->
+
+**If you would like to help translate the Streak Stats cards, please see [Issue #236](https://github.com/DenverCoder1/github-readme-streak-stats/issues/236) for more information.**
+
+### 📅 Date Formats
 
 A custom date format can be specified by passing a string to the `date_format` parameter.
 
