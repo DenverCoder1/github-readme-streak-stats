@@ -85,6 +85,12 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 
 <!-- prettier-ignore-start -->
 <!-- TRANSLATION_PROGRESS_START -->
+| | | | | |
+| --- | --- | --- | --- | --- |
+| `en` - English <br /> ![English 100%](https://progress-bar.dev/100) | `he` - עברית <br /> ![עברית 100%](https://progress-bar.dev/100) | `ja` - 日本語 <br /> ![日本語 100%](https://progress-bar.dev/100) | `bn` - বাংলা <br /> ![বাংলা 67%](https://progress-bar.dev/67) | `da` - dansk <br /> ![dansk 67%](https://progress-bar.dev/67) |
+| `de` - Deutsch <br /> ![Deutsch 67%](https://progress-bar.dev/67) | `es` - español <br /> ![español 67%](https://progress-bar.dev/67) | `fr` - français <br /> ![français 67%](https://progress-bar.dev/67) | `hi` - हिन्दी <br /> ![हिन्दी 67%](https://progress-bar.dev/67) | `id` - Indonesia <br /> ![Indonesia 67%](https://progress-bar.dev/67) |
+| `it` - italiano <br /> ![italiano 67%](https://progress-bar.dev/67) | `kn` - ಕನ್ನಡ <br /> ![ಕನ್ನಡ 67%](https://progress-bar.dev/67) | `ko` - 한국어 <br /> ![한국어 67%](https://progress-bar.dev/67) | `nl` - Nederlands <br /> ![Nederlands 67%](https://progress-bar.dev/67) | `pt-br` - português (Brasil) <br /> ![português (Brasil) 67%](https://progress-bar.dev/67) |
+| `ru` - русский <br /> ![русский 67%](https://progress-bar.dev/67) | `ta` - தமிழ் <br /> ![தமிழ் 67%](https://progress-bar.dev/67) | `tr` - Türkçe <br /> ![Türkçe 67%](https://progress-bar.dev/67) | `vi` - Tiếng Việt <br /> ![Tiếng Việt 67%](https://progress-bar.dev/67) | `zh` - 中文 <br /> ![中文 67%](https://progress-bar.dev/67) |
 <!-- TRANSLATION_PROGRESS_END -->
 <!-- prettier-ignore-end -->
 
