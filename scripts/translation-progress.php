@@ -73,8 +73,10 @@ function progressToBadges(array $progress): string
  * @param string $path The path to the readme file
  * @param string $start The start marker
  * @param string $end The end marker
+ * @param string $content The content to replace the content between the start and end markers
+ * @return int|false The number of bytes that were written to the file, or false on failure
  */
-function updateReadme(string $path, string $start, string $end): void
+function updateReadme(string $path, string $start, string $end, string $content): int|false
 {
     $readme = file_get_contents($path);
     if (strpos($readme, $start) === false || strpos($readme, $end) === false) {
@@ -83,14 +85,16 @@ function updateReadme(string $path, string $start, string $end): void
     $start_pos = strpos($readme, $start) + strlen($start);
     $end_pos = strpos($readme, $end);
     $length = $end_pos - $start_pos;
-    $progress = getProgress($GLOBALS["TRANSLATIONS"]);
-    $badges = "\n" . progressToBadges($progress);
-    $readme = substr_replace($readme, $badges, $start_pos, $length);
-    file_put_contents($path, $readme);
+    $readme = substr_replace($readme, $content, $start_pos, $length);
+    return file_put_contents($path, $readme);
 }
 
-updateReadme(
+$progress = getProgress($GLOBALS["TRANSLATIONS"]);
+$badges = "\n" . progressToBadges($progress);
+$update = updateReadme(
     __DIR__ . "/../README.md",
     "<!-- TRANSLATION_PROGRESS_START -->",
-    "<!-- TRANSLATION_PROGRESS_END -->"
+    "<!-- TRANSLATION_PROGRESS_END -->",
+    $badges
 );
+exit($update === false ? 1 : 0);
