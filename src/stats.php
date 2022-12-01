@@ -55,7 +55,12 @@ function getContributionGraphs(string $user): array
     // collect responses from last to first
     $response = [];
     foreach ($requests as $request) {
-        array_unshift($response, json_decode(curl_multi_getcontent($request)));
+        $contents = curl_multi_getcontent($request);
+        $decoded = json_decode($contents);
+        if (empty($decoded)) {
+            throw new Exception("Empty response from GitHub GraphQL API: " . $contents);
+        }
+        array_unshift($response, $decoded);
     }
     return $response;
 }
@@ -197,9 +202,6 @@ function getContributionDates(array $contributionGraphs): array
     foreach ($contributionGraphs as $graph) {
         if (!empty($graph->errors)) {
             throw new AssertionError($graph->data->errors[0]->message, 502);
-        }
-        if (empty($graph)) {
-            continue;
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
