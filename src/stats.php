@@ -216,7 +216,7 @@ function getContributionDates(array $contributionGraphs): array
 }
 
 /**
- * Get a stats array with the contribution count, streak, and dates
+ * Get a stats array with the contribution count, daily streak, and dates
  *
  * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
  * @return array<string, mixed> Streak stats
@@ -230,6 +230,7 @@ function getContributionStats(array $contributions): array
     $today = array_key_last($contributions);
     $first = array_key_first($contributions);
     $stats = [
+        "mode" => "daily",
         "totalContributions" => 0,
         "firstContribution" => "",
         "longestStreak" => [
@@ -275,6 +276,97 @@ function getContributionStats(array $contributions): array
             $stats["currentStreak"]["length"] = 0;
             $stats["currentStreak"]["start"] = $today;
             $stats["currentStreak"]["end"] = $today;
+        }
+    }
+    return $stats;
+}
+
+/**
+ * Get the previous Sunday of a given date
+ *
+ * @param string $date Date to get previous Sunday of (Y-m-d)
+ * @return string Previous Sunday
+ */
+function getPreviousSunday(string $date): string
+{
+    $dayOfWeek = date("w", strtotime($date));
+    return date("Y-m-d", strtotime("-$dayOfWeek days", strtotime($date)));
+}
+
+/**
+ * Get a stats array with the contribution count, weekly streak, and dates
+ *
+ * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
+ * @return array<string, mixed> Streak stats
+ */
+function getWeeklyContributionStats(array $contributions): array
+{
+    // if no contributions, display error
+    if (empty($contributions)) {
+        throw new AssertionError("No contributions found.", 204);
+    }
+    $thisWeek = getPreviousSunday(array_key_last($contributions));
+    $first = array_key_first($contributions);
+    $firstWeek = getPreviousSunday($first);
+    $stats = [
+        "mode" => "weekly",
+        "totalContributions" => 0,
+        "firstContribution" => "",
+        "longestStreak" => [
+            "start" => $firstWeek,
+            "end" => $firstWeek,
+            "length" => 0,
+        ],
+        "currentStreak" => [
+            "start" => $firstWeek,
+            "end" => $firstWeek,
+            "length" => 0,
+        ],
+    ];
+
+    // calculate contributions per week
+    $weeks = [];
+    foreach ($contributions as $date => $count) {
+        $week = getPreviousSunday($date);
+        if (!isset($weeks[$week])) {
+            $weeks[$week] = 0;
+        }
+        if ($count > 0) {
+            $weeks[$week] += $count;
+            // set first contribution date the first time
+            if (!$stats["firstContribution"]) {
+                $stats["firstContribution"] = $date;
+            }
+        }
+    }
+
+    // calculate the stats from the contributions array
+    foreach ($weeks as $week => $count) {
+        // add contribution count to total
+        $stats["totalContributions"] += $count;
+        // check if still in streak
+        if ($count > 0) {
+            // increment streak
+            ++$stats["currentStreak"]["length"];
+            $stats["currentStreak"]["end"] = $week;
+            // set start on first week of streak
+            if ($stats["currentStreak"]["length"] == 1) {
+                $stats["currentStreak"]["start"] = $week;
+            }
+            // update longestStreak
+            if ($stats["currentStreak"]["length"] > $stats["longestStreak"]["length"]) {
+                // copy current streak start, end, and length into longest streak
+                $stats["longestStreak"]["start"] = $stats["currentStreak"]["start"];
+                $stats["longestStreak"]["end"] = $stats["currentStreak"]["end"];
+                $stats["longestStreak"]["length"] = $stats["currentStreak"]["length"];
+            }
+        }
+        // reset streak but give exception for this week
+        elseif ($week != $thisWeek) {
+            // reset streak
+            $stats["currentStreak"]["length"] = 0;
+            $stats["currentStreak"]["start"] = $thisWeek;
+            $stats["currentStreak"]["end"] = $thisWeek;
         }
     }
     return $stats;
