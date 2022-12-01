@@ -19,6 +19,7 @@ function getProgress(array $translations): array
         "Present",
     ];
 
+    $translations_file = file(__DIR__ . "/../src/translations.php");
     $progress = [];
     foreach ($translations as $locale => $phrases) {
         $translated = 0;
@@ -29,10 +30,12 @@ function getProgress(array $translations): array
         }
         $percentage = round(($translated / count($phrases_to_translate)) * 100);
         $locale_name = Locale::getDisplayName($locale, $locale);
+        $line_number = getLineNumber($translations_file, $locale);
         $progress[$locale] = [
             "locale" => $locale,
             "locale_name" => $locale_name,
             "percentage" => $percentage,
+            "line_number" => $line_number,
         ];
     }
     // sort by percentage
@@ -40,6 +43,18 @@ function getProgress(array $translations): array
         return $b["percentage"] <=> $a["percentage"];
     });
     return $progress;
+}
+
+/**
+ * Get the line number of the locale in the translations file
+ *
+ * @param array $translations_file The translations file
+ * @param string $locale The locale
+ * @return int The line number of the locale in the translations file
+ */
+function getLineNumber(array $translations_file, string $locale): int
+{
+    return key(preg_grep("/^\\s*\"$locale\"\\s*=>\\s*\\[/", $translations_file)) + 1;
 }
 
 /**
@@ -55,7 +70,8 @@ function progressToBadges(array $progress): string
     $badges .= str_repeat("| --- ", $per_row) . "|" . "\n";
     $i = 0;
     foreach (array_values($progress) as $data) {
-        $badges .= "| `{$data["locale"]}` - {$data["locale_name"]} <br /> ![{$data["locale_name"]} {$data["percentage"]}%](https://progress-bar.dev/{$data["percentage"]}) ";
+        $line_url = "https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L{$data["line_number"]}";
+        $badges .= "| [`{$data["locale"]}`]({$line_url}) - {$data["locale_name"]} <br /> [![{$data["locale_name"]} {$data["percentage"]}%](https://progress-bar.dev/{$data["percentage"]})]({$line_url}) ";
         $i++;
         if ($i % $per_row === 0) {
             $badges .= "|\n";
