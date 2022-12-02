@@ -58,6 +58,8 @@ return [
         "Total Contributions" => "Todas Contribuciones",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
+        "Week Streak" => "Racha Semanal",
+        "Longest Week Streak" => "Racha Semanal Más Larga",
         "Present" => "Presente",
     ],
     "fr" => [
