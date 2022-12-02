@@ -34,6 +34,14 @@ return [
         "Present" => "Present",
     ],
     // Locales below are sorted alphabetically
+    "ar" => [
+        "Total Contributions" => "إجمالي المساهمات",
+        "Current Streak" => "حالِيا سلسلة متتالية",
+        "Longest Streak" => "طَويل سلسلة متتالية",
+        "Week Streak" => "أُسْبوع سلسلة متتالية",
+        "Longest Week Streak" => "طَويل أُسْبوع سلسلة متتالية",
+        "Present" => "الحاضر",
+    ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
         "Current Streak" => "কারেন্ট স্ট্রীক",
