@@ -81,6 +81,8 @@ return [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
         "Longest Streak" => "सबसे लंबा दैनिक योगदान",
+        "Week Streak" => "वीक योगदान",
+        "Longest Week Streak" => "लॉन्गेस्ट वीक योगदान",
         "Present" => "आज तक",
     ],
     "id" => [
