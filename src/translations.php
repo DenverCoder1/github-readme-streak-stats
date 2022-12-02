@@ -36,10 +36,10 @@ return [
     // Locales below are sorted alphabetically
     "bn" => [
         "Total Contributions" => "মোট অবদান",
-        "Current Streak" => "কারেন্ট ডোরা",
-        "Longest Streak" => "দীর্ঘতম ডোরা",
-        "Week Streak" => "সাপ্তাহিক ডোরা",
-        "Longest Week Streak" => "দীর্ঘতম সাপ্তাহিক ডোরা",
+        "Current Streak" => "কারেন্ট স্ট্রীক",
+        "Longest Streak" => "দীর্ঘতম স্ট্রিক",
+        "Week Streak" => "সপ্তাহ স্ট্রীক",
+        "Longest Week Streak" => "দীর্ঘতম সপ্তাহ স্ট্রিক",
         "Present" => "বর্তমান",
     ],
     "da" => [
