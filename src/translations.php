@@ -110,6 +110,8 @@ return [
         "Total Contributions" => "총 기여 수",
         "Current Streak" => "현재 연속 기여 수",
         "Longest Streak" => "최대 연속 기여 수",
+        "Week Streak" => "주간 기여 수",
+        "Longest Week Streak" => "최대 주간 기여 수",
         "Present" => "현재",
     ],
     "nl" => [
