@@ -143,7 +143,7 @@ return [
     ],
     "ru" => [
         "Total Contributions" => "Общий вклад",
-        "Current Streak" => "Теущая серия",
+        "Current Streak" => "Текущая серия",
         "Longest Streak" => "Самая длинная серия",
         "Present" => "Сейчас",
     ],
