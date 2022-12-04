@@ -59,6 +59,7 @@ function getContributionGraphs(string $user): array
         $decoded = json_decode($contents);
         if (empty($decoded)) {
             error_log("Failed to decode response: $contents");
+            continue;
         }
         array_unshift($response, $decoded);
     }
