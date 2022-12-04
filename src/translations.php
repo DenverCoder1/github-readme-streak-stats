@@ -35,6 +35,7 @@ return [
     ],
     // Locales below are sorted alphabetically
     "ar" => [
+        "rtl" => true,
         "Total Contributions" => "إجمالي المساهمات",
         "Current Streak" => "حالِيا سلسلة متتالية",
         "Longest Streak" => "طَويل سلسلة متتالية",
