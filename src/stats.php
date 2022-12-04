@@ -58,7 +58,7 @@ function getContributionGraphs(string $user): array
         $contents = curl_multi_getcontent($request);
         $decoded = json_decode($contents);
         if (empty($decoded)) {
-            throw new Exception("Empty response from GitHub GraphQL API: " . $contents);
+            error_log("Failed to decode response: $contents");
         }
         array_unshift($response, $decoded);
     }
