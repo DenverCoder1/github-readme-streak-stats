@@ -58,7 +58,7 @@ function getContributionGraphs(string $user): array
         $contents = curl_multi_getcontent($request);
         $decoded = json_decode($contents);
         if (empty($decoded)) {
-            error_log("Failed to decode response: $contents");
+            error_log("Failed to decode response: '$contents'");
             continue;
         }
         array_unshift($response, $decoded);
