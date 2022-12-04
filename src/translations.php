@@ -34,11 +34,22 @@ return [
         "Present" => "Present",
     ],
     // Locales below are sorted alphabetically
+    "ar" => [
+        "rtl" => true,
+        "Total Contributions" => "إجمالي المساهمات",
+        "Current Streak" => "حالِيا سلسلة متتالية",
+        "Longest Streak" => "طَويل سلسلة متتالية",
+        "Week Streak" => "أُسْبوع سلسلة متتالية",
+        "Longest Week Streak" => "طَويل أُسْبوع سلسلة متتالية",
+        "Present" => "الحاضر",
+    ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
-        "Current Streak" => "বর্তমান স্ট্রীক",
+        "Current Streak" => "কারেন্ট স্ট্রীক",
         "Longest Streak" => "দীর্ঘতম স্ট্রিক",
-        "Present" => "এখনো পর্যন্ত",
+        "Week Streak" => "সপ্তাহ স্ট্রীক",
+        "Longest Week Streak" => "দীর্ঘতম সপ্তাহ স্ট্রিক",
+        "Present" => "বর্তমান",
     ],
     "da" => [
         "Total Contributions" => "Totalt Antal Bidrag",
@@ -56,6 +67,8 @@ return [
         "Total Contributions" => "Todas Contribuciones",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
+        "Week Streak" => "Racha Semanal",
+        "Longest Week Streak" => "Racha Semanal Más Larga",
         "Present" => "Presente",
     ],
     "fr" => [
@@ -77,6 +90,8 @@ return [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
         "Longest Streak" => "सबसे लंबा दैनिक योगदान",
+        "Week Streak" => "वीक योगदान",
+        "Longest Week Streak" => "लॉन्गेस्ट वीक योगदान",
         "Present" => "आज तक",
     ],
     "id" => [
