@@ -56,7 +56,11 @@ function getContributionGraphs(string $user): array
             error_log("Failed to decode response: '$contents'");
             // retry curl request one time
             $contents = curl_exec($request);
-            $decoded = json_decode($contents);
+            if ($contents !== false) {
+                $decoded = json_decode($contents);
+            } else {
+                error_log("Failed to retry curl request: " . curl_error($request));
+            }
             error_log("Retried with response: '$contents'");
         }
         array_unshift($response, $decoded);
