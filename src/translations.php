@@ -139,6 +139,8 @@ return [
         "Total Contributions" => "Suma Kontrybucji",
         "Current Streak" => "Aktualna Seria",
         "Longest Streak" => "Najdłuższa Seria",
+        "Week Streak" => "Seria Tygodni",
+        "Longest Week Streak" => "Najdłuższa Seria Tygodni",
         "Present" => "Dziś",
     ],
     "pt-br" => [
