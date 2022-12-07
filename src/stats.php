@@ -164,19 +164,13 @@ function fetchGraphQL(string $query): stdClass
         http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
         if (str_contains(curl_error($ch), "unable to get local issuer certificate")) {
-            throw new AssertionError(
-                "You don't have a valid SSL Certificate installed or XAMPP.",
-                400
-            );
+            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
         }
         // Handle errors such as "Bad credentials"
         if ($obj && $obj->message) {
             throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
         }
-        throw new AssertionError(
-            "An error occurred when getting a response from GitHub.\n<!-- $response -->",
-            502
-        );
+        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
     }
     return $obj;
 }
