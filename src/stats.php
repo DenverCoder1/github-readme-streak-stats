@@ -6,11 +6,11 @@ declare(strict_types=1);
  * Build a query for a contribution graph
  *
  * @param string $user GitHub username to get graphs for
- * @param string $year Year to get graph for
+ * @param int $year Year to get graph for
  *
  * @return string GraphQL query
  */
-function buildGraphQuery(string $user, string $year)
+function buildContributionGraphQuery(string $user, int $year)
 {
     $start = "$year-01-01T00:00:00Z";
     $end = "$year-12-31T23:59:59Z";
@@ -21,8 +21,8 @@ function buildGraphQuery(string $user, string $year)
                     totalContributions
                     weeks {
                         contributionDays {
-                        contributionCount
-                        date
+                            contributionCount
+                            date
                         }
                     }
                 }
@@ -46,7 +46,7 @@ function getContributionGraphs(string $user): array
     $requests = [];
     foreach ($contributionYears as $year) {
         // create query for year
-        $query = buildGraphQuery($user, "$year");
+        $query = buildContributionGraphQuery($user, $year);
         // create curl request
         $requests[$year] = getGraphQLCurlHandle($query);
     }
@@ -68,9 +68,8 @@ function getContributionGraphs(string $user): array
         if (empty($decoded)) {
             error_log("Failed to decode response: '$contents'");
             // retry curl request one time
-            $query = buildGraphQuery($user, "$year");
+            $query = buildContributionGraphQuery($user, $year);
             $request = getGraphQLCurlHandle($query);
-            curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
             $contents = curl_exec($request);
             if ($contents !== false) {
                 $decoded = json_decode($contents);
@@ -164,13 +163,19 @@ function fetchGraphQL(string $query): stdClass
         http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
         if (str_contains(curl_error($ch), "unable to get local issuer certificate")) {
-            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
+            throw new AssertionError(
+                "You don't have a valid SSL Certificate installed or XAMPP.",
+                400
+            );
         }
         // Handle errors such as "Bad credentials"
         if ($obj && $obj->message) {
             throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
         }
-        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
+        throw new AssertionError(
+            "An error occurred when getting a response from GitHub.\n<!-- $response -->",
+            502
+        );
     }
     return $obj;
 }
