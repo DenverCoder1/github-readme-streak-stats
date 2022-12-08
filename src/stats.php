@@ -65,19 +65,16 @@ function getContributionGraphs(string $user): array
     foreach ($requests as $year => $request) {
         $contents = curl_multi_getcontent($request);
         $decoded = json_decode($contents);
+        // if response is empty or invalid, retry request one time
         if (empty($decoded)) {
-            error_log("Failed to decode response: '$contents'");
-            // retry curl request one time
             $query = buildContributionGraphQuery($user, $year);
             $request = getGraphQLCurlHandle($query);
             $contents = curl_exec($request);
-            if ($contents !== false) {
-                $decoded = json_decode($contents);
-            } else {
-                error_log("Failed to retry curl request: " . curl_error($request));
+            if ($contents === false) {
+                error_log("Failed to decode response for $user's $year contributions after 2 attempts.");
                 continue;
             }
-            error_log("Retried with response: '$contents'");
+            $decoded = json_decode($contents);
         }
         array_unshift($response, $decoded);
     }
