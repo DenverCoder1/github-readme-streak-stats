@@ -3,6 +3,35 @@
 declare(strict_types=1);
 
 /**
+ * Build a query for a contribution graph
+ *
+ * @param string $user GitHub username to get graphs for
+ * @param int $year Year to get graph for
+ *
+ * @return string GraphQL query
+ */
+function buildContributionGraphQuery(string $user, int $year)
+{
+    $start = "$year-01-01T00:00:00Z";
+    $end = "$year-12-31T23:59:59Z";
+    return "query {
+        user(login: \"$user\") {
+            contributionsCollection(from: \"$start\", to: \"$end\") {
+                contributionCalendar {
+                    totalContributions
+                    weeks {
+                        contributionDays {
+                            contributionCount
+                            date
+                        }
+                    }
+                }
+            }
+        }
+    }";
+}
+
+/**
  * Get all HTTP request responses for user's contributions
  *
  * @param string $user GitHub username to get graphs for
@@ -17,23 +46,7 @@ function getContributionGraphs(string $user): array
     $requests = [];
     foreach ($contributionYears as $year) {
         // create query for year
-        $start = "$year-01-01T00:00:00Z";
-        $end = "$year-12-31T23:59:59Z";
-        $query = "query {
-            user(login: \"$user\") {
-                contributionsCollection(from: \"$start\", to: \"$end\") {
-                    contributionCalendar {
-                        totalContributions
-                        weeks {
-                            contributionDays {
-                            contributionCount
-                            date
-                            }
-                        }
-                    }
-                }
-            }
-        }";
+        $query = buildContributionGraphQuery($user, $year);
         // create curl request
         $requests[$year] = getGraphQLCurlHandle($query);
     }
@@ -47,16 +60,29 @@ function getContributionGraphs(string $user): array
     do {
         curl_multi_exec($multi, $running);
     } while ($running);
+    // collect responses from last to first
+    $response = [];
+    foreach ($requests as $year => $request) {
+        $contents = curl_multi_getcontent($request);
+        $decoded = json_decode($contents);
+        // if response is empty or invalid, retry request one time
+        if (empty($decoded)) {
+            $query = buildContributionGraphQuery($user, $year);
+            $request = getGraphQLCurlHandle($query);
+            $contents = curl_exec($request);
+            if ($contents === false) {
+                error_log("Failed to decode response for $user's $year contributions after 2 attempts.");
+                continue;
+            }
+            $decoded = json_decode($contents);
+        }
+        array_unshift($response, $decoded);
+    }
     // close the handles
     foreach ($requests as $request) {
         curl_multi_remove_handle($multi, $request);
     }
     curl_multi_close($multi);
-    // collect responses from last to first
-    $response = [];
-    foreach ($requests as $request) {
-        array_unshift($response, json_decode(curl_multi_getcontent($request)));
-    }
     return $response;
 }
 
@@ -190,16 +216,14 @@ function getContributionYears(string $user): array
  */
 function getContributionDates(array $contributionGraphs): array
 {
-    // get contributions from HTML
     $contributions = [];
     $today = date("Y-m-d");
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
+    // sort contribution calendars by year key
+    ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
         if (!empty($graph->errors)) {
             throw new AssertionError($graph->data->errors[0]->message, 502);
-        }
-        if (empty($graph)) {
-            continue;
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
