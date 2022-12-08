@@ -242,13 +242,13 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // if the translations contain a newline, split the text into two tspan elements
-    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 24, -9);
+    $totalContributionsText = splitLines($localeTranslations["Total Contributions"], 22, -9);
     if ($stats["mode"] === "weekly") {
         $currentStreakText = splitLines($localeTranslations["Week Streak"], 22, -9);
-        $longestStreakText = splitLines($localeTranslations["Longest Week Streak"], 24, -9);
+        $longestStreakText = splitLines($localeTranslations["Longest Week Streak"], 22, -9);
     } else {
         $currentStreakText = splitLines($localeTranslations["Current Streak"], 22, -9);
-        $longestStreakText = splitLines($localeTranslations["Longest Streak"], 24, -9);
+        $longestStreakText = splitLines($localeTranslations["Longest Streak"], 22, -9);
     }
 
     // if the ranges contain over 28 characters, split the text into two tspan elements
