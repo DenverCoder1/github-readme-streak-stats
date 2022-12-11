@@ -14,7 +14,7 @@
   "homepage": "https://github.com/DenverCoder1/github-readme-streak-stats",
   "autoload": {
     "classmap": [
-      "src/"
+      "api/"
     ]
   },
   "require": {
@@ -28,7 +28,7 @@
   "scripts": {
     "start": [
       "Composer\\Config::disableProcessTimeout",
-      "php -S localhost:8000 -t src"
+      "php -S localhost:8000 -t api"
     ],
     "test": "./vendor/bin/phpunit --testdox tests",
     "lint": "prettier --check *.md **/*.{php,md,js,css} !**/*.min.js --print-width 120",

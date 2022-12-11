@@ -5,7 +5,7 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
 // load functions
-require_once "src/card.php";
+require_once "api/card.php";
 
 final class OptionsTest extends TestCase
 {
@@ -28,7 +28,7 @@ final class OptionsTest extends TestCase
     public function testThemes(): void
     {
         // check that getRequestedTheme returns correct colors for each theme
-        $themes = include "src/themes.php";
+        $themes = include "api/themes.php";
         foreach ($themes as $theme => $colors) {
             $params = ["theme" => $theme];
             $actualColors = getRequestedTheme($params);
@@ -54,7 +54,7 @@ final class OptionsTest extends TestCase
     public function testThemesHaveValidParameters(): void
     {
         // check that all themes contain all parameters and have valid values
-        $themes = include "src/themes.php";
+        $themes = include "api/themes.php";
         $hexRegex = "/^#([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/";
         foreach ($themes as $theme => $colors) {
             // check that there are no extra keys in the theme

@@ -14,7 +14,7 @@ final class TranslationsTest extends TestCase
      */
     public function testAllPhrasesValid(): void
     {
-        $translations = include "src/translations.php";
+        $translations = include "api/translations.php";
         $locales = array_keys($translations);
         $valid_phrases = [
             "rtl",
@@ -37,7 +37,7 @@ final class TranslationsTest extends TestCase
      */
     public function testLocalesSortedAlphabetically(): void
     {
-        $translations = include "src/translations.php";
+        $translations = include "api/translations.php";
         $locales = array_keys($translations);
         // check that "en" is first
         $this->assertEquals("en", $locales[0]);

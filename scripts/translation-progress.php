@@ -1,6 +1,6 @@
 <?php
 
-$TRANSLATIONS = include __DIR__ . "/../src/translations.php";
+$TRANSLATIONS = include dirname(__DIR__, 1) . "/api/translations.php";
 
 /**
  * Get the percentage of translated phrases for each locale
@@ -19,7 +19,7 @@ function getProgress(array $translations): array
         "Present",
     ];
 
-    $translations_file = file(__DIR__ . "/../src/translations.php");
+    $translations_file = file(dirname(__DIR__, 1) . "/api/translations.php");
     $progress = [];
     foreach ($translations as $locale => $phrases) {
         $translated = 0;
@@ -70,7 +70,7 @@ function progressToBadges(array $progress): string
     $badges .= str_repeat("| --- ", $per_row) . "|" . "\n";
     $i = 0;
     foreach (array_values($progress) as $data) {
-        $line_url = "https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L{$data["line_number"]}";
+        $line_url = "https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/api/translations.php#L{$data["line_number"]}";
         $badges .= "| [`{$data["locale"]}`]({$line_url}) - {$data["locale_name"]} <br /> [![{$data["locale_name"]} {$data["percentage"]}%](https://progress-bar.dev/{$data["percentage"]})]({$line_url}) ";
         $i++;
         if ($i % $per_row === 0) {
@@ -108,7 +108,7 @@ function updateReadme(string $path, string $start, string $end, string $content)
 $progress = getProgress($GLOBALS["TRANSLATIONS"]);
 $badges = "\n" . progressToBadges($progress);
 $update = updateReadme(
-    __DIR__ . "/../README.md",
+    dirname(__DIR__, 1) . "/README.md",
     "<!-- TRANSLATION_PROGRESS_START -->",
     "<!-- TRANSLATION_PROGRESS_END -->",
     $badges

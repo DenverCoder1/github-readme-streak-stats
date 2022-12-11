@@ -1,0 +1,13 @@
+{
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/demo/?", "dest": "/api/demo/index.php" },
+        { "src": "/demo/(.*)", "dest": "/api/demo/$1" },
+        { "src": "/", "dest": "/api/index.php" }
+    ],
+    "functions": {
+        "api/**/*.php": {
+            "runtime": "vercel-php@0.5.2"
+        }
+    }
+}
