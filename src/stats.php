@@ -3,6 +3,35 @@
 declare(strict_types=1);
 
 /**
+ * Build a query for a contribution graph
+ *
+ * @param string $user GitHub username to get graphs for
+ * @param int $year Year to get graph for
+ *
+ * @return string GraphQL query
+ */
+function buildContributionGraphQuery(string $user, int $year)
+{
+    $start = "$year-01-01T00:00:00Z";
+    $end = "$year-12-31T23:59:59Z";
+    return "query {
+        user(login: \"$user\") {
+            contributionsCollection(from: \"$start\", to: \"$end\") {
+                contributionCalendar {
+                    totalContributions
+                    weeks {
+                        contributionDays {
+                            contributionCount
+                            date
+                        }
+                    }
+                }
+            }
+        }
+    }";
+}
+
+/**
  * Get all HTTP request responses for user's contributions
  *
  * @param string $user GitHub username to get graphs for
@@ -17,23 +46,7 @@ function getContributionGraphs(string $user): array
     $requests = [];
     foreach ($contributionYears as $year) {
         // create query for year
-        $start = "$year-01-01T00:00:00Z";
-        $end = "$year-12-31T23:59:59Z";
-        $query = "query {
-            user(login: \"$user\") {
-                contributionsCollection(from: \"$start\", to: \"$end\") {
-                    contributionCalendar {
-                        totalContributions
-                        weeks {
-                            contributionDays {
-                            contributionCount
-                            date
-                            }
-                        }
-                    }
-                }
-            }
-        }";
+        $query = buildContributionGraphQuery($user, $year);
         // create curl request
         $requests[$year] = getGraphQLCurlHandle($query);
     }
@@ -47,16 +60,29 @@ function getContributionGraphs(string $user): array
     do {
         curl_multi_exec($multi, $running);
     } while ($running);
+    // collect responses from last to first
+    $response = [];
+    foreach ($requests as $year => $request) {
+        $contents = curl_multi_getcontent($request);
+        $decoded = json_decode($contents);
+        // if response is empty or invalid, retry request one time
+        if (empty($decoded)) {
+            $query = buildContributionGraphQuery($user, $year);
+            $request = getGraphQLCurlHandle($query);
+            $contents = curl_exec($request);
+            if ($contents === false) {
+                error_log("Failed to decode response for $user's $year contributions after 2 attempts.");
+                continue;
+            }
+            $decoded = json_decode($contents);
+        }
+        array_unshift($response, $decoded);
+    }
     // close the handles
     foreach ($requests as $request) {
         curl_multi_remove_handle($multi, $request);
     }
     curl_multi_close($multi);
-    // collect responses from last to first
-    $response = [];
-    foreach ($requests as $request) {
-        array_unshift($response, json_decode(curl_multi_getcontent($request)));
-    }
     return $response;
 }
 
@@ -190,10 +216,11 @@ function getContributionYears(string $user): array
  */
 function getContributionDates(array $contributionGraphs): array
 {
-    // get contributions from HTML
     $contributions = [];
     $today = date("Y-m-d");
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
+    // sort contribution calendars by year key
+    ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
         if (!empty($graph->errors)) {
             throw new AssertionError($graph->data->errors[0]->message, 502);
@@ -216,7 +243,7 @@ function getContributionDates(array $contributionGraphs): array
 }
 
 /**
- * Get a stats array with the contribution count, streak, and dates
+ * Get a stats array with the contribution count, daily streak, and dates
  *
  * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
  * @return array<string, mixed> Streak stats
@@ -230,6 +257,7 @@ function getContributionStats(array $contributions): array
     $today = array_key_last($contributions);
     $first = array_key_first($contributions);
     $stats = [
+        "mode" => "daily",
         "totalContributions" => 0,
         "firstContribution" => "",
         "longestStreak" => [
@@ -275,6 +303,97 @@ function getContributionStats(array $contributions): array
             $stats["currentStreak"]["length"] = 0;
             $stats["currentStreak"]["start"] = $today;
             $stats["currentStreak"]["end"] = $today;
+        }
+    }
+    return $stats;
+}
+
+/**
+ * Get the previous Sunday of a given date
+ *
+ * @param string $date Date to get previous Sunday of (Y-m-d)
+ * @return string Previous Sunday
+ */
+function getPreviousSunday(string $date): string
+{
+    $dayOfWeek = date("w", strtotime($date));
+    return date("Y-m-d", strtotime("-$dayOfWeek days", strtotime($date)));
+}
+
+/**
+ * Get a stats array with the contribution count, weekly streak, and dates
+ *
+ * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
+ * @return array<string, mixed> Streak stats
+ */
+function getWeeklyContributionStats(array $contributions): array
+{
+    // if no contributions, display error
+    if (empty($contributions)) {
+        throw new AssertionError("No contributions found.", 204);
+    }
+    $thisWeek = getPreviousSunday(array_key_last($contributions));
+    $first = array_key_first($contributions);
+    $firstWeek = getPreviousSunday($first);
+    $stats = [
+        "mode" => "weekly",
+        "totalContributions" => 0,
+        "firstContribution" => "",
+        "longestStreak" => [
+            "start" => $firstWeek,
+            "end" => $firstWeek,
+            "length" => 0,
+        ],
+        "currentStreak" => [
+            "start" => $firstWeek,
+            "end" => $firstWeek,
+            "length" => 0,
+        ],
+    ];
+
+    // calculate contributions per week
+    $weeks = [];
+    foreach ($contributions as $date => $count) {
+        $week = getPreviousSunday($date);
+        if (!isset($weeks[$week])) {
+            $weeks[$week] = 0;
+        }
+        if ($count > 0) {
+            $weeks[$week] += $count;
+            // set first contribution date the first time
+            if (!$stats["firstContribution"]) {
+                $stats["firstContribution"] = $date;
+            }
+        }
+    }
+
+    // calculate the stats from the contributions array
+    foreach ($weeks as $week => $count) {
+        // add contribution count to total
+        $stats["totalContributions"] += $count;
+        // check if still in streak
+        if ($count > 0) {
+            // increment streak
+            ++$stats["currentStreak"]["length"];
+            $stats["currentStreak"]["end"] = $week;
+            // set start on first week of streak
+            if ($stats["currentStreak"]["length"] == 1) {
+                $stats["currentStreak"]["start"] = $week;
+            }
+            // update longestStreak
+            if ($stats["currentStreak"]["length"] > $stats["longestStreak"]["length"]) {
+                // copy current streak start, end, and length into longest streak
+                $stats["longestStreak"]["start"] = $stats["currentStreak"]["start"];
+                $stats["longestStreak"]["end"] = $stats["currentStreak"]["end"];
+                $stats["longestStreak"]["length"] = $stats["currentStreak"]["length"];
+            }
+        }
+        // reset streak but give exception for this week
+        elseif ($week != $thisWeek) {
+            // reset streak
+            $stats["currentStreak"]["length"] = 0;
+            $stats["currentStreak"]["start"] = $thisWeek;
+            $stats["currentStreak"]["end"] = $thisWeek;
         }
     }
     return $stats;

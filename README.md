@@ -43,29 +43,30 @@ The `user` field is the only required option. All other fields are optional.
 
 If the `theme` parameter is specified, any color customizations specified will be applied on top of the theme, overriding the theme's values.
 
-|     Parameter     |                     Details                     |                              Example                              |
-| :---------------: | :---------------------------------------------: | :---------------------------------------------------------------: |
-|      `user`       |        GitHub username to show stats for        |                          `DenverCoder1`                           |
-|      `theme`      |     The theme to apply (Default: `default`)     |          `dark`, `radical`, etc. [🎨➜](./docs/themes.md)          |
-|   `hide_border`   | Make the border transparent (Default: `false`)  |                         `true` or `false`                         |
-|  `border_radius`  | Set the roundness of the edges (Default: `4.5`) |           Number `0` (sharp corners) to `248` (ellipse)           |
-|   `background`    |                Background color                 |             **hex code** without `#` or **css color**             |
-|     `border`      |                  Border color                   |             **hex code** without `#` or **css color**             |
-|     `stroke`      |       Stroke line color between sections        |             **hex code** without `#` or **css color**             |
-|      `ring`       |   Color of the ring around the current streak   |             **hex code** without `#` or **css color**             |
-|      `fire`       |          Color of the fire in the ring          |             **hex code** without `#` or **css color**             |
-|  `currStreakNum`  |              Current streak number              |             **hex code** without `#` or **css color**             |
-|    `sideNums`     |        Total and longest streak numbers         |             **hex code** without `#` or **css color**             |
-| `currStreakLabel` |              Current streak label               |             **hex code** without `#` or **css color**             |
-|   `sideLabels`    |         Total and longest streak labels         |             **hex code** without `#` or **css color**             |
-|      `dates`      |              Date range text color              |             **hex code** without `#` or **css color**             |
-|   `date_format`   |        Date format (Default: `M j[, Y]`)        |          See note below on [Date Formats](#date-formats)          |
-|     `locale`      |    Locale to use for labels (Default: `en`)     | ISO 639-1 code (See [`translations.php`](./src/translations.php)) |
-|      `type`       |         Output format (Default: `svg`)          |              Current options: `svg`, `png` or `json`              |
+|     Parameter     |                     Details                     |                                  Example                                  |
+| :---------------: | :---------------------------------------------: | :-----------------------------------------------------------------------: |
+|      `user`       |        GitHub username to show stats for        |                              `DenverCoder1`                               |
+|      `theme`      |     The theme to apply (Default: `default`)     |              `dark`, `radical`, etc. [🎨➜](./docs/themes.md)              |
+|   `hide_border`   | Make the border transparent (Default: `false`)  |                             `true` or `false`                             |
+|  `border_radius`  | Set the roundness of the edges (Default: `4.5`) |               Number `0` (sharp corners) to `248` (ellipse)               |
+|   `background`    |                Background color                 |                 **hex code** without `#` or **css color**                 |
+|     `border`      |                  Border color                   |                 **hex code** without `#` or **css color**                 |
+|     `stroke`      |       Stroke line color between sections        |                 **hex code** without `#` or **css color**                 |
+|      `ring`       |   Color of the ring around the current streak   |                 **hex code** without `#` or **css color**                 |
+|      `fire`       |          Color of the fire in the ring          |                 **hex code** without `#` or **css color**                 |
+|  `currStreakNum`  |              Current streak number              |                 **hex code** without `#` or **css color**                 |
+|    `sideNums`     |        Total and longest streak numbers         |                 **hex code** without `#` or **css color**                 |
+| `currStreakLabel` |              Current streak label               |                 **hex code** without `#` or **css color**                 |
+|   `sideLabels`    |         Total and longest streak labels         |                 **hex code** without `#` or **css color**                 |
+|      `dates`      |              Date range text color              |                 **hex code** without `#` or **css color**                 |
+|   `date_format`   |        Date format (Default: `M j[, Y]`)        |            See note below on [📅 Date Formats](#-date-formats)            |
+|     `locale`      |    Locale to use for labels (Default: `en`)     |                ISO 639-1 code - See [🗪 Locales](#-locales)                |
+|      `type`       |         Output format (Default: `svg`)          |                  Current options: `svg`, `png` or `json`                  |
+|      `mode`       |         Streak mode (Default: `daily`)          | `daily` (contribute daily) or `weekly` (contribute once per Sun-Sat week) |
 
-## 🖌 Themes
+### 🖌 Themes
 
-To enable a theme, append `&theme=` followed by the theme name to the end of the source url:
+To enable a theme, append `&theme=` followed by the theme name to the end of the source URL:
 
 ```md
 [![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
@@ -78,9 +79,26 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 | `highcontrast` |       ![highcontrast](https://i.imgur.com/ovrVrTY.png)        |
 |  More themes!  | **🎨 [See a list of all available themes](./docs/themes.md)** |
 
-**If you have come up with a new theme you'd like to share with others, open an issue to add it!**
+**If you have come up with a new theme you'd like to share with others, please see [Issue #32](https://github.com/DenverCoder1/github-readme-streak-stats/issues/32) for more information on how to contribute.**
 
-### Date Formats
+### 🗪 Locales
+
+<!-- This section is automatically generated by the `translation-progress.php` script. -->
+<!-- prettier-ignore-start -->
+<!-- TRANSLATION_PROGRESS_START -->
+| | | | | |
+| --- | --- | --- | --- | --- |
+| [`en`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L28) - English <br /> [![English 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L28) | [`ar`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L37) - العربية <br /> [![العربية 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L37) | [`bn`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L46) - বাংলা <br /> [![বাংলা 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L46) | [`es`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L66) - español <br /> [![español 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L66) | [`he`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L80) - עברית <br /> [![עברית 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L80) |
+| [`hi`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L89) - हिन्दी <br /> [![हिन्दी 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L89) | [`ja`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L109) - 日本語 <br /> [![日本語 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L109) | [`ko`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L124) - 한국어 <br /> [![한국어 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L124) | [`pl`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L138) - polski <br /> [![polski 100%](https://progress-bar.dev/100)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L138) | [`da`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L54) - dansk <br /> [![dansk 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L54) |
+| [`de`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L60) - Deutsch <br /> [![Deutsch 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L60) | [`fr`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L74) - français <br /> [![français 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L74) | [`id`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L97) - Indonesia <br /> [![Indonesia 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L97) | [`it`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L103) - italiano <br /> [![italiano 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L103) | [`kn`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L118) - ಕನ್ನಡ <br /> [![ಕನ್ನಡ 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L118) |
+| [`nl`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L132) - Nederlands <br /> [![Nederlands 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L132) | [`pt-br`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L146) - português (Brasil) <br /> [![português (Brasil) 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L146) | [`ru`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L152) - русский <br /> [![русский 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L152) | [`ta`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L158) - தமிழ் <br /> [![தமிழ் 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L158) | [`tr`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L164) - Türkçe <br /> [![Türkçe 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L164) |
+| [`vi`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L170) - Tiếng Việt <br /> [![Tiếng Việt 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L170) | [`zh`](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L176) - 中文 <br /> [![中文 67%](https://progress-bar.dev/67)](https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L176) |
+<!-- TRANSLATION_PROGRESS_END -->
+<!-- prettier-ignore-end -->
+
+**If you would like to help translate the Streak Stats cards, please see [Issue #236](https://github.com/DenverCoder1/github-readme-streak-stats/issues/236) for more information.**
+
+### 📅 Date Formats
 
 A custom date format can be specified by passing a string to the `date_format` parameter.
 
@@ -155,7 +173,7 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 ## 🤗 Contributing
 
-Contributions are welcome! Feel free to open an issue or submit a pull request if you have a way to improve this project.
+Contributions are welcome! Feel free to [open an issue](https://github.com/DenverCoder1/github-readme-streak-stats/issues/new/choose) or submit a [pull request](https://github.com/DenverCoder1/github-readme-streak-stats/compare) if you have a way to improve this project.
 
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 

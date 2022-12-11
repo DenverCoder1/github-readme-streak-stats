@@ -29,14 +29,27 @@ return [
         "Total Contributions" => "Total Contributions",
         "Current Streak" => "Current Streak",
         "Longest Streak" => "Longest Streak",
+        "Week Streak" => "Week Streak",
+        "Longest Week Streak" => "Longest Week Streak",
         "Present" => "Present",
     ],
     // Locales below are sorted alphabetically
+    "ar" => [
+        "rtl" => true,
+        "Total Contributions" => "إجمالي المساهمات",
+        "Current Streak" => "حالِيا سلسلة متتالية",
+        "Longest Streak" => "طَويل سلسلة متتالية",
+        "Week Streak" => "أُسْبوع سلسلة متتالية",
+        "Longest Week Streak" => "طَويل أُسْبوع سلسلة متتالية",
+        "Present" => "الحاضر",
+    ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
-        "Current Streak" => "বর্তমান স্ট্রীক",
+        "Current Streak" => "কারেন্ট স্ট্রীক",
         "Longest Streak" => "দীর্ঘতম স্ট্রিক",
-        "Present" => "এখনো পর্যন্ত",
+        "Week Streak" => "সপ্তাহ স্ট্রীক",
+        "Longest Week Streak" => "দীর্ঘতম সপ্তাহ স্ট্রিক",
+        "Present" => "বর্তমান",
     ],
     "da" => [
         "Total Contributions" => "Totalt Antal Bidrag",
@@ -54,6 +67,8 @@ return [
         "Total Contributions" => "Todas Contribuciones",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
+        "Week Streak" => "Racha Semanal",
+        "Longest Week Streak" => "Racha Semanal Más Larga",
         "Present" => "Presente",
     ],
     "fr" => [
@@ -67,12 +82,16 @@ return [
         "Total Contributions" => "סכום התרומות",
         "Current Streak" => "רצף נוכחי",
         "Longest Streak" => "רצף הכי ארוך",
+        "Week Streak" => "רצף שבועי",
+        "Longest Week Streak" => "רצף שבועי הכי ארוך",
         "Present" => "היום",
     ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
         "Longest Streak" => "सबसे लंबा दैनिक योगदान",
+        "Week Streak" => "वीक योगदान",
+        "Longest Week Streak" => "लॉन्गेस्ट वीक योगदान",
         "Present" => "आज तक",
     ],
     "id" => [
@@ -92,6 +111,8 @@ return [
         "Total Contributions" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
         "Current Streak" => "現在のストリーク",
         "Longest Streak" => "最長のストリーク",
+        "Week Streak" => "週間ストリーク",
+        "Longest Week Streak" => "最長の週間ストリーク",
         "Present" => "今",
     ],
     "kn" => [
@@ -104,6 +125,8 @@ return [
         "Total Contributions" => "총 기여 수",
         "Current Streak" => "현재 연속 기여 수",
         "Longest Streak" => "최대 연속 기여 수",
+        "Week Streak" => "주간 기여 수",
+        "Longest Week Streak" => "최대 주간 기여 수",
         "Present" => "현재",
     ],
     "nl" => [
@@ -111,6 +134,14 @@ return [
         "Current Streak" => "Huidige Serie",
         "Longest Streak" => "Langste Serie",
         "Present" => "Vandaag",
+    ],
+    "pl" => [
+        "Total Contributions" => "Suma Kontrybucji",
+        "Current Streak" => "Aktualna Seria",
+        "Longest Streak" => "Najdłuższa Seria",
+        "Week Streak" => "Seria Tygodni",
+        "Longest Week Streak" => "Najdłuższa Seria Tygodni",
+        "Present" => "Dziś",
     ],
     "pt-br" => [
         "Total Contributions" => "Total de Contribuições",
@@ -120,7 +151,7 @@ return [
     ],
     "ru" => [
         "Total Contributions" => "Общий вклад",
-        "Current Streak" => "Теущая серия",
+        "Current Streak" => "Текущая серия",
         "Longest Streak" => "Самая длинная серия",
         "Present" => "Сейчас",
     ],

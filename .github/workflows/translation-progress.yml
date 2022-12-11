@@ -1,0 +1,33 @@
+name: Update Translation Progress
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/translations.php"
+      - "scripts/translation-progress.php"
+      - ".github/workflows/translation-progress.yml"
+      - "README.md"
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: php-actions/composer@v6
+        with:
+          php_extensions: intl
+
+      - name: Update Translations
+        run: php scripts/translation-progress.php
+
+      - name: Commit Changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: GitHub Actions
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: "docs(readme): Update translation progress"
+          add: "README.md"
