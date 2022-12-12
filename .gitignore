@@ -5,6 +5,7 @@ node_modules/
 composer.phar
 yarn.lock
 package-lock.json
+.vercel
 
 # Local Configuration
 package.json

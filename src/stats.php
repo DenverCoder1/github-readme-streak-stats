@@ -191,13 +191,14 @@ function getContributionYears(string $user): array
     }";
     $response = fetchGraphQL($query);
     // User not found
-    if (!empty($response->errors) && $response->errors[0]->type === "NOT_FOUND") {
-        throw new InvalidArgumentException("Could not find a user with that name.", 404);
-    }
-    // API Error
     if (!empty($response->errors)) {
+        $type = $response->errors[0]->type ?? "";
+        if ($type === "NOT_FOUND") {
+            throw new InvalidArgumentException("Could not find a user with that name.", 404);
+        }
+        $message = $response->errors[0]->message ?? "An API error occurred.";
         // Other errors that contain a message field
-        throw new InvalidArgumentException($response->errors[0]->message, 500);
+        throw new InvalidArgumentException($message, 500);
     }
     // API did not return data
     if (!isset($response->data) && isset($response->message)) {
