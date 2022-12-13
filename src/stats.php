@@ -71,15 +71,11 @@ function getContributionGraphs(string $user): array
             $request = getGraphQLCurlHandle($query);
             $contents = curl_exec($request);
             $decoded = json_decode($contents);
-            // if the response is still empty, log an error and skip the year
-            if (empty($decoded)) {
-                error_log("Failed to decode response for $user's $year contributions after 2 attempts.");
-                continue;
-            }
-            // if the response is still invalid, throw an error
-            if (empty($decoded->data)) {
+            // if the response is still empty or invalid, log an error and skip the year
+            if (empty($decoded) || empty($decoded->data)) {
                 $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
-                throw new InvalidArgumentException($message, 502);
+                error_log("Failed to decode response for $user's $year contributions after 2 attempts. $message");
+                continue;
             }
         }
         array_unshift($response, $decoded);
