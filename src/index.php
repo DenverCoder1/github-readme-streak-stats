@@ -42,5 +42,9 @@ try {
     }
     renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {
+    error_log("Error {$error->getCode()}: {$error->getMessage()}");
+    if ($error->getCode() >= 500) {
+        error_log($error->getTraceAsString());
+    }
     renderOutput($error->getMessage(), $error->getCode());
 }

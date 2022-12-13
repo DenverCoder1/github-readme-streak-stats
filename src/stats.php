@@ -64,17 +64,19 @@ function getContributionGraphs(string $user): array
     $response = [];
     foreach ($requests as $year => $request) {
         $contents = curl_multi_getcontent($request);
-        $decoded = json_decode($contents);
+        $decoded = is_string($contents) ? json_decode($contents) : null;
         // if response is empty or invalid, retry request one time
-        if (empty($decoded)) {
+        if (empty($decoded) || empty($decoded->data)) {
             $query = buildContributionGraphQuery($user, $year);
             $request = getGraphQLCurlHandle($query);
             $contents = curl_exec($request);
-            if ($contents === false) {
-                error_log("Failed to decode response for $user's $year contributions after 2 attempts.");
+            $decoded = is_string($contents) ? json_decode($contents) : null;
+            // if the response is still empty or invalid, log an error and skip the year
+            if (empty($decoded) || empty($decoded->data)) {
+                $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
+                error_log("Failed to decode response for $user's $year contributions after 2 attempts. $message");
                 continue;
             }
-            $decoded = json_decode($contents);
         }
         array_unshift($response, $decoded);
     }
@@ -198,7 +200,7 @@ function getContributionYears(string $user): array
         }
         $message = $response->errors[0]->message ?? "An API error occurred.";
         // Other errors that contain a message field
-        throw new InvalidArgumentException($message, 500);
+        throw new InvalidArgumentException($message, 502);
     }
     // API did not return data
     if (!isset($response->data) && isset($response->message)) {
@@ -223,9 +225,6 @@ function getContributionDates(array $contributionGraphs): array
     // sort contribution calendars by year key
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
-        if (!empty($graph->errors)) {
-            throw new AssertionError($graph->data->errors[0]->message, 502);
-        }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
             foreach ($week->contributionDays as $day) {
