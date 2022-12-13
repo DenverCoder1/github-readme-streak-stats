@@ -223,8 +223,8 @@ function getContributionDates(array $contributionGraphs): array
     // sort contribution calendars by year key
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
-        if (!empty($graph->errors)) {
-            $message = $graph->errors[0]->message ?? "A GitHub API error occurred.";
+        if (empty($graph->data)) {
+            $message = $graph->errors[0]->message ?? $graph->message ?? "An API error occurred.";
             throw new InvalidArgumentException($message, 502);
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
