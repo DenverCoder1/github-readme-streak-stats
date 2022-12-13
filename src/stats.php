@@ -64,13 +64,13 @@ function getContributionGraphs(string $user): array
     $response = [];
     foreach ($requests as $year => $request) {
         $contents = curl_multi_getcontent($request);
-        $decoded = json_decode($contents);
+        $decoded = is_string($contents) ? json_decode($contents) : null;
         // if response is empty or invalid, retry request one time
         if (empty($decoded) || empty($decoded->data)) {
             $query = buildContributionGraphQuery($user, $year);
             $request = getGraphQLCurlHandle($query);
             $contents = curl_exec($request);
-            $decoded = json_decode($contents);
+            $decoded = is_string($contents) ? json_decode($contents) : null;
             // if the response is still empty or invalid, log an error and skip the year
             if (empty($decoded) || empty($decoded->data)) {
                 $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
