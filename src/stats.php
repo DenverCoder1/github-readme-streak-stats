@@ -66,15 +66,21 @@ function getContributionGraphs(string $user): array
         $contents = curl_multi_getcontent($request);
         $decoded = json_decode($contents);
         // if response is empty or invalid, retry request one time
-        if (empty($decoded)) {
+        if (empty($decoded) || empty($decoded->data)) {
             $query = buildContributionGraphQuery($user, $year);
             $request = getGraphQLCurlHandle($query);
             $contents = curl_exec($request);
-            if ($contents === false) {
+            $decoded = json_decode($contents);
+            // if the response is still empty, log an error and skip the year
+            if (empty($decoded)) {
                 error_log("Failed to decode response for $user's $year contributions after 2 attempts.");
                 continue;
             }
-            $decoded = json_decode($contents);
+            // if the response is still invalid, throw an error
+            if (empty($decoded->data)) {
+                $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
+                throw new InvalidArgumentException($message, 502);
+            }
         }
         array_unshift($response, $decoded);
     }
@@ -223,10 +229,6 @@ function getContributionDates(array $contributionGraphs): array
     // sort contribution calendars by year key
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
-        if (empty($graph->data)) {
-            $message = $graph->errors[0]->message ?? ($graph->message ?? "An API error occurred.");
-            throw new InvalidArgumentException($message, 502);
-        }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
         foreach ($weeks as $week) {
             foreach ($week->contributionDays as $day) {
