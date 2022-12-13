@@ -224,7 +224,7 @@ function getContributionDates(array $contributionGraphs): array
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
         if (empty($graph->data)) {
-            $message = $graph->errors[0]->message ?? $graph->message ?? "An API error occurred.";
+            $message = $graph->errors[0]->message ?? ($graph->message ?? "An API error occurred.");
             throw new InvalidArgumentException($message, 502);
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
