@@ -197,7 +197,6 @@ function getContributionYears(string $user): array
             throw new InvalidArgumentException("Could not find a user with that name.", 404);
         }
         $message = $response->errors[0]->message ?? "An API error occurred.";
-        $message = trim("$type $message");
         // Other errors that contain a message field
         throw new InvalidArgumentException($message, 502);
     }
@@ -225,9 +224,7 @@ function getContributionDates(array $contributionGraphs): array
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
         if (!empty($graph->errors)) {
-            $type = $graph->errors[0]->type ?? "";
-            $message = $graph->errors[0]->message ?? "An API error occurred.";
-            $message = trim("$type $message");
+            $message = $graph->errors[0]->message ?? "A GitHub API error occurred.";
             throw new InvalidArgumentException($message, 502);
         }
         $weeks = $graph->data->user->contributionsCollection->contributionCalendar->weeks;
