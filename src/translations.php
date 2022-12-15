@@ -144,7 +144,6 @@ return [
         "Present" => "Dziś",
     ],
     "pt-br" => [
-        "date_format" => "j/n[/Y]",
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Sequência Atual",
         "Longest Streak" => "Maior Sequência",
