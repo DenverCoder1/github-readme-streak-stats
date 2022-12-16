@@ -71,6 +71,15 @@ return [
         "Longest Week Streak" => "Racha Semanal Más Larga",
         "Present" => "Presente",
     ],
+    "fa" => [
+        "rtl" => true,
+        "Total Contributions" => "مجموع مشارکت ها",
+        "Current Streak" => "رگه فعلی",
+        "Longest Streak" => "طولانی ترین رگه",
+        "Week Streak" => "هفته رگه",
+        "Longest Week Streak" => "طولانی ترین هفته",
+        "Present" => "حاضر",
+    ],
     "fr" => [
         "Total Contributions" => "Contributions totales",
         "Current Streak" => "Séquence actuelle",
