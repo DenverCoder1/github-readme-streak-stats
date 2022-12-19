@@ -186,8 +186,18 @@ return [
     ],
     "zh" => [
         "Total Contributions" => "合计贡献",
-        "Current Streak" => "最近连续贡献",
+        "Current Streak" => "目前连续贡献",
         "Longest Streak" => "最长连续贡献",
+        "Week Streak" => "周连续贡献",
+        "Longest Week Streak" => "最长周连续贡献",
+        "Present" => "至今",
+    ],
+    "zh_Hant" => [
+        "Total Contributions" => "合計貢獻",
+        "Current Streak" => "目前連續貢獻",
+        "Longest Streak" => "最長連續貢獻",
+        "Week Streak" => "周連續貢獻",
+        "Longest Week Streak" => "最常周連續貢獻",
         "Present" => "至今",
     ],
 ];
