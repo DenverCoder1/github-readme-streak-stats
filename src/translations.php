@@ -74,11 +74,11 @@ return [
     "fa" => [
         "rtl" => true,
         "Total Contributions" => "مجموع مشارکت ها",
-        "Current Streak" => "رگه فعلی",
-        "Longest Streak" => "طولانی ترین رگه",
-        "Week Streak" => "هفته رگه",
-        "Longest Week Streak" => "طولانی ترین هفته",
-        "Present" => "حاضر",
+        "Current Streak" => "پی‌رفت فعلی",
+        "Longest Streak" => "طولانی ترین پی‌رفت",
+        "Week Streak" => "پی‌رفت هفته",
+        "Longest Week Streak" => "طولانی ترین پی‌رفت هفته",
+        "Present" => "اکنون",
     ],
     "fr" => [
         "Total Contributions" => "Contributions totales",
