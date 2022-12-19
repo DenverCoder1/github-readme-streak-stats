@@ -184,7 +184,7 @@ return [
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
         "Present" => "Hiện tại",
     ],
-    "zh_Hans" => [
+    "zh" => [
         "Total Contributions" => "合计贡献",
         "Current Streak" => "目前连续贡献",
         "Longest Streak" => "最长连续贡献",
