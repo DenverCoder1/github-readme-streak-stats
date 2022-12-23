@@ -99,8 +99,8 @@ return [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
         "Longest Streak" => "सबसे लंबा दैनिक योगदान",
-        "Week Streak" => "वीक योगदान",
-        "Longest Week Streak" => "लॉन्गेस्ट वीक योगदान",
+        "Week Streak" => "सप्ताहिक योगदान",
+        "Longest Week Streak" => "दीर्घ साप्ताहिक योगदान",
         "Present" => "आज तक",
     ],
     "id" => [
@@ -137,6 +137,14 @@ return [
         "Week Streak" => "주간 기여 수",
         "Longest Week Streak" => "최대 주간 기여 수",
         "Present" => "현재",
+    ],
+    "mr" => [
+        "Total Contributions" => "एकूण योगदान",
+        "Current Streak" => "साध्यकालीन सातत्यता",
+        "Longest Streak" => "दीर्घकालीन सातत्यता",
+        "Week Streak" => "साप्ताहिक सातत्यता",
+        "Longest Week Streak" => "दीर्घकालीन साप्ताहिक सातत्यता",
+        "Present" => "आज पर्यंत",
     ],
     "nl" => [
         "Total Contributions" => "Totale Bijdrage",
