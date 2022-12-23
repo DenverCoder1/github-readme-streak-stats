@@ -22,6 +22,10 @@ function getProgress(array $translations): array
     $translations_file = file(__DIR__ . "/../src/translations.php");
     $progress = [];
     foreach ($translations as $locale => $phrases) {
+        // skip aliases
+        if (is_string($phrases)) {
+            continue;
+        }
         $translated = 0;
         foreach ($phrases_to_translate as $phrase) {
             if (isset($phrases[$phrase])) {
