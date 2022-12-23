@@ -66,21 +66,28 @@ function getLineNumber(array $translations_file, string $locale): int
 function progressToBadges(array $progress): string
 {
     $per_row = 5;
-    $badges = str_repeat("| ", $per_row) . "|" . "\n";
-    $badges .= str_repeat("| --- ", $per_row) . "|" . "\n";
+    $table = "<table><tbody>";
     $i = 0;
     foreach (array_values($progress) as $data) {
+        if ($i % $per_row === 0) {
+            $table .= "<tr>";
+        }
         $line_url = "https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L{$data["line_number"]}";
-        $badges .= "| [`{$data["locale"]}`]({$line_url}) - {$data["locale_name"]} <br /> [![{$data["locale_name"]} {$data["percentage"]}%](https://progress-bar.dev/{$data["percentage"]})]({$line_url}) ";
+        $table .= "<td><a href=\"{$line_url}\"><code>{$data["locale"]}</code></a> - {$data["locale_name"]}<br /><a href=\"{$line_url}\"><img src=\"https://progress-bar.dev/{$data["percentage"]}\" alt=\"{$data["locale_name"]} {$data["percentage"]}%\"></a></td>";
         $i++;
         if ($i % $per_row === 0) {
-            $badges .= "|\n";
+            $table .= "</tr>";
         }
     }
     if ($i % $per_row !== 0) {
-        $badges .= "|\n";
+        while ($i % $per_row !== 0) {
+            $table .= "<td></td>";
+            $i++;
+        }
+        $table .= "</tr>";
     }
-    return $badges;
+    $table .= "</tbody></table>\n";
+    return $table;
 }
 
 /**
