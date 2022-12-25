@@ -66,7 +66,7 @@ final class TranslationsTest extends TestCase
      */
     public function testKeysNormalized(): void
     {
-        $translations = include "src/translations.php";
+        $translations = include "api/translations.php";
         $locales = array_keys($translations);
         foreach ($locales as $locale) {
             // normalize locale code
@@ -81,7 +81,7 @@ final class TranslationsTest extends TestCase
      */
     public function testGetTranslations(): void
     {
-        $translations = include "src/translations.php";
+        $translations = include "api/translations.php";
         $en = $translations["en"];
         // test alias
         $this->assertEquals($translations["zh_Hans"] + $en, getTranslations("zh"), "Alias not resolved");
