@@ -1,3 +1,5 @@
+<?php header("Content-type: text/css"); ?>
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
