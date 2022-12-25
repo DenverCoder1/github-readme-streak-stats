@@ -177,19 +177,19 @@ formats for locales other than English will not work.
 <details>
   <summary><b>Instructions for Deploying to Vercel for Free</b></summary>
 
-  ### Step-by-step instructions for deploying to Vercel
+### Step-by-step instructions for deploying to Vercel
 
-  1. Sign in to **Vercel** or create a new account at <https://vercel.com>
-  2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
-     * You may also fork the repository and clone your fork instead if you intend to make changes
-  3. Enter the directory with `cd github-readme-streak-stats`
-  4. Switch branches to the `vercel` branch with `git checkout vercel`
-  5. Make sure you have the [Vercel CLI](https://vercel.com/download) installed
-  6. Run `vercel` and follow the prompts to link your Vercel account and select a project name
-  7. The app will be deployed to `<project-name>.vercel.app`
-  8. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
-  9. Scroll to the bottom and click **"Generate token"**
-  10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**. Add a new variable with the key `TOKEN` and the value as your token from step 9.
+1. Sign in to **Vercel** or create a new account at <https://vercel.com>
+2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
+   - You may also fork the repository and clone your fork instead if you intend to make changes
+3. Enter the directory with `cd github-readme-streak-stats`
+4. Switch branches to the `vercel` branch with `git checkout vercel`
+5. Make sure you have the [Vercel CLI](https://vercel.com/download) installed
+6. Run `vercel` and follow the prompts to link your Vercel account and select a project name
+7. The app will be deployed to `<project-name>.vercel.app`
+8. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+9. Scroll to the bottom and click **"Generate token"**
+10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**. Add a new variable with the key `TOKEN` and the value as your token from step 9.
 
 </details>
 
