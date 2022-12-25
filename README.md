@@ -144,8 +144,11 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 [![Heroku_logo](https://user-images.githubusercontent.com/20955511/136292872-ab2b3918-3350-4878-93a2-aa1f569b095a.png)](https://heroku.com)
 
+Heroku costs around $5-$7/month minimum for a single app, but you can contact the Open Source program
+at ospo-heroku-credits@salesforce.com to possibly get free credits.
+
 <details>
-  <summary><b>Instructions for Deploying to Heroku for Free</b></summary>
+  <summary><b>Instructions for Deploying to Heroku</b></summary>
   
   ### Step-by-step instructions for deploying to Heroku
   
@@ -162,6 +165,31 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 6. Click **"Deploy App"** at the end of the form
 7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `streak-stats.demolab.com`
+
+</details>
+
+[![Vercel_logo](https://user-images.githubusercontent.com/20955511/209479243-5b14048b-e9ae-42da-aec3-1cc88a97aaee.png)](https://vercel.com)
+
+Vercel is a free hosting service that can be used to run PHP. **Note:** The intl library
+seems to not be available through Vercel at the moment, so the automatic number and date
+formats for locales other than English will not work.
+
+<details>
+  <summary><b>Instructions for Deploying to Vercel for Free</b></summary>
+
+  ### Step-by-step instructions for deploying to Vercel
+
+  1. Sign in to **Vercel** or create a new account at <https://vercel.com>
+  2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
+     * You may also fork the repository and clone your fork instead if you intend to make changes
+  3. Enter the directory with `cd github-readme-streak-stats`
+  4. Switch branches to the `vercel` branch with `git checkout vercel`
+  5. Make sure you have the [Vercel CLI](https://vercel.com/download) installed
+  6. Run `vercel` and follow the prompts to link your Vercel account and select a project name
+  7. The app will be deployed to `<project-name>.vercel.app`
+  8. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+  9. Scroll to the bottom and click **"Generate token"**
+  10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**. Add a new variable with the key `TOKEN` and the value as your token from step 9.
 
 </details>
 
