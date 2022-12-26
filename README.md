@@ -194,7 +194,7 @@ formats for locales other than English will not work.
 
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
-> **Note**    
+> **Note**  
 > To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
 
 </details>
