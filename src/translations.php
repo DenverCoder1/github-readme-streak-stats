@@ -177,6 +177,8 @@ return [
         "Total Contributions" => "Общий вклад",
         "Current Streak" => "Текущая серия",
         "Longest Streak" => "Самая длинная серия",
+        "Week Streak" => "Текущая серия недель",
+        "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
     "ta" => [
