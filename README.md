@@ -189,7 +189,13 @@ formats for locales other than English will not work.
 7. The app will be deployed to `<project-name>.vercel.app`
 8. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
 9. Scroll to the bottom and click **"Generate token"**
-10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**. Add a new variable with the key `TOKEN` and the value as your token from step 9.
+10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**.
+11. Add a new variable with the key `TOKEN` and the value as your token from step 9 and click "Save".
+
+![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
+
+> **Note**    
+> To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
 
 </details>
 
