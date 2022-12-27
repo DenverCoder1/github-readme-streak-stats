@@ -170,9 +170,9 @@ at ospo-heroku-credits@salesforce.com to possibly get free credits.
 
 [![Vercel_logo](https://user-images.githubusercontent.com/20955511/209479243-5b14048b-e9ae-42da-aec3-1cc88a97aaee.png)](https://vercel.com)
 
-Vercel is a free hosting service that can be used to run PHP. **Note:** The intl library
-seems to not be available through Vercel at the moment, so the automatic number and date
-formats for locales other than English will not work.
+Vercel is a free hosting service that can be used to run PHP. **Note:** The intl library seems to not be available through Vercel at the moment
+(https://github.com/vercel-community/php/issues/367), so the automatic number and date formats for locales other than English will not work.
+PNG mode is also not supported since Inkscape will not be installed.
 
 <details>
   <summary><b>Instructions for Deploying to Vercel for Free</b></summary>
