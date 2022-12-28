@@ -165,6 +165,14 @@ return [
         "Longest Week Streak" => "Najdłuższa Seria Tygodni",
         "Present" => "Dziś",
     ],
+    "ps" => [
+        "Total Contributions" => "ټولې ونډې",
+        "Current Streak" => "اوسنی پرمختګ",
+        "Longest Streak" => "تر ټولو اوږد پرمختګ",
+        "Week Streak" => "د اونۍ پرمختګ",
+        "Longest Week Streak" => "د اونۍ تر ټولو اوږد پرمختګ",
+        "Present" => "اوس",
+    ],
     "pt_BR" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Sequência Atual",
