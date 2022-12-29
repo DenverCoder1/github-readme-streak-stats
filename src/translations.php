@@ -42,10 +42,10 @@ return [
     "ar" => [
         "rtl" => true,
         "Total Contributions" => "إجمالي المساهمات",
-        "Current Streak" => "حالِيا سلسلة متتالية",
-        "Longest Streak" => "طَويل سلسلة متتالية",
-        "Week Streak" => "أُسْبوع سلسلة متتالية",
-        "Longest Week Streak" => "طَويل أُسْبوع سلسلة متتالية",
+        "Current Streak" => "السلسلة المتتالية الحالية",
+        "Longest Streak" => "أُطول سلسلة متتالية",
+        "Week Streak" => "السلسلة المتتالية الأُسبوعية",
+        "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
     ],
     "bn" => [
