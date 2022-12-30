@@ -201,6 +201,15 @@ return [
         "Longest Streak" => "En Uzun Seri",
         "Present" => "Şu an",
     ],
+    "ua" => "uk_UA",
+    "uk_UA" => [
+        "Total Contributions" => "Загальний вклад",
+        "Current Streak" => "Поточна діяльність",
+        "Longest Streak" => "Найдовша діяльність",
+        "Week Streak" => "Діяльність за тиждень",
+        "Longest Week Streak" => "Найбільша к-сть тижнів",
+        "Present" => "Наразі",
+    ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
         "Current Streak" => "Chuỗi đóng góp\nhiện tại",
