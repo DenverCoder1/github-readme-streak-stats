@@ -201,8 +201,7 @@ return [
         "Longest Streak" => "En Uzun Seri",
         "Present" => "Şu an",
     ],
-    "ua" => "uk_UA",
-    "uk_UA" => [
+    "uk" => [
         "Total Contributions" => "Загальний вклад",
         "Current Streak" => "Поточна діяльність",
         "Longest Streak" => "Найдовша діяльність",
