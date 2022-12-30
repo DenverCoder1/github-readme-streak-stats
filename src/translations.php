@@ -48,6 +48,14 @@ return [
         "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
     ],
+    "bg" => [
+        "Total Contributions" => "Общ принос",
+        "Current Streak" => "Дневна серия",
+        "Longest Streak" => "Най-дълга дневна серия",
+        "Week Streak" => "Седмична серия",
+        "Longest Week Streak" => "Най-дълга седмична серия",
+        "Present" => "Сега",
+    ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
         "Current Streak" => "কারেন্ট স্ট্রীক",
