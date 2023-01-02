@@ -181,6 +181,62 @@ function splitLines(string $text, int $maxChars, int $line1Offset): string
 }
 
 /**
+ * Normalize a locale code
+ *
+ * @param string $localeCode Locale code
+ *
+ * @return string Normalized locale code
+ */
+function normalizeLocaleCode(string $localeCode): string
+{
+    preg_match("/^([a-z]{2,3})(?:[_-]([a-z]{4}))?(?:[_-]([0-9]{3}|[a-z]{2}))?$/i", $localeCode, $matches);
+    if (empty($matches)) {
+        return "en";
+    }
+    $language = $matches[1];
+    $script = $matches[2] ?? "";
+    $region = $matches[3] ?? "";
+    // convert language to lowercase
+    $language = strtolower($language);
+    // convert script to title case
+    $script = ucfirst(strtolower($script));
+    // convert region to uppercase
+    $region = strtoupper($region);
+    // combine language, script, and region using underscores
+    return implode("_", array_filter([$language, $script, $region]));
+}
+
+/**
+ * Get the translations for a locale code after normalizing it
+ *
+ * @param string $localeCode Locale code
+ *
+ * @return array Translations for the locale code
+ */
+function getTranslations(string $localeCode)
+{
+    // normalize locale code
+    $localeCode = normalizeLocaleCode($localeCode);
+    // get the labels from the translations file
+    $translations = include "translations.php";
+    // if the locale does not exist, try without the script and region
+    if (!isset($translations[$localeCode])) {
+        $localeCode = explode("_", $localeCode)[0];
+    }
+    // get the translations for the locale or empty array if it does not exist
+    $localeTranslations = $translations[$localeCode] ?? [];
+    // if the locale returned is a string, it is an alias for another locale
+    if (is_string($localeTranslations)) {
+        // get the translations for the alias
+        $localeTranslations = $translations[$localeTranslations];
+    }
+    // fill in missing translations with English
+    $localeTranslations += $translations["en"];
+    // return the translations
+    return $localeTranslations;
+}
+
+/**
  * Generate SVG output for a stats array
  *
  * @param array<string, mixed> $stats Streak stats
@@ -197,13 +253,9 @@ function generateCard(array $stats, array $params = null): string
     // get requested theme
     $theme = getRequestedTheme($params);
 
-    // get the labels from the translations file
-    $translations = include "translations.php";
     // get requested locale, default to English
     $localeCode = $params["locale"] ?? "en";
-    $localeTranslations = $translations[$localeCode] ?? [];
-    // add missing translations from English
-    $localeTranslations += $translations["en"];
+    $localeTranslations = getTranslations($localeCode);
 
     // whether the locale is right-to-left
     $direction = $localeTranslations["rtl"] ?? false ? "rtl" : "ltr";
@@ -448,50 +500,84 @@ function convertSvgToPng(string $svg): string
     $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
     $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
 
-    // save svg to random file
-    $filename = uniqid();
-    file_put_contents("$filename.svg", $svg);
+    // escape svg for shell
+    $svg = escapeshellarg($svg);
+
+    // `--pipe`: read input from pipe (stdin)
+    // `--export-filename -`: write output to stdout
+    // `-w 495 -h 195`: set width and height of the output image
+    // `--export-type png`: set the output format to PNG
+    $cmd = "echo {$svg} | inkscape --pipe --export-filename - -w 495 -h 195 --export-type png";
 
     // convert svg to png
-    $out = shell_exec("inkscape -w 495 -h 195 {$filename}.svg -o {$filename}.png"); // skipcq: PHP-A1009
-    if ($out !== null) {
-        throw new Exception("Error converting SVG to PNG: $out");
+    $png = shell_exec($cmd); // skipcq: PHP-A1009
+
+    // check if the conversion was successful
+    if (empty($png)) {
+        // `2>&1`: redirect stderr to stdout
+        $error = shell_exec("$cmd 2>&1"); // skipcq: PHP-A1009
+        throw new Exception("Failed to convert SVG to PNG: {$error}", 500);
     }
 
-    // read png data and delete temporary files
-    $png = file_get_contents("{$filename}.png");
-    unlink("{$filename}.svg");
-    unlink("{$filename}.png");
+    // return the generated png
     return $png;
 }
 
 /**
- * Set headers and echo response based on type
+ * Return headers and response based on type
  *
  * @param string|array $output The stats (array) or error message (string) to display
+ *
+ * @return array The Content-Type header and the response body, and status code in case of an error
  */
-function renderOutput(string|array $output, int $responseCode = 200): void
+function generateOutput(string|array $output): array
 {
     $requestedType = $_REQUEST["type"] ?? "svg";
-    http_response_code($responseCode);
 
     // output JSON data
     if ($requestedType === "json") {
-        // set content type to JSON
-        header("Content-Type: application/json");
         // generate array from output
         $data = gettype($output) === "string" ? ["error" => $output] : $output;
-        // output as JSON
-        echo json_encode($data);
+        return [
+            "contentType" => "application/json",
+            "body" => json_encode($data),
+        ];
     }
-    // output SVG or PNG card
-    else {
-        // set content type to SVG or PNG
-        header("Content-Type: image/" . ($requestedType === "png" ? "png" : "svg+xml"));
-        // render SVG card
-        $svg = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
-        // output PNG if PNG is requested, otherwise output SVG
-        echo $requestedType === "png" ? convertSvgToPng($svg) : $svg;
+    // Generate SVG card
+    $svg = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
+    // output PNG card
+    if ($requestedType === "png") {
+        try {
+            $png = convertSvgToPng($svg);
+            return [
+                "contentType" => "image/png",
+                "body" => $png,
+            ];
+        } catch (Exception $e) {
+            return [
+                "contentType" => "image/svg+xml",
+                "status" => 500,
+                "body" => generateErrorCard($e->getMessage()),
+            ];
+        }
     }
-    exit();
+    // output SVG card
+    return [
+        "contentType" => "image/svg+xml",
+        "body" => $svg,
+    ];
+}
+
+/**
+ * Set headers and output response
+ *
+ * @param string|array $output The Content-Type header and the response body
+ * @param int $responseCode The HTTP response code to send
+ */
+function renderOutput(string|array $output, int $responseCode = 200): void
+{
+    $response = generateOutput($output);
+    http_response_code($response["status"] ?? $responseCode);
+    header("Content-Type: {$response["contentType"]}");
+    exit($response["body"]);
 }

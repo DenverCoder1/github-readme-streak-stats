@@ -7,8 +7,8 @@
  *
  * Date Format
  * -----------
- * Supplying a date format is optional and will be used instead of the default locale date format.
  * If the default date format for the locale displays correctly, you should omit the date_format parameter.
+ * Supplying a date format is optional and will be used instead of the default locale date format.
  *
  * Different year   Same year   Format string
  * --------------   ---------   -------------
@@ -21,6 +21,11 @@
  * Right-to-Left Language Support
  * ------------------------------
  * To enable right-to-left language support, add `"rtl" => true` to the locale array (see "he" for an example).
+ *
+ * Aliases
+ * -------
+ * To add an alias for a locale, add the alias as a key to the locale array with the locale it should redirect to as the value.
+ * For example, if "zh" is an alias for "zh_Hans", then `"zh" => "zh_Hans"` would be added to the locale array.
  */
 
 return [
@@ -37,11 +42,19 @@ return [
     "ar" => [
         "rtl" => true,
         "Total Contributions" => "إجمالي المساهمات",
-        "Current Streak" => "حالِيا سلسلة متتالية",
-        "Longest Streak" => "طَويل سلسلة متتالية",
-        "Week Streak" => "أُسْبوع سلسلة متتالية",
-        "Longest Week Streak" => "طَويل أُسْبوع سلسلة متتالية",
+        "Current Streak" => "السلسلة المتتالية الحالية",
+        "Longest Streak" => "أُطول سلسلة متتالية",
+        "Week Streak" => "السلسلة المتتالية الأُسبوعية",
+        "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
+    ],
+    "bg" => [
+        "Total Contributions" => "Общ принос",
+        "Current Streak" => "Дневна серия",
+        "Longest Streak" => "Най-дълга дневна серия",
+        "Week Streak" => "Седмична серия",
+        "Longest Week Streak" => "Най-дълга седмична серия",
+        "Present" => "Сега",
     ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
@@ -99,8 +112,8 @@ return [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
         "Longest Streak" => "सबसे लंबा दैनिक योगदान",
-        "Week Streak" => "वीक योगदान",
-        "Longest Week Streak" => "लॉन्गेस्ट वीक योगदान",
+        "Week Streak" => "सप्ताहिक योगदान",
+        "Longest Week Streak" => "दीर्घ साप्ताहिक योगदान",
         "Present" => "आज तक",
     ],
     "id" => [
@@ -138,6 +151,14 @@ return [
         "Longest Week Streak" => "최대 주간 기여 수",
         "Present" => "현재",
     ],
+    "mr" => [
+        "Total Contributions" => "एकूण योगदान",
+        "Current Streak" => "साध्यकालीन सातत्यता",
+        "Longest Streak" => "दीर्घकालीन सातत्यता",
+        "Week Streak" => "साप्ताहिक सातत्यता",
+        "Longest Week Streak" => "दीर्घकालीन साप्ताहिक सातत्यता",
+        "Present" => "आज पर्यंत",
+    ],
     "nl" => [
         "Total Contributions" => "Totale Bijdrage",
         "Current Streak" => "Huidige Serie",
@@ -152,7 +173,15 @@ return [
         "Longest Week Streak" => "Najdłuższa Seria Tygodni",
         "Present" => "Dziś",
     ],
-    "pt-br" => [
+    "ps" => [
+        "Total Contributions" => "ټولې ونډې",
+        "Current Streak" => "اوسنی پرمختګ",
+        "Longest Streak" => "تر ټولو اوږد پرمختګ",
+        "Week Streak" => "د اونۍ پرمختګ",
+        "Longest Week Streak" => "د اونۍ تر ټولو اوږد پرمختګ",
+        "Present" => "اوس",
+    ],
+    "pt_BR" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Sequência Atual",
         "Longest Streak" => "Maior Sequência",
@@ -164,6 +193,8 @@ return [
         "Total Contributions" => "Общий вклад",
         "Current Streak" => "Текущая серия",
         "Longest Streak" => "Самая длинная серия",
+        "Week Streak" => "Текущая серия недель",
+        "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
     "ta" => [
@@ -178,13 +209,22 @@ return [
         "Longest Streak" => "En Uzun Seri",
         "Present" => "Şu an",
     ],
+    "uk" => [
+        "Total Contributions" => "Загальний вклад",
+        "Current Streak" => "Поточна діяльність",
+        "Longest Streak" => "Найдовша діяльність",
+        "Week Streak" => "Діяльність за тиждень",
+        "Longest Week Streak" => "Найбільша к-сть тижнів",
+        "Present" => "Наразі",
+    ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
         "Current Streak" => "Chuỗi đóng góp\nhiện tại",
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
         "Present" => "Hiện tại",
     ],
-    "zh" => [
+    "zh" => "zh_Hans",
+    "zh_Hans" => [
         "Total Contributions" => "合计贡献",
         "Current Streak" => "目前连续贡献",
         "Longest Streak" => "最长连续贡献",
