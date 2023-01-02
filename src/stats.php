@@ -155,7 +155,7 @@ function fetchGraphQL(string $query): stdClass
     $ch = getGraphQLCurlHandle($query);
     $response = curl_exec($ch);
     curl_close($ch);
-    $obj = json_decode($response);
+    $obj = is_string($response) ? json_decode($response) : null;
     // handle curl errors
     if ($response === false || $obj === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
         // set response code to curl error code
