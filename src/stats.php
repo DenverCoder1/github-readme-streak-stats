@@ -168,6 +168,10 @@ function fetchGraphQL(string $query): stdClass
         if ($obj && $obj->message) {
             throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
         }
+        // Handle curl errors
+        if (curl_errno($ch)) {
+            throw new AssertionError("cURL error: " . curl_error($ch) . "\n<!-- $response -->", 500);
+        }
         throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
     }
     return $obj;
