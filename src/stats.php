@@ -66,8 +66,13 @@ function getContributionGraphs(string $user): array
         $contents = curl_multi_getcontent($request);
         $decoded = is_string($contents) ? json_decode($contents) : null;
         $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
-        // if response is empty or invalid, retry request one time if not "rate limit exceeded"
-        if ((empty($decoded) || empty($decoded->data)) && !str_contains($message, "rate limit exceeded")) {
+        // if rate limit is exceeded, don't retry
+        if (str_contains($message, "rate limit exceeded")) {
+            error_log("Error: $message");
+            continue;
+        }
+        // if response is empty or invalid, retry request one time
+        if (empty($decoded) || empty($decoded->data)) {
             $query = buildContributionGraphQuery($user, $year);
             $request = getGraphQLCurlHandle($query);
             $contents = curl_exec($request);
