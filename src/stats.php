@@ -74,6 +74,7 @@ function getContributionGraphs(string $user): array
             if (str_contains($message, "rate limit exceeded")) {
                 removeGitHubToken($tokens[$year]);
             }
+            error_log("First attempt to decode response for $user's $year contributions failed. $message");
             $query = buildContributionGraphQuery($user, $year);
             $token = getGitHubToken();
             $request = getGraphQLCurlHandle($query, $token);
@@ -200,7 +201,7 @@ function fetchGraphQL(string $query, string $token): stdClass
     $decoded = is_string($response) ? json_decode($response) : null;
     // handle curl errors
     if ($response === false || $decoded === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
-        $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
+        $message = $decoded->errors[0]->message ?? ($decoded->message ?? "");
         if (str_contains($message, "rate limit exceeded")) {
             removeGitHubToken($token);
         }
@@ -211,7 +212,7 @@ function fetchGraphQL(string $query, string $token): stdClass
             throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
         }
         // Handle errors such as "Bad credentials"
-        if ($message !== "An API error occurred.") {
+        if ($message) {
             throw new AssertionError("Error: $message \n<!-- $response -->", 401);
         }
         // Handle curl errors
