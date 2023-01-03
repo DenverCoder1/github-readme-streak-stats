@@ -186,14 +186,14 @@ function getGraphQLCurlHandle(string $query, string $token)
  * Create a POST request to GitHub's GraphQL API
  *
  * @param string $query GraphQL query
+ * @param string $token GitHub token to use for the request
  *
  * @return stdClass An object from the json response of the request
  *
  * @throws AssertionError If SSL verification fails
  */
-function fetchGraphQL(string $query): stdClass
+function fetchGraphQL(string $query, string $token): stdClass
 {
-    $token = getGitHubToken();
     $ch = getGraphQLCurlHandle($query, $token);
     $response = curl_exec($ch);
     curl_close($ch);
@@ -242,11 +242,11 @@ function getContributionYears(string $user): array
         }
     }";
     try {
-        $response = fetchGraphQL($query);
+        $response = fetchGraphQL($query, getGitHubToken());
     } catch (AssertionError $e) {
         // retry once if an error occurred
         error_log("An error occurred getting contribution years for $user: " . $e->getMessage());
-        $response = fetchGraphQL($query);
+        $response = fetchGraphQL($query, getGitHubToken());
     }
     // User not found
     if (!empty($response->errors)) {
