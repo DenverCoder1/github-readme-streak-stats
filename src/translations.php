@@ -207,6 +207,14 @@ return [
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
         "Present" => "Hiện tại",
     ],
+    "yor" => [
+        "Total Contributions" => "Lapapọ ilowosi",
+        "Current Streak" => "ṣiṣan lọwọlọwọ",
+        "Longest Streak" => "ṣiṣan ti o gun julọ",
+        "Week Streak" => "ṣiṣan ọsẹ",
+        "Longest Week Streak" => "gunjulo ọsẹ ṣiṣan",
+        "Present" => "lọwọlọwọ",
+    ],
     "zh" => "zh_Hans",
     "zh_Hans" => [
         "Total Contributions" => "合计贡献",
