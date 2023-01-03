@@ -43,12 +43,14 @@ function getContributionGraphs(string $user): array
     // Get the years the user has contributed
     $contributionYears = getContributionYears($user);
     // build a list of individual requests
+    $tokens = [];
     $requests = [];
     foreach ($contributionYears as $year) {
         // create query for year
         $query = buildContributionGraphQuery($user, $year);
         // create curl request
-        $requests[$year] = getGraphQLCurlHandle($query);
+        $tokens[$year] = getGitHubToken();
+        $requests[$year] = getGraphQLCurlHandle($query, $tokens[$year]);
     }
     // build multi-curl handle
     $multi = curl_multi_init();
@@ -67,19 +69,22 @@ function getContributionGraphs(string $user): array
         $decoded = is_string($contents) ? json_decode($contents) : null;
         // if response is empty or invalid, retry request one time
         if (empty($decoded) || empty($decoded->data)) {
-            // if rate limit is exceeded, don't retry
+            // if rate limit is exceeded, don't retry with same token
             $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
             if (str_contains($message, "rate limit exceeded")) {
-                error_log("Error: $message");
-                continue;
+                removeGitHubToken($tokens[$year]);
             }
             $query = buildContributionGraphQuery($user, $year);
-            $request = getGraphQLCurlHandle($query);
+            $token = getGitHubToken();
+            $request = getGraphQLCurlHandle($query, $token);
             $contents = curl_exec($request);
             $decoded = is_string($contents) ? json_decode($contents) : null;
             // if the response is still empty or invalid, log an error and skip the year
             if (empty($decoded) || empty($decoded->data)) {
                 $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
+                if (str_contains($message, "rate limit exceeded")) {
+                    removeGitHubToken($token);
+                }
                 error_log("Failed to decode response for $user's $year contributions after 2 attempts. $message");
                 continue;
             }
@@ -118,16 +123,46 @@ function getGitHubTokens()
     return $tokens;
 }
 
+/**
+ * Get a token from the token pool
+ *
+ * @throws AssertionError if no tokens are available
+ */
+function getGitHubToken()
+{
+    $all_tokens = getGitHubTokens();
+    return $all_tokens[array_rand($all_tokens)];
+}
+
+/**
+ * Remove a token from the token pool
+ *
+ * @param string $token Token to remove
+ */
+function removeGitHubToken(string $token)
+{
+    $index = array_search($token, $GLOBALS["ALL_TOKENS"]);
+    if ($index !== false) {
+        unset($GLOBALS["ALL_TOKENS"][$index]);
+    }
+    // if there is no available token, throw an error
+    if (empty($GLOBALS["ALL_TOKENS"])) {
+        throw new AssertionError(
+            "We are being rate-limited! Check <a href='https://git.io/streak-ratelimit' font-weight='bold'>git.io/streak-ratelimit</a> for details.",
+            429
+        );
+    }
+}
+
 /** Create a CurlHandle for a POST request to GitHub's GraphQL API
  *
  * @param string $query GraphQL query
+ * @param string $token GitHub token to use for the request
  *
  * @return CurlHandle The curl handle for the request
  */
-function getGraphQLCurlHandle(string $query)
+function getGraphQLCurlHandle(string $query, string $token)
 {
-    $all_tokens = getGitHubTokens();
-    $token = $all_tokens[array_rand($all_tokens)];
     $headers = [
         "Authorization: bearer $token",
         "Content-Type: application/json",
@@ -158,12 +193,17 @@ function getGraphQLCurlHandle(string $query)
  */
 function fetchGraphQL(string $query): stdClass
 {
-    $ch = getGraphQLCurlHandle($query);
+    $token = getGitHubToken();
+    $ch = getGraphQLCurlHandle($query, $token);
     $response = curl_exec($ch);
     curl_close($ch);
-    $obj = is_string($response) ? json_decode($response) : null;
+    $decoded = is_string($response) ? json_decode($response) : null;
     // handle curl errors
-    if ($response === false || $obj === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
+    if ($response === false || $decoded === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
+        $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
+        if (str_contains($message, "rate limit exceeded")) {
+            removeGitHubToken($token);
+        }
         // set response code to curl error code
         http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
         // Missing SSL certificate
@@ -171,8 +211,8 @@ function fetchGraphQL(string $query): stdClass
             throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
         }
         // Handle errors such as "Bad credentials"
-        if ($obj && $obj->message) {
-            throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
+        if ($message !== "An API error occurred.") {
+            throw new AssertionError("Error: $message \n<!-- $response -->", 401);
         }
         // Handle curl errors
         if (curl_errno($ch)) {
@@ -180,7 +220,7 @@ function fetchGraphQL(string $query): stdClass
         }
         throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
     }
-    return $obj;
+    return $decoded;
 }
 
 /**
@@ -201,7 +241,13 @@ function getContributionYears(string $user): array
             }
         }
     }";
-    $response = fetchGraphQL($query);
+    try {
+        $response = fetchGraphQL($query);
+    } catch (AssertionError $e) {
+        // retry once if an error occurred
+        error_log("An error occurred getting contribution years for $user: " . $e->getMessage());
+        $response = fetchGraphQL($query);
+    }
     // User not found
     if (!empty($response->errors)) {
         $type = $response->errors[0]->type ?? "";
