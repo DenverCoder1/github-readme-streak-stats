@@ -161,8 +161,6 @@ function getGitHubTokens()
  * Get a token from the token pool
  *
  * @return string GitHub token
- *
- * @throws AssertionError if no tokens are available
  */
 function getGitHubToken()
 {
@@ -174,6 +172,8 @@ function getGitHubToken()
  * Remove a token from the token pool
  *
  * @param string $token Token to remove
+ * 
+ * @throws AssertionError if no tokens are available after removing the token
  */
 function removeGitHubToken(string $token)
 {
