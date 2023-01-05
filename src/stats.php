@@ -56,14 +56,28 @@ function executeGraphQLRequests(array $requests): array
         $user = $request["user"];
         $contents = curl_multi_getcontent($request["handle"]);
         $decoded = is_string($contents) ? json_decode($contents) : null;
-        // if response is empty or invalid, retry request one time
+        // if response is empty or invalid, retry request one time or throw an error
         if (empty($decoded) || empty($decoded->data)) {
-            // if rate limit is exceeded, don't retry with same token
             $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
+            $error_type = $decoded->errors[0]->type ?? "";
+            // Missing SSL certificate
+            if (curl_errno($request["handle"]) === 60) {
+                throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 500);
+            }
+            // Other cURL error
+            elseif (curl_errno($request["handle"])) {
+                throw new AssertionError("cURL error: " . curl_error($request["handle"]), 500);
+            }
+            // GitHub API error - Not Found
+            elseif ($error_type === "NOT_FOUND") {
+                throw new AssertionError("Could not find a user with that name.", 404);
+            }
+            // if rate limit is exceeded, don't retry with same token
             if (str_contains($message, "rate limit exceeded")) {
                 removeGitHubToken($request["token"]);
             }
             error_log("First attempt to decode response for $user's $year contributions failed. $message");
+            // retry request
             $query = buildContributionGraphQuery($user, $year);
             $token = getGitHubToken();
             $request = getGraphQLCurlHandle($query, $token);
