@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Build a query for a contribution graph
+ * Build a GraphQL query for a contribution graph
  *
  * @param string $user GitHub username to get graphs for
  * @param int $year Year to get graph for
@@ -17,8 +17,8 @@ function buildContributionGraphQuery(string $user, int $year)
     return "query {
         user(login: \"$user\") {
             contributionsCollection(from: \"$start\", to: \"$end\") {
+                contributionYears
                 contributionCalendar {
-                    totalContributions
                     weeks {
                         contributionDays {
                             contributionCount
@@ -32,47 +32,36 @@ function buildContributionGraphQuery(string $user, int $year)
 }
 
 /**
- * Get all HTTP request responses for user's contributions
+ * Execute multiple requests with cURL and handle GitHub API rate limits and errors
  *
- * @param string $user GitHub username to get graphs for
+ * @param array<array<string, mixed>> $requests List of requests ["handle" => CurlHandle, "token" => string, "user" => string]
  *
- * @return array<stdClass> List of contribution graph response objects
+ * @return array<stdClass> List of GraphQL response objects
  */
-function getContributionGraphs(string $user): array
+function executeGraphQLRequests(array $requests): array
 {
-    // Get the years the user has contributed
-    $contributionYears = getContributionYears($user);
-    // build a list of individual requests
-    $tokens = [];
-    $requests = [];
-    foreach ($contributionYears as $year) {
-        // create query for year
-        $query = buildContributionGraphQuery($user, $year);
-        // create curl request
-        $tokens[$year] = getGitHubToken();
-        $requests[$year] = getGraphQLCurlHandle($query, $tokens[$year]);
-    }
+    $responses = [];
     // build multi-curl handle
     $multi = curl_multi_init();
     foreach ($requests as $request) {
-        curl_multi_add_handle($multi, $request);
+        curl_multi_add_handle($multi, $request["handle"]);
     }
     // execute queries
     $running = null;
     do {
         curl_multi_exec($multi, $running);
     } while ($running);
-    // collect responses from last to first
-    $response = [];
+    // collect responses
     foreach ($requests as $year => $request) {
-        $contents = curl_multi_getcontent($request);
+        $user = $request["user"];
+        $contents = curl_multi_getcontent($request["handle"]);
         $decoded = is_string($contents) ? json_decode($contents) : null;
         // if response is empty or invalid, retry request one time
         if (empty($decoded) || empty($decoded->data)) {
             // if rate limit is exceeded, don't retry with same token
             $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
             if (str_contains($message, "rate limit exceeded")) {
-                removeGitHubToken($tokens[$year]);
+                removeGitHubToken($request["token"]);
             }
             error_log("First attempt to decode response for $user's $year contributions failed. $message");
             $query = buildContributionGraphQuery($user, $year);
@@ -90,14 +79,58 @@ function getContributionGraphs(string $user): array
                 continue;
             }
         }
-        array_unshift($response, $decoded);
+        $responses[$year] = $decoded;
     }
     // close the handles
     foreach ($requests as $request) {
-        curl_multi_remove_handle($multi, $request);
+        curl_multi_remove_handle($multi, $request["handle"]);
     }
     curl_multi_close($multi);
-    return $response;
+    return $responses;
+}
+
+/**
+ * Build a request array expected by executeGraphQLRequests
+ *
+ * @param string $user GitHub username to get graphs for
+ * @param int $year Year to get graph for
+ *
+ * @return array<string, mixed> Request array ["handle" => CurlHandle, "token" => string, "user" => string]
+ */
+function buildContributionGraphRequest(string $user, int $year): array
+{
+    $token = getGitHubToken();
+    $query = buildContributionGraphQuery($user, $year);
+    return [
+        "handle" => getGraphQLCurlHandle($query, $token),
+        "token" => $token,
+        "user" => $user,
+    ];
+}
+
+/**
+ * Get all HTTP request responses for user's contributions
+ *
+ * @param string $user GitHub username to get graphs for
+ *
+ * @return array<stdClass> List of contribution graph response objects
+ */
+function getContributionGraphs(string $user): array
+{
+    // get the list of years the user has contributed and the current year's contribution graph
+    $currentYear = intval(date("Y"));
+    $requests = [
+        $currentYear => buildContributionGraphRequest($user, $currentYear),
+    ];
+    $responses = executeGraphQLRequests($requests);
+    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears;
+    // get contribution graphs for all past years the user has contributed
+    foreach ($contributionYears as $year) {
+        $requests[$year] = buildContributionGraphRequest($user, $year);
+    }
+    unset($requests[$currentYear]); // skip current year since it was already fetched
+    $responses += executeGraphQLRequests($requests);
+    return $responses;
 }
 
 /**
@@ -126,6 +159,8 @@ function getGitHubTokens()
 
 /**
  * Get a token from the token pool
+ *
+ * @return string GitHub token
  *
  * @throws AssertionError if no tokens are available
  */
@@ -184,93 +219,9 @@ function getGraphQLCurlHandle(string $query, string $token)
 }
 
 /**
- * Create a POST request to GitHub's GraphQL API
- *
- * @param string $query GraphQL query
- * @param string $token GitHub token to use for the request
- *
- * @return stdClass An object from the json response of the request
- *
- * @throws AssertionError If SSL verification fails
- */
-function fetchGraphQL(string $query, string $token): stdClass
-{
-    $ch = getGraphQLCurlHandle($query, $token);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    $decoded = is_string($response) ? json_decode($response) : null;
-    // handle curl errors
-    if ($response === false || $decoded === null || curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
-        $message = $decoded->errors[0]->message ?? ($decoded->message ?? "");
-        if (str_contains($message, "rate limit exceeded")) {
-            removeGitHubToken($token);
-        }
-        // set response code to curl error code
-        http_response_code(curl_getinfo($ch, CURLINFO_HTTP_CODE));
-        // Missing SSL certificate
-        if (str_contains(curl_error($ch), "unable to get local issuer certificate")) {
-            throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 400);
-        }
-        // Handle errors such as "Bad credentials"
-        if ($message) {
-            throw new AssertionError("Error: $message \n<!-- $response -->", 401);
-        }
-        // Handle curl errors
-        if (curl_errno($ch)) {
-            throw new AssertionError("cURL error: " . curl_error($ch) . "\n<!-- $response -->", 500);
-        }
-        throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
-    }
-    return $decoded;
-}
-
-/**
- * Get the years the user has contributed
- *
- * @param string $user GitHub username to get years for
- *
- * @return array List of years the user has contributed
- *
- * @throws InvalidArgumentException If the user doesn't exist or there is an error
- */
-function getContributionYears(string $user): array
-{
-    $query = "query {
-        user(login: \"$user\") {
-            contributionsCollection {
-                contributionYears
-            }
-        }
-    }";
-    try {
-        $response = fetchGraphQL($query, getGitHubToken());
-    } catch (AssertionError $e) {
-        // retry once if an error occurred
-        error_log("An error occurred getting contribution years for $user: " . $e->getMessage());
-        $response = fetchGraphQL($query, getGitHubToken());
-    }
-    // User not found
-    if (!empty($response->errors)) {
-        $type = $response->errors[0]->type ?? "";
-        if ($type === "NOT_FOUND") {
-            throw new InvalidArgumentException("Could not find a user with that name.", 404);
-        }
-        $message = $response->errors[0]->message ?? "An API error occurred.";
-        // Other errors that contain a message field
-        throw new InvalidArgumentException($message, 502);
-    }
-    // API did not return data
-    if (!isset($response->data) && isset($response->message)) {
-        // Other errors that contain a message field
-        throw new InvalidArgumentException($response->message, 204);
-    }
-    return $response->data->user->contributionsCollection->contributionYears;
-}
-
-/**
  * Get an array of all dates with the number of contributions
  *
- * @param array<string> $contributionCalendars List of GraphQL response objects
+ * @param array<stdClass> $contributionCalendars List of GraphQL response objects
  *
  * @return array<string, int> Y-M-D dates mapped to the number of contributions
  */
