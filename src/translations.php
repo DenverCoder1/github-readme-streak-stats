@@ -97,6 +97,8 @@ return [
         "Total Contributions" => "Contributions totales",
         "Current Streak" => "Séquence actuelle",
         "Longest Streak" => "Plus longue séquence",
+        "Week Streak" => "Séquence de la semaine",
+        "Longest Week Streak" => "Plus longue de semaine séquence",
         "Present" => "Aujourd'hui",
     ],
     "he" => [
@@ -222,6 +224,14 @@ return [
         "Current Streak" => "Chuỗi đóng góp\nhiện tại",
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
         "Present" => "Hiện tại",
+    ],
+    "yo" => [
+        "Total Contributions" => "Lapapọ ilowosi",
+        "Current Streak" => "ṣiṣan lọwọlọwọ",
+        "Longest Streak" => "ṣiṣan ti o gun julọ",
+        "Week Streak" => "ṣiṣan ọsẹ",
+        "Longest Week Streak" => "gunjulo ọsẹ ṣiṣan",
+        "Present" => "lọwọlọwọ",
     ],
     "zh" => "zh_Hans",
     "zh_Hans" => [
