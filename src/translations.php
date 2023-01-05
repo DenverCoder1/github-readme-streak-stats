@@ -223,7 +223,7 @@ return [
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
         "Present" => "Hiện tại",
     ],
-    "yor" => [
+    "yo" => [
         "Total Contributions" => "Lapapọ ilowosi",
         "Current Streak" => "ṣiṣan lọwọlọwọ",
         "Longest Streak" => "ṣiṣan ti o gun julọ",
