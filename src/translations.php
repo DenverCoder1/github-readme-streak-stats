@@ -97,6 +97,8 @@ return [
         "Total Contributions" => "Contributions totales",
         "Current Streak" => "Séquence actuelle",
         "Longest Streak" => "Plus longue séquence",
+        "Week Streak" => "Séquence de la semaine",
+        "Longest Week Streak" => "Plus longue de semaine séquence",
         "Present" => "Aujourd'hui",
     ],
     "he" => [
