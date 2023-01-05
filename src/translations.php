@@ -42,11 +42,19 @@ return [
     "ar" => [
         "rtl" => true,
         "Total Contributions" => "إجمالي المساهمات",
-        "Current Streak" => "حالِيا سلسلة متتالية",
-        "Longest Streak" => "طَويل سلسلة متتالية",
-        "Week Streak" => "أُسْبوع سلسلة متتالية",
-        "Longest Week Streak" => "طَويل أُسْبوع سلسلة متتالية",
+        "Current Streak" => "السلسلة المتتالية الحالية",
+        "Longest Streak" => "أُطول سلسلة متتالية",
+        "Week Streak" => "السلسلة المتتالية الأُسبوعية",
+        "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
+    ],
+    "bg" => [
+        "Total Contributions" => "Общ принос",
+        "Current Streak" => "Дневна серия",
+        "Longest Streak" => "Най-дълга дневна серия",
+        "Week Streak" => "Седмична серия",
+        "Longest Week Streak" => "Най-дълга седмична серия",
+        "Present" => "Сега",
     ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
@@ -200,6 +208,14 @@ return [
         "Current Streak" => "Güncel Seri",
         "Longest Streak" => "En Uzun Seri",
         "Present" => "Şu an",
+    ],
+    "uk" => [
+        "Total Contributions" => "Загальний вклад",
+        "Current Streak" => "Поточна діяльність",
+        "Longest Streak" => "Найдовша діяльність",
+        "Week Streak" => "Діяльність за тиждень",
+        "Longest Week Streak" => "Найбільша к-сть тижнів",
+        "Present" => "Наразі",
     ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
