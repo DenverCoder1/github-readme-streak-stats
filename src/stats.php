@@ -57,7 +57,7 @@ function executeGraphQLRequests(array $requests): array
         $contents = curl_multi_getcontent($request["handle"]);
         $decoded = is_string($contents) ? json_decode($contents) : null;
         // if response is empty or invalid, retry request one time or throw an error
-        if (empty($decoded) || empty($decoded->data)) {
+        if (empty($decoded) || empty($decoded->data) || !empty($decoded->errors)) {
             $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
             $error_type = $decoded->errors[0]->type ?? "";
             // Missing SSL certificate
@@ -70,7 +70,7 @@ function executeGraphQLRequests(array $requests): array
             }
             // GitHub API error - Not Found
             elseif ($error_type === "NOT_FOUND") {
-                throw new AssertionError("Could not find a user with that name.", 404);
+                throw new InvalidArgumentException("Could not find a user with that name.", 404);
             }
             // if rate limit is exceeded, don't retry with same token
             if (str_contains($message, "rate limit exceeded")) {
