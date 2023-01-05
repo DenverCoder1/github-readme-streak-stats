@@ -7,10 +7,9 @@ declare(strict_types=1);
  *
  * @param string $user GitHub username to get graphs for
  * @param int $year Year to get graph for
- *
  * @return string GraphQL query
  */
-function buildContributionGraphQuery(string $user, int $year)
+function buildContributionGraphQuery(string $user, int $year): string
 {
     $start = "$year-01-01T00:00:00Z";
     $end = "$year-12-31T23:59:59Z";
@@ -36,8 +35,7 @@ function buildContributionGraphQuery(string $user, int $year)
  *
  * @param string $user GitHub username to get graphs for
  * @param array<int> $years Years to get graphs for
- *
- * @return array<stdClass> List of GraphQL response objects
+ * @return array<int,stdClass> List of GraphQL response objects with years as keys
  */
 function executeContributionGraphRequests(string $user, array $years): array
 {
@@ -115,7 +113,6 @@ function executeContributionGraphRequests(string $user, array $years): array
  * Get all HTTP request responses for user's contributions
  *
  * @param string $user GitHub username to get graphs for
- *
  * @return array<stdClass> List of contribution graph response objects
  */
 function getContributionGraphs(string $user): array
@@ -138,7 +135,7 @@ function getContributionGraphs(string $user): array
  *
  * @return array<string> List of tokens
  */
-function getGitHubTokens()
+function getGitHubTokens(): array
 {
     // result is already calculated
     if (isset($GLOBALS["ALL_TOKENS"])) {
@@ -161,10 +158,16 @@ function getGitHubTokens()
  * Get a token from the token pool
  *
  * @return string GitHub token
+ *
+ * @throws AssertionError if no tokens are available
  */
-function getGitHubToken()
+function getGitHubToken(): string
 {
     $all_tokens = getGitHubTokens();
+    // if there is no available token, throw an error (this should never happen)
+    if (empty($all_tokens)) {
+        throw new AssertionError("There is no GitHub token available.", 500);
+    }
     return $all_tokens[array_rand($all_tokens)];
 }
 
@@ -172,10 +175,11 @@ function getGitHubToken()
  * Remove a token from the token pool
  *
  * @param string $token Token to remove
+ * @return void
  *
  * @throws AssertionError if no tokens are available after removing the token
  */
-function removeGitHubToken(string $token)
+function removeGitHubToken(string $token): void
 {
     $index = array_search($token, $GLOBALS["ALL_TOKENS"]);
     if ($index !== false) {
@@ -194,10 +198,9 @@ function removeGitHubToken(string $token)
  *
  * @param string $query GraphQL query
  * @param string $token GitHub token to use for the request
- *
  * @return CurlHandle The curl handle for the request
  */
-function getGraphQLCurlHandle(string $query, string $token)
+function getGraphQLCurlHandle(string $query, string $token): CurlHandle
 {
     $headers = [
         "Authorization: bearer $token",
@@ -221,9 +224,8 @@ function getGraphQLCurlHandle(string $query, string $token)
 /**
  * Get an array of all dates with the number of contributions
  *
- * @param array<stdClass> $contributionCalendars List of GraphQL response objects
- *
- * @return array<string, int> Y-M-D dates mapped to the number of contributions
+ * @param array<int,stdClass> $contributionCalendars List of GraphQL response objects by year
+ * @return array<string,int> Y-M-D dates mapped to the number of contributions
  */
 function getContributionDates(array $contributionGraphs): array
 {
@@ -253,8 +255,8 @@ function getContributionDates(array $contributionGraphs): array
 /**
  * Get a stats array with the contribution count, daily streak, and dates
  *
- * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
- * @return array<string, mixed> Streak stats
+ * @param array<string,int> $contributions Y-M-D contribution dates with contribution counts
+ * @return array<string,mixed> Streak stats
  */
 function getContributionStats(array $contributions): array
 {
@@ -331,8 +333,8 @@ function getPreviousSunday(string $date): string
 /**
  * Get a stats array with the contribution count, weekly streak, and dates
  *
- * @param array<string, int> $contributions Y-M-D contribution dates with contribution counts
- * @return array<string, mixed> Streak stats
+ * @param array<string,int> $contributions Y-M-D contribution dates with contribution counts
+ * @return array<string,mixed> Streak stats
  */
 function getWeeklyContributionStats(array $contributions): array
 {
