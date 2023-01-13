@@ -77,7 +77,7 @@ return [
         "Present" => "Heute",
     ],
     "es" => [
-        "Total Contributions" => "Todas Contribuciones",
+        "Total Contributions" => "Contribuciones Totales",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
         "Week Streak" => "Racha Semanal",
