@@ -125,9 +125,11 @@ return [
         "Present" => "Sekarang",
     ],
     "it" => [
-        "Total Contributions" => "Tutti i contributi",
-        "Current Streak" => "Serie corrente",
-        "Longest Streak" => "Serie più lunga",
+        "Total Contributions" => "Totale dei Contributi",
+        "Current Streak" => "Serie Corrente",
+        "Longest Streak" => "Serie più Lunga",
+        "Week Streak" => "Serie Settimanale",
+        "Longest Week Streak" => "Serie Settimanale più Lunga",
         "Present" => "Presente",
     ],
     "ja" => [
