@@ -121,7 +121,7 @@ function getContributionGraphs(string $user): array
 {
     // get the list of years the user has contributed and the current year's contribution graph
     $currentYear = intval(date("Y"));
-    $responses = [];
+    $responses = executeContributionGraphRequests($user, [$currentYear]);
     $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears ?? [];
     // if there are no contribution years, an API error must have occurred
     if (empty($contributionYears)) {
