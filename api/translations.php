@@ -77,7 +77,7 @@ return [
         "Present" => "Heute",
     ],
     "es" => [
-        "Total Contributions" => "Todas Contribuciones",
+        "Total Contributions" => "Contribuciones Totales",
         "Current Streak" => "Racha Actual",
         "Longest Streak" => "Racha Más Larga",
         "Week Streak" => "Racha Semanal",
@@ -125,9 +125,11 @@ return [
         "Present" => "Sekarang",
     ],
     "it" => [
-        "Total Contributions" => "Tutti i contributi",
-        "Current Streak" => "Serie corrente",
-        "Longest Streak" => "Serie più lunga",
+        "Total Contributions" => "Totale dei Contributi",
+        "Current Streak" => "Serie Corrente",
+        "Longest Streak" => "Serie più Lunga",
+        "Week Streak" => "Serie Settimanale",
+        "Longest Week Streak" => "Serie Settimanale più Lunga",
         "Present" => "Presente",
     ],
     "ja" => [
@@ -142,7 +144,9 @@ return [
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
         "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
-        "Longest Streak" => "ದೊಡ್ಡ ಸ್ಟ್ರೀಕ್",
+        "Longest Streak" => "ಅತ್ಯಧಿಕ ಸ್ಟ್ರೀಕ್",
+        "Week Streak" => "ವಾರದ ಸ್ಟ್ರೀಕ್",
+        "Longest Week Streak" => "ಅತ್ಯಧಿಕ ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Present" => "ಪ್ರಸ್ತುತ",
     ],
     "ko" => [
@@ -223,6 +227,8 @@ return [
         "Total Contributions" => "Tổng số đóng góp",
         "Current Streak" => "Chuỗi đóng góp\nhiện tại",
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
+        "Week Streak" => "Chuỗi tuần",
+        "Longest Week Streak" => "Chuỗi tuần lớn nhất",
         "Present" => "Hiện tại",
     ],
     "yo" => [

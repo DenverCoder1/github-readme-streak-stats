@@ -60,13 +60,13 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 /**
  * Check theme and color customization parameters to generate a theme mapping
  *
- * @param array<string, string> $params Request parameters
- * @return array<string, string> The chosen theme or default
+ * @param array<string,string> $params Request parameters
+ * @return array<string,string> The chosen theme or default
  */
 function getRequestedTheme(array $params): array
 {
     /**
-     * @var array<string, array<string, string>> $THEMES
+     * @var array<string,array<string,string>> $THEMES
      * List of theme names mapped to labeled colors
      */
     $THEMES = include "themes.php";
@@ -129,7 +129,7 @@ function getRequestedTheme(array $params): array
  *              than the word width.
  * @return string The given string wrapped at the specified length
  */
-function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = false)
+function utf8WordWrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string
 {
     // match anything 1 to $width chars long followed by whitespace or EOS
     $string = preg_replace("/(.{1,$width})(?:\s|$)/uS", "$1$break", $string);
@@ -149,7 +149,7 @@ function utf8WordWrap($string, $width = 75, $break = "\n", $cut_long_words = fal
  * @param string $string The input string
  * @return int The length of the string
  */
-function utf8Strlen($string)
+function utf8Strlen(string $string): int
 {
     return preg_match_all("/./us", $string, $matches);
 }
@@ -160,7 +160,6 @@ function utf8Strlen($string)
  * @param string $text Text to split
  * @param int $maxChars Maximum number of characters per line
  * @param int $line1Offset Offset for the first line
- *
  * @return string Original text if one line, or split text with <tspan> elements
  */
 function splitLines(string $text, int $maxChars, int $line1Offset): string
@@ -188,7 +187,6 @@ function splitLines(string $text, int $maxChars, int $line1Offset): string
  * Normalize a locale code
  *
  * @param string $localeCode Locale code
- *
  * @return string Normalized locale code
  */
 function normalizeLocaleCode(string $localeCode): string
@@ -214,10 +212,9 @@ function normalizeLocaleCode(string $localeCode): string
  * Get the translations for a locale code after normalizing it
  *
  * @param string $localeCode Locale code
- *
  * @return array Translations for the locale code
  */
-function getTranslations(string $localeCode)
+function getTranslations(string $localeCode): array
 {
     // normalize locale code
     $localeCode = normalizeLocaleCode($localeCode);
@@ -243,9 +240,8 @@ function getTranslations(string $localeCode)
 /**
  * Generate SVG output for a stats array
  *
- * @param array<string, mixed> $stats Streak stats
- * @param array<string, string>|NULL $params Request parameters
- *
+ * @param array<string,mixed> $stats Streak stats
+ * @param array<string,string>|NULL $params Request parameters
  * @return string The generated SVG Streak Stats card
  *
  * @throws InvalidArgumentException If a locale does not exist
@@ -439,8 +435,7 @@ function generateCard(array $stats, array $params = null): string
  * Generate SVG displaying an error message
  *
  * @param string $message The error message to display
- * @param array<string, string>|NULL $params Request parameters
- *
+ * @param array<string,string>|NULL $params Request parameters
  * @return string The generated SVG error card
  */
 function generateErrorCard(string $message, array $params = null): string
@@ -500,7 +495,6 @@ function generateErrorCard(string $message, array $params = null): string
  * Converts an SVG card to a PNG image
  *
  * @param string $svg The SVG for the card as a string
- *
  * @return string The generated PNG data
  */
 function convertSvgToPng(string $svg): string
@@ -531,7 +525,7 @@ function convertSvgToPng(string $svg): string
     if (empty($png)) {
         // `2>&1`: redirect stderr to stdout
         $error = shell_exec("$cmd 2>&1"); // skipcq: PHP-A1009
-        throw new Exception("Failed to convert SVG to PNG: {$error}", 500);
+        throw new InvalidArgumentException("Failed to convert SVG to PNG: {$error}", 500);
     }
 
     // return the generated png
@@ -542,7 +536,6 @@ function convertSvgToPng(string $svg): string
  * Return headers and response based on type
  *
  * @param string|array $output The stats (array) or error message (string) to display
- *
  * @return array The Content-Type header and the response body, and status code in case of an error
  */
 function generateOutput(string|array $output): array
@@ -588,6 +581,7 @@ function generateOutput(string|array $output): array
  *
  * @param string|array $output The Content-Type header and the response body
  * @param int $responseCode The HTTP response code to send
+ * @return void The function exits after sending the response
  */
 function renderOutput(string|array $output, int $responseCode = 200): void
 {
