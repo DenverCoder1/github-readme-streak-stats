@@ -227,6 +227,8 @@ return [
         "Total Contributions" => "Tổng số đóng góp",
         "Current Streak" => "Chuỗi đóng góp\nhiện tại",
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
+        "Week Streak" => "Chuỗi tuần",
+        "Longest Week Streak" => "Chuỗi tuần lớn nhất",
         "Present" => "Hiện tại",
     ],
     "yo" => [
