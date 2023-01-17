@@ -124,7 +124,7 @@ return [
         "Longest Streak" => "Aksi Terpanjang",
         "Present" => "Sekarang",
     ],
-    "it" => [  
+    "it" => [
         "Total Contributions" => "Totale dei Contributi",
         "Current Streak" => "Serie Corrente",
         "Longest Streak" => "Serie più Lunga",
