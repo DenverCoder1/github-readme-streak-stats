@@ -98,7 +98,7 @@ return [
         "Current Streak" => "Séquence actuelle",
         "Longest Streak" => "Plus longue séquence",
         "Week Streak" => "Séquence de la semaine",
-        "Longest Week Streak" => "Plus longue de semaine séquence",
+        "Longest Week Streak" => "Plus longue séquence hebdomadaire",
         "Present" => "Aujourd'hui",
     ],
     "he" => [
