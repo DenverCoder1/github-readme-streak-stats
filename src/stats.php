@@ -83,6 +83,7 @@ function executeContributionGraphRequests(string $user, array $years): array
                 removeGitHubToken($tokens[$year]);
             }
             error_log("First attempt to decode response for $user's $year contributions failed. $message");
+            error_log("Contents: $contents");
             // retry request
             $query = buildContributionGraphQuery($user, $year);
             $token = getGitHubToken();
@@ -96,6 +97,7 @@ function executeContributionGraphRequests(string $user, array $years): array
                     removeGitHubToken($token);
                 }
                 error_log("Failed to decode response for $user's $year contributions after 2 attempts. $message");
+                error_log("Contents: $contents");
                 continue;
             }
         }
@@ -119,8 +121,12 @@ function getContributionGraphs(string $user): array
 {
     // get the list of years the user has contributed and the current year's contribution graph
     $currentYear = intval(date("Y"));
-    $responses = executeContributionGraphRequests($user, [$currentYear]);
-    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears;
+    $responses = [];
+    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears ?? [];
+    // if there are no contribution years, an API error must have occurred
+    if (empty($contributionYears)) {
+        throw new AssertionError("Failed to retrieve contributions. This is likely a GitHub API issue.", 500);
+    }
     // remove the current year from the list since it's already been fetched
     $contributionYears = array_filter($contributionYears, function ($year) use ($currentYear) {
         return $year !== $currentYear;
