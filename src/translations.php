@@ -169,6 +169,8 @@ return [
         "Total Contributions" => "Totale Bijdrage",
         "Current Streak" => "Huidige Serie",
         "Longest Streak" => "Langste Serie",
+        "Week Streak" => "Week Serie",
+        "Longest Week Streak" => "Langste Week Serie",
         "Present" => "Vandaag",
     ],
     "pl" => [
