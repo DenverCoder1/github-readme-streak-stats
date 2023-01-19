@@ -494,23 +494,45 @@ function convertSvgToPng(string $svg): string
     $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
     $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
 
-    // escape svg for shell
-    $svg = escapeshellarg($svg);
+    // check if inkscape is installed
+    if (shell_exec("which inkscape")) {
+        // skipcq: PHP-A1009
+        // escape svg for shell
+        $svg = escapeshellarg($svg);
 
-    // `--pipe`: read input from pipe (stdin)
-    // `--export-filename -`: write output to stdout
-    // `-w 495 -h 195`: set width and height of the output image
-    // `--export-type png`: set the output format to PNG
-    $cmd = "echo {$svg} | inkscape --pipe --export-filename - -w 495 -h 195 --export-type png";
+        // `--pipe`: read input from pipe (stdin)
+        // `--export-filename -`: write output to stdout
+        // `-w 495 -h 195`: set width and height of the output image
+        // `--export-type png`: set the output format to PNG
+        $cmd = "echo {$svg} | inkscape --pipe --export-filename - -w 495 -h 195 --export-type png";
 
-    // convert svg to png
-    $png = shell_exec($cmd); // skipcq: PHP-A1009
+        // convert svg to png
+        $png = shell_exec($cmd); // skipcq: PHP-A1009
 
-    // check if the conversion was successful
-    if (empty($png)) {
-        // `2>&1`: redirect stderr to stdout
-        $error = shell_exec("$cmd 2>&1"); // skipcq: PHP-A1009
-        throw new InvalidArgumentException("Failed to convert SVG to PNG: {$error}", 500);
+        // check if the conversion was successful
+        if (empty($png)) {
+            // `2>&1`: redirect stderr to stdout
+            $error = shell_exec("$cmd 2>&1"); // skipcq: PHP-A1009
+            throw new Exception("Failed to convert SVG to PNG: {$error}", 500);
+        }
+    } elseif (class_exists("Imagick")) {
+        // create canvas
+        $imagick = new Imagick();
+        $imagick->setBackgroundColor(new ImagickPixel("transparent"));
+
+        // add svg image
+        $imagick->setFormat("svg");
+        $imagick->readImageBlob('<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . $svg);
+        $imagick->setFormat("png");
+
+        // get PNG data
+        $png = $imagick->getImageBlob();
+
+        // clean up memory
+        $imagick->clear();
+        $imagick->destroy();
+    } else {
+        throw new Exception("Inkscape or Imagick is required to convert SVG to PNG", 500);
     }
 
     // return the generated png
