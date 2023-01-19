@@ -169,6 +169,8 @@ return [
         "Total Contributions" => "Totale Bijdrage",
         "Current Streak" => "Huidige Serie",
         "Longest Streak" => "Langste Serie",
+        "Week Streak" => "Week Serie",
+        "Longest Week Streak" => "Langste Week Serie",
         "Present" => "Vandaag",
     ],
     "pl" => [
@@ -222,6 +224,15 @@ return [
         "Week Streak" => "Діяльність за тиждень",
         "Longest Week Streak" => "Найбільша к-сть тижнів",
         "Present" => "Наразі",
+    ],
+    "ur_PK" => [
+        "rtl" => true,
+        "Total Contributions" => "کل حصہ داری",
+        "Current Streak" => "موجودہ تسلسل",
+        "Longest Streak" => "طویل ترین تسلسل",
+        "Week Streak" => "ہفتہ وار تسلسل",
+        "Longest Week Streak" => "طویل ترین ہفتہ وار تسلسل",
+        "Present" => "حاظر",
     ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
