@@ -191,6 +191,7 @@ PNG mode is also not supported since Inkscape will not be installed.
 9. Scroll to the bottom and click **"Generate token"**
 10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**.
 11. Add a new variable with the key `TOKEN` and the value as your token from step 9 and click "Save".
+12. For the environment variable to be available, you will need to redeploy the app. Run `vercel --prod` to deploy to production.
 
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
