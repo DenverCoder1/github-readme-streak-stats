@@ -59,8 +59,8 @@ If the `theme` parameter is specified, any color customizations specified will b
 | `currStreakLabel` |              Current streak label               |                 **hex code** without `#` or **css color**                 |
 |   `sideLabels`    |         Total and longest streak labels         |                 **hex code** without `#` or **css color**                 |
 |      `dates`      |              Date range text color              |                 **hex code** without `#` or **css color**                 |
-|   `date_format`   |        Date format (Default: `M j[, Y]`)        |            See note below on [📅 Date Formats](#-date-formats)            |
-|     `locale`      |    Locale to use for labels (Default: `en`)     |                ISO 639-1 code - See [🗪 Locales](#-locales)                |
+|   `date_format`   | Date format pattern or empty for locale format  |            See note below on [📅 Date Formats](#-date-formats)            |
+|     `locale`      |  Locale for labels and numbers (Default: `en`)  |                ISO 639-1 code - See [🗪 Locales](#-locales)                |
 |      `type`       |         Output format (Default: `svg`)          |                  Current options: `svg`, `png` or `json`                  |
 |      `mode`       |         Streak mode (Default: `daily`)          | `daily` (contribute daily) or `weekly` (contribute once per Sun-Sat week) |
 
@@ -93,6 +93,8 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 **If you would like to help translate the Streak Stats cards, please see [Issue #236](https://github.com/DenverCoder1/github-readme-streak-stats/issues/236) for more information.**
 
 ### 📅 Date Formats
+
+If `date_format` is not provided or is empty, the PHP Intl library is used to determine the date format based on the locale specified in the `locale` query parameter. Any locale appearing on [this list](https://gist.github.com/DenverCoder1/f61147ba26bfcf7c3bf605af7d3382d5) should work. The locale will be used for the date format even if translations are not available.
 
 A custom date format can be specified by passing a string to the `date_format` parameter.
 
