@@ -1,5 +1,6 @@
 <?php
 
+require_once dirname(__DIR__, 1) . "/utils/fallbacks.php";
 $THEMES = include dirname(__DIR__, 1) . "/themes.php";
 $TRANSLATIONS = include dirname(__DIR__, 1) . "/translations.php";
 // Get the keys of the first value in the translations array
@@ -114,13 +115,7 @@ function camelToSkewer(string $str): string
                 <select class="param" id="locale" name="locale">
                     <?php foreach ($LOCALES as $locale): ?>
                         <option value="<?php echo $locale; ?>">
-                            <?php 
-                                if (class_exists("Locale")) {
-                                    $display = Locale::getDisplayName($locale, $locale);
-                                } else {
-                                    $display = $TRANSLATIONS[$locale]["Current Streak"];
-                                }
-                            ?>
+                            <?php $display = Locale::getDisplayName($locale, $locale); ?>
                             <?php echo $display . " (" . $locale . ")"; ?>
                         </option>
                     <?php endforeach; ?>

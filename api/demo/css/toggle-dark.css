@@ -1,5 +1,3 @@
-<?php header("Content-type: text/css"); ?>
-
 a.darkmode {
   position: fixed;
   top: 2em;

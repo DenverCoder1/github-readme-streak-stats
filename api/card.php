@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once "utils/fallbacks.php";
+
 /**
  * Convert date from Y-M-D to more human-readable format
  *
@@ -14,11 +16,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 {
     $date = new DateTime($dateString);
     $formatted = "";
-    if (class_exists("IntlDatePatternGenerator")) {
-        $patternGenerator = new IntlDatePatternGenerator($locale);
-    } else {
-        $format = "M j, Y";
-    }
+    $patternGenerator = new IntlDatePatternGenerator($locale);
     // if current year, display only month and day
     if (date_format($date, "Y") == date("Y")) {
         if ($format) {
@@ -265,29 +263,18 @@ function generateCard(array $stats, array $params = null): string
     $dateFormat = $params["date_format"] ?? ($localeTranslations["date_format"] ?? null);
 
     // number formatter
-    // check if NumberFormatter is available
-    if (class_exists("NumberFormatter")) {
-        $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
-        $formatNumber = function ($number) use ($numFormatter) {
-            return $numFormatter->format($number);
-        };
-    } else {
-        // fallback to number_format
-        $formatNumber = function ($number) {
-            return number_format($number);
-        };
-    }
+    $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
 
     // read border_radius parameter, default to 4.5 if not set
     $borderRadius = $params["border_radius"] ?? "4.5";
 
     // total contributions
-    $totalContributions = $formatNumber($stats["totalContributions"]);
+    $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
     $totalContributionsRange = $firstContribution . " - " . $localeTranslations["Present"];
 
     // current streak
-    $currentStreak = $formatNumber($stats["currentStreak"]["length"]);
+    $currentStreak = $numFormatter->format($stats["currentStreak"]["length"]);
     $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat, $localeCode);
     $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat, $localeCode);
     $currentStreakRange = $currentStreakStart;
@@ -296,7 +283,7 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // longest streak
-    $longestStreak = $formatNumber($stats["longestStreak"]["length"]);
+    $longestStreak = $numFormatter->format($stats["longestStreak"]["length"]);
     $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat, $localeCode);
     $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat, $localeCode);
     $longestStreakRange = $longestStreakStart;
