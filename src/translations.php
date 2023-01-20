@@ -125,9 +125,11 @@ return [
         "Present" => "Sekarang",
     ],
     "it" => [
-        "Total Contributions" => "Tutti i contributi",
-        "Current Streak" => "Serie corrente",
-        "Longest Streak" => "Serie più lunga",
+        "Total Contributions" => "Totale dei Contributi",
+        "Current Streak" => "Serie Corrente",
+        "Longest Streak" => "Serie più Lunga",
+        "Week Streak" => "Serie Settimanale",
+        "Longest Week Streak" => "Serie Settimanale più Lunga",
         "Present" => "Presente",
     ],
     "ja" => [
@@ -142,7 +144,9 @@ return [
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
         "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
-        "Longest Streak" => "ದೊಡ್ಡ ಸ್ಟ್ರೀಕ್",
+        "Longest Streak" => "ಅತ್ಯಧಿಕ ಸ್ಟ್ರೀಕ್",
+        "Week Streak" => "ವಾರದ ಸ್ಟ್ರೀಕ್",
+        "Longest Week Streak" => "ಅತ್ಯಧಿಕ ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Present" => "ಪ್ರಸ್ತುತ",
     ],
     "ko" => [
@@ -165,6 +169,8 @@ return [
         "Total Contributions" => "Totale Bijdrage",
         "Current Streak" => "Huidige Serie",
         "Longest Streak" => "Langste Serie",
+        "Week Streak" => "Week Serie",
+        "Longest Week Streak" => "Langste Week Serie",
         "Present" => "Vandaag",
     ],
     "pl" => [
@@ -219,10 +225,21 @@ return [
         "Longest Week Streak" => "Найбільша к-сть тижнів",
         "Present" => "Наразі",
     ],
+    "ur_PK" => [
+        "rtl" => true,
+        "Total Contributions" => "کل حصہ داری",
+        "Current Streak" => "موجودہ تسلسل",
+        "Longest Streak" => "طویل ترین تسلسل",
+        "Week Streak" => "ہفتہ وار تسلسل",
+        "Longest Week Streak" => "طویل ترین ہفتہ وار تسلسل",
+        "Present" => "حاظر",
+    ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
         "Current Streak" => "Chuỗi đóng góp\nhiện tại",
         "Longest Streak" => "Chuỗi đóng góp lớn nhất",
+        "Week Streak" => "Chuỗi tuần",
+        "Longest Week Streak" => "Chuỗi tuần lớn nhất",
         "Present" => "Hiện tại",
     ],
     "yo" => [
