@@ -74,6 +74,8 @@ return [
         "Total Contributions" => "Gesamte Beiträge",
         "Current Streak" => "Aktuelle Serie",
         "Longest Streak" => "Längste Serie",
+        "Week Streak" => "Wochenserie",
+        "Longest Week Streak" => "Längste Wochenserie",
         "Present" => "Heute",
     ],
     "es" => [
