@@ -124,6 +124,8 @@ return [
         "Total Contributions" => "Total Kontribusi",
         "Current Streak" => "Aksi Saat Ini",
         "Longest Streak" => "Aksi Terpanjang",
+        "Week Streak" => "Aksi Mingguan",
+        "Longest Week Streak" => "Aksi Mingguan Terpanjang",
         "Present" => "Sekarang",
     ],
     "it" => [
