@@ -106,7 +106,7 @@ function camelToSkewer(string $str): string
                     <option>false</option>
                     <option>true</option>
                 </select>
-                
+
                 <label for="border_radius">Border Radius</label>
                 <input class="param" type="number" id="border_radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1">
 
@@ -146,7 +146,7 @@ function camelToSkewer(string $str): string
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button class="plus btn" onclick="return preview.addProperty();">+</button>
+                        <button class="plus btn" onclick="return preview.addProperty()">+</button>
                     </div>
                     <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
                     <textarea id="exportedPhp" hidden></textarea>
