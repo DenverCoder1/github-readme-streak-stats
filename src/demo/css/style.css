@@ -283,9 +283,10 @@ input:focus:invalid {
 .btn.tooltip:after {
   content: "";
   position: absolute;
-  transform: translateY(-27px);
+  transform: translateY(-25px);
   border-style: solid;
   border-color: #4a4a4afa transparent transparent transparent;
+  border-width: 5px;
   pointer-events: none;
   opacity: 0;
 }
