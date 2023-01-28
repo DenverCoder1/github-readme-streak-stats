@@ -120,6 +120,20 @@ const preview = {
   },
 
   /**
+   * Removes all properties from the advanced section
+   */
+  removeAllProperties() {
+    const parent = document.querySelector(".advanced .parameters");
+    const activeProperties = parent.querySelectorAll("[data-property]");
+    // select active and unique property names
+    const propertyNames = Array.prototype.map
+      .call(activeProperties, (prop) => prop.getAttribute("data-property"))
+      .filter((value, index, self) => self.indexOf(value) === index);
+    // remove each active property name
+    propertyNames.forEach((prop) => this.removeProperty(prop));
+  },
+
+  /**
    * Create a key-value mapping of ids to values from all elements in a Node list
    * @param {NodeList} elements - the elements to get the values from
    * @returns {Object} the key-value mapping
