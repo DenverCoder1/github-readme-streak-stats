@@ -74,6 +74,8 @@ return [
         "Total Contributions" => "Gesamte Beiträge",
         "Current Streak" => "Aktuelle Serie",
         "Longest Streak" => "Längste Serie",
+        "Week Streak" => "Wochenserie",
+        "Longest Week Streak" => "Längste Wochenserie",
         "Present" => "Heute",
     ],
     "es" => [
@@ -122,6 +124,8 @@ return [
         "Total Contributions" => "Total Kontribusi",
         "Current Streak" => "Aksi Saat Ini",
         "Longest Streak" => "Aksi Terpanjang",
+        "Week Streak" => "Aksi Mingguan",
+        "Longest Week Streak" => "Aksi Mingguan Terpanjang",
         "Present" => "Sekarang",
     ],
     "it" => [
