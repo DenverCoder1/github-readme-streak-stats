@@ -121,6 +121,7 @@ h2 {
 .btn:disabled {
   background: var(--blue-transparent);
   box-shadow: none;
+  cursor: not-allowed;
 }
 
 .parameters {
