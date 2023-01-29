@@ -229,6 +229,8 @@ const tooltip = {
 const refresh = () => preview.update();
 document.addEventListener("keyup", refresh, false);
 document.addEventListener("click", refresh, false);
+const selectElements = [themeSelect, borderSelect, localeSelect, dateSelect, modeSelect];
+selectElements.forEach((element) => element.addEventListener("change", refresh, false));
 
 // when the page loads
 window.addEventListener(
