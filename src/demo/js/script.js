@@ -152,7 +152,6 @@ const preview = {
    */
   exportPhp() {
     // get default values from the currently selected theme
-    const themeSelect = document.querySelector("#theme");
     const selectedOption = themeSelect.options[themeSelect.selectedIndex];
     const defaultParams = selectedOption.dataset;
     // get parameters with the advanced options
