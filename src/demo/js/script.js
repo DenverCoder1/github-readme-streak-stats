@@ -226,8 +226,9 @@ const tooltip = {
 };
 
 // refresh preview on interactions with the page
-document.addEventListener("keyup", () => preview.update(), false);
-document.addEventListener("click", () => preview.update(), false);
+const refresh = () => preview.update();
+document.addEventListener("keyup", refresh, false);
+document.addEventListener("click", refresh, false);
 
 // when the page loads
 window.addEventListener(
