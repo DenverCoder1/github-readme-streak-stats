@@ -1,6 +1,12 @@
 /*global jscolor*/
 /*eslint no-undef: "error"*/
 
+const themeSelect = document.querySelector("#theme");
+const borderSelect = document.querySelector("#hide_border");
+const localeSelect = document.querySelector("#locale");
+const dateSelect = document.querySelector("#date_format");
+const modeSelect = document.querySelector("#mode");
+
 const preview = {
   /**
    * Default values - if set to these values, the params do not need to appear in the query string
