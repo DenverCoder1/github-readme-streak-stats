@@ -68,7 +68,9 @@ return [
         "Total Contributions" => "Totalt Antal Bidrag",
         "Current Streak" => "Nuværende i Træk",
         "Longest Streak" => "Længst i Træk",
-        "Present" => "I dag",
+        "Week Streak" => "Uger i Træk",
+        "Longest Week Streak" => "Mest Uger i Træk",
+        "Present" => "I Dag",
     ],
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
