@@ -102,13 +102,13 @@ function camelToSkewer(string $str): string
                 </select>
 
                 <label for="hide_border">Hide Border</label>
-                <select class="param" id="hide_border" name="hide_border">
+                <select class="param" id="hide-border" name="hide_border">
                     <option>false</option>
                     <option>true</option>
                 </select>
 
                 <label for="border_radius">Border Radius</label>
-                <input class="param" type="number" id="border_radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1">
+                <input class="param" type="number" id="border-radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1">
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
@@ -121,7 +121,7 @@ function camelToSkewer(string $str): string
                 </select>
 
                 <label for="date_format">Date Format</label>
-                <select class="param" id="date_format" name="date_format">
+                <select class="param" id="date-format" name="date_format">
                     <option value="">default</option>
                     <option value="M j[, Y]">Aug 10, 2016</option>
                     <option value="j M[ Y]">10 Aug 2016</option>
@@ -146,11 +146,11 @@ function camelToSkewer(string $str): string
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button class="plus btn" type="button" onclick="return preview.addProperty()">+</button>
+                        <button class="plus btn" type="button" onclick="preview.addProperty()">+</button>
                     </div>
-                    <button class="btn" type="button" onclick="return preview.exportPhp()">Export to PHP</button>
-                    <button id="clear_button" class="btn" type="button" onclick="return preview.removeAllProperties()">Clear Options</button>
-                    <textarea id="exportedPhp" hidden></textarea>
+                    <button class="btn" type="button" onclick="preview.exportPhp()">Export to PHP</button>
+                    <button id="clear-button" class="btn" type="button" onclick="preview.removeAllProperties()" disabled>Clear Options</button>
+                    <textarea id="exported-php" hidden></textarea>
                 </details>
 
                 <button class="btn" type="submit">Open Permalink</button>

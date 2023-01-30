@@ -200,6 +200,7 @@ input:focus:invalid {
 
 .advanced summary {
   padding: 6px;
+  cursor: pointer;
 }
 
 .advanced .parameters {
@@ -304,7 +305,7 @@ input:focus:invalid {
   content: "You must first input a valid username.";
 }
 
-textarea#exportedPhp {
+textarea#exported-php {
   margin-top: 10px;
   width: 100%;
   resize: vertical;
