@@ -152,7 +152,7 @@ function camelToSkewer(string $str): string
                     <textarea id="exportedPhp" hidden></textarea>
                 </details>
 
-                <input class="btn" type="submit" value="Open Permalink">
+                <button class="btn" type="submit">Open Permalink</button>
             </form>
         </div>
 
