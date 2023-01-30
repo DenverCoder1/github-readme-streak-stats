@@ -146,7 +146,7 @@ function camelToSkewer(string $str): string
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button class="plus btn" onclick="return preview.addProperty()">+</button>
+                        <button class="plus btn" type="button" onclick="return preview.addProperty()">+</button>
                     </div>
                     <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
                     <textarea id="exportedPhp" hidden></textarea>
