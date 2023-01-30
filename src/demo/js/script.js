@@ -1,12 +1,6 @@
 /*global jscolor*/
 /*eslint no-undef: "error"*/
 
-const themeSelect = document.querySelector("#theme");
-const borderSelect = document.querySelector("#hide_border");
-const localeSelect = document.querySelector("#locale");
-const dateSelect = document.querySelector("#date_format");
-const modeSelect = document.querySelector("#mode");
-
 const preview = {
   /**
    * Default values - if set to these values, the params do not need to appear in the query string
@@ -152,6 +146,7 @@ const preview = {
    */
   exportPhp() {
     // get default values from the currently selected theme
+    const themeSelect = document.querySelector("#theme");
     const selectedOption = themeSelect.options[themeSelect.selectedIndex];
     const defaultParams = selectedOption.dataset;
     // get parameters with the advanced options
@@ -225,17 +220,17 @@ const tooltip = {
   },
 };
 
-// refresh preview on interactions with the page
-const refresh = () => preview.update();
-document.addEventListener("keyup", refresh, false);
-document.addEventListener("click", refresh, false);
-const selectElements = [themeSelect, borderSelect, localeSelect, dateSelect, modeSelect];
-selectElements.forEach((element) => element.addEventListener("change", refresh, false));
-
 // when the page loads
 window.addEventListener(
   "load",
   () => {
+    // refresh preview on interactions with the page
+    const refresh = () => preview.update();
+    document.addEventListener("keyup", refresh, false);
+    document.addEventListener("click", refresh, false);
+    [...document.querySelectorAll("select:not(#properties)")].forEach((element) => {
+      element.addEventListener("change", refresh, false);
+    });
     // set input boxes to match URL parameters
     new URLSearchParams(window.location.search).forEach((val, key) => {
       const paramInput = document.querySelector(`#${key}`);
