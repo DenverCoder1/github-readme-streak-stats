@@ -47,7 +47,7 @@ const preview = {
    * @param {string} property - the name of the property, selected element is used if not provided
    * @param {string} value - the value to set the property to
    */
-  addProperty(property, value = "#DD2727FF") {
+  addProperty(property, value = "#EB5454FF") {
     const selectElement = document.querySelector("#properties");
     // if no property passed, get the currently selected property
     const propertyName = property || selectElement.value;
