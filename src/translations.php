@@ -120,6 +120,14 @@ return [
         "Longest Week Streak" => "दीर्घ साप्ताहिक योगदान",
         "Present" => "आज तक",
     ],
+     "ht" => [
+        "Total Contributions" => "kontribisyon total",
+        "Current Streak" => "tras aktyèl",
+        "Longest Streak" => "tras ki pi long",
+        "Week Streak" => "tras semèn",
+        "Longest Week Streak" => "pi long tras semèn",
+        "Present" => "Prezan",
+    ],
     "id" => [
         "Total Contributions" => "Total Kontribusi",
         "Current Streak" => "Aksi Saat Ini",
@@ -271,4 +279,5 @@ return [
         "Longest Week Streak" => "最常周連續貢獻",
         "Present" => "至今",
     ],
+      
 ];
