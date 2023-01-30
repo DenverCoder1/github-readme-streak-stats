@@ -149,6 +149,7 @@ function camelToSkewer(string $str): string
                         <button class="plus btn" onclick="return preview.addProperty();">+</button>
                     </div>
                     <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
+                    <button class="btn" type="button" onclick="return preview.removeAllProperties()">Clear Options</button>
                     <textarea id="exportedPhp" hidden></textarea>
                 </details>
 
