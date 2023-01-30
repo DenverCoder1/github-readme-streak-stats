@@ -83,6 +83,7 @@ const preview = {
       const minus = document.createElement("button");
       minus.className = "minus btn";
       minus.setAttribute("onclick", "return preview.removeProperty(this.getAttribute('data-property'));");
+      minus.setAttribute("type", "button");
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
       // add elements
