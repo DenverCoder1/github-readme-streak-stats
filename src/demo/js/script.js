@@ -37,6 +37,9 @@ const preview = {
     // disable copy button if username is invalid
     const copyButton = document.querySelector(".copy-button");
     copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+    // disable clear button if no added advanced options
+    const clearButton = document.querySelector("#clear_button");
+    clearButton.disabled = !document.querySelectorAll(".minus").length;
   },
 
   /**
