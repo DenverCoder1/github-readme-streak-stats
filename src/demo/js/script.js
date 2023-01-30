@@ -220,14 +220,17 @@ const tooltip = {
   },
 };
 
-// refresh preview on interactions with the page
-document.addEventListener("keyup", () => preview.update(), false);
-document.addEventListener("click", () => preview.update(), false);
-
 // when the page loads
 window.addEventListener(
   "load",
   () => {
+    // refresh preview on interactions with the page
+    const refresh = () => preview.update();
+    document.addEventListener("keyup", refresh, false);
+    document.addEventListener("click", refresh, false);
+    [...document.querySelectorAll("select:not(#properties)")].forEach((element) => {
+      element.addEventListener("change", refresh, false);
+    });
     // set input boxes to match URL parameters
     new URLSearchParams(window.location.search).forEach((val, key) => {
       const paramInput = document.querySelector(`#${key}`);
