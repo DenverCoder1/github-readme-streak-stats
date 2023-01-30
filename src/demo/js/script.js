@@ -37,6 +37,9 @@ const preview = {
     // disable copy button if username is invalid
     const copyButton = document.querySelector(".copy-button");
     copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+    // disable clear button if no added advanced options
+    const clearButton = document.querySelector("#clear_button");
+    clearButton.disabled = !document.querySelectorAll(".minus").length;
   },
 
   /**
@@ -118,6 +121,20 @@ const preview = {
     // update and exit
     this.update();
     return false;
+  },
+
+  /**
+   * Removes all properties from the advanced section
+   */
+  removeAllProperties() {
+    const parent = document.querySelector(".advanced .parameters");
+    const activeProperties = parent.querySelectorAll("[data-property]");
+    // select active and unique property names
+    const propertyNames = Array.prototype.map
+      .call(activeProperties, (prop) => prop.getAttribute("data-property"))
+      .filter((value, index, self) => self.indexOf(value) === index);
+    // remove each active property name
+    propertyNames.forEach((prop) => this.removeProperty(prop));
   },
 
   /**
