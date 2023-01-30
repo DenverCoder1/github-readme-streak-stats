@@ -38,7 +38,7 @@ const preview = {
     const copyButton = document.querySelector(".copy-button");
     copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
     // disable clear button if no added advanced options
-    const clearButton = document.querySelector("#clear_button");
+    const clearButton = document.querySelector("#clear-button");
     clearButton.disabled = !document.querySelectorAll(".minus").length;
   },
 
@@ -46,7 +46,6 @@ const preview = {
    * Add a property in the advanced section
    * @param {string} property - the name of the property, selected element is used if not provided
    * @param {string} value - the value to set the property to
-   * @returns {false} false to prevent the default action
    */
   addProperty(property, value = "#DD2727FF") {
     const selectElement = document.querySelector("#properties");
@@ -101,13 +100,11 @@ const preview = {
       // update and exit
       this.update();
     }
-    return false;
   },
 
   /**
    * Remove a property from the advanced section
    * @param {string} property - the name of the property to remove
-   * @returns {false} false to prevent the default action
    */
   removeProperty(property) {
     const parent = document.querySelector(".advanced .parameters");
@@ -120,7 +117,6 @@ const preview = {
     option.disabled = false;
     // update and exit
     this.update();
-    return false;
   },
 
   /**
@@ -138,7 +134,7 @@ const preview = {
   },
 
   /**
-   * Create a key-value mapping of ids to values from all elements in a Node list
+   * Create a key-value mapping of names to values from all elements in a Node list
    * @param {NodeList} elements - the elements to get the values from
    * @returns {Object} the key-value mapping
    */
@@ -154,7 +150,7 @@ const preview = {
           value = value.replace(/[Ff]{2}$/, "");
         }
       }
-      obj[next.id] = value;
+      obj[next.name] = value;
       return obj;
     }, {});
   },
@@ -177,7 +173,7 @@ const preview = {
       .join("\n");
     const output = `[\n${mappings}\n]`;
     // set the textarea value to the output
-    const textarea = document.getElementById("exportedPhp");
+    const textarea = document.getElementById("exported-php");
     textarea.value = output;
     textarea.hidden = false;
   },
@@ -190,7 +186,7 @@ const preview = {
   checkColor(color, input) {
     if (color.length === 9 && color.slice(-2) === "FF") {
       // if color has hex alpha value -> remove it
-      document.getElementById(input).value = color.slice(0, -2);
+      document.querySelector(`[name="${input}"]`).value = color.slice(0, -2);
     }
   },
 
@@ -251,7 +247,7 @@ window.addEventListener(
     });
     // set input boxes to match URL parameters
     new URLSearchParams(window.location.search).forEach((val, key) => {
-      const paramInput = document.querySelector(`#${key}`);
+      const paramInput = document.querySelector(`[name="${key}"]`);
       if (paramInput) {
         // set parameter value
         paramInput.value = val;
