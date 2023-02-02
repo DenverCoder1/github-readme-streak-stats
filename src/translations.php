@@ -219,6 +219,14 @@ return [
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
+    "sa" => [
+        "Total Contributions" => "कुल योगदानम्",
+        "Current Streak" => "क्रमशः दिवसान् चालयन्तु",
+        "Longest Streak" => "दीर्घतमाः क्रमशः दिवसाः",
+        "Week Streak" => "निरन्तरसप्ताहाः",
+        "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
+        "Present" => "वर्तमान",
+    ],
     "ta" => [
         "Total Contributions" => "மொத்த\nபங்களிப்புகள்",
         "Current Streak" => "மிக சமீபத்திய பங்களிப்புகள்",
