@@ -17,6 +17,7 @@ function buildContributionGraphQuery(string $user, int $year): string
         user(login: \"$user\") {
             createdAt
             contributionsCollection(from: \"$start\", to: \"$end\") {
+                contributionYears
                 contributionCalendar {
                     weeks {
                         contributionDays {
@@ -131,9 +132,16 @@ function getContributionGraphs(string $user): array
     // extract the year from the created datetime string
     $userCreatedYear = intval(explode("-", $userCreatedDateTimeString)[0]);
     // create an array of years from the user's created year to one year before the current year
-    $contributionYears = range($userCreatedYear, $currentYear - 1);
+    $yearsToRequest = range($userCreatedYear, $currentYear - 1);
+    // also check the first contribution year if the year is before 2005 (the year Git was created)
+    // since the user may have backdated some commits to a specific year such as 1970 (see #448)
+    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears ?? [];
+    $firstContributionYear = $contributionYears[count($contributionYears) - 1] ?? $userCreatedYear;
+    if ($firstContributionYear < 2005) {
+        array_unshift($yearsToRequest, $firstContributionYear);
+    }
     // get the contribution graphs for the previous years
-    $responses += executeContributionGraphRequests($user, $contributionYears);
+    $responses += executeContributionGraphRequests($user, $yearsToRequest);
     return $responses;
 }
 
