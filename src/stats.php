@@ -15,6 +15,7 @@ function buildContributionGraphQuery(string $user, int $year): string
     $end = "$year-12-31T23:59:59Z";
     return "query {
         user(login: \"$user\") {
+            createdAt
             contributionsCollection(from: \"$start\", to: \"$end\") {
                 contributionYears
                 contributionCalendar {
@@ -127,9 +128,13 @@ function getContributionGraphs(string $user): array
     if (empty($contributionYears)) {
         throw new AssertionError("Failed to retrieve contributions. This is likely a GitHub API issue.", 500);
     }
+    // get user's created date (YYYY-MM-DDTHH:MM:SSZ format) extract the year
+    $userCreatedDateTimeString = $responses[$currentYear]->data->user->createdAt;
+    $userCreatedYear = intval(explode("-", $userCreatedDateTimeString)[0]);
     // remove the current year from the list since it's already been fetched
-    $contributionYears = array_filter($contributionYears, function ($year) use ($currentYear) {
-        return $year !== $currentYear;
+    // and filter out any years that are before the user's account creation
+    $contributionYears = array_filter($contributionYears, function ($year) use ($currentYear, $userCreatedYear) {
+        return $year !== $currentYear && $year >= $userCreatedYear;
     });
     // get the contribution graphs for the previous years
     $responses += executeContributionGraphRequests($user, $contributionYears);
