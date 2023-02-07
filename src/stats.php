@@ -17,7 +17,6 @@ function buildContributionGraphQuery(string $user, int $year): string
         user(login: \"$user\") {
             createdAt
             contributionsCollection(from: \"$start\", to: \"$end\") {
-                contributionYears
                 contributionCalendar {
                     weeks {
                         contributionDays {
@@ -123,19 +122,16 @@ function getContributionGraphs(string $user): array
     // get the list of years the user has contributed and the current year's contribution graph
     $currentYear = intval(date("Y"));
     $responses = executeContributionGraphRequests($user, [$currentYear]);
-    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears ?? [];
+    // get user's created date (YYYY-MM-DDTHH:MM:SSZ format)
+    $userCreatedDateTimeString = $responses[$currentYear]->data->user->createdAt ?? null;
     // if there are no contribution years, an API error must have occurred
-    if (empty($contributionYears)) {
+    if (empty($userCreatedDateTimeString)) {
         throw new AssertionError("Failed to retrieve contributions. This is likely a GitHub API issue.", 500);
     }
-    // get user's created date (YYYY-MM-DDTHH:MM:SSZ format) extract the year
-    $userCreatedDateTimeString = $responses[$currentYear]->data->user->createdAt;
+    // extract the year from the created datetime string
     $userCreatedYear = intval(explode("-", $userCreatedDateTimeString)[0]);
-    // remove the current year from the list since it's already been fetched
-    // and filter out any years that are before the user's account creation
-    $contributionYears = array_filter($contributionYears, function ($year) use ($currentYear, $userCreatedYear) {
-        return $year !== $currentYear && $year >= $userCreatedYear;
-    });
+    // create an array of years from the user's created year to one year before the current year
+    $contributionYears = range($userCreatedYear, $currentYear - 1);
     // get the contribution graphs for the previous years
     $responses += executeContributionGraphRequests($user, $contributionYears);
     return $responses;
