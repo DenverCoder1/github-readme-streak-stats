@@ -15,6 +15,7 @@ function buildContributionGraphQuery(string $user, int $year): string
     $end = "$year-12-31T23:59:59Z";
     return "query {
         user(login: \"$user\") {
+            createdAt
             contributionsCollection(from: \"$start\", to: \"$end\") {
                 contributionYears
                 contributionCalendar {
@@ -122,17 +123,25 @@ function getContributionGraphs(string $user): array
     // get the list of years the user has contributed and the current year's contribution graph
     $currentYear = intval(date("Y"));
     $responses = executeContributionGraphRequests($user, [$currentYear]);
-    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears ?? [];
+    // get user's created date (YYYY-MM-DDTHH:MM:SSZ format)
+    $userCreatedDateTimeString = $responses[$currentYear]->data->user->createdAt ?? null;
     // if there are no contribution years, an API error must have occurred
-    if (empty($contributionYears)) {
+    if (empty($userCreatedDateTimeString)) {
         throw new AssertionError("Failed to retrieve contributions. This is likely a GitHub API issue.", 500);
     }
-    // remove the current year from the list since it's already been fetched
-    $contributionYears = array_filter($contributionYears, function ($year) use ($currentYear) {
-        return $year !== $currentYear;
-    });
+    // extract the year from the created datetime string
+    $userCreatedYear = intval(explode("-", $userCreatedDateTimeString)[0]);
+    // create an array of years from the user's created year to one year before the current year
+    $yearsToRequest = range($userCreatedYear, $currentYear - 1);
+    // also check the first contribution year if the year is before 2005 (the year Git was created)
+    // since the user may have backdated some commits to a specific year such as 1970 (see #448)
+    $contributionYears = $responses[$currentYear]->data->user->contributionsCollection->contributionYears ?? [];
+    $firstContributionYear = $contributionYears[count($contributionYears) - 1] ?? $userCreatedYear;
+    if ($firstContributionYear < 2005) {
+        array_unshift($yearsToRequest, $firstContributionYear);
+    }
     // get the contribution graphs for the previous years
-    $responses += executeContributionGraphRequests($user, $contributionYears);
+    $responses += executeContributionGraphRequests($user, $yearsToRequest);
     return $responses;
 }
 
