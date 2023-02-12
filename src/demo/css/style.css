@@ -121,6 +121,7 @@ h2 {
 .btn:disabled {
   background: var(--blue-transparent);
   box-shadow: none;
+  cursor: not-allowed;
 }
 
 .parameters {
@@ -199,6 +200,7 @@ input:focus:invalid {
 
 .advanced summary {
   padding: 6px;
+  cursor: pointer;
 }
 
 .advanced .parameters {
@@ -282,9 +284,10 @@ input:focus:invalid {
 .btn.tooltip:after {
   content: "";
   position: absolute;
-  transform: translateY(-27px);
+  transform: translateY(-25px);
   border-style: solid;
   border-color: #4a4a4afa transparent transparent transparent;
+  border-width: 5px;
   pointer-events: none;
   opacity: 0;
 }
@@ -302,7 +305,7 @@ input:focus:invalid {
   content: "You must first input a valid username.";
 }
 
-textarea#exportedPhp {
+textarea#exported-php {
   margin-top: 10px;
   width: 100%;
   resize: vertical;

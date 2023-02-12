@@ -68,7 +68,9 @@ return [
         "Total Contributions" => "Totalt Antal Bidrag",
         "Current Streak" => "Nuværende i Træk",
         "Longest Streak" => "Længst i Træk",
-        "Present" => "I dag",
+        "Week Streak" => "Uger i Træk",
+        "Longest Week Streak" => "Mest Uger i Træk",
+        "Present" => "I Dag",
     ],
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
@@ -119,6 +121,14 @@ return [
         "Week Streak" => "सप्ताहिक योगदान",
         "Longest Week Streak" => "दीर्घ साप्ताहिक योगदान",
         "Present" => "आज तक",
+    ],
+    "ht" => [
+        "Total Contributions" => "kontribisyon total",
+        "Current Streak" => "tras aktyèl",
+        "Longest Streak" => "tras ki pi long",
+        "Week Streak" => "tras semèn",
+        "Longest Week Streak" => "pi long tras semèn",
+        "Present" => "Prezan",
     ],
     "id" => [
         "Total Contributions" => "Total Kontribusi",
@@ -209,10 +219,20 @@ return [
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
+    "sa" => [
+        "Total Contributions" => "कुल योगदानम्",
+        "Current Streak" => "क्रमशः दिवसान् चालयन्तु",
+        "Longest Streak" => "दीर्घतमाः क्रमशः दिवसाः",
+        "Week Streak" => "निरन्तरसप्ताहाः",
+        "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
+        "Present" => "वर्तमान",
+    ],
     "ta" => [
         "Total Contributions" => "மொத்த\nபங்களிப்புகள்",
         "Current Streak" => "மிக சமீபத்திய பங்களிப்புகள்",
         "Longest Streak" => "நீண்ட\nபங்களிப்புகள்",
+        "Week Streak" => "வார\nபங்களிப்புகள்",
+        "Longest Week Streak" => "நீண்ட வார\nபங்களிப்புகள்",
         "Present" => "இன்றுவரை",
     ],
     "tr" => [
