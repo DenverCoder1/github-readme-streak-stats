@@ -137,6 +137,12 @@ function camelToSkewer(string $str): string
                     <option value="weekly">Weekly</option>
                 </select>
 
+                <label for="disable_animations">Disable Animations</label>
+                <select class="param" id="hide-border" name="disable_animations">
+                    <option>false</option>
+                    <option>true</option>
+                </select>
+
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
                     <div class="content parameters">

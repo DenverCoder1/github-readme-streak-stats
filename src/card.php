@@ -103,7 +103,7 @@ function getRequestedTheme(array $params): array
     }
 
     // hide borders
-    if (isset($params["hide_border"]) && $params["hide_border"] == "true") {
+    if (strtolower($params["hide_border"] ?? "") === "true") {
         $theme["border"] = "#0000"; // transparent
     }
 
@@ -477,6 +477,22 @@ function generateErrorCard(string $message, array $params = null): string
 }
 
 /**
+ * Remove animations from SVG
+ *
+ * @param string $svg The SVG for the card as a string
+ * @return string The SVG without animations
+ */
+function removeAnimations(string $svg): string
+{
+    $svg = preg_replace("/(<style>\X*?<\/style>)/m", "", $svg);
+    $svg = preg_replace("/(opacity: 0;)/m", "opacity: 1;", $svg);
+    $svg = preg_replace("/(animation: fadein[^;'\"]+)/m", "opacity: 1;", $svg);
+    $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
+    $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
+    return $svg;
+}
+
+/**
  * Converts an SVG card to a PNG image
  *
  * @param string $svg The SVG for the card as a string
@@ -488,11 +504,7 @@ function convertSvgToPng(string $svg): string
     $svg = trim($svg);
 
     // remove style and animations
-    $svg = preg_replace("/(<style>\X*?<\/style>)/m", "", $svg);
-    $svg = preg_replace("/(opacity: 0;)/m", "opacity: 1;", $svg);
-    $svg = preg_replace("/(animation: fadein[^;'\"]+)/m", "opacity: 1;", $svg);
-    $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
-    $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
+    $svg = removeAnimations($svg);
 
     // escape svg for shell
     $svg = escapeshellarg($svg);
@@ -521,11 +533,14 @@ function convertSvgToPng(string $svg): string
  * Return headers and response based on type
  *
  * @param string|array $output The stats (array) or error message (string) to display
+ * @param array<string,string>|NULL $params Request parameters
  * @return array The Content-Type header and the response body, and status code in case of an error
  */
-function generateOutput(string|array $output): array
+function generateOutput(string|array $output, array $params = null): array
 {
-    $requestedType = $_REQUEST["type"] ?? "svg";
+    $params = $params ?? $_REQUEST;
+
+    $requestedType = $params["type"] ?? "svg";
 
     // output JSON data
     if ($requestedType === "json") {
@@ -553,6 +568,10 @@ function generateOutput(string|array $output): array
                 "body" => generateErrorCard($e->getMessage()),
             ];
         }
+    }
+    // remove animations if disable_animations is set
+    if (strtolower($params["disable_animations"] ?? "") === "true") {
+        $svg = removeAnimations($svg);
     }
     // output SVG card
     return [
