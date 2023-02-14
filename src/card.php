@@ -103,7 +103,7 @@ function getRequestedTheme(array $params): array
     }
 
     // hide borders
-    if (strtolower($params["hide_border"] ?? "") === "true") {
+    if (isset($params["hide_border"]) && $params["hide_border"] == "true") {
         $theme["border"] = "#0000"; // transparent
     }
 
@@ -570,7 +570,7 @@ function generateOutput(string|array $output, array $params = null): array
         }
     }
     // remove animations if disable_animations is set
-    if (strtolower($params["disable_animations"] ?? "") === "true") {
+    if (isset($params["disable_animations"]) && $params["disable_animations"] == "true") {
         $svg = removeAnimations($svg);
     }
     // output SVG card
