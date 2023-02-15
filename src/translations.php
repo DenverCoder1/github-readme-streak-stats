@@ -239,6 +239,8 @@ return [
         "Total Contributions" => "Toplam Katkı",
         "Current Streak" => "Güncel Seri",
         "Longest Streak" => "En Uzun Seri",
+        "Week Streak" => "Haftalık Seri",
+        "Longest Week Streak" => "En Uzun Haftalık Seri",
         "Present" => "Şu an",
     ],
     "uk" => [
