@@ -494,6 +494,15 @@ function convertSvgToPng(string $svg): string
     $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
     $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
 
+    // replace all fully transparent colors in fill or stroke with "none"
+    // this is a workaround for what seems to be a bug in inkscape where rgba alpha values are ignored
+    // TODO: find a way to make partially transparent colors work (eg. #ffffff50)
+    $svg = preg_replace(
+        "/(fill|stroke)=['\"](?:#[0-9a-fA-F]{6}00|#[0-9a-fA-F]{3}0|transparent)['\"]/m",
+        '\1="none"',
+        $svg
+    );
+
     // escape svg for shell
     $svg = escapeshellarg($svg);
 
