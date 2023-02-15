@@ -134,4 +134,20 @@ final class RenderTest extends TestCase
             splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0)
         );
     }
+
+    /**
+     * Test disable_animations parameter
+     */
+    public function testDisableAnimations(): void
+    {
+        $this->testParams["disable_animations"] = "true";
+        // Check that the card is rendered as expected
+        $response = generateOutput($this->testStats, $this->testParams);
+        $render = $response["body"];
+        $this->assertStringNotContainsString("opacity: 0;", $render);
+        $this->assertStringContainsString("opacity: 1;", $render);
+        $this->assertStringContainsString("font-size: 28px;", $render);
+        $this->assertStringNotContainsString("animation:", $render);
+        $this->assertStringNotContainsString("<style>", $render);
+    }
 }
