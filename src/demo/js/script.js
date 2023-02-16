@@ -31,10 +31,21 @@ const preview = {
     const demoImageURL = `preview.php?${query}`;
     const repoLink = "https://git.io/streak-stats";
     const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
-    // update image preview
-    document.querySelector(".output img").src = demoImageURL;
-    // update markdown
-    document.querySelector(".md code").innerText = md;
+    // update preview
+    if (params.type !== "json") {
+      document.querySelector(".output img").src = demoImageURL;
+      document.querySelector(".md code").innerText = md;
+      document.querySelector(".output img").style.display = "block";
+      document.querySelector(".output .json").style.display = "none";
+    } else {
+      document.querySelector(".output img").style.display = "none";
+      document.querySelector(".output .json").style.display = "block";
+      fetch(demoImageURL)
+        .then((response) => response.json())
+        .then((data) => (document.querySelector(".output .json pre").innerText = JSON.stringify(data, null, 2)))
+        .catch(console.error);
+      document.querySelector(".md code").innerText = imageURL;
+    }
     // disable copy button if username is invalid
     const copyButton = document.querySelector(".copy-button");
     copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
@@ -87,12 +98,12 @@ const preview = {
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
       // add elements
-      const parent = document.querySelector(".advanced .parameters");
+      const parent = document.querySelector(".advanced .color-properties");
       parent.appendChild(label);
       parent.appendChild(input);
       parent.appendChild(minus);
 
-      //initialise jscolor on element
+      // initialise jscolor on element
       jscolor.install(parent);
 
       // check initial color value
@@ -108,7 +119,7 @@ const preview = {
    * @param {string} property - the name of the property to remove
    */
   removeProperty(property) {
-    const parent = document.querySelector(".advanced .parameters");
+    const parent = document.querySelector(".advanced .color-properties");
     const selectElement = document.querySelector("#properties");
     // remove all elements for given property
     parent.querySelectorAll(`[data-property="${property}"]`).forEach((x) => parent.removeChild(x));
@@ -124,7 +135,7 @@ const preview = {
    * Removes all properties from the advanced section
    */
   removeAllProperties() {
-    const parent = document.querySelector(".advanced .parameters");
+    const parent = document.querySelector(".advanced .color-properties");
     const activeProperties = parent.querySelectorAll("[data-property]");
     // select active and unique property names
     const propertyNames = Array.prototype.map
@@ -199,6 +210,8 @@ const preview = {
   pickerChange(picker, input) {
     // color was changed by picker - check it
     this.checkColor(picker.toHEXAString(), input);
+    // update preview
+    this.update();
   },
 };
 
@@ -242,7 +255,6 @@ window.addEventListener(
     // refresh preview on interactions with the page
     const refresh = () => preview.update();
     document.addEventListener("keyup", refresh, false);
-    document.addEventListener("click", refresh, false);
     [...document.querySelectorAll("select:not(#properties)")].forEach((element) => {
       element.addEventListener("change", refresh, false);
     });
