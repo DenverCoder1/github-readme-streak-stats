@@ -29,10 +29,10 @@ const preview = {
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
     const demoImageURL = `preview.php?${query}`;
-    const repoLink = "https://git.io/streak-stats";
-    const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
     // update preview
     if (params.type !== "json") {
+      const repoLink = "https://git.io/streak-stats";
+      const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
       document.querySelector(".output img").src = demoImageURL;
       document.querySelector(".md code").innerText = md;
       document.querySelector(".output img").style.display = "block";
