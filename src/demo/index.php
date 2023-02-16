@@ -168,7 +168,9 @@ function camelToSkewer(string $str): string
             <div class="top">
                 <h2>Preview</h2>
                 <img alt="GitHub Readme Streak Stats" src="preview.php?user=" />
-                <div class="json"><pre></pre></div>
+                <div class="json" style="display: none;">
+                    <pre></pre>
+                </div>
                 <p class="warning">
                     Note: The stats above are just examples and not from your GitHub profile.
                 </p>
