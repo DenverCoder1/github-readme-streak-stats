@@ -12,7 +12,6 @@ const preview = {
     locale: "en",
     border_radius: "4.5",
     mode: "daily",
-    disable_animations: "false",
     type: "svg",
   },
 
