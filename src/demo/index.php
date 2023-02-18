@@ -47,8 +47,8 @@ function camelToSkewer(string $str): string
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
     <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/toggle-dark.css">
+    <link rel="stylesheet" href="./css/style.css?v=<?= filemtime("./css/style.css") ?>">
+    <link rel="stylesheet" href="./css/toggle-dark.css?v=<?= filemtime("./css/toggle-dark.css") ?>">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -56,10 +56,10 @@ function camelToSkewer(string $str): string
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="mask-icon" href="icon.svg" color="#fb8c00">
 
-    <script type="text/javascript" src="./js/script.js" defer></script>
-    <script type="text/javascript" src="./js/accordion.js" defer></script>
-    <script type="text/javascript" src="./js/toggle-dark.js" defer></script>
-    <script type="text/javascript" src="./js/jscolor.min.js" defer></script>
+    <script type="text/javascript" src="./js/script.js?v=<?= filemtime("./js/script.js") ?>" defer></script>
+    <script type="text/javascript" src="./js/accordion.js?v=<?= filemtime("./js/accordion.js") ?>" defer></script>
+    <script type="text/javascript" src="./js/toggle-dark.js?v=<?= filemtime("./js/toggle-dark.js") ?>" defer></script>
+    <script type="text/javascript" src="./js/jscolor.min.js?v=<?= filemtime("./js/jscolor.min.js") ?>" defer></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
@@ -137,15 +137,16 @@ function camelToSkewer(string $str): string
                     <option value="weekly">Weekly</option>
                 </select>
 
-                <label for="disable_animations">Disable Animations</label>
-                <select class="param" id="hide-border" name="disable_animations">
-                    <option>false</option>
-                    <option>true</option>
+                <label for="type">Output Type</label>
+                <select class="param" id="type" name="type">
+                    <option value="svg">SVG</option>
+                    <option value="png">PNG</option>
+                    <option value="json">JSON</option>
                 </select>
 
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
-                    <div class="content parameters">
+                    <div class="content color-properties parameters">
                         <label for="theme">Add Property</label>
                         <select id="properties" name="properties">
                             <?php foreach ($THEMES["default"] as $option => $color): ?>
@@ -167,6 +168,9 @@ function camelToSkewer(string $str): string
             <div class="top">
                 <h2>Preview</h2>
                 <img alt="GitHub Readme Streak Stats" src="preview.php?user=" />
+                <div class="json" style="display: none;">
+                    <pre></pre>
+                </div>
                 <p class="warning">
                     Note: The stats above are just examples and not from your GitHub profile.
                 </p>

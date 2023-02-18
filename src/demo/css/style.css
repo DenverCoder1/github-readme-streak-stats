@@ -205,10 +205,13 @@ input:focus:invalid {
 
 .advanced .parameters {
   margin-top: 8px;
+}
+
+.advanced .color-properties {
   grid-template-columns: auto 1fr auto;
 }
 
-.advanced .parameters label:first-of-type {
+.advanced .color-properties label:first-of-type {
   font-weight: bold;
 }
 
@@ -239,7 +242,8 @@ input:focus:invalid {
   border-left: 4px solid var(--yellow);
 }
 
-.output .md {
+.output .md,
+.output .json {
   background: var(--border);
   border-radius: 6px;
   padding: 12px 16px;
