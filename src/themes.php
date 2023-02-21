@@ -1142,4 +1142,16 @@ return [
         "sideLabels" => "#FF8888",
         "dates" => "#FF8650",
     ],
+    "rising-sun" => [
+        "background" => "#0C1116",
+        "border" => "#E4E3E3",
+        "stroke" => "#E4E3E3",
+        "ring" => "#F6882B",
+        "currStreakNum" => "#FFFFFF",
+        "fire" => "#F6882B",
+        "sideNums" => "#FFFFFF",
+        "currStreakLabel" => "#FFF7ed",
+        "sideLabels" => "#FFF7ed",
+        "dates" => "#F6882B",
+    ],
 ];
