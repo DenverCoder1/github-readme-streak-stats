@@ -54,6 +54,17 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 }
 
 /**
+ * Normalize a theme name
+ *
+ * @param string $theme Theme name
+ * @return string Normalized theme name
+ */
+function normalizeThemeName(string $theme): string
+{
+    return strtolower(str_replace("_", "-", $theme));
+}
+
+/**
  * Check theme and color customization parameters to generate a theme mapping
  *
  * @param array<string,string> $params Request parameters
@@ -73,9 +84,12 @@ function getRequestedTheme(array $params): array
      */
     $CSS_COLORS = include "colors.php";
 
+    // normalize theme name
+    $selectedTheme = normalizeThemeName($params["theme"] ?? "default");
+
     // get theme colors
-    if (isset($params["theme"]) && array_key_exists($params["theme"], $THEMES)) {
-        $theme = $THEMES[$params["theme"]];
+    if (array_key_exists($selectedTheme, $THEMES)) {
+        $theme = $THEMES[$selectedTheme];
     }
     // no theme specified, get default
     else {
