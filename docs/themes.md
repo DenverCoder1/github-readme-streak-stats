@@ -106,11 +106,9 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |        `gruvbox-light`        | ![image](https://user-images.githubusercontent.com/20955511/221585454-f9474df6-bbf4-4e3a-91e4-5e9e090e90c0.png)  |
 |           `outrun`            | ![image](https://user-images.githubusercontent.com/20955511/221585435-d39df945-6387-4e3e-abdf-0af7dd0dabef.png)  |
 |         `ocean-dark`          | ![image](https://user-images.githubusercontent.com/20955511/221585476-3eb2d25c-346b-4562-808e-bf09a59b17cd.png)  |
-|         `city-lights`         | ![image](https://user-images.githubusercontent.com/20955511/221585508-80d934de-ef46-4c12-9ff4-27c4a6d16846.png)  |
 |     `discord-old-blurple`     | ![image](https://user-images.githubusercontent.com/20955511/221585526-e191cb4c-9957-4ec9-85ec-8916ac691b40.png)  |
 |          `aura-dark`          | ![image](https://user-images.githubusercontent.com/20955511/221585541-88c2a657-dbe7-47a2-b6f9-9e3cdf1fbbfe.png)  |
 |            `panda`            | ![image](https://user-images.githubusercontent.com/20955511/221585562-1f7edc63-41c7-43c6-ac33-fd0ecb32ec5f.png)  |
-|       `noctis-minimus`        | ![image](https://user-images.githubusercontent.com/20955511/221585589-e53f7e7b-fe26-4174-aab5-bda45a6e95a2.png)  |
 |           `cobalt2`           | ![image](https://user-images.githubusercontent.com/20955511/221585614-256d590d-9c45-43a8-be15-48231e418bf2.png)  |
 |            `swift`            | ![image](https://user-images.githubusercontent.com/20955511/221585640-666641b9-cc29-435c-948f-f50e58a6b330.png)  |
 |            `aura`             | ![image](https://user-images.githubusercontent.com/20955511/221585659-f4e8a547-7f98-4438-aba9-8f13ffbcc657.png)  |
