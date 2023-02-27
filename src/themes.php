@@ -38,6 +38,18 @@ return [
         "sideLabels" => "#ffffff",
         "dates" => "#c5c5c5",
     ],
+    "transparent" => [
+        "background" => "#0000",
+        "border" => "#E4E2E2",
+        "stroke" => "#E4E2E2",
+        "ring" => "#006AFF",
+        "fire" => "#006AFF",
+        "currStreakNum" => "#0579C3",
+        "sideNums" => "#006AFF",
+        "currStreakLabel" => "#0579C3",
+        "sideLabels" => "#006AFF",
+        "dates" => "#417E87",
+    ],
     "radical" => [
         "background" => "#141321",
         "border" => "#e4e2e2",
