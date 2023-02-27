@@ -1150,8 +1150,8 @@ return [
         "currStreakNum" => "#FFFFFF",
         "fire" => "#F6882B",
         "sideNums" => "#FFFFFF",
-        "currStreakLabel" => "#FFF7ed",
-        "sideLabels" => "#FFF7ed",
+        "currStreakLabel" => "#FFF7ED",
+        "sideLabels" => "#FFF7ED",
         "dates" => "#F6882B",
     ],
 ];
