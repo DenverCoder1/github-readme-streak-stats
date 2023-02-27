@@ -10,14 +10,14 @@ require_once "src/card.php";
 final class OptionsTest extends TestCase
 {
     private $defaultTheme = [
-        "background" => "#fffefe",
-        "border" => "#e4e2e2",
-        "stroke" => "#e4e2e2",
-        "ring" => "#fb8c00",
-        "fire" => "#fb8c00",
+        "background" => "#FFFEFE",
+        "border" => "#E4E2E2",
+        "stroke" => "#E4E2E2",
+        "ring" => "#FB8C00",
+        "fire" => "#FB8C00",
         "currStreakNum" => "#151515",
         "sideNums" => "#151515",
-        "currStreakLabel" => "#fb8c00",
+        "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#151515",
         "dates" => "#464646",
     ];
@@ -30,10 +30,13 @@ final class OptionsTest extends TestCase
         // check that getRequestedTheme returns correct colors for each theme
         $themes = include "src/themes.php";
         foreach ($themes as $theme => $colors) {
-            $params = ["theme" => $theme];
-            $actualColors = getRequestedTheme($params);
+            $actualColors = getRequestedTheme(["theme" => $theme]);
             $this->assertEquals($colors, $actualColors);
         }
+        // test old theme names
+        $this->assertEquals($themes["holi-theme"], getRequestedTheme(["theme" => "holi_theme"]));
+        $this->assertEquals($themes["gruvbox-duo"], getRequestedTheme(["theme" => "gruvbox_duo"]));
+        $this->assertEquals($themes["deepblue"], getRequestedTheme(["theme" => "deepBlue"]));
     }
 
     /**
@@ -55,7 +58,7 @@ final class OptionsTest extends TestCase
     {
         // check that all themes contain all parameters and have valid values
         $themes = include "src/themes.php";
-        $hexRegex = "/^#([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/";
+        $hexRegex = "/^#([A-F0-9]{3}|[A-F0-9]{4}|[A-F0-9]{6}|[A-F0-9]{8})$/";
         foreach ($themes as $theme => $colors) {
             // check that there are no extra keys in the theme
             $this->assertEquals(
@@ -70,8 +73,14 @@ final class OptionsTest extends TestCase
                 // check that the key is a valid hex color
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
-                    strtolower($colors[$param]),
+                    strtoupper($colors[$param]),
                     "The parameter '$param' of '$theme' is not a valid hex color."
+                );
+                // check that the key is a valid hex color in uppercase
+                $this->assertMatchesRegularExpression(
+                    $hexRegex,
+                    $colors[$param],
+                    "The parameter '$param' of '$theme' should not contain lowercase letters."
                 );
             }
         }
@@ -192,5 +201,32 @@ final class OptionsTest extends TestCase
         $year = date("Y");
         $formatted = formatDate("$year-04-12", "Y/m/d", "en");
         $this->assertEquals("$year/04/12", $formatted);
+    }
+
+    /**
+     * Test normalizing theme name
+     */
+    public function testNormalizeThemeName(): void
+    {
+        $this->assertEquals("mytheme", normalizeThemeName("myTheme"));
+        $this->assertEquals("my-theme", normalizeThemeName("My_Theme"));
+        $this->assertEquals("my-theme", normalizeThemeName("my_theme"));
+        $this->assertEquals("my-theme", normalizeThemeName("my-theme"));
+    }
+
+    /**
+     * Test all theme names are normalized
+     */
+    public function testAllThemeNamesNormalized(): void
+    {
+        $themes = include "src/themes.php";
+        foreach (array_keys($themes) as $theme) {
+            $normalized = normalizeThemeName($theme);
+            $this->assertEquals(
+                $theme,
+                $normalized,
+                "Theme name '$theme' is not normalized. It should contain only lowercase letters, numbers, and dashes. Consider renaming it to '$normalized'."
+            );
+        }
     }
 }
