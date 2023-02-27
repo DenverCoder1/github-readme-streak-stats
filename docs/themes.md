@@ -103,6 +103,24 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |        `violet-punch`         | ![image](https://user-images.githubusercontent.com/20955511/199313653-d678d969-facd-4f8d-b36e-2d0ee2ce61a5.png)  |
 |      `submarine-flowers`      | ![image](https://user-images.githubusercontent.com/20955511/201519290-14d69c90-ce17-4c63-9020-7b244ebc6fab.png)  |
 |         `rising-sun`          | ![image](https://user-images.githubusercontent.com/20955511/221126697-2c47639d-23c5-4c23-b545-d883063deebf.png)  |
+|        `gruvbox_light`        | ![image](https://user-images.githubusercontent.com/20955511/221585454-f9474df6-bbf4-4e3a-91e4-5e9e090e90c0.png)  |
+|           `outrun`            | ![image](https://user-images.githubusercontent.com/20955511/221585435-d39df945-6387-4e3e-abdf-0af7dd0dabef.png)  |
+|         `ocean_dark`          | ![image](https://user-images.githubusercontent.com/20955511/221585476-3eb2d25c-346b-4562-808e-bf09a59b17cd.png)  |
+|         `city_lights`         | ![image](https://user-images.githubusercontent.com/20955511/221585508-80d934de-ef46-4c12-9ff4-27c4a6d16846.png)  |
+|     `discord_old_blurple`     | ![image](https://user-images.githubusercontent.com/20955511/221585526-e191cb4c-9957-4ec9-85ec-8916ac691b40.png)  |
+|          `aura_dark`          | ![image](https://user-images.githubusercontent.com/20955511/221585541-88c2a657-dbe7-47a2-b6f9-9e3cdf1fbbfe.png)  |
+|            `panda`            | ![image](https://user-images.githubusercontent.com/20955511/221585562-1f7edc63-41c7-43c6-ac33-fd0ecb32ec5f.png)  |
+|       `noctis_minimus`        | ![image](https://user-images.githubusercontent.com/20955511/221585589-e53f7e7b-fe26-4174-aab5-bda45a6e95a2.png)  |
+|           `cobalt2`           | ![image](https://user-images.githubusercontent.com/20955511/221585614-256d590d-9c45-43a8-be15-48231e418bf2.png)  |
+|            `swift`            | ![image](https://user-images.githubusercontent.com/20955511/221585640-666641b9-cc29-435c-948f-f50e58a6b330.png)  |
+|            `aura`             | ![image](https://user-images.githubusercontent.com/20955511/221585659-f4e8a547-7f98-4438-aba9-8f13ffbcc657.png)  |
+|         `apprentice`          | ![image](https://user-images.githubusercontent.com/20955511/221585690-155c5b01-988e-4e1c-a588-94edb0913800.png)  |
+|           `moltack`           | ![image](https://user-images.githubusercontent.com/20955511/221585716-9e9a9bb6-17cf-458d-826c-1d9a659cdcec.png)  |
+|         `codeSTACKr`          | ![image](https://user-images.githubusercontent.com/20955511/221585743-c836e303-9b9a-4caf-bd12-ef83bf39bf54.png)  |
+|          `rose_pine`          | ![image](https://user-images.githubusercontent.com/20955511/221585761-b7df70e8-b2c4-446a-a6fc-4fd13aa18117.png)  |
+|         `date_night`          | ![image](https://user-images.githubusercontent.com/20955511/221585779-db7f394d-b3c6-49e4-ad75-bbba97530765.png)  |
+|        `one_dark_pro`         | ![image](https://user-images.githubusercontent.com/20955511/221585805-1d10928a-286c-4945-95ed-a7317e56692f.png)  |
+|            `rose`             | ![image](https://user-images.githubusercontent.com/20955511/221585827-e566b73a-e0c0-4711-b48c-667e6500d44e.png)  |
 
 ### Can't find the theme you like?
 
