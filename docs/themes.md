@@ -9,6 +9,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |           `default`           | ![image](https://user-images.githubusercontent.com/107488620/183304039-a1fcf05c-0112-493a-9188-778708dc9e8f.png) |
 |            `dark`             | ![image](https://user-images.githubusercontent.com/107488620/183304038-2788ab5d-4c02-45e9-a724-990f27061c54.png) |
 |        `highcontrast`         | ![image](https://user-images.githubusercontent.com/107488620/183304037-0e54b5e6-f39a-481d-806f-3369d257a391.png) |
+|         `transparent`         | ![image](https://user-images.githubusercontent.com/20955511/221571948-1b69a2cc-87af-4e96-83fa-f01278c22c33.png)  |
 |           `radical`           | ![image](https://user-images.githubusercontent.com/20955511/183303809-eb8fea2f-d56b-4ad3-9f6d-ef55f8812ed2.png)  |
 |            `merko`            | ![image](https://user-images.githubusercontent.com/20955511/183303806-4ce9e5bb-6bd7-4914-a4ff-47edee01bde3.png)  |
 |           `gruvbox`           | ![image](https://user-images.githubusercontent.com/20955511/183303804-95ff960f-ad52-4026-8627-a67f1599cee3.png)  |
