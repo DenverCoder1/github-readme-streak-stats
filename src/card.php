@@ -87,14 +87,8 @@ function getRequestedTheme(array $params): array
     // normalize theme name
     $selectedTheme = normalizeThemeName($params["theme"] ?? "default");
 
-    // get theme colors
-    if (array_key_exists($selectedTheme, $THEMES)) {
-        $theme = $THEMES[$selectedTheme];
-    }
-    // no theme specified, get default
-    else {
-        $theme = $THEMES["default"];
-    }
+    // get theme colors, or default colors if theme not found
+    $theme = $THEMES[$selectedTheme] ?? $THEMES["default"];
 
     // personal theme customizations
     $properties = array_keys($theme);
