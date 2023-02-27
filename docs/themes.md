@@ -101,6 +101,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |          `halloween`          | ![image](https://user-images.githubusercontent.com/20955511/198897937-a3c918ea-0f35-43a0-9faf-80ad8f254cdf.png)  |
 |        `violet-punch`         | ![image](https://user-images.githubusercontent.com/20955511/199313653-d678d969-facd-4f8d-b36e-2d0ee2ce61a5.png)  |
 |      `submarine-flowers`      | ![image](https://user-images.githubusercontent.com/20955511/201519290-14d69c90-ce17-4c63-9020-7b244ebc6fab.png)  |
+|         `rising-sun`          | ![image](https://user-images.githubusercontent.com/20955511/221126697-2c47639d-23c5-4c23-b545-d883063deebf.png)  |
 
 ### Can't find the theme you like?
 
