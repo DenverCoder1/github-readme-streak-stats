@@ -2,7 +2,9 @@
 
 To enable a theme, append `&theme=` followed by the theme name to the end of your url.
 
-You can also try out and customize these themes on the [Demo Site](https://streak-stats.demolab.com/demo/).
+You can also try out and customize these themes on the [Demo Site](https://streak-stats.demolab.com/demo/)!
+
+Note: Theme names provided are case-insensitive and any use of underscores will be treated the same as hyphens.
 
 |             Theme             |                                                     Preview                                                      |
 | :---------------------------: | :--------------------------------------------------------------------------------------------------------------: |
@@ -125,3 +127,5 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 You can now customize your stats card with the interactive [Demo Site](https://streak-stats.demolab.com/demo/) or by customizing the [url parameters](/README.md#-options).
 
 If you would like to share your theme with others, feel free to open an issue/pull request!
+
+Note: When submitting a new theme, make sure the name is all lowercase. Hyphens are allowed between words, but there should be no underscores. On the demo site, you can export a list of colors from the advanced section by clicking "Export to PHP".
