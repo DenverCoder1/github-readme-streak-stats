@@ -2,21 +2,24 @@
 
 To enable a theme, append `&theme=` followed by the theme name to the end of your url.
 
-You can also try out and customize these themes on the [Demo Site](https://streak-stats.demolab.com/demo/).
+You can also try out and customize these themes on the [Demo Site](https://streak-stats.demolab.com/demo/)!
+
+Note: Theme names provided are case-insensitive and any use of underscores will be treated the same as hyphens.
 
 |             Theme             |                                                     Preview                                                      |
 | :---------------------------: | :--------------------------------------------------------------------------------------------------------------: |
 |           `default`           | ![image](https://user-images.githubusercontent.com/107488620/183304039-a1fcf05c-0112-493a-9188-778708dc9e8f.png) |
 |            `dark`             | ![image](https://user-images.githubusercontent.com/107488620/183304038-2788ab5d-4c02-45e9-a724-990f27061c54.png) |
 |        `highcontrast`         | ![image](https://user-images.githubusercontent.com/107488620/183304037-0e54b5e6-f39a-481d-806f-3369d257a391.png) |
+|         `transparent`         | ![image](https://user-images.githubusercontent.com/20955511/221571948-1b69a2cc-87af-4e96-83fa-f01278c22c33.png)  |
 |           `radical`           | ![image](https://user-images.githubusercontent.com/20955511/183303809-eb8fea2f-d56b-4ad3-9f6d-ef55f8812ed2.png)  |
 |            `merko`            | ![image](https://user-images.githubusercontent.com/20955511/183303806-4ce9e5bb-6bd7-4914-a4ff-47edee01bde3.png)  |
 |           `gruvbox`           | ![image](https://user-images.githubusercontent.com/20955511/183303804-95ff960f-ad52-4026-8627-a67f1599cee3.png)  |
-|         `gruvbox_duo`         | ![image](https://user-images.githubusercontent.com/20955511/183303801-eb1d8dea-7f89-4075-b334-542bb546dfcd.png)  |
+|         `gruvbox-duo`         | ![image](https://user-images.githubusercontent.com/20955511/183303801-eb1d8dea-7f89-4075-b334-542bb546dfcd.png)  |
 |         `tokyonight`          | ![image](https://user-images.githubusercontent.com/20955511/183303799-e039b635-5424-437b-9f87-7ed9dca8aea6.png)  |
-|       `tokyonight_duo`        | ![image](https://user-images.githubusercontent.com/20955511/183303796-03bb6eb2-667f-492b-8397-efd2ad93edeb.png)  |
+|       `tokyonight-duo`        | ![image](https://user-images.githubusercontent.com/20955511/183303796-03bb6eb2-667f-492b-8397-efd2ad93edeb.png)  |
 |           `onedark`           | ![image](https://user-images.githubusercontent.com/20955511/183303794-54389af4-24f3-41e6-9d70-2e949d19227e.png)  |
-|         `onedark_duo`         | ![image](https://user-images.githubusercontent.com/20955511/183303791-a4a6d5f0-ab3a-4f6e-b4cc-a87bb24fd135.png)  |
+|         `onedark-duo`         | ![image](https://user-images.githubusercontent.com/20955511/183303791-a4a6d5f0-ab3a-4f6e-b4cc-a87bb24fd135.png)  |
 |           `cobalt`            | ![image](https://user-images.githubusercontent.com/20955511/183303787-eaa77366-6f13-4dc8-a0fa-637ac5333612.png)  |
 |          `synthwave`          | ![image](https://user-images.githubusercontent.com/20955511/183303784-6257055f-d206-4d1a-bdb9-95e9dd7052fb.png)  |
 |           `dracula`           | ![image](https://user-images.githubusercontent.com/20955511/183303782-2231d9eb-9b65-4cf9-9e26-f4cfb773abf6.png)  |
@@ -51,15 +54,15 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |         `maroongold`          | ![image](https://user-images.githubusercontent.com/20955511/183303731-08ca9109-551d-4052-a17f-630cbb0cf323.png)  |
 |            `yeblu`            | ![image](https://user-images.githubusercontent.com/20955511/183303730-5ffad264-362d-4ee6-82b2-15b8a8669462.png)  |
 |          `blueberry`          | ![image](https://user-images.githubusercontent.com/20955511/183303729-f3c89ba7-efef-437e-9a05-fa5feebb9d72.png)  |
-|        `blueberry_duo`        | ![image](https://user-images.githubusercontent.com/20955511/183303728-4d209b8c-536f-4921-aa43-6371f1e313fe.png)  |
+|        `blueberry-duo`        | ![image](https://user-images.githubusercontent.com/20955511/183303728-4d209b8c-536f-4921-aa43-6371f1e313fe.png)  |
 |         `slateorange`         | ![image](https://user-images.githubusercontent.com/20955511/183303727-7ffec3ef-1303-4096-bd0f-f8fc1e4949e6.png)  |
-|          `kacho_ga`           | ![image](https://user-images.githubusercontent.com/20955511/183303726-9adaaf73-2ea8-4b78-a3f4-7382ce299511.png)  |
+|          `kacho-ga`           | ![image](https://user-images.githubusercontent.com/20955511/183303726-9adaaf73-2ea8-4b78-a3f4-7382ce299511.png)  |
 |       `ads-juicy-fresh`       | ![image](https://user-images.githubusercontent.com/20955511/183303725-25851d72-963a-4532-a5ca-1eaae6c4c224.png)  |
 |          `black-ice`          | ![image](https://user-images.githubusercontent.com/20955511/183303724-de45e18a-d4f8-48ae-88c1-d54a35d2ecea.png)  |
 |         `soft-green`          | ![image](https://user-images.githubusercontent.com/20955511/183303722-3ae70df8-87ff-4b3b-a941-f84cef5dddf4.png)  |
 |            `blood`            | ![image](https://user-images.githubusercontent.com/20955511/183303721-a22ea310-ebab-4ef5-bab9-2f1d7e7c566d.png)  |
 |         `blood-dark`          | ![image](https://user-images.githubusercontent.com/20955511/183303720-487819af-3c20-4854-8ae1-85d70115cf80.png)  |
-|          `green_nur`          | ![image](https://user-images.githubusercontent.com/20955511/183303719-dc5ad223-cdd6-4830-9ffb-0ae965ec0159.png)  |
+|          `green-nur`          | ![image](https://user-images.githubusercontent.com/20955511/183303719-dc5ad223-cdd6-4830-9ffb-0ae965ec0159.png)  |
 |          `neon-dark`          | ![image](https://user-images.githubusercontent.com/20955511/183303718-8b043f5f-8d87-4370-ac42-38032e230d6e.png)  |
 |       `neon-palenight`        | ![image](https://user-images.githubusercontent.com/20955511/183303716-bf924275-320f-44b6-8ad7-6a5f786ee9e6.png)  |
 |         `dark-smoky`          | ![image](https://user-images.githubusercontent.com/20955511/183303715-baad8600-943a-4ad6-85d9-f7c2a46eab41.png)  |
@@ -67,7 +70,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |         `city-lights`         | ![image](https://user-images.githubusercontent.com/20955511/183303712-c9aa7429-eece-4d03-8c10-fbf28c77d495.png)  |
 |            `blux`             | ![image](https://user-images.githubusercontent.com/20955511/183303711-ed60bb0e-9392-468b-a344-22debb20613a.png)  |
 |            `earth`            | ![image](https://user-images.githubusercontent.com/20955511/183303710-b3c336ad-df6d-4529-aa95-6808bfe907dc.png)  |
-|          `deepBlue`           | ![image](https://user-images.githubusercontent.com/20955511/183303709-823b626b-d9c6-4e12-a146-e641a0345a2f.png)  |
+|          `deepblue`           | ![image](https://user-images.githubusercontent.com/20955511/183303709-823b626b-d9c6-4e12-a146-e641a0345a2f.png)  |
 |         `holi-theme`          | ![image](https://user-images.githubusercontent.com/20955511/183303708-83f5f757-5692-4e24-8e66-daaa8bca6b5b.png)  |
 |          `ayu-light`          | ![image](https://user-images.githubusercontent.com/20955511/183303707-fb381b09-9963-48c8-90b9-f6b5bc67c85a.png)  |
 |         `javascript`          | ![image](https://user-images.githubusercontent.com/20955511/183303706-4b4e34ef-6d43-4255-9a58-1d35c3127ff7.png)  |
@@ -83,7 +86,7 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |           `garden`            | ![image](https://user-images.githubusercontent.com/20955511/183303692-ea99a78d-be75-43fa-80ca-83f3ae454a35.png)  |
 |     `github-green-purple`     | ![image](https://user-images.githubusercontent.com/20955511/183303691-278ec85a-197d-4a6b-abf3-593e4cc8492b.png)  |
 |           `icegray`           | ![image](https://user-images.githubusercontent.com/20955511/183303690-7d798870-dd80-4d71-b5c2-775cc3555e14.png)  |
-|        `neon_blurange`        | ![image](https://user-images.githubusercontent.com/20955511/183303688-7a4ceb50-84e8-47ca-8cf0-14f212227ce6.png)  |
+|        `neon-blurange`        | ![image](https://user-images.githubusercontent.com/20955511/183303688-7a4ceb50-84e8-47ca-8cf0-14f212227ce6.png)  |
 |         `yellowdark`          | ![image](https://user-images.githubusercontent.com/20955511/183303687-49da2ffe-5fc9-4a0b-9ca9-c46bc394ec03.png)  |
 |          `java-dark`          | ![image](https://user-images.githubusercontent.com/20955511/183303686-a652b2fb-daae-4390-b245-71610aa54ef7.png)  |
 |        `android-dark`         | ![image](https://user-images.githubusercontent.com/20955511/183303685-fed30ead-2660-48bc-b724-04fe3c394c7f.png)  |
@@ -101,9 +104,28 @@ You can also try out and customize these themes on the [Demo Site](https://strea
 |          `halloween`          | ![image](https://user-images.githubusercontent.com/20955511/198897937-a3c918ea-0f35-43a0-9faf-80ad8f254cdf.png)  |
 |        `violet-punch`         | ![image](https://user-images.githubusercontent.com/20955511/199313653-d678d969-facd-4f8d-b36e-2d0ee2ce61a5.png)  |
 |      `submarine-flowers`      | ![image](https://user-images.githubusercontent.com/20955511/201519290-14d69c90-ce17-4c63-9020-7b244ebc6fab.png)  |
+|         `rising-sun`          | ![image](https://user-images.githubusercontent.com/20955511/221126697-2c47639d-23c5-4c23-b545-d883063deebf.png)  |
+|        `gruvbox-light`        | ![image](https://user-images.githubusercontent.com/20955511/221585454-f9474df6-bbf4-4e3a-91e4-5e9e090e90c0.png)  |
+|           `outrun`            | ![image](https://user-images.githubusercontent.com/20955511/221585435-d39df945-6387-4e3e-abdf-0af7dd0dabef.png)  |
+|         `ocean-dark`          | ![image](https://user-images.githubusercontent.com/20955511/221585476-3eb2d25c-346b-4562-808e-bf09a59b17cd.png)  |
+|     `discord-old-blurple`     | ![image](https://user-images.githubusercontent.com/20955511/221585526-e191cb4c-9957-4ec9-85ec-8916ac691b40.png)  |
+|          `aura-dark`          | ![image](https://user-images.githubusercontent.com/20955511/221585541-88c2a657-dbe7-47a2-b6f9-9e3cdf1fbbfe.png)  |
+|            `panda`            | ![image](https://user-images.githubusercontent.com/20955511/221585562-1f7edc63-41c7-43c6-ac33-fd0ecb32ec5f.png)  |
+|           `cobalt2`           | ![image](https://user-images.githubusercontent.com/20955511/221585614-256d590d-9c45-43a8-be15-48231e418bf2.png)  |
+|            `swift`            | ![image](https://user-images.githubusercontent.com/20955511/221585640-666641b9-cc29-435c-948f-f50e58a6b330.png)  |
+|            `aura`             | ![image](https://user-images.githubusercontent.com/20955511/221585659-f4e8a547-7f98-4438-aba9-8f13ffbcc657.png)  |
+|         `apprentice`          | ![image](https://user-images.githubusercontent.com/20955511/221585690-155c5b01-988e-4e1c-a588-94edb0913800.png)  |
+|           `moltack`           | ![image](https://user-images.githubusercontent.com/20955511/221585716-9e9a9bb6-17cf-458d-826c-1d9a659cdcec.png)  |
+|         `codestackr`          | ![image](https://user-images.githubusercontent.com/20955511/221585743-c836e303-9b9a-4caf-bd12-ef83bf39bf54.png)  |
+|          `rose-pine`          | ![image](https://user-images.githubusercontent.com/20955511/221585761-b7df70e8-b2c4-446a-a6fc-4fd13aa18117.png)  |
+|         `date-night`          | ![image](https://user-images.githubusercontent.com/20955511/221585779-db7f394d-b3c6-49e4-ad75-bbba97530765.png)  |
+|        `one-dark-pro`         | ![image](https://user-images.githubusercontent.com/20955511/221585805-1d10928a-286c-4945-95ed-a7317e56692f.png)  |
+|            `rose`             | ![image](https://user-images.githubusercontent.com/20955511/221585827-e566b73a-e0c0-4711-b48c-667e6500d44e.png)  |
 
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://streak-stats.demolab.com/demo/) or by customizing the [url parameters](/README.md#-options).
 
 If you would like to share your theme with others, feel free to open an issue/pull request!
+
+Note: When submitting a new theme, make sure the name is all lowercase. Hyphens are allowed between words, but there should be no underscores. On the demo site, you can export a list of colors from the advanced section by clicking "Export to PHP".
