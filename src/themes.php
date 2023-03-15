@@ -1358,7 +1358,7 @@ return [
         "sideLabels" => "#8D192B",
         "dates" => "#862931",
     ],
-     "neon" => [
+    "neon" => [
         "background" => "#000000",
         "border" => "#FFFFFF",
         "stroke" => "#FFFFFF",
