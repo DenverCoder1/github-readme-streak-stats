@@ -1358,4 +1358,16 @@ return [
         "sideLabels" => "#8D192B",
         "dates" => "#862931",
     ],
+     "neon" => [
+        "background" => "#000000",
+        "border" => "#ffffff",
+        "stroke" => "#ffffff",
+        "ring" => "#00EAD3",
+        "fire" => "#00EAD3",
+        "currStreakNum" => "#FF449F",
+        "sideNums" => "#00EAD3",
+        "currStreakLabel" => "#FF449F",
+        "sideLabels" => "#00EAD3",
+        "dates" => "#FFF5B7",
+    ],
 ];
