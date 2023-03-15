@@ -1360,8 +1360,8 @@ return [
     ],
      "neon" => [
         "background" => "#000000",
-        "border" => "#ffffff",
-        "stroke" => "#ffffff",
+        "border" => "#FFFFFF",
+        "stroke" => "#FFFFFF",
         "ring" => "#00EAD3",
         "fire" => "#00EAD3",
         "currStreakNum" => "#FF449F",
