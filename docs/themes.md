@@ -121,6 +121,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |         `date-night`          | ![image](https://user-images.githubusercontent.com/20955511/221585779-db7f394d-b3c6-49e4-ad75-bbba97530765.png)  |
 |        `one-dark-pro`         | ![image](https://user-images.githubusercontent.com/20955511/221585805-1d10928a-286c-4945-95ed-a7317e56692f.png)  |
 |            `rose`             | ![image](https://user-images.githubusercontent.com/20955511/221585827-e566b73a-e0c0-4711-b48c-667e6500d44e.png)  |
+|            `neon`             | ![image](https://user-images.githubusercontent.com/20955511/225303106-8c901c48-732e-49ae-a2e6-8733254536eb.png)  |
 
 ### Can't find the theme you like?
 
