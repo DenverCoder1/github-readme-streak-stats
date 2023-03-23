@@ -80,6 +80,14 @@ return [
         "Longest Week Streak" => "Längste Wochenserie",
         "Present" => "Heute",
     ],
+    "el" => [
+        "Total Contributions" => "Συνολικές Συνεισφορές",
+        "Current Streak" => "Τρέχουσα Σειρά",
+        "Longest Streak" => "Μεγαλύτερη Σειρά",
+        "Week Streak" => "Εβδομαδιαία Σειρά",
+        "Longest Week Streak" => "Μεγαλύτερη Εβδομαδιαία Σειρά",
+        "Present" => "Σήμερα",
+    ],
     "es" => [
         "Total Contributions" => "Contribuciones Totales",
         "Current Streak" => "Racha Actual",
