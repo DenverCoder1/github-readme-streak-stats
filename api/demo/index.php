@@ -1,6 +1,5 @@
 <?php
 
-require_once dirname(__DIR__, 1) . "/utils/fallbacks.php";
 $THEMES = include dirname(__DIR__, 1) . "/themes.php";
 $TRANSLATIONS = include dirname(__DIR__, 1) . "/translations.php";
 // Get the keys of the first value in the translations array

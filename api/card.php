@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-require_once "utils/fallbacks.php";
-
 /**
  * Convert date from Y-M-D to more human-readable format
  *
