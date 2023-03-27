@@ -56,6 +56,17 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 }
 
 /**
+ * Normalize a theme name
+ *
+ * @param string $theme Theme name
+ * @return string Normalized theme name
+ */
+function normalizeThemeName(string $theme): string
+{
+    return strtolower(str_replace("_", "-", $theme));
+}
+
+/**
  * Check theme and color customization parameters to generate a theme mapping
  *
  * @param array<string,string> $params Request parameters
@@ -75,14 +86,11 @@ function getRequestedTheme(array $params): array
      */
     $CSS_COLORS = include "colors.php";
 
-    // get theme colors
-    if (isset($params["theme"]) && array_key_exists($params["theme"], $THEMES)) {
-        $theme = $THEMES[$params["theme"]];
-    }
-    // no theme specified, get default
-    else {
-        $theme = $THEMES["default"];
-    }
+    // normalize theme name
+    $selectedTheme = normalizeThemeName($params["theme"] ?? "default");
+
+    // get theme colors, or default colors if theme not found
+    $theme = $THEMES[$selectedTheme] ?? $THEMES["default"];
 
     // personal theme customizations
     $properties = array_keys($theme);
@@ -479,6 +487,83 @@ function generateErrorCard(string $message, array $params = null): string
 }
 
 /**
+ * Remove animations from SVG
+ *
+ * @param string $svg The SVG for the card as a string
+ * @return string The SVG without animations
+ */
+function removeAnimations(string $svg): string
+{
+    $svg = preg_replace("/(<style>\X*?<\/style>)/m", "", $svg);
+    $svg = preg_replace("/(opacity: 0;)/m", "opacity: 1;", $svg);
+    $svg = preg_replace("/(animation: fadein[^;'\"]+)/m", "opacity: 1;", $svg);
+    $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
+    $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
+    return $svg;
+}
+
+/**
+ * Convert a color from hex 3/4/6/8 digits to hex 6 digits and opacity (0-1)
+ *
+ * @param string $color The color to convert
+ * @return array<string, string> The converted color
+ */
+function convertHexColor(string $color): array
+{
+    $color = preg_replace("/[^0-9a-fA-F]/", "", $color);
+
+    // double each character if the color is in 3/4 digit format
+    if (strlen($color) === 3) {
+        $chars = str_split($color);
+        $color = "{$chars[0]}{$chars[0]}{$chars[1]}{$chars[1]}{$chars[2]}{$chars[2]}";
+    } elseif (strlen($color) === 4) {
+        $chars = str_split($color);
+        $color = "{$chars[0]}{$chars[0]}{$chars[1]}{$chars[1]}{$chars[2]}{$chars[2]}{$chars[3]}{$chars[3]}";
+    }
+
+    // convert to 6 digit hex and opacity
+    if (strlen($color) === 6) {
+        return [
+            "color" => "#{$color}",
+            "opacity" => 1,
+        ];
+    } elseif (strlen($color) === 8) {
+        return [
+            "color" => "#" . substr($color, 0, 6),
+            "opacity" => hexdec(substr($color, 6, 2)) / 255,
+        ];
+    }
+    throw new AssertionError("Invalid color: " . $color);
+}
+
+/**
+ * Convert transparent hex colors (4/8 digits) in an SVG to hex 6 digits and corresponding opacity attribute (0-1)
+ *
+ * @param string $svg The SVG for the card as a string
+ * @return string The SVG with converted colors
+ */
+function convertHexColors(string $svg): string
+{
+    // convert "transparent" to "#0000"
+    $svg = preg_replace("/(fill|stroke)=['\"]transparent['\"]/m", '\1="#0000"', $svg);
+
+    // convert hex colors to 6 digits and corresponding opacity attribute
+    $svg = preg_replace_callback(
+        "/(fill|stroke)=['\"]#([0-9a-fA-F]{4}|[0-9a-fA-F]{8})['\"]/m",
+        function ($matches) {
+            $attribute = $matches[1];
+            $result = convertHexColor($matches[2]);
+            $color = $result["color"];
+            $opacity = $result["opacity"];
+            return "{$attribute}='{$color}' {$attribute}-opacity='{$opacity}'";
+        },
+        $svg
+    );
+
+    return $svg;
+}
+
+/**
  * Converts an SVG card to a PNG image
  *
  * @param string $svg The SVG for the card as a string
@@ -490,11 +575,7 @@ function convertSvgToPng(string $svg): string
     $svg = trim($svg);
 
     // remove style and animations
-    $svg = preg_replace("/(<style>\X*?<\/style>)/m", "", $svg);
-    $svg = preg_replace("/(opacity: 0;)/m", "opacity: 1;", $svg);
-    $svg = preg_replace("/(animation: fadein[^;'\"]+)/m", "opacity: 1;", $svg);
-    $svg = preg_replace("/(animation: currstreak[^;'\"]+)/m", "font-size: 28px;", $svg);
-    $svg = preg_replace("/<a \X*?>(\X*?)<\/a>/m", '\1', $svg);
+    $svg = removeAnimations($svg);
 
     // escape svg for shell
     $svg = escapeshellarg($svg);
@@ -523,11 +604,14 @@ function convertSvgToPng(string $svg): string
  * Return headers and response based on type
  *
  * @param string|array $output The stats (array) or error message (string) to display
+ * @param array<string,string>|NULL $params Request parameters
  * @return array The Content-Type header and the response body, and status code in case of an error
  */
-function generateOutput(string|array $output): array
+function generateOutput(string|array $output, array $params = null): array
 {
-    $requestedType = $_REQUEST["type"] ?? "svg";
+    $params = $params ?? $_REQUEST;
+
+    $requestedType = $params["type"] ?? "svg";
 
     // output JSON data
     if ($requestedType === "json") {
@@ -538,8 +622,13 @@ function generateOutput(string|array $output): array
             "body" => json_encode($data),
         ];
     }
-    // Generate SVG card
-    $svg = gettype($output) === "string" ? generateErrorCard($output) : generateCard($output);
+
+    // generate SVG card
+    $svg = gettype($output) === "string" ? generateErrorCard($output, $params) : generateCard($output, $params);
+
+    // some renderers such as inkscape doesn't support transparent colors in hex format, so we need to convert them
+    $svg = convertHexColors($svg);
+
     // output PNG card
     if ($requestedType === "png") {
         try {
@@ -552,10 +641,16 @@ function generateOutput(string|array $output): array
             return [
                 "contentType" => "image/svg+xml",
                 "status" => 500,
-                "body" => generateErrorCard($e->getMessage()),
+                "body" => generateErrorCard($e->getMessage(), $params),
             ];
         }
     }
+
+    // remove animations if disable_animations is set
+    if (isset($params["disable_animations"]) && $params["disable_animations"] == "true") {
+        $svg = removeAnimations($svg);
+    }
+
     // output SVG card
     return [
         "contentType" => "image/svg+xml",

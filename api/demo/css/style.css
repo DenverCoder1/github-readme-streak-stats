@@ -121,6 +121,7 @@ h2 {
 .btn:disabled {
   background: var(--blue-transparent);
   box-shadow: none;
+  cursor: not-allowed;
 }
 
 .parameters {
@@ -199,14 +200,18 @@ input:focus:invalid {
 
 .advanced summary {
   padding: 6px;
+  cursor: pointer;
 }
 
 .advanced .parameters {
   margin-top: 8px;
+}
+
+.advanced .color-properties {
   grid-template-columns: auto 1fr auto;
 }
 
-.advanced .parameters label:first-of-type {
+.advanced .color-properties label:first-of-type {
   font-weight: bold;
 }
 
@@ -237,7 +242,8 @@ input:focus:invalid {
   border-left: 4px solid var(--yellow);
 }
 
-.output .md {
+.output .md,
+.output .json {
   background: var(--border);
   border-radius: 6px;
   padding: 12px 16px;
@@ -282,9 +288,10 @@ input:focus:invalid {
 .btn.tooltip:after {
   content: "";
   position: absolute;
-  transform: translateY(-27px);
+  transform: translateY(-25px);
   border-style: solid;
   border-color: #4a4a4afa transparent transparent transparent;
+  border-width: 5px;
   pointer-events: none;
   opacity: 0;
 }
@@ -302,7 +309,7 @@ input:focus:invalid {
   content: "You must first input a valid username.";
 }
 
-textarea#exportedPhp {
+textarea#exported-php {
   margin-top: 10px;
   width: 100%;
   resize: vertical;

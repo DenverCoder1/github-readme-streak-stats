@@ -134,4 +134,46 @@ final class RenderTest extends TestCase
             splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0)
         );
     }
+
+    /**
+     * Test disable_animations parameter
+     */
+    public function testDisableAnimations(): void
+    {
+        $this->testParams["disable_animations"] = "true";
+        // Check that the card is rendered as expected
+        $response = generateOutput($this->testStats, $this->testParams);
+        $render = $response["body"];
+        $this->assertStringNotContainsString("opacity: 0;", $render);
+        $this->assertStringContainsString("opacity: 1;", $render);
+        $this->assertStringContainsString("font-size: 28px;", $render);
+        $this->assertStringNotContainsString("animation:", $render);
+        $this->assertStringNotContainsString("<style>", $render);
+    }
+
+    /**
+     * Test alpha in hex colors
+     */
+    public function testAlphaInHexColors(): void
+    {
+        // "tranparent" gets converted to "#0000"
+        $this->testParams["background"] = "transparent";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='#000000' fill-opacity='0'", $render);
+
+        // "#ff000080" gets converted to "#ff0000" and fill-opacity is set to 0.50196078431373
+        $this->testParams["background"] = "ff000080";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='#ff0000' fill-opacity='0.50196078431373'", $render);
+
+        // "#ff0000" gets converted to "#ff0000" and fill-opacity is not set
+        $this->testParams["background"] = "ff0000ff";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='#ff0000' fill-opacity='1'", $render);
+
+        // test stroke opacity
+        $this->testParams["border"] = "00ff0080";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("stroke='#00ff00' stroke-opacity='0.50196078431373'", $render);
+    }
 }
