@@ -139,11 +139,11 @@ return [
         "Present" => "Prezan",
     ],
     "hy" => [
-        "Total Contributions" => "Ընդհանուր ներդրումը",
+        "Total Contributions" => "Ընդհանուր\nներդրումը",
         "Current Streak" => "Ընթացիկ շարք",
         "Longest Streak" => "Ամենաերկար շարք",
-        "Week Streak" => "Ընթացիկ շաբաթների շարք",
-        "Longest Week Streak" => "Ամենաերկար շաբաթների շարք",
+        "Week Streak" => "Ընթացիկ\nշաբաթների շարք",
+        "Longest Week Streak" => "Ամենաերկար\nշաբաթների շարք",
         "Present" => "Ներկայումս",
     ],
     "id" => [
