@@ -138,6 +138,14 @@ return [
         "Longest Week Streak" => "pi long tras semèn",
         "Present" => "Prezan",
     ],
+    "hy" => [
+        "Total Contributions" => "Ընդհանուր\nներդրումը",
+        "Current Streak" => "Ընթացիկ շարք",
+        "Longest Streak" => "Ամենաերկար շարք",
+        "Week Streak" => "Ընթացիկ\nշաբաթների շարք",
+        "Longest Week Streak" => "Ամենաերկար\nշաբաթների շարք",
+        "Present" => "Այժմ",
+    ],
     "id" => [
         "Total Contributions" => "Total Kontribusi",
         "Current Streak" => "Aksi Saat Ini",
