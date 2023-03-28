@@ -144,7 +144,7 @@ return [
         "Longest Streak" => "Ամենաերկար շարք",
         "Week Streak" => "Ընթացիկ\nշաբաթների շարք",
         "Longest Week Streak" => "Ամենաերկար\nշաբաթների շարք",
-        "Present" => "Ներկայումս",
+        "Present" => "Այժմ",
     ],
     "id" => [
         "Total Contributions" => "Total Kontribusi",
