@@ -25,7 +25,7 @@ const preview = {
     const query = Object.keys(params)
       .filter((key) => params[key] !== this.defaults[key])
       .map((key) => {
-        if (key === 'gradientBg') {
+        if (key === 'background') {
           return `${encodeURIComponent(key)}=${encodeURIComponent(params[key][0])},${encodeURIComponent(params[key][1])},${encodeURIComponent(params[key][2])}`
         }
         return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
@@ -66,7 +66,13 @@ const preview = {
    */
   addProperty(property, value = "#EB5454FF") {
     const selectElement = document.querySelector("#properties");
-    Array.prototype.find.call(selectElement.options, (o) => o.value === property);
+    // select first unselected option
+    const firstAvailable = Array.prototype.find.call(selectElement.options, (o) => !o.disabled);
+    if (firstAvailable) {
+      firstAvailable.selected = true;
+    } else {
+      selectElement.disabled = true;
+    }
     // if no property passed, get the currently selected property
     const propertyName = property || selectElement.value;
     if (!selectElement.disabled) {
@@ -84,9 +90,7 @@ const preview = {
       };
       
       const parent = document.querySelector(".advanced .color-properties");
-      if (propertyName === "gradientBg") {
-        Array.prototype.find.call(selectElement.options, (o) => o.value === 'background').disabled = true;
-
+      if (propertyName === "background") {
         const input = document.createElement("span");
         input.className = "grid-middle";
         input.setAttribute("data-property", propertyName);
@@ -95,8 +99,8 @@ const preview = {
         rotate.className = "param";
         rotate.type = "text";
         rotate.id = "rotate";
-        rotate.placeholder = "30deg";
-        rotate.value = "30deg";
+        rotate.placeholder = "0deg";
+        rotate.value = "0deg";
         rotate.pattern = "^-[0-9]+deg|^[0-9]+[deg]+"
 
         const color1 = document.createElement("input");
@@ -135,18 +139,6 @@ const preview = {
         parent.appendChild(label);
         parent.appendChild(input);
       }
-
-      if (propertyName === 'background') {
-        Array.prototype.find.call(selectElement.options, (o) => o.value === 'gradientBg').disabled = true;
-      }
-
-      // select first unselected option
-      const firstAvailable = Array.prototype.find.call(selectElement.options, (o) => !o.disabled);
-      if (firstAvailable) {
-        firstAvailable.selected = true;
-      } else {
-        selectElement.disabled = true;
-      }
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
@@ -180,11 +172,6 @@ const preview = {
     const option = Array.prototype.find.call(selectElement.options, (o) => o.value === property);
     selectElement.disabled = false;
     option.disabled = false;
-    if (property === 'gradientBg') {
-      Array.prototype.find.call(selectElement.options, (o) => o.value === 'background').disabled = false;
-    } else if (property === 'background') {
-      Array.prototype.find.call(selectElement.options, (o) => o.value === 'gradientBg').disabled = false;
-    }
     // update and exit
     this.update();
   },
@@ -212,7 +199,7 @@ const preview = {
     let mCount = 0;
     return Array.from(elements).reduce((acc, next) => {
       const obj = { ...acc };
-      if (obj.gradientBg !== undefined) {
+      if (obj.background !== undefined) {
         mCount++;
       } else if (mCount >= 3) mCount = 0;
       let value = next.value;

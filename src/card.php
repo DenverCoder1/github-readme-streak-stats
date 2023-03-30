@@ -275,8 +275,23 @@ function generateCard(array $stats, array $params = null): string
     $borderRadius = $params["border_radius"] ?? "4.5";
 
     // Set Background
-    $bg = $params['gradientBg'] ? 'url(#gradient)' : $theme["background"];
-    $gradient = explode(",",$params['gradientBg'] ?? "");
+    $colors = explode(',', $params['background'] ?? "");
+    $isBgGradient = count($colors) >= 3 ? true : false;
+
+    $bg = $isBgGradient ? 'url(#gradient)' : $theme["background"];
+    $gradient = "";
+    if ($isBgGradient) {
+        $gradient = "<defs>
+            <linearGradient id='gradient' gradientTransform='rotate({$colors[0]})' gradientUnits='userSpaceOnUse'>";
+        $colors = array_slice($colors, 1);
+        $colorCount = count($colors);
+        for($index = 0; $index < $colorCount; $index++) {
+            $offset = ($index * 100) / ($colorCount - 1);
+            $gradient .= "<stop offset='{$offset}%' stop-color='#{$colors[$index]}' />";
+        }
+        $gradient .= "</linearGradient>
+            </defs>";
+    }
 
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
@@ -329,12 +344,7 @@ function generateCard(array $stats, array $params = null): string
                 100% { opacity: 1; }
             }
         </style>
-        <defs>
-          <linearGradient id='gradient' gradientTransform='rotate({$gradient[0]})'>
-            <stop offset='0%'  stop-color='#{$gradient[1]}' />
-            <stop offset='100%' stop-color='#{$gradient[2]}' />
-          </linearGradient>
-        </defs>
+        {$gradient}
         <defs>
             <clipPath id='outer_rectangle'>
                 <rect width='495' height='195' rx='{$borderRadius}'/>

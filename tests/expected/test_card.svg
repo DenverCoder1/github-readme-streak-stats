@@ -11,12 +11,7 @@
                 100% { opacity: 1; }
             }
         </style>
-        <defs>
-          <linearGradient id='gradient' gradientTransform='rotate()'>
-            <stop offset='0%'  stop-color='#' />
-            <stop offset='100%' stop-color='#' />
-          </linearGradient>
-        </defs>
+        
         <defs>
             <clipPath id='outer_rectangle'>
                 <rect width='495' height='195' rx='4.5'/>
