@@ -86,6 +86,16 @@ const preview = {
 
       const parent = document.querySelector(".advanced .color-properties");
       if (propertyName === "background") {
+        const valueParts = value.split(",");
+        let angleValue = "45";
+        let color1Value = "#EB5454FF";
+        let color2Value = "#EB5454FF";
+        if (valueParts.length === 3) {
+          angleValue = valueParts[0];
+          color1Value = valueParts[1];
+          color2Value = valueParts[2];
+        }
+
         const input = document.createElement("span");
         input.className = "grid-middle";
         input.setAttribute("data-property", propertyName);
@@ -98,7 +108,7 @@ const preview = {
         rotate.type = "number";
         rotate.id = "rotate";
         rotate.placeholder = "45";
-        rotate.value = "45";
+        rotate.value = angleValue;
 
         const degText = document.createElement("span");
         degText.innerText = "\u00B0"; // degree symbol
@@ -129,7 +139,8 @@ const preview = {
           })
         );
         rotate.name = color1.name = color2.name = propertyName;
-        color1.value = color2.value = value;
+        color1.value = color1Value;
+        color2.value = color2Value;
         // add elements
         parent.appendChild(label);
         input.appendChild(rotateInputGroup);
@@ -325,7 +336,8 @@ window.addEventListener(
       element.addEventListener("change", refresh, false);
     });
     // set input boxes to match URL parameters
-    new URLSearchParams(window.location.search).forEach((val, key) => {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.forEach((val, key) => {
       const paramInput = document.querySelector(`[name="${key}"]`);
       if (paramInput) {
         // set parameter value
@@ -333,9 +345,18 @@ window.addEventListener(
       } else {
         // add advanced property
         document.querySelector("details.advanced").open = true;
-        preview.addProperty(key, val);
+        preview.addProperty(key, searchParams.getAll(key).join(","));
       }
     });
+    // set background angle and colors
+    const backgroundParams = searchParams.getAll("background");
+    if (backgroundParams.length > 0) {
+      document.querySelector("#rotate").value = backgroundParams[0];
+      document.querySelector("#background-color1").value = backgroundParams[1];
+      document.querySelector("#background-color2").value = backgroundParams[2];
+      preview.checkColor(backgroundParams[1], "background-color1");
+      preview.checkColor(backgroundParams[2], "background-color2");
+    }
     // update previews
     preview.update();
   },
