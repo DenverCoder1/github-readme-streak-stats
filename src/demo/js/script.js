@@ -101,7 +101,7 @@ const preview = {
         rotate.value = "45";
 
         const degText = document.createElement("span");
-        degText.innerText = "\u00B0";  // degree symbol
+        degText.innerText = "\u00B0"; // degree symbol
 
         rotateInputGroup.appendChild(rotate);
         rotateInputGroup.appendChild(degText);
@@ -221,7 +221,7 @@ const preview = {
       }
       // if the property already exists, append the value to the existing one
       if (next.name in obj) {
-        obj[next.name] = obj[next.name] + "," + value;
+        obj[next.name] = `${obj[next.name]},${value}`;
         return obj;
       }
       // otherwise, add the value to the object
