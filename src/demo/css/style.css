@@ -211,6 +211,11 @@ input:focus:invalid {
   grid-template-columns: auto 1fr auto;
 }
 
+.advanced .grid-middle {
+  display: grid;
+  grid-template-columns: 30% 35% 35%;
+}
+
 .advanced .color-properties label:first-of-type {
   font-weight: bold;
 }

@@ -50,6 +50,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |    `hide_border`     | Make the border transparent (Default: `false`)  |                             `true` or `false`                             |
 |   `border_radius`    | Set the roundness of the edges (Default: `4.5`) |               Number `0` (sharp corners) to `248` (ellipse)               |
 |     `background`     |                Background color                 |                 **hex code** without `#` or **css color**                 |
+|     `gradientBg`     |                Background color                 |                 **rotation** and two colors **hex code** without `#` or **css color**                 |
 |       `border`       |                  Border color                   |                 **hex code** without `#` or **css color**                 |
 |       `stroke`       |       Stroke line color between sections        |                 **hex code** without `#` or **css color**                 |
 |        `ring`        |   Color of the ring around the current streak   |                 **hex code** without `#` or **css color**                 |

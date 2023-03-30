@@ -274,6 +274,10 @@ function generateCard(array $stats, array $params = null): string
     // read border_radius parameter, default to 4.5 if not set
     $borderRadius = $params["border_radius"] ?? "4.5";
 
+    // Set Background
+    $bg = $params['gradientBg'] ? 'url(#gradient)' : $theme["background"];
+    $gradient = explode(",",$params['gradientBg'] ?? "");
+
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
@@ -326,6 +330,12 @@ function generateCard(array $stats, array $params = null): string
             }
         </style>
         <defs>
+          <linearGradient id='gradient' gradientTransform='rotate({$gradient[0]})'>
+            <stop offset='0%'  stop-color='#{$gradient[1]}' />
+            <stop offset='100%' stop-color='#{$gradient[2]}' />
+          </linearGradient>
+        </defs>
+        <defs>
             <clipPath id='outer_rectangle'>
                 <rect width='495' height='195' rx='{$borderRadius}'/>
             </clipPath>
@@ -336,7 +346,7 @@ function generateCard(array $stats, array $params = null): string
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation: isolate'>
-                <rect stroke='{$theme["border"]}' fill='{$theme["background"]}' rx='{$borderRadius}' x='0.5' y='0.5' width='494' height='194'/>
+                <rect stroke='{$theme["border"]}' fill='{$bg}' rx='{$borderRadius}' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation: isolate'>
                 <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>

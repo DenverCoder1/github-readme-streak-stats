@@ -24,7 +24,12 @@ const preview = {
     // convert parameters to query string
     const query = Object.keys(params)
       .filter((key) => params[key] !== this.defaults[key])
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+      .map((key) => {
+        if (key === 'gradientBg') {
+          return `${encodeURIComponent(key)}=${encodeURIComponent(params[key][0])},${encodeURIComponent(params[key][1])},${encodeURIComponent(params[key][2])}`
+        }
+        return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+      })
       .join("&");
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
@@ -61,18 +66,12 @@ const preview = {
    */
   addProperty(property, value = "#EB5454FF") {
     const selectElement = document.querySelector("#properties");
+    Array.prototype.find.call(selectElement.options, (o) => o.value === property);
     // if no property passed, get the currently selected property
     const propertyName = property || selectElement.value;
     if (!selectElement.disabled) {
       // disable option in menu
       Array.prototype.find.call(selectElement.options, (o) => o.value === propertyName).disabled = true;
-      // select first unselected option
-      const firstAvailable = Array.prototype.find.call(selectElement.options, (o) => !o.disabled);
-      if (firstAvailable) {
-        firstAvailable.selected = true;
-      } else {
-        selectElement.disabled = true;
-      }
       // label
       const label = document.createElement("label");
       label.innerText = propertyName;
@@ -83,13 +82,71 @@ const preview = {
         onChange: `preview.pickerChange(this, '${propertyName}')`,
         onInput: `preview.pickerChange(this, '${propertyName}')`,
       };
-      const input = document.createElement("input");
-      input.className = "param jscolor";
-      input.id = propertyName;
-      input.name = propertyName;
-      input.setAttribute("data-property", propertyName);
-      input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
-      input.value = value;
+      
+      const parent = document.querySelector(".advanced .color-properties");
+      if (propertyName === "gradientBg") {
+        Array.prototype.find.call(selectElement.options, (o) => o.value === 'background').disabled = true;
+
+        const input = document.createElement("span");
+        input.className = "grid-middle";
+        input.setAttribute("data-property", propertyName);
+
+        const rotate = document.createElement("input");
+        rotate.className = "param";
+        rotate.type = "text";
+        rotate.id = "rotate";
+        rotate.placeholder = "30deg";
+        rotate.value = "30deg";
+        rotate.pattern = "^-[0-9]+deg|^[0-9]+[deg]+"
+
+        const color1 = document.createElement("input");
+        color1.className = "param jscolor";
+        color1.id = "color1";
+        color1.setAttribute("data-jscolor", JSON.stringify({
+          format: "hexa",
+          onChange: `preview.pickerChange(this, '${color1.id}')`,
+          onInput: `preview.pickerChange(this, '${color1.id}')`,
+        }));
+        const color2 = document.createElement("input");
+        color2.className = "param jscolor";
+        color2.id = "color2";
+        color2.setAttribute("data-jscolor", JSON.stringify({
+          format: "hexa",
+          onChange: `preview.pickerChange(this, '${color2.id}')`,
+          onInput: `preview.pickerChange(this, '${color2.id}')`,
+        }));
+        rotate.name = color1.name = color2.name = propertyName;
+        color1.value = color2.value = value;
+        // add elements
+        parent.appendChild(label);
+        input.appendChild(rotate);
+        input.appendChild(color1);
+        input.appendChild(color2);
+        parent.appendChild(input);
+      } else {
+        const input = document.createElement("input");
+        input.className = "param jscolor";
+        input.id = propertyName;
+        input.name = propertyName;
+        input.setAttribute("data-property", propertyName);
+        input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
+        input.value = value;
+        // add elements
+        parent.appendChild(label);
+        parent.appendChild(input);
+      }
+
+      if (propertyName === 'background') {
+        Array.prototype.find.call(selectElement.options, (o) => o.value === 'gradientBg').disabled = true;
+      }
+
+      // select first unselected option
+      const firstAvailable = Array.prototype.find.call(selectElement.options, (o) => !o.disabled);
+      if (firstAvailable) {
+        firstAvailable.selected = true;
+      } else {
+        selectElement.disabled = true;
+      }
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
@@ -97,12 +154,8 @@ const preview = {
       minus.setAttribute("type", "button");
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
-      // add elements
-      const parent = document.querySelector(".advanced .color-properties");
-      parent.appendChild(label);
-      parent.appendChild(input);
       parent.appendChild(minus);
-
+      
       // initialise jscolor on element
       jscolor.install(parent);
 
@@ -127,6 +180,11 @@ const preview = {
     const option = Array.prototype.find.call(selectElement.options, (o) => o.value === property);
     selectElement.disabled = false;
     option.disabled = false;
+    if (property === 'gradientBg') {
+      Array.prototype.find.call(selectElement.options, (o) => o.value === 'background').disabled = false;
+    } else if (property === 'background') {
+      Array.prototype.find.call(selectElement.options, (o) => o.value === 'gradientBg').disabled = false;
+    }
     // update and exit
     this.update();
   },
@@ -151,8 +209,12 @@ const preview = {
    * @returns {Object} the key-value mapping
    */
   objectFromElements(elements) {
+    let mCount = 0;
     return Array.from(elements).reduce((acc, next) => {
       const obj = { ...acc };
+      if (obj.gradientBg !== undefined) {
+        mCount++;
+      } else if (mCount >= 3) mCount = 0;
       let value = next.value;
       if (value.indexOf("#") >= 0) {
         // if the value is colour, remove the hash sign
@@ -161,8 +223,12 @@ const preview = {
           // if the value is in hexa and opacity is 1, remove FF
           value = value.replace(/[Ff]{2}$/, "");
         }
+      } else if (value.indexOf("deg") >= 0) {
+        value = value.replace(/deg/g, "");
       }
-      obj[next.name] = value;
+      if (mCount <= 0)
+        obj[next.name] = [];
+      obj[next.name].push(value);
       return obj;
     }, {});
   },
@@ -194,12 +260,15 @@ const preview = {
    * Remove "FF" from a hex color if opacity is 1
    * @param {string} color - the hex color
    * @param {string} input - the property name, or id of the element to update
+   * @param {boolean} setColor - if true set the color to the input else update original value
    */
-  checkColor(color, input) {
+  checkColor(color, input, setColor = false) {
+    // if color has hex alpha value -> remove it
     if (color.length === 9 && color.slice(-2) === "FF") {
-      // if color has hex alpha value -> remove it
-      document.querySelector(`[name="${input}"]`).value = color.slice(0, -2);
-    }
+      for (const el of document.querySelectorAll(`[name="${input}"]`))
+        if (el.value.length === 9 && color.slice(-2) === "FF")
+          el.value = setColor ? color.slice(0, -2) : el.value.slice(0, -2);
+      }
   },
 
   /**
@@ -209,7 +278,7 @@ const preview = {
    */
   pickerChange(picker, input) {
     // color was changed by picker - check it
-    this.checkColor(picker.toHEXAString(), input);
+    this.checkColor(picker.toHEXAString(), input, true);
     // update preview
     this.update();
   },

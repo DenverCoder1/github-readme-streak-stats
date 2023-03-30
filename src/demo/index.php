@@ -1,6 +1,7 @@
 <?php
 
 $THEMES = include "../themes.php";
+$PROPERTIES = include "../properties.php";
 $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
 // and filter to only include locales that have an array as the value
@@ -149,7 +150,7 @@ function camelToSkewer(string $str): string
                     <div class="content color-properties parameters">
                         <label for="theme">Add Property</label>
                         <select id="properties" name="properties">
-                            <?php foreach ($THEMES["default"] as $option => $color): ?>
+                            <?php foreach ($PROPERTIES as $option): ?>
                                 <option><?php echo $option; ?></option>
                             <?php endforeach; ?>
                         </select>
