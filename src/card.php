@@ -571,13 +571,14 @@ function convertHexColors(string $svg): string
 
     // convert hex colors to 6 digits and corresponding opacity attribute
     $svg = preg_replace_callback(
-        "/(fill|stroke)=['\"]#([0-9a-fA-F]{4}|[0-9a-fA-F]{8})['\"]/m",
+        "/(fill|stroke|stop-color)=['\"]#([0-9a-fA-F]{4}|[0-9a-fA-F]{8})['\"]/m",
         function ($matches) {
             $attribute = $matches[1];
+            $opacityAttribute = $attribute === "stop-color" ? "stop-opacity" : "{$attribute}-opacity";
             $result = convertHexColor($matches[2]);
             $color = $result["color"];
             $opacity = $result["opacity"];
-            return "{$attribute}='{$color}' {$attribute}-opacity='{$opacity}'";
+            return "{$attribute}='{$color}' {$opacityAttribute}='{$opacity}'";
         },
         $svg
     );
