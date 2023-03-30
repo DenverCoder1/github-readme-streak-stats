@@ -275,17 +275,17 @@ function generateCard(array $stats, array $params = null): string
     $borderRadius = $params["border_radius"] ?? "4.5";
 
     // Set Background
-    $colors = explode(',', $params['background'] ?? "");
+    $colors = explode(",", $params["background"] ?? "");
     $isBgGradient = count($colors) >= 3 ? true : false;
 
-    $bg = $isBgGradient ? 'url(#gradient)' : $theme["background"];
+    $bg = $isBgGradient ? "url(#gradient)" : $theme["background"];
     $gradient = "";
     if ($isBgGradient) {
         $gradient = "<defs>
             <linearGradient id='gradient' gradientTransform='rotate({$colors[0]})' gradientUnits='userSpaceOnUse'>";
         $colors = array_slice($colors, 1);
         $colorCount = count($colors);
-        for($index = 0; $index < $colorCount; $index++) {
+        for ($index = 0; $index < $colorCount; $index++) {
             $offset = ($index * 100) / ($colorCount - 1);
             $gradient .= "<stop offset='{$offset}%' stop-color='#{$colors[$index]}' />";
         }

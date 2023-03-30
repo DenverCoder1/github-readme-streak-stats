@@ -25,10 +25,12 @@ const preview = {
     const query = Object.keys(params)
       .filter((key) => params[key] !== this.defaults[key])
       .map((key) => {
-        if (key === 'background') {
-          return `${encodeURIComponent(key)}=${encodeURIComponent(params[key][0])},${encodeURIComponent(params[key][1])},${encodeURIComponent(params[key][2])}`
+        if (key === "background") {
+          return `${encodeURIComponent(key)}=${encodeURIComponent(params[key][0])},${encodeURIComponent(
+            params[key][1]
+          )},${encodeURIComponent(params[key][2])}`;
         }
-        return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+        return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`;
       })
       .join("&");
     // generate links and markdown
@@ -88,7 +90,7 @@ const preview = {
         onChange: `preview.pickerChange(this, '${propertyName}')`,
         onInput: `preview.pickerChange(this, '${propertyName}')`,
       };
-      
+
       const parent = document.querySelector(".advanced .color-properties");
       if (propertyName === "background") {
         const input = document.createElement("span");
@@ -101,24 +103,30 @@ const preview = {
         rotate.id = "rotate";
         rotate.placeholder = "0deg";
         rotate.value = "0deg";
-        rotate.pattern = "^-[0-9]+deg|^[0-9]+[deg]+"
+        rotate.pattern = "^-[0-9]+deg|^[0-9]+[deg]+";
 
         const color1 = document.createElement("input");
         color1.className = "param jscolor";
         color1.id = "color1";
-        color1.setAttribute("data-jscolor", JSON.stringify({
-          format: "hexa",
-          onChange: `preview.pickerChange(this, '${color1.id}')`,
-          onInput: `preview.pickerChange(this, '${color1.id}')`,
-        }));
+        color1.setAttribute(
+          "data-jscolor",
+          JSON.stringify({
+            format: "hexa",
+            onChange: `preview.pickerChange(this, '${color1.id}')`,
+            onInput: `preview.pickerChange(this, '${color1.id}')`,
+          })
+        );
         const color2 = document.createElement("input");
         color2.className = "param jscolor";
         color2.id = "color2";
-        color2.setAttribute("data-jscolor", JSON.stringify({
-          format: "hexa",
-          onChange: `preview.pickerChange(this, '${color2.id}')`,
-          onInput: `preview.pickerChange(this, '${color2.id}')`,
-        }));
+        color2.setAttribute(
+          "data-jscolor",
+          JSON.stringify({
+            format: "hexa",
+            onChange: `preview.pickerChange(this, '${color2.id}')`,
+            onInput: `preview.pickerChange(this, '${color2.id}')`,
+          })
+        );
         rotate.name = color1.name = color2.name = propertyName;
         color1.value = color2.value = value;
         // add elements
@@ -147,7 +155,7 @@ const preview = {
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
       parent.appendChild(minus);
-      
+
       // initialise jscolor on element
       jscolor.install(parent);
 
@@ -213,8 +221,7 @@ const preview = {
       } else if (value.indexOf("deg") >= 0) {
         value = value.replace(/deg/g, "");
       }
-      if (mCount <= 0)
-        obj[next.name] = [];
+      if (mCount <= 0) obj[next.name] = [];
       obj[next.name].push(value);
       return obj;
     }, {});
@@ -255,7 +262,7 @@ const preview = {
       for (const el of document.querySelectorAll(`[name="${input}"]`))
         if (el.value.length === 9 && color.slice(-2) === "FF")
           el.value = setColor ? color.slice(0, -2) : el.value.slice(0, -2);
-      }
+    }
   },
 
   /**
