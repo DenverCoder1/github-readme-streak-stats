@@ -235,6 +235,14 @@ return [
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
+    "rw" =>[
+        "Total Contributions" => "Imisanzu yose",
+        "Current Streak" => "Igihe gishize ntaguhagarara",
+        "Longest Streak" => "Igihe cyirecyire cyashize ntaguhagarara",
+        "Week Streak" => "Igihe gishize ntaguhagarara mu cyumweru",
+        "Longest Week Streak" => "Igihe cyirecyire cyashize ntaguhagarara mu byumweru",
+        "Present" => "None",
+    ],
     "sa" => [
         "Total Contributions" => "कुल योगदानम्",
         "Current Streak" => "क्रमशः दिवसान् चालयन्तु",
