@@ -235,7 +235,7 @@ return [
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
-    "rw" =>[
+    "rw" => [
         "Total Contributions" => "Imisanzu yose",
         "Current Streak" => "Igihe gishize ntaguhagarara",
         "Longest Streak" => "Igihe cyirecyire cyashize ntaguhagarara",
