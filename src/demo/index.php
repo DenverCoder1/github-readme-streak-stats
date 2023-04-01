@@ -146,14 +146,30 @@ function camelToSkewer(string $str): string
 
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
-                    <div class="content color-properties parameters">
-                        <label for="theme">Add Property</label>
-                        <select id="properties" name="properties">
-                            <?php foreach ($THEMES["default"] as $option => $color): ?>
-                                <option><?php echo $option; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <button class="plus btn" type="button" onclick="preview.addProperty()">+</button>
+                    <div class="content">
+                        <div class="radio-buttons parameters">
+                            <!-- Radio buttons to choose between solid and gradient background -->
+                            <label for="background-type">Background Type</label>
+                            <div class="radio-button-group">
+                                <div>
+                                    <input type="radio" id="background-type-solid" name="background-type" value="solid" checked>
+                                    <label for="solid">Solid Color</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="background-type-gradient" name="background-type" value="gradient">
+                                    <label for="gradient">Gradient</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="color-properties parameters">
+                            <label for="theme">Add Property</label>
+                            <select id="properties" name="properties">
+                                <?php foreach ($THEMES["default"] as $option => $color): ?>
+                                    <option><?php echo $option; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <button class="plus btn" type="button" onclick="preview.addProperty()">+</button>
+                        </div>
                     </div>
                     <button class="btn" type="button" onclick="preview.exportPhp()">Export to PHP</button>
                     <button id="clear-button" class="btn" type="button" onclick="preview.removeAllProperties()" disabled>Clear Options</button>
