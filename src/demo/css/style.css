@@ -207,6 +207,12 @@ input:focus:invalid {
   margin-top: 8px;
 }
 
+.radio-button-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
 .advanced .color-properties {
   grid-template-columns: auto 1fr auto;
 }

@@ -85,7 +85,7 @@ const preview = {
       };
 
       const parent = document.querySelector(".advanced .color-properties");
-      if (propertyName === "background") {
+      if (propertyName === "background" && document.querySelector("#background-type-gradient").checked) {
         const valueParts = value.split(",");
         let angleValue = "45";
         let color1Value = "#EB5454FF";
@@ -335,8 +335,26 @@ window.addEventListener(
     [...document.querySelectorAll("select:not(#properties)")].forEach((element) => {
       element.addEventListener("change", refresh, false);
     });
+    // when the background-type changes, remove the background and replace it
+    const toggleBackgroundType = () => {
+      const value = document.querySelector("input#background, input#background-color1")?.value;
+      preview.removeProperty("background");
+      if (value && document.querySelector("#background-type-gradient").checked) {
+        preview.addProperty("background", `45,${value},${value}`);
+      } else if (value) {
+        preview.addProperty("background", value);
+      }
+    };
+    document.querySelector("#background-type-solid").addEventListener("change", toggleBackgroundType, false);
+    document.querySelector("#background-type-gradient").addEventListener("change", toggleBackgroundType, false);
     // set input boxes to match URL parameters
     const searchParams = new URLSearchParams(window.location.search);
+    const backgroundParams = searchParams.getAll("background");
+    // set background-type
+    if (backgroundParams.length > 1) {
+      document.querySelector("#background-type-gradient").checked = true;
+    }
+    // set input field and select values
     searchParams.forEach((val, key) => {
       const paramInput = document.querySelector(`[name="${key}"]`);
       if (paramInput) {
@@ -348,9 +366,8 @@ window.addEventListener(
         preview.addProperty(key, searchParams.getAll(key).join(","));
       }
     });
-    // set background angle and colors
-    const backgroundParams = searchParams.getAll("background");
-    if (backgroundParams.length > 0) {
+    // set background angle and gradient colors
+    if (backgroundParams.length > 1) {
       document.querySelector("#rotate").value = backgroundParams[0];
       document.querySelector("#background-color1").value = backgroundParams[1];
       document.querySelector("#background-color2").value = backgroundParams[2];
