@@ -211,6 +211,24 @@ input:focus:invalid {
   grid-template-columns: auto 1fr auto;
 }
 
+.advanced .grid-middle {
+  display: grid;
+  grid-template-columns: 30% 35% 35%;
+}
+
+.input-text-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25em;
+}
+
+.input-text-group span {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding-right: 1.5em;
+}
+
 .advanced .color-properties label:first-of-type {
   font-weight: bold;
 }

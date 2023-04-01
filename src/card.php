@@ -107,6 +107,11 @@ function getRequestedTheme(array $params): array
                 // set property
                 $theme[$prop] = $param;
             }
+            // if the property is background gradient is allowed (angle,start_color,...,end_color)
+            elseif ($prop == "background" && preg_match("/^-?[0-9]+,[a-f0-9]{3,8}(,[a-f0-9]{3,8})+$/", $param)) {
+                // set property
+                $theme[$prop] = $param;
+            }
         }
     }
 
@@ -274,6 +279,24 @@ function generateCard(array $stats, array $params = null): string
     // read border_radius parameter, default to 4.5 if not set
     $borderRadius = $params["border_radius"] ?? "4.5";
 
+    // Set Background
+    $backgroundParts = explode(",", $theme["background"] ?? "");
+    $backgroundIsGradient = count($backgroundParts) >= 3;
+
+    $background = $theme["background"];
+    $gradient = "";
+    if ($backgroundIsGradient) {
+        $background = "url(#gradient)";
+        $gradient = "<defs><linearGradient id='gradient' gradientTransform='rotate({$backgroundParts[0]})' gradientUnits='userSpaceOnUse'>";
+        $backgroundColors = array_slice($backgroundParts, 1);
+        $colorCount = count($backgroundColors);
+        for ($index = 0; $index < $colorCount; $index++) {
+            $offset = ($index * 100) / ($colorCount - 1);
+            $gradient .= "<stop offset='{$offset}%' stop-color='#{$backgroundColors[$index]}' />";
+        }
+        $gradient .= "</linearGradient></defs>";
+    }
+
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
@@ -325,6 +348,7 @@ function generateCard(array $stats, array $params = null): string
                 100% { opacity: 1; }
             }
         </style>
+        {$gradient}
         <defs>
             <clipPath id='outer_rectangle'>
                 <rect width='495' height='195' rx='{$borderRadius}'/>
@@ -336,7 +360,7 @@ function generateCard(array $stats, array $params = null): string
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation: isolate'>
-                <rect stroke='{$theme["border"]}' fill='{$theme["background"]}' rx='{$borderRadius}' x='0.5' y='0.5' width='494' height='194'/>
+                <rect stroke='{$theme["border"]}' fill='{$background}' rx='{$borderRadius}' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation: isolate'>
                 <line x1='330' y1='28' x2='330' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
@@ -547,13 +571,14 @@ function convertHexColors(string $svg): string
 
     // convert hex colors to 6 digits and corresponding opacity attribute
     $svg = preg_replace_callback(
-        "/(fill|stroke)=['\"]#([0-9a-fA-F]{4}|[0-9a-fA-F]{8})['\"]/m",
+        "/(fill|stroke|stop-color)=['\"]#([0-9a-fA-F]{4}|[0-9a-fA-F]{8})['\"]/m",
         function ($matches) {
             $attribute = $matches[1];
+            $opacityAttribute = $attribute === "stop-color" ? "stop-opacity" : "{$attribute}-opacity";
             $result = convertHexColor($matches[2]);
             $color = $result["color"];
             $opacity = $result["opacity"];
-            return "{$attribute}='{$color}' {$attribute}-opacity='{$opacity}'";
+            return "{$attribute}='{$color}' {$opacityAttribute}='{$opacity}'";
         },
         $svg
     );
