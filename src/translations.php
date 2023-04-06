@@ -138,6 +138,14 @@ return [
         "Longest Week Streak" => "pi long tras semèn",
         "Present" => "Prezan",
     ],
+    "hy" => [
+        "Total Contributions" => "Ընդհանուր\nներդրումը",
+        "Current Streak" => "Ընթացիկ շարք",
+        "Longest Streak" => "Ամենաերկար շարք",
+        "Week Streak" => "Ընթացիկ\nշաբաթների շարք",
+        "Longest Week Streak" => "Ամենաերկար\nշաբաթների շարք",
+        "Present" => "Այժմ",
+    ],
     "id" => [
         "Total Contributions" => "Total Kontribusi",
         "Current Streak" => "Aksi Saat Ini",
@@ -226,6 +234,14 @@ return [
         "Week Streak" => "Текущая серия недель",
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
+    ],
+    "rw" => [
+        "Total Contributions" => "Imisanzu yose",
+        "Current Streak" => "Igihe gishize ntaguhagarara",
+        "Longest Streak" => "Igihe cyirecyire cyashize ntaguhagarara",
+        "Week Streak" => "Igihe gishize ntaguhagarara mu cyumweru",
+        "Longest Week Streak" => "Igihe cyirecyire cyashize ntaguhagarara mu byumweru",
+        "Present" => "None",
     ],
     "sa" => [
         "Total Contributions" => "कुल योगदानम्",
