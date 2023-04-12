@@ -251,6 +251,14 @@ return [
         "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
         "Present" => "वर्तमान",
     ],
+      "sv" => [
+        "Total Contributions" => "Totalt antal uppladningar",
+        "Current Streak" => "Dagar uppladdat i rad just nu",
+        "Longest Streak" => "Längst antal dagar uppladdat i rad",
+        "Week Streak" => "Antal veckor i rad",
+        "Longest Week Streak" => "Längst antal veckor i rad",
+        "Present" => "Just nu",
+    ],
     "sw" => [
         "Total Contributions" => "Jumla ya Michango",
         "Current Streak" => "Mfululizo wa sasa",
