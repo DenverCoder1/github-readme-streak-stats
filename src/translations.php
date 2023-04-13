@@ -251,7 +251,7 @@ return [
         "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
         "Present" => "वर्तमान",
     ],
-      "sv" => [
+    "sv" => [
         "Total Contributions" => "Totalt antal uppladningar",
         "Current Streak" => "Dagar uppladdat i rad just nu",
         "Longest Streak" => "Längst antal dagar uppladdat i rad",
