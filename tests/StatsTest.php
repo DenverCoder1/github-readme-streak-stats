@@ -387,4 +387,71 @@ final class StatsTest extends TestCase
         ];
         $this->assertEquals($expected, $stats);
     }
+
+    /**
+     * Test stats with excluded days of the week
+     */
+    public function testExcludeDays(): void
+    {
+        $contributions = [
+            "2023-04-12" => 1,
+            "2023-04-13" => 0,
+            "2023-04-14" => 2,
+            "2023-04-15" => 0,
+            "2023-04-16" => 0,
+            "2023-04-17" => 3,
+        ];
+        $excludeDays = ["Sun", "Sat"];
+        $stats = getContributionStats($contributions, $excludeDays);
+        $expected = [
+            "mode" => "daily",
+            "totalContributions" => 6,
+            "firstContribution" => "2023-04-12",
+            "longestStreak" => [
+                "start" => "2023-04-14",
+                "end" => "2023-04-17",
+                "length" => 4,
+            ],
+            "currentStreak" => [
+                "start" => "2023-04-14",
+                "end" => "2023-04-17",
+                "length" => 4,
+            ],
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test stats with excluded days of the week and no contribution before weekend
+     */
+    public function testExcludeDaysNoContributionBeforeWeekend(): void
+    {
+        $contributions = [
+            "2023-04-12" => 1,
+            "2023-04-13" => 2,
+            "2023-04-14" => 0,
+            "2023-04-15" => 0,
+            "2023-04-16" => 0,
+            "2023-04-17" => 3,
+        ];
+        $excludeDays = ["Sun", "Sat"];
+        $stats = getContributionStats($contributions, $excludeDays);
+        $expected = [
+            "mode" => "daily",
+            "totalContributions" => 6,
+            "firstContribution" => "2023-04-12",
+            "longestStreak" => [
+                "start" => "2023-04-12",
+                "end" => "2023-04-13",
+                "length" => 2,
+            ],
+            "currentStreak" => [
+                "start" => "2023-04-17",
+                "end" => "2023-04-17",
+                "length" => 1,
+            ],
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
 }
