@@ -38,7 +38,10 @@ try {
     if (isset($_GET["mode"]) && $_GET["mode"] === "weekly") {
         $stats = getWeeklyContributionStats($contributions);
     } else {
-        $excludeDays = explode(",", $_GET["exclude_days"] ?? "");
+        // split and normalize excluded days - trim whitespace, capitalize first letter only, return first 3 characters
+        $excludeDays = array_map(function ($dayOfWeek) {
+            return substr(ucfirst(strtolower(trim($dayOfWeek))), 0, 3);
+        }, explode(",", $_GET["exclude_days"] ?? ""));
         $stats = getContributionStats($contributions, $excludeDays);
     }
     renderOutput($stats);
