@@ -335,6 +335,20 @@ function generateCard(array $stats, array $params = null): string
     $currentStreakRange = splitLines($currentStreakRange, 28, 0);
     $longestStreakRange = splitLines($longestStreakRange, 28, 0);
 
+    // if days are excluded, add a note to the corner
+    $excludedDays = "";
+    if (!empty($stats["excludedDays"])) {
+        $daysCommaSeparated = implode(", ", $stats["excludedDays"]);
+        $excludedDays = "<g style='isolation: isolate'>
+                <!-- Excluded Days -->
+                <g transform='translate(5,187)'>
+                    <text stroke-width='0' text-anchor='right' fill='{$theme["sideLabels"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='10px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.4s'>
+                        * Excluding {$daysCommaSeparated}
+                    </text>
+                </g>
+            </g>";
+    }
+
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
                 style='isolation: isolate' viewBox='0 0 495 195' width='495px' height='195px' direction='{$direction}'>
         <style>
@@ -443,6 +457,7 @@ function generateCard(array $stats, array $params = null): string
                     </text>
                 </g>
             </g>
+            {$excludedDays}
         </g>
     </svg>
 ";

@@ -271,27 +271,27 @@ function getContributionDates(array $contributionGraphs): array
  * Check if a day is an excluded day of the week
  *
  * @param string $date Date to check (Y-m-d)
- * @param array<string> $excludeDays List of days of the week to exclude
+ * @param array<string> $excludedDays List of days of the week to exclude
  *
  * @return bool True if the day is excluded, false otherwise
  */
-function isExcludedDay(string $date, array $excludeDays): bool
+function isExcludedDay(string $date, array $excludedDays): bool
 {
-    if (empty($excludeDays)) {
+    if (empty($excludedDays)) {
         return false;
     }
     $day = date("D", strtotime($date)); // "D" = Mon, Tue, Wed, etc.
-    return in_array($day, $excludeDays);
+    return in_array($day, $excludedDays);
 }
 
 /**
  * Get a stats array with the contribution count, daily streak, and dates
  *
  * @param array<string,int> $contributions Y-M-D contribution dates with contribution counts
- * @param array<string> $excludeDays List of days of the week to exclude
+ * @param array<string> $excludedDays List of days of the week to exclude
  * @return array<string,mixed> Streak stats
  */
-function getContributionStats(array $contributions, array $excludeDays = []): array
+function getContributionStats(array $contributions, array $excludedDays = []): array
 {
     // if no contributions, display error
     if (empty($contributions)) {
@@ -313,6 +313,7 @@ function getContributionStats(array $contributions, array $excludeDays = []): ar
             "end" => $first,
             "length" => 0,
         ],
+        "excludedDays" => $excludedDays,
     ];
 
     // calculate the stats from the contributions array
@@ -320,7 +321,7 @@ function getContributionStats(array $contributions, array $excludeDays = []): ar
         // add contribution count to total
         $stats["totalContributions"] += $count;
         // check if still in streak
-        if ($count > 0 || ($stats["currentStreak"]["length"] > 0 && isExcludedDay($date, $excludeDays))) {
+        if ($count > 0 || ($stats["currentStreak"]["length"] > 0 && isExcludedDay($date, $excludedDays))) {
             // increment streak
             ++$stats["currentStreak"]["length"];
             $stats["currentStreak"]["end"] = $date;

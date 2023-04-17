@@ -453,5 +453,4 @@ final class StatsTest extends TestCase
         ];
         $this->assertEquals($expected, $stats);
     }
-
 }

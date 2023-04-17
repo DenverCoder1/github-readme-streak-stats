@@ -39,9 +39,12 @@ try {
         $stats = getWeeklyContributionStats($contributions);
     } else {
         // split and normalize excluded days - trim whitespace, capitalize first letter only, return first 3 characters
-        $excludeDays = array_map(function ($dayOfWeek) {
-            return substr(ucfirst(strtolower(trim($dayOfWeek))), 0, 3);
-        }, explode(",", $_GET["exclude_days"] ?? ""));
+        $excludeDays = array_filter(
+            array_map(function ($dayOfWeek) {
+                $dayOfWeek = substr(ucfirst(strtolower(trim($dayOfWeek))), 0, 3);
+                return in_array($dayOfWeek, ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]) ? $dayOfWeek : null;
+            }, explode(",", $_GET["exclude_days"] ?? ""))
+        );
         $stats = getContributionStats($contributions, $excludeDays);
     }
     renderOutput($stats);
