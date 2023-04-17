@@ -163,6 +163,9 @@ function camelToSkewer(string $str): string
                     <option value="json">JSON</option>
                 </select>
 
+                <label for="card_width">Card Width</label>
+                <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1" min="290">
+
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
                     <div class="content">

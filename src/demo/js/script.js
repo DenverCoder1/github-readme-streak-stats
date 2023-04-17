@@ -14,6 +14,7 @@ const preview = {
     mode: "daily",
     type: "svg",
     exclude_days: "",
+    card_width: "495",
   },
 
   /**
