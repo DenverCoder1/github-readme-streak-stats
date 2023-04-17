@@ -13,6 +13,7 @@ const preview = {
     border_radius: "4.5",
     mode: "daily",
     type: "svg",
+    exclude_days: "",
   },
 
   /**
@@ -83,13 +84,91 @@ const preview = {
         onChange: `preview.pickerChange(this, '${propertyName}')`,
         onInput: `preview.pickerChange(this, '${propertyName}')`,
       };
-      const input = document.createElement("input");
-      input.className = "param jscolor";
-      input.id = propertyName;
-      input.name = propertyName;
-      input.setAttribute("data-property", propertyName);
-      input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
-      input.value = value;
+
+      const parent = document.querySelector(".advanced .color-properties");
+      if (propertyName === "background" && document.querySelector("#background-type-gradient").checked) {
+        const valueParts = value.split(",");
+        let angleValue = "45";
+        let color1Value = "#EB5454FF";
+        let color2Value = "#EB5454FF";
+        if (valueParts.length === 3) {
+          angleValue = valueParts[0];
+          color1Value = valueParts[1];
+          color2Value = valueParts[2];
+        }
+
+        const input = document.createElement("span");
+        input.className = "grid-middle";
+        input.setAttribute("data-property", propertyName);
+
+        const rotateInputGroup = document.createElement("div");
+        rotateInputGroup.className = "input-text-group";
+
+        const rotate = document.createElement("input");
+        rotate.className = "param";
+        rotate.type = "number";
+        rotate.id = "rotate";
+        rotate.placeholder = "45";
+        rotate.value = angleValue;
+
+        const degText = document.createElement("span");
+        degText.innerText = "\u00B0"; // degree symbol
+
+        rotateInputGroup.appendChild(rotate);
+        rotateInputGroup.appendChild(degText);
+
+        const color1 = document.createElement("input");
+        color1.className = "param jscolor";
+        color1.id = "background-color1";
+        color1.setAttribute(
+          "data-jscolor",
+          JSON.stringify({
+            format: "hexa",
+            onChange: `preview.pickerChange(this, '${color1.id}')`,
+            onInput: `preview.pickerChange(this, '${color1.id}')`,
+          })
+        );
+        const color2 = document.createElement("input");
+        color2.className = "param jscolor";
+        color2.id = "background-color2";
+        color2.setAttribute(
+          "data-jscolor",
+          JSON.stringify({
+            format: "hexa",
+            onChange: `preview.pickerChange(this, '${color2.id}')`,
+            onInput: `preview.pickerChange(this, '${color2.id}')`,
+          })
+        );
+        rotate.name = color1.name = color2.name = propertyName;
+        color1.value = color1Value;
+        color2.value = color2Value;
+        // add elements
+        parent.appendChild(label);
+        input.appendChild(rotateInputGroup);
+        input.appendChild(color1);
+        input.appendChild(color2);
+        parent.appendChild(input);
+        // initialise jscolor on elements
+        jscolor.install(input);
+        // check initial color values
+        this.checkColor(color1.value, color1.id);
+        this.checkColor(color2.value, color2.id);
+      } else {
+        const input = document.createElement("input");
+        input.className = "param jscolor";
+        input.id = propertyName;
+        input.name = propertyName;
+        input.setAttribute("data-property", propertyName);
+        input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
+        input.value = value;
+        // add elements
+        parent.appendChild(label);
+        parent.appendChild(input);
+        // initialise jscolor on element
+        jscolor.install(parent);
+        // check initial color value
+        this.checkColor(value, propertyName);
+      }
       // removal button
       const minus = document.createElement("button");
       minus.className = "minus btn";
@@ -97,17 +176,7 @@ const preview = {
       minus.setAttribute("type", "button");
       minus.innerText = "−";
       minus.setAttribute("data-property", propertyName);
-      // add elements
-      const parent = document.querySelector(".advanced .color-properties");
-      parent.appendChild(label);
-      parent.appendChild(input);
       parent.appendChild(minus);
-
-      // initialise jscolor on element
-      jscolor.install(parent);
-
-      // check initial color value
-      this.checkColor(value, propertyName);
 
       // update and exit
       this.update();
@@ -162,6 +231,12 @@ const preview = {
           value = value.replace(/[Ff]{2}$/, "");
         }
       }
+      // if the property already exists, append the value to the existing one
+      if (next.name in obj) {
+        obj[next.name] = `${obj[next.name]},${value}`;
+        return obj;
+      }
+      // otherwise, add the value to the object
       obj[next.name] = value;
       return obj;
     }, {});
@@ -176,12 +251,15 @@ const preview = {
     const selectedOption = themeSelect.options[themeSelect.selectedIndex];
     const defaultParams = selectedOption.dataset;
     // get parameters with the advanced options
-    const advancedParams = this.objectFromElements(document.querySelectorAll(".advanced .param.jscolor"));
+    const advancedParams = this.objectFromElements(document.querySelectorAll(".advanced .param"));
     // update default values with the advanced options
     const params = { ...defaultParams, ...advancedParams };
     // convert parameters to PHP code
     const mappings = Object.keys(params)
-      .map((key) => `  "${key}" => "#${params[key]}",`)
+      .map((key) => {
+        const value = params[key].includes(",") ? params[key] : `#${params[key]}`;
+        return `  "${key}" => "${value}",`;
+      })
       .join("\n");
     const output = `[\n${mappings}\n]`;
     // set the textarea value to the output
@@ -196,9 +274,9 @@ const preview = {
    * @param {string} input - the property name, or id of the element to update
    */
   checkColor(color, input) {
+    // if color has hex alpha value -> remove it
     if (color.length === 9 && color.slice(-2) === "FF") {
-      // if color has hex alpha value -> remove it
-      document.querySelector(`[name="${input}"]`).value = color.slice(0, -2);
+      document.querySelector(`#${input}`).value = color.slice(0, -2);
     }
   },
 
@@ -258,8 +336,27 @@ window.addEventListener(
     [...document.querySelectorAll("select:not(#properties)")].forEach((element) => {
       element.addEventListener("change", refresh, false);
     });
+    // when the background-type changes, remove the background and replace it
+    const toggleBackgroundType = () => {
+      const value = document.querySelector("input#background, input#background-color1")?.value;
+      preview.removeProperty("background");
+      if (value && document.querySelector("#background-type-gradient").checked) {
+        preview.addProperty("background", `45,${value},${value}`);
+      } else if (value) {
+        preview.addProperty("background", value);
+      }
+    };
+    document.querySelector("#background-type-solid").addEventListener("change", toggleBackgroundType, false);
+    document.querySelector("#background-type-gradient").addEventListener("change", toggleBackgroundType, false);
     // set input boxes to match URL parameters
-    new URLSearchParams(window.location.search).forEach((val, key) => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const backgroundParams = searchParams.getAll("background");
+    // set background-type
+    if (backgroundParams.length > 1) {
+      document.querySelector("#background-type-gradient").checked = true;
+    }
+    // set input field and select values
+    searchParams.forEach((val, key) => {
       const paramInput = document.querySelector(`[name="${key}"]`);
       if (paramInput) {
         // set parameter value
@@ -267,8 +364,48 @@ window.addEventListener(
       } else {
         // add advanced property
         document.querySelector("details.advanced").open = true;
-        preview.addProperty(key, val);
+        preview.addProperty(key, searchParams.getAll(key).join(","));
       }
+    });
+    // set background angle and gradient colors
+    if (backgroundParams.length > 1) {
+      document.querySelector("#rotate").value = backgroundParams[0];
+      document.querySelector("#background-color1").value = backgroundParams[1];
+      document.querySelector("#background-color2").value = backgroundParams[2];
+      preview.checkColor(backgroundParams[1], "background-color1");
+      preview.checkColor(backgroundParams[2], "background-color2");
+    }
+    // set weekday checkboxes
+    const excludeDays = searchParams.get("exclude_days");
+    if (excludeDays) {
+      excludeDays.split(",").forEach((day) => {
+        const checkbox = document.querySelector(`.weekdays input[type="checkbox"][value="${day}"]`);
+        if (checkbox) {
+          checkbox.checked = true;
+        }
+      });
+    }
+    // when weekdays are toggled, update the input field
+    document.querySelectorAll('.weekdays input[type="checkbox"]').forEach((el) => {
+      el.addEventListener("click", () => {
+        const checked = document.querySelectorAll('.weekdays input[type="checkbox"]:checked');
+        document.querySelector("#exclude-days").value = [...checked].map((node) => node.value).join(",");
+        preview.update();
+      });
+    });
+    // when mode is set to "weekly", disable checkboxes, otherwise enable them
+    document.querySelector("#mode").addEventListener("change", () => {
+      const mode = document.querySelector("#mode").value;
+      document.querySelectorAll(".weekdays input[type='checkbox']").forEach((el) => {
+        const labelEl = el.nextElementSibling;
+        if (mode === "weekly") {
+          el.disabled = true;
+          labelEl.title = "Disabled in weekly mode";
+        } else {
+          el.disabled = false;
+          labelEl.title = labelEl.dataset.tooltip;
+        }
+      });
     });
     // update previews
     preview.update();

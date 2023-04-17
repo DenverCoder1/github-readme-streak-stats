@@ -36,6 +36,7 @@ final class RenderTest extends TestCase
             "end" => "2019-04-12",
             "length" => 16,
         ],
+        "excludedDays" => [],
     ];
 
     /**
@@ -175,5 +176,43 @@ final class RenderTest extends TestCase
         $this->testParams["border"] = "00ff0080";
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("stroke='#00ff00' stroke-opacity='0.50196078431373'", $render);
+    }
+
+    /**
+     * Test gradient background
+     */
+    public function testGradientBackground(): void
+    {
+        $this->testParams["background"] = "45,f00,e11";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='url(#gradient)'", $render);
+        $this->assertStringContainsString(
+            "<defs><linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='100%' stop-color='#e11' /></linearGradient></defs>",
+            $render
+        );
+    }
+
+    /**
+     * Test gradient background with more than 2 colors
+     */
+    public function testGradientBackgroundWithMoreThan2Colors(): void
+    {
+        $this->testParams["background"] = "-45,f00,4e5,ddd,fff";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='url(#gradient)'", $render);
+        $this->assertStringContainsString(
+            "<defs><linearGradient id='gradient' gradientTransform='rotate(-45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='33.333333333333%' stop-color='#4e5' /><stop offset='66.666666666667%' stop-color='#ddd' /><stop offset='100%' stop-color='#fff' /></linearGradient></defs>",
+            $render
+        );
+    }
+
+    /**
+     * Test excluding days
+     */
+    public function testExcludeDays(): void
+    {
+        $this->testStats["excludedDays"] = ["Sun", "Sat"];
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("* Excluding Sun, Sat", $render);
     }
 }

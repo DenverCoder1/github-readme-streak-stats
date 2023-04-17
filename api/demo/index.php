@@ -148,6 +148,25 @@ function fileModifiedTime(string $filename): int
                     <option value="weekly">Weekly</option>
                 </select>
 
+                <label for="exclude_days">Exclude Days</label>
+                <div class="weekdays">
+                    <input type="checkbox" value="Sun" id="weekday-sun" />
+                    <label for="weekday-sun" data-tooltip="Exclude Sunday" title="Exclude Sunday">S</label>
+                    <input type="checkbox" value="Mon" id="weekday-mon" />
+                    <label for="weekday-mon" data-tooltip="Exclude Monday" title="Exclude Monday">M</label>
+                    <input type="checkbox" value="Tue" id="weekday-tue" />
+                    <label for="weekday-tue" data-tooltip="Exclude Tuesday" title="Exclude Tuesday">T</label>
+                    <input type="checkbox" value="Wed" id="weekday-wed" />
+                    <label for="weekday-wed" data-tooltip="Exclude Wednesday" title="Exclude Wednesday">W</label>
+                    <input type="checkbox" value="Thu" id="weekday-thu" />
+                    <label for="weekday-thu" data-tooltip="Exclude Thursday" title="Exclude Thursday">T</label>
+                    <input type="checkbox" value="Fri" id="weekday-fri" />
+                    <label for="weekday-fri" data-tooltip="Exclude Friday" title="Exclude Friday">F</label>
+                    <input type="checkbox" value="Sat" id="weekday-sat" />
+                    <label for="weekday-sat" data-tooltip="Exclude Saturday" title="Exclude Saturday">S</label>
+                    <input type="text" id="exclude-days" name="exclude_days" class="param" />
+                </div>
+
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">
                     <option value="svg">SVG</option>
@@ -157,14 +176,30 @@ function fileModifiedTime(string $filename): int
 
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
-                    <div class="content color-properties parameters">
-                        <label for="theme">Add Property</label>
-                        <select id="properties" name="properties">
-                            <?php foreach ($THEMES["default"] as $option => $color): ?>
-                                <option><?php echo $option; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <button class="plus btn" type="button" onclick="preview.addProperty()">+</button>
+                    <div class="content">
+                        <div class="radio-buttons parameters">
+                            <!-- Radio buttons to choose between solid and gradient background -->
+                            <label for="background-type">Background Type</label>
+                            <div class="radio-button-group">
+                                <div>
+                                    <input type="radio" id="background-type-solid" name="background-type" value="solid" checked>
+                                    <label for="solid">Solid</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="background-type-gradient" name="background-type" value="gradient">
+                                    <label for="gradient">Gradient</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="color-properties parameters">
+                            <label for="theme">Add Property</label>
+                            <select id="properties" name="properties">
+                                <?php foreach ($THEMES["default"] as $option => $color): ?>
+                                    <option><?php echo $option; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <button class="plus btn" type="button" onclick="preview.addProperty()">+</button>
+                        </div>
                     </div>
                     <button class="btn" type="button" onclick="preview.exportPhp()">Export to PHP</button>
                     <button id="clear-button" class="btn" type="button" onclick="preview.removeAllProperties()" disabled>Clear Options</button>

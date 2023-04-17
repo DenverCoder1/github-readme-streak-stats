@@ -37,6 +37,7 @@ return [
         "Week Streak" => "Week Streak",
         "Longest Week Streak" => "Longest Week Streak",
         "Present" => "Present",
+        "Excluding" => "Excluding",
     ],
     // Locales below are sorted alphabetically
     "ar" => [
@@ -121,6 +122,7 @@ return [
         "Week Streak" => "רצף שבועי",
         "Longest Week Streak" => "רצף שבועי הכי ארוך",
         "Present" => "היום",
+        "Excluding" => "לא כולל",
     ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",
@@ -137,6 +139,14 @@ return [
         "Week Streak" => "tras semèn",
         "Longest Week Streak" => "pi long tras semèn",
         "Present" => "Prezan",
+    ],
+    "hy" => [
+        "Total Contributions" => "Ընդհանուր\nներդրումը",
+        "Current Streak" => "Ընթացիկ շարք",
+        "Longest Streak" => "Ամենաերկար շարք",
+        "Week Streak" => "Ընթացիկ\nշաբաթների շարք",
+        "Longest Week Streak" => "Ամենաերկար\nշաբաթների շարք",
+        "Present" => "Այժմ",
     ],
     "id" => [
         "Total Contributions" => "Total Kontribusi",
@@ -227,6 +237,14 @@ return [
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
     ],
+    "rw" => [
+        "Total Contributions" => "Imisanzu yose",
+        "Current Streak" => "Igihe gishize ntaguhagarara",
+        "Longest Streak" => "Igihe cyirecyire cyashize ntaguhagarara",
+        "Week Streak" => "Igihe gishize ntaguhagarara mu cyumweru",
+        "Longest Week Streak" => "Igihe cyirecyire cyashize ntaguhagarara mu byumweru",
+        "Present" => "None",
+    ],
     "sa" => [
         "Total Contributions" => "कुल योगदानम्",
         "Current Streak" => "क्रमशः दिवसान् चालयन्तु",
@@ -234,6 +252,14 @@ return [
         "Week Streak" => "निरन्तरसप्ताहाः",
         "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
         "Present" => "वर्तमान",
+    ],
+    "sv" => [
+        "Total Contributions" => "Totalt antal uppladningar",
+        "Current Streak" => "Dagar uppladdat i rad just nu",
+        "Longest Streak" => "Längst antal dagar uppladdat i rad",
+        "Week Streak" => "Antal veckor i rad",
+        "Longest Week Streak" => "Längst antal veckor i rad",
+        "Present" => "Just nu",
     ],
     "sw" => [
         "Total Contributions" => "Jumla ya Michango",
