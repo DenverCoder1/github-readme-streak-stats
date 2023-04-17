@@ -55,13 +55,13 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 
 /**
  * Translate days of the week
- * 
+ *
  * Takes a list of days (eg. ["Sun", "Mon", "Sat"]) and returns the short abbreviation of the days of the week in another locale
  * e.g. ["Sun", "Mon", "Sat"] -> ["dim", "lun", "sam"]
- * 
+ *
  * @param array<string> $days List of days to translate
  * @param string $locale Locale code
- * 
+ *
  * @return array<string> Translated days
  */
 function translateDays(array $days, string $locale): array
@@ -370,7 +370,7 @@ function generateCard(array $stats, array $params = null): string
     $excludedDays = "";
     if (!empty($stats["excludedDays"])) {
         $daysCommaSeparated = implode(", ", translateDays($stats["excludedDays"], $localeCode));
-        $offset = $direction === "rtl" ? (495 - 5) : 5;
+        $offset = $direction === "rtl" ? 495 - 5 : 5;
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
                 <g transform='translate({$offset},187)'>
