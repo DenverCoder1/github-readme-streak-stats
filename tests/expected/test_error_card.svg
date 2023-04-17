@@ -14,14 +14,14 @@
                 <rect stroke='#111111' fill='#000000' rx='4.5' x='0.5' y='0.5' width='494' height='194'/>
             </g>
             <g style='isolation: isolate'>
-                <!-- Error Label -->
+                <!-- Error lable -->
                 <g transform='translate(247.5,108)'>
                     <text x='0' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' fill='#888888' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal'>
                         An unknown error occurred
                     </text>
                 </g>
 
-                <!-- mask for background behind face -->
+                <!-- Mask for background behind face -->
                 <defs>
                     <mask id='cut-off-area'>
                         <rect x='0' y='0' width='500' height='500' fill='white' />
