@@ -117,6 +117,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-18",
                 "length" => 4,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -147,6 +148,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-17",
                 "length" => 3,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -177,6 +179,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-18",
                 "length" => 0,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -205,6 +208,7 @@ final class StatsTest extends TestCase
                 "end" => date("Y-m-d"),
                 "length" => 370,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -269,6 +273,7 @@ final class StatsTest extends TestCase
                 "end" => date("Y-m-d", strtotime("tomorrow")),
                 "length" => 3,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -417,6 +422,7 @@ final class StatsTest extends TestCase
                 "end" => "2023-04-17",
                 "length" => 4,
             ],
+            "excludedDays" => $excludeDays,
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -450,6 +456,7 @@ final class StatsTest extends TestCase
                 "end" => "2023-04-17",
                 "length" => 1,
             ],
+            "excludedDays" => $excludeDays,
         ];
         $this->assertEquals($expected, $stats);
     }

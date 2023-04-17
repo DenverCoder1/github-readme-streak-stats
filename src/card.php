@@ -54,6 +54,37 @@ function formatDate(string $dateString, string|null $format, string $locale): st
 }
 
 /**
+ * Translate days of the week
+ * 
+ * Takes a list of days (eg. ["Sun", "Mon", "Sat"]) and returns the short abbreviation of the days of the week in another locale
+ * e.g. ["Sun", "Mon", "Sat"] -> ["dim", "lun", "sam"]
+ * 
+ * @param array<string> $days List of days to translate
+ * @param string $locale Locale code
+ * 
+ * @return array<string> Translated days
+ */
+function translateDays(array $days, string $locale): array
+{
+    if ($locale === "en") {
+        return $days;
+    }
+    $patternGenerator = new IntlDatePatternGenerator($locale);
+    $pattern = $patternGenerator->getBestPattern("EEE");
+    $dateFormatter = new IntlDateFormatter(
+        $locale,
+        IntlDateFormatter::NONE,
+        IntlDateFormatter::NONE,
+        pattern: $pattern
+    );
+    $translatedDays = [];
+    foreach ($days as $day) {
+        $translatedDays[] = $dateFormatter->format(new DateTime($day));
+    }
+    return $translatedDays;
+}
+
+/**
  * Normalize a theme name
  *
  * @param string $theme Theme name
@@ -338,12 +369,13 @@ function generateCard(array $stats, array $params = null): string
     // if days are excluded, add a note to the corner
     $excludedDays = "";
     if (!empty($stats["excludedDays"])) {
-        $daysCommaSeparated = implode(", ", $stats["excludedDays"]);
+        $daysCommaSeparated = implode(", ", translateDays($stats["excludedDays"], $localeCode));
+        $offset = $direction === "rtl" ? (495 - 5) : 5;
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
-                <g transform='translate(5,187)'>
+                <g transform='translate({$offset},187)'>
                     <text stroke-width='0' text-anchor='right' fill='{$theme["sideLabels"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='10px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
-                        * Excluding {$daysCommaSeparated}
+                        * {$localeTranslations["Excluding"]} {$daysCommaSeparated}
                     </text>
                 </g>
             </g>";
