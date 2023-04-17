@@ -138,14 +138,23 @@ function camelToSkewer(string $str): string
                 </select>
 
                 <label for="exclude_days">Exclude Days</label>
-                <select class="param" id="hide-border" name="exclude_days">
-                    <option value="">None</option>
-                    <option value="Sun">Sun</option>
-                    <option value="Sat">Sat</option>
-                    <option value="Sun,Sat">Sun, Sat</option>
-                    <option value="Fri,Sat">Fri, Sat</option>
-                    <option value="Fri,Sat,Sun">Fri, Sat, Sun</option>
-                </select>
+                <div class="weekdays">
+                    <input type="checkbox" value="Sun" id="weekday-sun" />
+                    <label for="weekday-sun">S</label>
+                    <input type="checkbox" value="Mon" id="weekday-mon" />
+                    <label for="weekday-mon">M</label>
+                    <input type="checkbox" value="Tue" id="weekday-tue" />
+                    <label for="weekday-tue">T</label>
+                    <input type="checkbox" value="Wed" id="weekday-wed" />
+                    <label for="weekday-wed">W</label>
+                    <input type="checkbox" value="Thu" id="weekday-thu" />
+                    <label for="weekday-thu">T</label>
+                    <input type="checkbox" value="Fri" id="weekday-fri" />
+                    <label for="weekday-fri">F</label>
+                    <input type="checkbox" value="Sat" id="weekday-sat" />
+                    <label for="weekday-sat">S</label>
+                    <input type="text" id="exclude-days" name="exclude_days" class="param" />
+                </div>
 
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">

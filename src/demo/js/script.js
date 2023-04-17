@@ -375,6 +375,24 @@ window.addEventListener(
       preview.checkColor(backgroundParams[1], "background-color1");
       preview.checkColor(backgroundParams[2], "background-color2");
     }
+    // set weekday checkboxes
+    const excludeDays = searchParams.get("exclude_days");
+    if (excludeDays) {
+      excludeDays.split(",").forEach((day) => {
+        const checkbox = document.querySelector(`.weekdays input[type="checkbox"][value="${day}"]`);
+        if (checkbox) {
+          checkbox.checked = true;
+        }
+      });
+    }
+    // when weekdays are toggled, update the input field
+    document.querySelectorAll(`.weekdays input[type="checkbox"]`).forEach((el) => {
+      el.addEventListener("click", () => {
+        const checked = document.querySelectorAll(`.weekdays input[type="checkbox"]:checked`);
+        document.querySelector("#exclude-days").value = [...checked].map((node) => node.value).join(",");
+        preview.update();
+      });
+    });
     // update previews
     preview.update();
   },
