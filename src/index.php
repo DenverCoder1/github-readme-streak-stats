@@ -38,7 +38,9 @@ try {
     if (isset($_GET["mode"]) && $_GET["mode"] === "weekly") {
         $stats = getWeeklyContributionStats($contributions);
     } else {
-        $stats = getContributionStats($contributions);
+        // split and normalize excluded days
+        $excludeDays = normalizeDays(explode(",", $_GET["exclude_days"] ?? ""));
+        $stats = getContributionStats($contributions, $excludeDays);
     }
     renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {

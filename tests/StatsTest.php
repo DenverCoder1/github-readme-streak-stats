@@ -117,6 +117,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-18",
                 "length" => 4,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -147,6 +148,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-17",
                 "length" => 3,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -177,6 +179,7 @@ final class StatsTest extends TestCase
                 "end" => "2021-04-18",
                 "length" => 0,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -205,6 +208,7 @@ final class StatsTest extends TestCase
                 "end" => date("Y-m-d"),
                 "length" => 370,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -269,6 +273,7 @@ final class StatsTest extends TestCase
                 "end" => date("Y-m-d", strtotime("tomorrow")),
                 "length" => 3,
             ],
+            "excludedDays" => [],
         ];
         $this->assertEquals($expected, $stats);
     }
@@ -384,6 +389,74 @@ final class StatsTest extends TestCase
                 "end" => $lastWeek,
                 "length" => 1,
             ],
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test stats with excluded days of the week
+     */
+    public function testExcludeDays(): void
+    {
+        $contributions = [
+            "2023-04-12" => 1,
+            "2023-04-13" => 0,
+            "2023-04-14" => 2,
+            "2023-04-15" => 0,
+            "2023-04-16" => 0,
+            "2023-04-17" => 3,
+        ];
+        $excludeDays = ["Sun", "Sat"];
+        $stats = getContributionStats($contributions, $excludeDays);
+        $expected = [
+            "mode" => "daily",
+            "totalContributions" => 6,
+            "firstContribution" => "2023-04-12",
+            "longestStreak" => [
+                "start" => "2023-04-14",
+                "end" => "2023-04-17",
+                "length" => 4,
+            ],
+            "currentStreak" => [
+                "start" => "2023-04-14",
+                "end" => "2023-04-17",
+                "length" => 4,
+            ],
+            "excludedDays" => $excludeDays,
+        ];
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
+     * Test stats with excluded days of the week and no contribution before weekend
+     */
+    public function testExcludeDaysNoContributionBeforeWeekend(): void
+    {
+        $contributions = [
+            "2023-04-12" => 1,
+            "2023-04-13" => 2,
+            "2023-04-14" => 0,
+            "2023-04-15" => 0,
+            "2023-04-16" => 0,
+            "2023-04-17" => 3,
+        ];
+        $excludeDays = ["Sun", "Sat"];
+        $stats = getContributionStats($contributions, $excludeDays);
+        $expected = [
+            "mode" => "daily",
+            "totalContributions" => 6,
+            "firstContribution" => "2023-04-12",
+            "longestStreak" => [
+                "start" => "2023-04-12",
+                "end" => "2023-04-13",
+                "length" => 2,
+            ],
+            "currentStreak" => [
+                "start" => "2023-04-17",
+                "end" => "2023-04-17",
+                "length" => 1,
+            ],
+            "excludedDays" => $excludeDays,
         ];
         $this->assertEquals($expected, $stats);
     }

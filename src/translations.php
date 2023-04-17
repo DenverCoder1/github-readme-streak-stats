@@ -37,6 +37,7 @@ return [
         "Week Streak" => "Week Streak",
         "Longest Week Streak" => "Longest Week Streak",
         "Present" => "Present",
+        "Excluding" => "Excluding",
     ],
     // Locales below are sorted alphabetically
     "ar" => [
@@ -121,6 +122,7 @@ return [
         "Week Streak" => "רצף שבועי",
         "Longest Week Streak" => "רצף שבועי הכי ארוך",
         "Present" => "היום",
+        "Excluding" => "לא כולל",
     ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",

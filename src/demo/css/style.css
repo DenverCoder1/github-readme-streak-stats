@@ -185,6 +185,35 @@ h2 {
   text-transform: capitalize;
 }
 
+.weekdays input {
+  display: none !important;
+}
+
+.weekdays input[type="checkbox"] + label {
+  font-size: 90%;
+  display: inline-block;
+  border-radius: 6px;
+  height: 30px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--card-background);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.weekdays input[type="checkbox"]:checked + label {
+  background: var(--text);
+  color: var(--background);
+}
+
+.weekdays input[type="checkbox"]:disabled + label {
+  background: var(--card-background);
+  color: var(--stroke);
+}
+
 span[title="required"] {
   color: var(--red);
 }
