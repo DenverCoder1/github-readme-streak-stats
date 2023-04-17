@@ -22,6 +22,7 @@ $demoStats = [
         "end" => date("Y-m-d"),
         "length" => 16,
     ],
+    "excludedDays" => explode(",", $_GET["exclude_days"] ?? ""),
 ];
 
 if ($mode == "weekly") {
