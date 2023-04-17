@@ -268,11 +268,28 @@ function getContributionDates(array $contributionGraphs): array
 }
 
 /**
+ * Normalize names of days of the week (eg. ["Sunday", " mon", "TUE"] -> ["Sun", "Mon", "Tue"])
+ * 
+ * @param array<string> $days List of days of the week
+ * @return array<string> List of normalized days of the week
+ */
+function normalizeDays(array $days): array
+{
+    return array_filter(
+        array_map(function ($dayOfWeek) {
+            // trim whitespace, capitalize first letter only, return first 3 characters
+            $dayOfWeek = substr(ucfirst(strtolower(trim($dayOfWeek))), 0, 3);
+            // return day if valid, otherwise return null
+            return in_array($dayOfWeek, ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]) ? $dayOfWeek : null;
+        }, $days)
+    );
+}
+
+/**
  * Check if a day is an excluded day of the week
  *
  * @param string $date Date to check (Y-m-d)
  * @param array<string> $excludedDays List of days of the week to exclude
- *
  * @return bool True if the day is excluded, false otherwise
  */
 function isExcludedDay(string $date, array $excludedDays): bool
