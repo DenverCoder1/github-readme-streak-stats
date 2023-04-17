@@ -187,7 +187,7 @@ final class RenderTest extends TestCase
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("fill='url(#gradient)'", $render);
         $this->assertStringContainsString(
-            "<defs><linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='100%' stop-color='#e11' /></linearGradient></defs>",
+            "<linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='100%' stop-color='#e11' /></linearGradient>",
             $render
         );
     }
@@ -201,7 +201,7 @@ final class RenderTest extends TestCase
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("fill='url(#gradient)'", $render);
         $this->assertStringContainsString(
-            "<defs><linearGradient id='gradient' gradientTransform='rotate(-45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='33.333333333333%' stop-color='#4e5' /><stop offset='66.666666666667%' stop-color='#ddd' /><stop offset='100%' stop-color='#fff' /></linearGradient></defs>",
+            "<linearGradient id='gradient' gradientTransform='rotate(-45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='33.333333333333%' stop-color='#4e5' /><stop offset='66.666666666667%' stop-color='#ddd' /><stop offset='100%' stop-color='#fff' /></linearGradient>",
             $render
         );
     }
