@@ -328,6 +328,12 @@ function generateCard(array $stats, array $params = null): string
     $centerOffset = $cardWidth / 2;
     $thirdColumnOffset = ($cardWidth * 5) / 6;
 
+    // if direction is rtl, swap first and third column offsets
+    if ($direction === "rtl") {
+        $firstColumnOffset = ($cardWidth * 5) / 6;
+        $thirdColumnOffset = $cardWidth / 6;
+    }
+
     // Set Background
     $backgroundParts = explode(",", $theme["background"] ?? "");
     $backgroundIsGradient = count($backgroundParts) >= 3;
