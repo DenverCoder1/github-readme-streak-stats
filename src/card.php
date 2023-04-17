@@ -279,11 +279,16 @@ function getTranslations(string $localeCode): array
 
 /**
  * Get the card width from params taking into account minimum and default values
+ *
+ * @param array<string,string> $params Request parameters
+ * @param int $numColumns Number of columns in the card
+ * @return int Card width
  */
-function getCardWidth(array $params): int
+function getCardWidth(array $params, int $numColumns = 3): int
 {
-    // minimum width = 290, default width = 495
-    return max(290, intval($params["card_width"] ?? 495));
+    $defaultWidth = 495;
+    $minimumWidth = 100 * $numColumns;
+    return max($minimumWidth, intval($params["card_width"] ?? $defaultWidth));
 }
 
 /**
@@ -324,7 +329,7 @@ function generateCard(array $stats, array $params = null): string
     $showLongestStreak = ($params["hide_longest_streak"] ?? "") !== "true";
     $numColumns = intval($showTotalContributions) + intval($showCurrentStreak) + intval($showLongestStreak);
 
-    $cardWidth = getCardWidth($params);
+    $cardWidth = getCardWidth($params, $numColumns);
     $rectWidth = $cardWidth - 1;
     $columnWidth = $numColumns > 0 ? $cardWidth / $numColumns : 0;
 
@@ -748,7 +753,8 @@ function generateOutput(string|array $output, array $params = null): array
     // output PNG card
     if ($requestedType === "png") {
         try {
-            $cardWidth = getCardWidth($params);
+            // extract width from SVG
+            $cardWidth = (int) preg_replace("/.*width=[\"'](\d+)px[\"'].*/", "$1", $svg);
             $png = convertSvgToPng($svg, $cardWidth);
             return [
                 "contentType" => "image/png",

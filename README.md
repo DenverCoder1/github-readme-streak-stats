@@ -65,7 +65,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |           `mode`           |          Streak mode (Default: `daily`)          |             `daily` (contribute daily) or `weekly` (contribute once per Sun-Sat week)              |
 |       `exclude_days`       | List of days of the week to exclude from streaks |    Comma-separated list of day abbreviations (Sun, Mon, Tue, Wed, Thu, Fri, Sat) e.g. `Sun,Sat`    |
 |    `disable_animations`    |    Disable SVG animations (Default: `false`)     |                                         `true` or `false`                                          |
-|        `card_width`        |   Width of the card in pixels (Default: `495`)   |                               Integer greater than or equal to `290`                               |
+|        `card_width`        |   Width of the card in pixels (Default: `495`)   |                        Positive integer, minimum width is 100px per column                         |
 | `hide_total_contributions` | Hide the total contributions (Default: `false`)  |                                         `true` or `false`                                          |
 |   `hide_current_streak`    |    Hide the current streak (Default: `false`)    |                                         `true` or `false`                                          |
 |   `hide_longest_streak`    |    Hide the longest streak (Default: `false`)    |                                         `true` or `false`                                          |
