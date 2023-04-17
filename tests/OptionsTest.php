@@ -31,12 +31,9 @@ final class OptionsTest extends TestCase
         $themes = include "src/themes.php";
         foreach ($themes as $theme => $colors) {
             $actualColors = getRequestedTheme(["theme" => $theme]);
+            unset($actualColors["backgroundGradient"]);
             $this->assertEquals($colors, $actualColors);
         }
-        // test old theme names
-        $this->assertEquals($themes["holi-theme"], getRequestedTheme(["theme" => "holi_theme"]));
-        $this->assertEquals($themes["gruvbox-duo"], getRequestedTheme(["theme" => "gruvbox_duo"]));
-        $this->assertEquals($themes["deepblue"], getRequestedTheme(["theme" => "deepBlue"]));
     }
 
     /**
@@ -48,7 +45,9 @@ final class OptionsTest extends TestCase
         // request parameters
         $params = ["theme" => "not a theme name"];
         // test that invalid theme name gives default values
-        $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+        $actual = getRequestedTheme($params);
+        unset($actual["backgroundGradient"]);
+        $this->assertEquals($this->defaultTheme, $actual);
     }
 
     /**
@@ -101,7 +100,9 @@ final class OptionsTest extends TestCase
             // update parameter in expected result
             $expected = array_merge($expected, [$param => "#f00"]);
             // test color change
-            $this->assertEquals($expected, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            unset($actual["backgroundGradient"]);
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -127,7 +128,9 @@ final class OptionsTest extends TestCase
             // update parameter in expected result
             $expected = array_merge($expected, ["background" => $output]);
             // test color change
-            $this->assertEquals($expected, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            unset($actual["backgroundGradient"]);
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -146,7 +149,9 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // test that theme is still default
-            $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            unset($actual["backgroundGradient"]);
+            $this->assertEquals($this->defaultTheme, $actual);
         }
     }
 

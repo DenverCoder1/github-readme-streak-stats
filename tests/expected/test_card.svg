@@ -11,7 +11,6 @@
                 100% { opacity: 1; }
             }
         </style>
-        
         <defs>
             <clipPath id='outer_rectangle'>
                 <rect width='495' height='195' rx='4.5'/>
@@ -20,6 +19,7 @@
                 <rect width='495' height='195' fill='white'/>
                 <ellipse id='mask-ellipse' cx='247.5' cy='32' rx='13' ry='18' fill='black'/>
             </mask>
+            
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation: isolate'>

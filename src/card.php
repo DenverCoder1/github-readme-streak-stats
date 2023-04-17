@@ -151,6 +151,22 @@ function getRequestedTheme(array $params): array
         $theme["border"] = "#0000"; // transparent
     }
 
+    // set background
+    $gradient = "";
+    $backgroundParts = explode(",", $theme["background"] ?? "");
+    if (count($backgroundParts) >= 3) {
+        $theme["background"] = "url(#gradient)";
+        $gradient = "<linearGradient id='gradient' gradientTransform='rotate({$backgroundParts[0]})' gradientUnits='userSpaceOnUse'>";
+        $backgroundColors = array_slice($backgroundParts, 1);
+        $colorCount = count($backgroundColors);
+        for ($index = 0; $index < $colorCount; $index++) {
+            $offset = ($index * 100) / ($colorCount - 1);
+            $gradient .= "<stop offset='{$offset}%' stop-color='#{$backgroundColors[$index]}' />";
+        }
+        $gradient .= "</linearGradient>";
+    }
+    $theme["backgroundGradient"] = $gradient;
+
     return $theme;
 }
 
@@ -353,24 +369,6 @@ function generateCard(array $stats, array $params = null): string
     $currentStreakOffset = $showCurrentStreak ? $columnOffsets[$nextColumnIndex++] : -999;
     $longestStreakOffset = $showLongestStreak ? $columnOffsets[$nextColumnIndex++] : -999;
 
-    // set background
-    $backgroundParts = explode(",", $theme["background"] ?? "");
-    $backgroundIsGradient = count($backgroundParts) >= 3;
-
-    $background = $theme["background"];
-    $gradient = "";
-    if ($backgroundIsGradient) {
-        $background = "url(#gradient)";
-        $gradient = "<defs><linearGradient id='gradient' gradientTransform='rotate({$backgroundParts[0]})' gradientUnits='userSpaceOnUse'>";
-        $backgroundColors = array_slice($backgroundParts, 1);
-        $colorCount = count($backgroundColors);
-        for ($index = 0; $index < $colorCount; $index++) {
-            $offset = ($index * 100) / ($colorCount - 1);
-            $gradient .= "<stop offset='{$offset}%' stop-color='#{$backgroundColors[$index]}' />";
-        }
-        $gradient .= "</linearGradient></defs>";
-    }
-
     // total contributions
     $totalContributions = $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
@@ -439,7 +437,6 @@ function generateCard(array $stats, array $params = null): string
                 100% { opacity: 1; }
             }
         </style>
-        {$gradient}
         <defs>
             <clipPath id='outer_rectangle'>
                 <rect width='{$cardWidth}' height='195' rx='{$borderRadius}'/>
@@ -448,10 +445,11 @@ function generateCard(array $stats, array $params = null): string
                 <rect width='{$cardWidth}' height='195' fill='white'/>
                 <ellipse id='mask-ellipse' cx='{$currentStreakOffset}' cy='32' rx='13' ry='18' fill='black'/>
             </mask>
+            {$theme["backgroundGradient"]}
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation: isolate'>
-                <rect stroke='{$theme["border"]}' fill='{$background}' rx='{$borderRadius}' x='0.5' y='0.5' width='{$rectWidth}' height='194'/>
+                <rect stroke='{$theme["border"]}' fill='{$theme["background"]}' rx='{$borderRadius}' x='0.5' y='0.5' width='{$rectWidth}' height='194'/>
             </g>
             <g style='isolation: isolate'>
                 <line x1='{$barOffsets[0]}' y1='28' x2='{$barOffsets[0]}' y2='170' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
@@ -572,6 +570,7 @@ function generateErrorCard(string $message, array $params = null): string
             <clipPath id='outer_rectangle'>
                 <rect width='{$cardWidth}' height='195' rx='{$borderRadius}'/>
             </clipPath>
+            {$theme["backgroundGradient"]}
         </defs>
         <g clip-path='url(#outer_rectangle)'>
             <g style='isolation: isolate'>
