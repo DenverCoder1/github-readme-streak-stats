@@ -119,19 +119,19 @@ final class RenderTest extends TestCase
         $this->assertEquals("Total Contributions", splitLines("Total Contributions", 24, -9));
         // Check label that is too long, split
         $this->assertEquals(
-            "<tspan x='81.5' dy='-9'>Chuỗi đóng góp hiện</tspan><tspan x='81.5' dy='16'>tại</tspan>",
+            "<tspan x='0' dy='-9'>Chuỗi đóng góp hiện</tspan><tspan x='0' dy='16'>tại</tspan>",
             splitLines("Chuỗi đóng góp hiện tại", 22, -9)
         );
         // Check label with manually inserted line break, split
         $this->assertEquals(
-            "<tspan x='81.5' dy='-9'>Chuỗi đóng góp</tspan><tspan x='81.5' dy='16'>hiện tại</tspan>",
+            "<tspan x='0' dy='-9'>Chuỗi đóng góp</tspan><tspan x='0' dy='16'>hiện tại</tspan>",
             splitLines("Chuỗi đóng góp\nhiện tại", 22, -9)
         );
         // Check date range label, no split
         $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
         // Check date range label that is too long, split
         $this->assertEquals(
-            "<tspan x='81.5' dy='0'>19 de dez. de 2021</tspan><tspan x='81.5' dy='16'>- 14 de mar.</tspan>",
+            "<tspan x='0' dy='0'>19 de dez. de 2021</tspan><tspan x='0' dy='16'>- 14 de mar.</tspan>",
             splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0)
         );
     }
@@ -214,5 +214,21 @@ final class RenderTest extends TestCase
         $this->testStats["excludedDays"] = ["Sun", "Sat"];
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("* Excluding Sun, Sat", $render);
+    }
+
+    /**
+     * Test card width option
+     */
+    public function testCardWidth(): void
+    {
+        $this->testParams["card_width"] = "600";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("viewBox='0 0 600 195' width='600px' height='195px'", $render);
+        $this->assertStringContainsString("<rect width='600' height='195' rx='4.5'/>", $render);
+        $this->assertStringContainsString("<line x1='400' y1='28'", $render);
+        $this->assertStringContainsString("<line x1='200' y1='28'", $render);
+        $this->assertStringContainsString("<g transform='translate(100,", $render);
+        $this->assertStringContainsString("<g transform='translate(300,", $render);
+        $this->assertStringContainsString("<g transform='translate(500,", $render);
     }
 }
