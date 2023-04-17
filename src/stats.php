@@ -268,12 +268,30 @@ function getContributionDates(array $contributionGraphs): array
 }
 
 /**
+ * Check if a day is an excluded day of the week
+ *
+ * @param string $date Date to check (Y-m-d)
+ * @param array<string> $excludeDays List of days of the week to exclude
+ *
+ * @return bool True if the day is excluded, false otherwise
+ */
+function isExcludedDay(string $date, array $excludeDays): bool
+{
+    if (empty($excludeDays)) {
+        return false;
+    }
+    $day = date("D", strtotime($date)); // "D" = Mon, Tue, Wed, etc.
+    return in_array($day, $excludeDays);
+}
+
+/**
  * Get a stats array with the contribution count, daily streak, and dates
  *
  * @param array<string,int> $contributions Y-M-D contribution dates with contribution counts
+ * @param array<string>|null $excludeDays List of days of the week to exclude
  * @return array<string,mixed> Streak stats
  */
-function getContributionStats(array $contributions): array
+function getContributionStats(array $contributions, ?array $excludeDays = null): array
 {
     // if no contributions, display error
     if (empty($contributions)) {
@@ -302,7 +320,7 @@ function getContributionStats(array $contributions): array
         // add contribution count to total
         $stats["totalContributions"] += $count;
         // check if still in streak
-        if ($count > 0) {
+        if ($count > 0 || isExcludedDay($date, $excludeDays)) {
             // increment streak
             ++$stats["currentStreak"]["length"];
             $stats["currentStreak"]["end"] = $date;
