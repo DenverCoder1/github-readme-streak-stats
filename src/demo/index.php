@@ -172,7 +172,7 @@ function camelToSkewer(string $str): string
                             <div class="radio-button-group">
                                 <div>
                                     <input type="radio" id="background-type-solid" name="background-type" value="solid" checked>
-                                    <label for="solid">Solid Color</label>
+                                    <label for="solid">Solid</label>
                                 </div>
                                 <div>
                                     <input type="radio" id="background-type-gradient" name="background-type" value="gradient">
