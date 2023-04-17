@@ -38,11 +38,13 @@ try {
     if (isset($_GET["mode"]) && $_GET["mode"] === "weekly") {
         $stats = getWeeklyContributionStats($contributions);
     } else {
-        // split and normalize excluded days - trim whitespace, capitalize first letter only, return first 3 characters
+        // split and normalize excluded days
         $excludeDays = array_filter(
             array_map(function ($dayOfWeek) {
+                // trim whitespace, capitalize first letter only, return first 3 characters
                 $dayOfWeek = substr(ucfirst(strtolower(trim($dayOfWeek))), 0, 3);
-                return in_array($dayOfWeek, ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]) ? $dayOfWeek : null;
+                // return day if valid, otherwise return null
+                return in_array($dayOfWeek, ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]) ? $dayOfWeek : null;
             }, explode(",", $_GET["exclude_days"] ?? ""))
         );
         $stats = getContributionStats($contributions, $excludeDays);
