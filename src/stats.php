@@ -269,7 +269,7 @@ function getContributionDates(array $contributionGraphs): array
 
 /**
  * Normalize names of days of the week (eg. ["Sunday", " mon", "TUE"] -> ["Sun", "Mon", "Tue"])
- * 
+ *
  * @param array<string> $days List of days of the week
  * @return array<string> List of normalized days of the week
  */
