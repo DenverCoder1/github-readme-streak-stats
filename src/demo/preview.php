@@ -37,6 +37,7 @@ if ($mode == "weekly") {
         "end" => getPreviousSunday(date("Y-m-d")),
         "length" => 3,
     ];
+    unset($demoStats["excludedDays"]);
 }
 
 // set content type to SVG image
