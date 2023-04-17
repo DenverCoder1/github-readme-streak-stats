@@ -231,4 +231,22 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString("<g transform='translate(300,", $render);
         $this->assertStringContainsString("<g transform='translate(500,", $render);
     }
+
+    /**
+     * Test first and third columns swapped when direction is rtl
+     */
+    public function testFirstAndThirdColumnsSwappedWhenDirectionIsRtl(): void
+    {
+        $this->testParams["locale"] = "he";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $renderCollapsedSpaces = preg_replace("/(\s)\s*/", '$1', $render);
+        $this->assertStringContainsString(
+            "<!-- Total Contributions big number -->\n<g transform='translate(412.5,48)'>",
+            $renderCollapsedSpaces
+        );
+        $this->assertStringContainsString(
+            "<!-- Longest Streak big number -->\n<g transform='translate(82.5,48)'>",
+            $renderCollapsedSpaces
+        );
+    }
 }
