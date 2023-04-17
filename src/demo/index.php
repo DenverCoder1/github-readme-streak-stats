@@ -137,6 +137,16 @@ function camelToSkewer(string $str): string
                     <option value="weekly">Weekly</option>
                 </select>
 
+                <label for="exclude_days">Exclude Days</label>
+                <select class="param" id="hide-border" name="exclude_days">
+                    <option value="">None</option>
+                    <option value="Sun">Sun</option>
+                    <option value="Sat">Sat</option>
+                    <option value="Sun,Sat">Sun, Sat</option>
+                    <option value="Fri,Sat">Fri, Sat</option>
+                    <option value="Fri,Sat,Sun">Fri, Sat, Sun</option>
+                </select>
+
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">
                     <option value="svg">SVG</option>

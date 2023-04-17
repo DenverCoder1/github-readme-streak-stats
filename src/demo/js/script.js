@@ -13,6 +13,7 @@ const preview = {
     border_radius: "4.5",
     mode: "daily",
     type: "svg",
+    exclude_days: "",
   },
 
   /**
