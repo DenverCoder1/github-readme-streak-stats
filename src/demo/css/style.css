@@ -209,6 +209,11 @@ h2 {
   color: var(--background);
 }
 
+.weekdays input[type="checkbox"]:disabled + label {
+  background: var(--card-background);
+  color: var(--stroke);
+}
+
 span[title="required"] {
   color: var(--red);
 }

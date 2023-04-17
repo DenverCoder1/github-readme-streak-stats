@@ -140,19 +140,19 @@ function camelToSkewer(string $str): string
                 <label for="exclude_days">Exclude Days</label>
                 <div class="weekdays">
                     <input type="checkbox" value="Sun" id="weekday-sun" />
-                    <label for="weekday-sun">S</label>
+                    <label for="weekday-sun" data-tooltip="Exclude Sunday" title="Exclude Sunday">S</label>
                     <input type="checkbox" value="Mon" id="weekday-mon" />
-                    <label for="weekday-mon">M</label>
+                    <label for="weekday-mon" data-tooltip="Exclude Monday" title="Exclude Monday">M</label>
                     <input type="checkbox" value="Tue" id="weekday-tue" />
-                    <label for="weekday-tue">T</label>
+                    <label for="weekday-tue" data-tooltip="Exclude Tuesday" title="Exclude Tuesday">T</label>
                     <input type="checkbox" value="Wed" id="weekday-wed" />
-                    <label for="weekday-wed">W</label>
+                    <label for="weekday-wed" data-tooltip="Exclude Wednesday" title="Exclude Wednesday">W</label>
                     <input type="checkbox" value="Thu" id="weekday-thu" />
-                    <label for="weekday-thu">T</label>
+                    <label for="weekday-thu" data-tooltip="Exclude Thursday" title="Exclude Thursday">T</label>
                     <input type="checkbox" value="Fri" id="weekday-fri" />
-                    <label for="weekday-fri">F</label>
+                    <label for="weekday-fri" data-tooltip="Exclude Friday" title="Exclude Friday">F</label>
                     <input type="checkbox" value="Sat" id="weekday-sat" />
-                    <label for="weekday-sat">S</label>
+                    <label for="weekday-sat" data-tooltip="Exclude Saturday" title="Exclude Saturday">S</label>
                     <input type="text" id="exclude-days" name="exclude_days" class="param" />
                 </div>
 

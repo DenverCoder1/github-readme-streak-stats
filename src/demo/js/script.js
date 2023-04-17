@@ -386,11 +386,25 @@ window.addEventListener(
       });
     }
     // when weekdays are toggled, update the input field
-    document.querySelectorAll(`.weekdays input[type="checkbox"]`).forEach((el) => {
+    document.querySelectorAll('.weekdays input[type="checkbox"]').forEach((el) => {
       el.addEventListener("click", () => {
-        const checked = document.querySelectorAll(`.weekdays input[type="checkbox"]:checked`);
+        const checked = document.querySelectorAll('.weekdays input[type="checkbox"]:checked');
         document.querySelector("#exclude-days").value = [...checked].map((node) => node.value).join(",");
         preview.update();
+      });
+    });
+    // when mode is set to "weekly", disable checkboxes, otherwise enable them
+    document.querySelector("#mode").addEventListener("change", () => {
+      const mode = document.querySelector("#mode").value;
+      document.querySelectorAll(".weekdays input[type='checkbox']").forEach((el) => {
+        const labelEl = el.nextElementSibling;
+        if (mode === "weekly") {
+          el.disabled = true;
+          labelEl.title = "Disabled in weekly mode";
+        } else {
+          el.disabled = false;
+          labelEl.title = labelEl.dataset.tooltip;
+        }
       });
     });
     // update previews
