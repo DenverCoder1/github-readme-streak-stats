@@ -75,10 +75,6 @@ const preview = {
       } else {
         selectElement.disabled = true;
       }
-      // label
-      const label = document.createElement("label");
-      label.innerText = propertyName;
-      label.setAttribute("data-property", propertyName);
       // color picker
       const jscolorConfig = {
         format: "hexa",
@@ -143,6 +139,13 @@ const preview = {
         rotate.name = color1.name = color2.name = propertyName;
         color1.value = color1Value;
         color2.value = color2Value;
+        // label
+        const label = document.createElement("span");
+        label.innerText = propertyName;
+        label.setAttribute("data-property", propertyName);
+        label.id = "background-label";
+        input.setAttribute("role", "group");
+        input.setAttribute("aria-labelledby", "background-label");
         // add elements
         parent.appendChild(label);
         input.appendChild(rotateInputGroup);
@@ -162,6 +165,11 @@ const preview = {
         input.setAttribute("data-property", propertyName);
         input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
         input.value = value;
+        // label
+        const label = document.createElement("label");
+        label.innerText = propertyName;
+        label.setAttribute("data-property", propertyName);
+        label.setAttribute("for", propertyName);
         // add elements
         parent.appendChild(label);
         parent.appendChild(input);

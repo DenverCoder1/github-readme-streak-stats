@@ -181,7 +181,8 @@ h2 {
   display: none;
 }
 
-.parameters label {
+.parameters label,
+.parameters span[data-property] {
   text-transform: capitalize;
 }
 
