@@ -108,7 +108,7 @@ function camelToSkewer(string $str): string
                 </select>
 
                 <label for="border-radius">Border Radius</label>
-                <input class="param" type="number" id="border-radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1" min="0">
+                <input class="param" type="number" id="border-radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1" min="0" />
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
