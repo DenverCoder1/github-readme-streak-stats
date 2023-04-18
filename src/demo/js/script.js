@@ -75,10 +75,6 @@ const preview = {
       } else {
         selectElement.disabled = true;
       }
-      // label
-      const label = document.createElement("label");
-      label.innerText = propertyName;
-      label.setAttribute("data-property", propertyName);
       // color picker
       const jscolorConfig = {
         format: "hexa",
@@ -143,6 +139,13 @@ const preview = {
         rotate.name = color1.name = color2.name = propertyName;
         color1.value = color1Value;
         color2.value = color2Value;
+        // label
+        const label = document.createElement("span");
+        label.innerText = propertyName;
+        label.setAttribute("data-property", propertyName);
+        label.id = "background-label";
+        input.setAttribute("role", "group");
+        input.setAttribute("aria-labelledby", "background-label");
         // add elements
         parent.appendChild(label);
         input.appendChild(rotateInputGroup);
@@ -162,6 +165,11 @@ const preview = {
         input.setAttribute("data-property", propertyName);
         input.setAttribute("data-jscolor", JSON.stringify(jscolorConfig));
         input.value = value;
+        // label
+        const label = document.createElement("label");
+        label.innerText = propertyName;
+        label.setAttribute("data-property", propertyName);
+        label.setAttribute("for", propertyName);
         // add elements
         parent.appendChild(label);
         parent.appendChild(input);
@@ -292,6 +300,50 @@ const preview = {
     // update preview
     this.update();
   },
+
+  /**
+   * Assign values to input boxes based on the query string
+   *
+   * @param {URLSearchParams} searchParams - the query string parameters or empty to use the current URL
+   */
+  updateFormInputs(searchParams) {
+    searchParams = searchParams || new URLSearchParams(window.location.search);
+    const backgroundParams = searchParams.getAll("background");
+    // set background-type
+    if (backgroundParams.length > 1) {
+      document.querySelector("#background-type-gradient").checked = true;
+    }
+    // set input field and select values
+    searchParams.forEach((val, key) => {
+      const paramInput = document.querySelector(`[name="${key}"]`);
+      if (paramInput) {
+        // set parameter value
+        paramInput.value = val;
+      } else {
+        // add advanced property
+        document.querySelector("details.advanced").open = true;
+        preview.addProperty(key, searchParams.getAll(key).join(","));
+      }
+    });
+    // set background angle and gradient colors
+    if (backgroundParams.length > 1) {
+      document.querySelector("#rotate").value = backgroundParams[0];
+      document.querySelector("#background-color1").value = backgroundParams[1];
+      document.querySelector("#background-color2").value = backgroundParams[2];
+      preview.checkColor(backgroundParams[1], "background-color1");
+      preview.checkColor(backgroundParams[2], "background-color2");
+    }
+    // set weekday checkboxes
+    const excludeDays = searchParams.get("exclude_days");
+    if (excludeDays) {
+      excludeDays.split(",").forEach((day) => {
+        const checkbox = document.querySelector(`.weekdays input[value="${day}"]`);
+        if (checkbox) {
+          checkbox.checked = true;
+        }
+      });
+    }
+  },
 };
 
 const clipboard = {
@@ -349,53 +401,16 @@ window.addEventListener(
     };
     document.querySelector("#background-type-solid").addEventListener("change", toggleBackgroundType, false);
     document.querySelector("#background-type-gradient").addEventListener("change", toggleBackgroundType, false);
-    // set input boxes to match URL parameters
-    const searchParams = new URLSearchParams(window.location.search);
-    const backgroundParams = searchParams.getAll("background");
-    // set background-type
-    if (backgroundParams.length > 1) {
-      document.querySelector("#background-type-gradient").checked = true;
-    }
-    // set input field and select values
-    searchParams.forEach((val, key) => {
-      const paramInput = document.querySelector(`[name="${key}"]`);
-      if (paramInput) {
-        // set parameter value
-        paramInput.value = val;
-      } else {
-        // add advanced property
-        document.querySelector("details.advanced").open = true;
-        preview.addProperty(key, searchParams.getAll(key).join(","));
-      }
-    });
-    // set background angle and gradient colors
-    if (backgroundParams.length > 1) {
-      document.querySelector("#rotate").value = backgroundParams[0];
-      document.querySelector("#background-color1").value = backgroundParams[1];
-      document.querySelector("#background-color2").value = backgroundParams[2];
-      preview.checkColor(backgroundParams[1], "background-color1");
-      preview.checkColor(backgroundParams[2], "background-color2");
-    }
-    // set weekday checkboxes
-    const excludeDays = searchParams.get("exclude_days");
-    if (excludeDays) {
-      excludeDays.split(",").forEach((day) => {
-        const checkbox = document.querySelector(`.weekdays input[type="checkbox"][value="${day}"]`);
-        if (checkbox) {
-          checkbox.checked = true;
-        }
-      });
-    }
     // when weekdays are toggled, update the input field
     document.querySelectorAll('.weekdays input[type="checkbox"]').forEach((el) => {
       el.addEventListener("click", () => {
-        const checked = document.querySelectorAll('.weekdays input[type="checkbox"]:checked');
+        const checked = document.querySelectorAll(".weekdays input:checked");
         document.querySelector("#exclude-days").value = [...checked].map((node) => node.value).join(",");
         preview.update();
       });
     });
     // when mode is set to "weekly", disable checkboxes, otherwise enable them
-    document.querySelector("#mode").addEventListener("change", () => {
+    const toggleExcludedDaysCheckboxes = () => {
       const mode = document.querySelector("#mode").value;
       document.querySelectorAll(".weekdays input[type='checkbox']").forEach((el) => {
         const labelEl = el.nextElementSibling;
@@ -407,7 +422,11 @@ window.addEventListener(
           labelEl.title = labelEl.dataset.tooltip;
         }
       });
-    });
+    };
+    document.querySelector("#mode").addEventListener("change", toggleExcludedDaysCheckboxes, false);
+    // set input boxes to match URL parameters
+    preview.updateFormInputs();
+    toggleExcludedDaysCheckboxes();
     // update previews
     preview.update();
   },
