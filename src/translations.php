@@ -214,6 +214,7 @@ return [
         "Present" => "Dziś",
     ],
     "ps" => [
+        "rtl" => true,
         "Total Contributions" => "ټولې ونډې",
         "Current Streak" => "اوسنی پرمختګ",
         "Longest Streak" => "تر ټولو اوږد پرمختګ",
