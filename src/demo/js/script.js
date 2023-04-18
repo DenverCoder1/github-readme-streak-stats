@@ -401,8 +401,6 @@ window.addEventListener(
     };
     document.querySelector("#background-type-solid").addEventListener("change", toggleBackgroundType, false);
     document.querySelector("#background-type-gradient").addEventListener("change", toggleBackgroundType, false);
-    // set input boxes to match URL parameters
-    preview.updateFormInputs();
     // when weekdays are toggled, update the input field
     document.querySelectorAll('.weekdays input[type="checkbox"]').forEach((el) => {
       el.addEventListener("click", () => {
@@ -412,7 +410,7 @@ window.addEventListener(
       });
     });
     // when mode is set to "weekly", disable checkboxes, otherwise enable them
-    document.querySelector("#mode").addEventListener("change", () => {
+    const toggleExcludedDaysCheckboxes = () => {
       const mode = document.querySelector("#mode").value;
       document.querySelectorAll(".weekdays input[type='checkbox']").forEach((el) => {
         const labelEl = el.nextElementSibling;
@@ -424,7 +422,11 @@ window.addEventListener(
           labelEl.title = labelEl.dataset.tooltip;
         }
       });
-    });
+    };
+    document.querySelector("#mode").addEventListener("change", toggleExcludedDaysCheckboxes, false);
+    // set input boxes to match URL parameters
+    preview.updateFormInputs();
+    toggleExcludedDaysCheckboxes();
     // update previews
     preview.update();
   },
