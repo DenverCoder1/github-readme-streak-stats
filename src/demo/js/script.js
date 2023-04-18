@@ -303,7 +303,7 @@ const preview = {
 
   /**
    * Assign values to input boxes based on the query string
-   * 
+   *
    * @param {URLSearchParams} searchParams - the query string parameters or empty to use the current URL
    */
   updateFormInputs(searchParams) {
@@ -406,7 +406,7 @@ window.addEventListener(
     // when weekdays are toggled, update the input field
     document.querySelectorAll('.weekdays input[type="checkbox"]').forEach((el) => {
       el.addEventListener("click", () => {
-        const checked = document.querySelectorAll('.weekdays input:checked');
+        const checked = document.querySelectorAll(".weekdays input:checked");
         document.querySelector("#exclude-days").value = [...checked].map((node) => node.value).join(",");
         preview.update();
       });
