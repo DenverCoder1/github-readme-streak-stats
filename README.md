@@ -33,7 +33,7 @@
 
 Here you can customize your Streak Stats card with a live preview.
 
-<http://streak-stats.demolab.com/demo/>
+<http://streak-stats.demolab.com>
 
 [![Demo Site](https://user-images.githubusercontent.com/20955511/114579753-dbac8780-9c86-11eb-97dd-207039f67d20.gif "Demo Site")](http://streak-stats.demolab.com/demo/)
 
@@ -154,11 +154,8 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 [![Heroku_logo](https://user-images.githubusercontent.com/20955511/136292872-ab2b3918-3350-4878-93a2-aa1f569b095a.png)](https://heroku.com)
 
-Heroku costs around $5-$7/month minimum for a single app, but you can contact the Open Source program
-at ospo-heroku-credits@salesforce.com to possibly get free credits.
-
 <details>
-  <summary><b>Instructions for Deploying to Heroku</b></summary>
+  <summary><b>Instructions for Deploying to Heroku ($5-$7/month)</b></summary>
   
   ### Step-by-step instructions for deploying to Heroku
   
@@ -180,14 +177,12 @@ at ospo-heroku-credits@salesforce.com to possibly get free credits.
 
 [![Vercel_logo](https://user-images.githubusercontent.com/20955511/209479243-5b14048b-e9ae-42da-aec3-1cc88a97aaee.png)](https://vercel.com)
 
-Vercel is a free hosting service that can be used to run PHP. **Note:** The intl library seems to not be available through Vercel at the moment
-(https://github.com/vercel-community/php/issues/367), so the automatic number and date formats for locales other than English will not work.
-PNG mode is also not supported since Inkscape will not be installed.
-
 <details>
-  <summary><b>Instructions for Deploying to Vercel for Free</b></summary>
-
+  <summary><b>Instructions for Deploying to Vercel (Free)</b></summary>
+  
 ### Step-by-step instructions for deploying to Vercel
+
+> **Note** PNG mode is not supported since Inkscape will not be installed.
 
 1. Sign in to **Vercel** or create a new account at <https://vercel.com>
 2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
@@ -205,8 +200,7 @@ PNG mode is also not supported since Inkscape will not be installed.
 
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
-> **Note**  
-> To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
+> **Note** To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
 
 </details>
 
