@@ -303,6 +303,7 @@ return [
         "Week Streak" => "ہفتہ وار تسلسل",
         "Longest Week Streak" => "طویل ترین ہفتہ وار تسلسل",
         "Present" => "حاظر",
+        "Excluding" => "خارج",
     ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
