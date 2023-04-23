@@ -72,6 +72,18 @@ final class StatsTest extends TestCase
     }
 
     /**
+     * Test contributions with overriden starting year
+     */
+    public function testOverrideStartingYear(): void
+    {
+        $contributionGraphs = getContributionGraphs("DenverCoder1", 2019);
+        $contributions = getContributionDates($contributionGraphs);
+        $stats = getContributionStats($contributions);
+        // test first contribution
+        $this->assertEquals("2019-01-01", $stats["firstContribution"]);
+    }
+
+    /**
      * Test that an invalid username returns 'not found' error
      */
     public function testInvalidUsername(): void
