@@ -33,7 +33,8 @@ if (!isset($_REQUEST["user"])) {
 try {
     // get streak stats for user given in query string
     $user = preg_replace("/[^a-zA-Z0-9\-]/", "", $_REQUEST["user"]);
-    $contributionGraphs = getContributionGraphs($user);
+    $startingYear = isset($_REQUEST["starting_year"]) ? intval($_REQUEST["starting_year"]) : null;
+    $contributionGraphs = getContributionGraphs($user, $startingYear);
     $contributions = getContributionDates($contributionGraphs);
     if (isset($_GET["mode"]) && $_GET["mode"] === "weekly") {
         $stats = getWeeklyContributionStats($contributions);
