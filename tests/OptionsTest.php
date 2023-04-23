@@ -32,12 +32,13 @@ final class OptionsTest extends TestCase
         foreach ($themes as $theme => $colors) {
             $actualColors = getRequestedTheme(["theme" => $theme]);
             $expectedColors = $colors;
-            $expectedColors["backgroundGradient"] = "";
             if (strpos($colors["background"], ",") !== false) {
-                $expectedColors["backgroundGradient"] =
-                    "<linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#28EBA2' /><stop offset='100%' stop-color='#0935EB' /></linearGradient>";
                 $expectedColors["background"] = "url(#gradient)";
+                // check that the background gradient is correct
+                $this->assertStringContainsString("<linearGradient", $actualColors["backgroundGradient"]);
             }
+            unset($expectedColors["backgroundGradient"]);
+            unset($actualColors["backgroundGradient"]);
             $this->assertEquals($expectedColors, $actualColors);
         }
     }

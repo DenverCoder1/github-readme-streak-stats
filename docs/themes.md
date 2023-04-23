@@ -122,6 +122,9 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |        `one-dark-pro`         | ![image](https://user-images.githubusercontent.com/20955511/221585805-1d10928a-286c-4945-95ed-a7317e56692f.png)  |
 |            `rose`             | ![image](https://user-images.githubusercontent.com/20955511/221585827-e566b73a-e0c0-4711-b48c-667e6500d44e.png)  |
 |            `neon`             | ![image](https://user-images.githubusercontent.com/20955511/225303106-8c901c48-732e-49ae-a2e6-8733254536eb.png)  |
+|       `sunset-gradient`       | ![image](https://user-images.githubusercontent.com/20955511/233865257-3ed2bd35-458b-46bc-a189-57b0c8a2a473.png)  |
+|       `ocean-gradient`        | ![image](https://user-images.githubusercontent.com/20955511/233865264-3bb6c04d-05d2-47b1-857c-3f9a1277651f.png)  |
+|      `ambient-gradient`       | ![image](https://user-images.githubusercontent.com/20955511/233865269-81583e73-c9b6-4e4b-9475-bc130de1bfdd.png)  |
 
 ### Can't find the theme you like?
 
