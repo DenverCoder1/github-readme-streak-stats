@@ -69,7 +69,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 | `hide_total_contributions` | Hide the total contributions (Default: `false`)  |                                         `true` or `false`                                          |
 |   `hide_current_streak`    |    Hide the current streak (Default: `false`)    |                                         `true` or `false`                                          |
 |   `hide_longest_streak`    |    Hide the longest streak (Default: `false`)    |                                         `true` or `false`                                          |
-|   `override_starting_year` | Override starting year of contributions          |                                         `2017`                                          |
+|   `starting_year`          |  Starting year of contributions                  |                                         `2017`                                                     |
 
 ### 🖌 Themes
 
