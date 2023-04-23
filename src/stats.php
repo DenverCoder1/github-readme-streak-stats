@@ -131,7 +131,8 @@ function getContributionGraphs(string $user, int $overrideMinYear=null): array
     }
     // extract the year from the created datetime string
     $userCreatedYear = intval(explode("-", $userCreatedDateTimeString)[0]);
-    
+    // if override parameter is null then define starting year
+    // as the user created year; else use the provided override year
     if (is_null($overrideMinYear)) {
         $minimumYear = $userCreatedYear;
     } else {
