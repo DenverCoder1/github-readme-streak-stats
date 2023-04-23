@@ -294,7 +294,7 @@ return [
         "Week Streak" => "Діяльність за тиждень",
         "Longest Week Streak" => "Найбільша к-сть тижнів",
         "Present" => "Наразі",
-        "Excluding" => "Виключаючи"
+        "Excluding" => "Виключаючи",
     ],
     "ur_PK" => [
         "rtl" => true,
