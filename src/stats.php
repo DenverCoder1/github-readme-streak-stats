@@ -119,7 +119,7 @@ function executeContributionGraphRequests(string $user, array $years): array
  * @param int|null $startingYear Override the minimum year to get graphs for
  * @return array<stdClass> List of contribution graph response objects
  */
-function getContributionGraphs(string $user, ?int $startingYear=null): array
+function getContributionGraphs(string $user, ?int $startingYear = null): array
 {
     // get the list of years the user has contributed and the current year's contribution graph
     $currentYear = intval(date("Y"));
