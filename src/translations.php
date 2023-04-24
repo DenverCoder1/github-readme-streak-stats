@@ -80,6 +80,7 @@ return [
         "Week Streak" => "Wochenserie",
         "Longest Week Streak" => "Längste Wochenserie",
         "Present" => "Heute",
+        "Excluding" => "Ausgenommen",
     ],
     "el" => [
         "Total Contributions" => "Συνολικές Συνεισφορές",
