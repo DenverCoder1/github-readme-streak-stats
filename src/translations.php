@@ -49,7 +49,7 @@ return [
         "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
     ],
-      "am" => [
+    "am" => [
         "Total Contributions" => "ጠቅላላ አስተዋጽዖዎች",
         "Current Streak" => "የአሁን ድግግሞሽ",
         "Longest Streak" => "በጣም ረጅሙ ድግግሞሽ",
