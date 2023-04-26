@@ -265,6 +265,15 @@ return [
         "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
         "Present" => "वर्तमान",
     ],
+    "sr" => [
+        "Total Contributions" => "Укупно додавања",
+        "Current Streak" => "Тренутна серија",
+        "Longest Streak" => "Најдужа серија",
+        "Week Streak" => "Недељна серија",
+        "Longest Week Streak" => "Најдужа недељена серија",
+        "Present" => "Данас",
+        "Excluding" => "Искључујући",
+    ],
     "sv" => [
         "Total Contributions" => "Totalt antal uppladningar",
         "Current Streak" => "Dagar uppladdat i rad just nu",
