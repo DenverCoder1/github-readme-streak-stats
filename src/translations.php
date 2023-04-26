@@ -40,6 +40,15 @@ return [
         "Excluding" => "Excluding",
     ],
     // Locales below are sorted alphabetically
+    "am" => [
+        "Total Contributions" => "ጠቅላላ አስተዋጽዖዎች",
+        "Current Streak" => "የአሁን ድግግሞሽ",
+        "Longest Streak" => "በጣም ረጅሙ ድግግሞሽ",
+        "Week Streak" => "የሳምንት ድግግሞሽ",
+        "Longest Week Streak" => "በጣም ረጅሙ የሳምንት ድግግሞሽ",
+        "Present" => "ያሁኑ",
+        "Excluding" => "ሳይጨምር",
+    ],
     "ar" => [
         "rtl" => true,
         "Total Contributions" => "إجمالي المساهمات",
