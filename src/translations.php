@@ -47,6 +47,7 @@ return [
         "Week Streak" => "የሳምንት ድግግሞሽ",
         "Longest Week Streak" => "በጣም ረጅሙ የሳምንት ድግግሞሽ",
         "Present" => "ያሁኑ",
+        "Excluding" => "ሳይጨምር",
     ],
     "ar" => [
         "rtl" => true,
