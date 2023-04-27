@@ -98,6 +98,7 @@ return [
         "Week Streak" => "Εβδομαδιαία Σειρά",
         "Longest Week Streak" => "Μεγαλύτερη Εβδομαδιαία Σειρά",
         "Present" => "Σήμερα",
+        "Excluding" => "Εξαιρούνται",
     ],
     "es" => [
         "Total Contributions" => "Contribuciones Totales",
