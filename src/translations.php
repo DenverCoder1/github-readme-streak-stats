@@ -168,12 +168,13 @@ return [
         "Present" => "Sekarang",
     ],
     "it" => [
-        "Total Contributions" => "Totale dei Contributi",
+        "Total Contributions" => "Contributi Totali",
         "Current Streak" => "Serie Corrente",
         "Longest Streak" => "Serie più Lunga",
         "Week Streak" => "Serie Settimanale",
         "Longest Week Streak" => "Serie Settimanale più Lunga",
         "Present" => "Presente",
+        "Excluding" => "Escludendo",
     ],
     "ja" => [
         "date_format" => "[Y.]n.j",
