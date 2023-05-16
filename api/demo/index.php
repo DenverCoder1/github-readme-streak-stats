@@ -92,7 +92,7 @@ function fileModifiedTime(string $filename): int
             <h2>Properties</h2>
             <form class="parameters">
                 <label for="user">Username<span title="required">*</span></label>
-                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
+                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen" />
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme">
@@ -112,14 +112,14 @@ function fileModifiedTime(string $filename): int
                     <?php endforeach; ?>
                 </select>
 
-                <label for="hide_border">Hide Border</label>
+                <label for="hide-border">Hide Border</label>
                 <select class="param" id="hide-border" name="hide_border">
                     <option>false</option>
                     <option>true</option>
                 </select>
 
-                <label for="border_radius">Border Radius</label>
-                <input class="param" type="number" id="border-radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1">
+                <label for="border-radius">Border Radius</label>
+                <input class="param" type="number" id="border-radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1" min="0" />
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
@@ -131,7 +131,7 @@ function fileModifiedTime(string $filename): int
                     <?php endforeach; ?>
                 </select>
 
-                <label for="date_format">Date Format</label>
+                <label for="date-format">Date Format</label>
                 <select class="param" id="date-format" name="date_format">
                     <option value="">default</option>
                     <option value="M j[, Y]">Aug 10, 2016</option>
@@ -148,8 +148,8 @@ function fileModifiedTime(string $filename): int
                     <option value="weekly">Weekly</option>
                 </select>
 
-                <label for="exclude_days">Exclude Days</label>
-                <div class="weekdays">
+                <span id="exclude-days-label">Exclude Days</span>
+                <div class="checkbox-buttons weekdays" role="group" aria-labelledby="exclude-days-label">
                     <input type="checkbox" value="Sun" id="weekday-sun" />
                     <label for="weekday-sun" data-tooltip="Exclude Sunday" title="Exclude Sunday">S</label>
                     <input type="checkbox" value="Mon" id="weekday-mon" />
@@ -164,8 +164,22 @@ function fileModifiedTime(string $filename): int
                     <label for="weekday-fri" data-tooltip="Exclude Friday" title="Exclude Friday">F</label>
                     <input type="checkbox" value="Sat" id="weekday-sat" />
                     <label for="weekday-sat" data-tooltip="Exclude Saturday" title="Exclude Saturday">S</label>
-                    <input type="text" id="exclude-days" name="exclude_days" class="param" />
+                    <input type="hidden" id="exclude-days" name="exclude_days" class="param" />
                 </div>
+
+                <span id="show-sections-label">Show Sections</span>
+                <div class="checkbox-buttons sections" role="group" aria-labelledby="show-sections-label">
+                    <input type="checkbox" value="total" id="section-total" checked />
+                    <label for="section-total" data-tooltip="Total Contributions" title="Total Contributions">Total</label>
+                    <input type="checkbox" value="current" id="section-current" checked />
+                    <label for="section-current" data-tooltip="Current Streak" title="Current Streak">Current</label>
+                    <input type="checkbox" value="longest" id="section-longest" checked />
+                    <label for="section-longest" data-tooltip="Longest Streak" title="Longest Streak">Longest</label>
+                    <input type="hidden" id="sections" name="sections" class="param" value="total,current,longest" />
+                </div>
+
+                <label for="card-width">Card Width</label>
+                <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1" min="300" />
 
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">
@@ -177,22 +191,22 @@ function fileModifiedTime(string $filename): int
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
                     <div class="content">
-                        <div class="radio-buttons parameters">
+                        <div class="radio-buttons parameters" role="radiogroup" aria-labelledby="background-type-label">
                             <!-- Radio buttons to choose between solid and gradient background -->
-                            <label for="background-type">Background Type</label>
+                            <span id="background-type-label">Background Type</span>
                             <div class="radio-button-group">
                                 <div>
-                                    <input type="radio" id="background-type-solid" name="background-type" value="solid" checked>
-                                    <label for="solid">Solid</label>
+                                    <input type="radio" id="background-type-solid" name="background-type" value="solid" checked />
+                                    <label for="background-type-solid">Solid</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="background-type-gradient" name="background-type" value="gradient">
-                                    <label for="gradient">Gradient</label>
+                                    <input type="radio" id="background-type-gradient" name="background-type" value="gradient" />
+                                    <label for="background-type-gradient">Gradient</label>
                                 </div>
                             </div>
                         </div>
                         <div class="color-properties parameters">
-                            <label for="theme">Add Property</label>
+                            <label for="properties">Add Property</label>
                             <select id="properties" name="properties">
                                 <?php foreach ($THEMES["default"] as $option => $color): ?>
                                     <option><?php echo $option; ?></option>

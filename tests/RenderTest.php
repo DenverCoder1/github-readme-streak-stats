@@ -119,19 +119,19 @@ final class RenderTest extends TestCase
         $this->assertEquals("Total Contributions", splitLines("Total Contributions", 24, -9));
         // Check label that is too long, split
         $this->assertEquals(
-            "<tspan x='81.5' dy='-9'>Chuỗi đóng góp hiện</tspan><tspan x='81.5' dy='16'>tại</tspan>",
+            "<tspan x='0' dy='-9'>Chuỗi đóng góp hiện</tspan><tspan x='0' dy='16'>tại</tspan>",
             splitLines("Chuỗi đóng góp hiện tại", 22, -9)
         );
         // Check label with manually inserted line break, split
         $this->assertEquals(
-            "<tspan x='81.5' dy='-9'>Chuỗi đóng góp</tspan><tspan x='81.5' dy='16'>hiện tại</tspan>",
+            "<tspan x='0' dy='-9'>Chuỗi đóng góp</tspan><tspan x='0' dy='16'>hiện tại</tspan>",
             splitLines("Chuỗi đóng góp\nhiện tại", 22, -9)
         );
         // Check date range label, no split
         $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
         // Check date range label that is too long, split
         $this->assertEquals(
-            "<tspan x='81.5' dy='0'>19 de dez. de 2021</tspan><tspan x='81.5' dy='16'>- 14 de mar.</tspan>",
+            "<tspan x='0' dy='0'>19 de dez. de 2021</tspan><tspan x='0' dy='16'>- 14 de mar.</tspan>",
             splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0)
         );
     }
@@ -187,7 +187,7 @@ final class RenderTest extends TestCase
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("fill='url(#gradient)'", $render);
         $this->assertStringContainsString(
-            "<defs><linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='100%' stop-color='#e11' /></linearGradient></defs>",
+            "<linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='100%' stop-color='#e11' /></linearGradient>",
             $render
         );
     }
@@ -201,7 +201,7 @@ final class RenderTest extends TestCase
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("fill='url(#gradient)'", $render);
         $this->assertStringContainsString(
-            "<defs><linearGradient id='gradient' gradientTransform='rotate(-45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='33.333333333333%' stop-color='#4e5' /><stop offset='66.666666666667%' stop-color='#ddd' /><stop offset='100%' stop-color='#fff' /></linearGradient></defs>",
+            "<linearGradient id='gradient' gradientTransform='rotate(-45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='33.333333333333%' stop-color='#4e5' /><stop offset='66.666666666667%' stop-color='#ddd' /><stop offset='100%' stop-color='#fff' /></linearGradient>",
             $render
         );
     }
@@ -214,5 +214,39 @@ final class RenderTest extends TestCase
         $this->testStats["excludedDays"] = ["Sun", "Sat"];
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertStringContainsString("* Excluding Sun, Sat", $render);
+    }
+
+    /**
+     * Test card width option
+     */
+    public function testCardWidth(): void
+    {
+        $this->testParams["card_width"] = "600";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("viewBox='0 0 600 195' width='600px' height='195px'", $render);
+        $this->assertStringContainsString("<rect width='600' height='195' rx='4.5'/>", $render);
+        $this->assertStringContainsString("<line x1='400' y1='28'", $render);
+        $this->assertStringContainsString("<line x1='200' y1='28'", $render);
+        $this->assertStringContainsString("<g transform='translate(100,", $render);
+        $this->assertStringContainsString("<g transform='translate(300,", $render);
+        $this->assertStringContainsString("<g transform='translate(500,", $render);
+    }
+
+    /**
+     * Test first and third columns swapped when direction is rtl
+     */
+    public function testFirstAndThirdColumnsSwappedWhenDirectionIsRtl(): void
+    {
+        $this->testParams["locale"] = "he";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $renderCollapsedSpaces = preg_replace("/(\s)\s*/", '$1', $render);
+        $this->assertStringContainsString(
+            "<!-- Total Contributions big number -->\n<g transform='translate(412.5,48)'>",
+            $renderCollapsedSpaces
+        );
+        $this->assertStringContainsString(
+            "<!-- Longest Streak big number -->\n<g transform='translate(82.5,48)'>",
+            $renderCollapsedSpaces
+        );
     }
 }

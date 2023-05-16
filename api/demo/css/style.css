@@ -181,20 +181,20 @@ h2 {
   display: none;
 }
 
-.parameters label {
+.parameters label,
+.parameters span[data-property] {
   text-transform: capitalize;
 }
 
-.weekdays input {
+.checkbox-buttons input {
   display: none !important;
 }
 
-.weekdays input[type="checkbox"] + label {
+.checkbox-buttons input[type="checkbox"] + label {
   font-size: 90%;
   display: inline-block;
   border-radius: 6px;
   height: 30px;
-  width: 30px;
   margin: 2px 3px 2px 0;
   line-height: 28px;
   text-align: center;
@@ -202,14 +202,15 @@ h2 {
   background: var(--card-background);
   color: var(--text);
   border: 1px solid var(--border);
+  padding: 0 10px;
 }
 
-.weekdays input[type="checkbox"]:checked + label {
+.checkbox-buttons input[type="checkbox"]:checked + label {
   background: var(--text);
   color: var(--background);
 }
 
-.weekdays input[type="checkbox"]:disabled + label {
+.checkbox-buttons input[type="checkbox"]:disabled + label {
   background: var(--card-background);
   color: var(--stroke);
 }

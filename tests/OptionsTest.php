@@ -31,12 +31,16 @@ final class OptionsTest extends TestCase
         $themes = include "api/themes.php";
         foreach ($themes as $theme => $colors) {
             $actualColors = getRequestedTheme(["theme" => $theme]);
-            $this->assertEquals($colors, $actualColors);
+            $expectedColors = $colors;
+            if (strpos($colors["background"], ",") !== false) {
+                $expectedColors["background"] = "url(#gradient)";
+                // check that the background gradient is correct
+                $this->assertStringContainsString("<linearGradient", $actualColors["backgroundGradient"]);
+            }
+            unset($expectedColors["backgroundGradient"]);
+            unset($actualColors["backgroundGradient"]);
+            $this->assertEquals($expectedColors, $actualColors);
         }
-        // test old theme names
-        $this->assertEquals($themes["holi-theme"], getRequestedTheme(["theme" => "holi_theme"]));
-        $this->assertEquals($themes["gruvbox-duo"], getRequestedTheme(["theme" => "gruvbox_duo"]));
-        $this->assertEquals($themes["deepblue"], getRequestedTheme(["theme" => "deepBlue"]));
     }
 
     /**
@@ -48,7 +52,10 @@ final class OptionsTest extends TestCase
         // request parameters
         $params = ["theme" => "not a theme name"];
         // test that invalid theme name gives default values
-        $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+        $actual = getRequestedTheme($params);
+        $expected = $this->defaultTheme;
+        $expected["backgroundGradient"] = "";
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -58,7 +65,9 @@ final class OptionsTest extends TestCase
     {
         // check that all themes contain all parameters and have valid values
         $themes = include "api/themes.php";
-        $hexRegex = "/^#([A-F0-9]{3}|[A-F0-9]{4}|[A-F0-9]{6}|[A-F0-9]{8})$/";
+        $hexPartialRegex = "(?:[A-F0-9]{3}|[A-F0-9]{4}|[A-F0-9]{6}|[A-F0-9]{8})";
+        $hexRegex = "/^#{$hexPartialRegex}$/";
+        $backgroundRegex = "/^#{$hexPartialRegex}|-?\d+(?:,{$hexPartialRegex})+$/";
         foreach ($themes as $theme => $colors) {
             // check that there are no extra keys in the theme
             $this->assertEquals(
@@ -70,6 +79,15 @@ final class OptionsTest extends TestCase
             foreach (array_keys($this->defaultTheme) as $param) {
                 // check that the key exists
                 $this->assertArrayHasKey($param, $colors, "The theme '$theme' is missing the key '$param'.");
+                if ($param === "background") {
+                    // check that the key is a valid background value
+                    $this->assertMatchesRegularExpression(
+                        $backgroundRegex,
+                        $colors[$param],
+                        "The parameter '$param' of '$theme' is not a valid background value."
+                    );
+                    continue;
+                }
                 // check that the key is a valid hex color
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
@@ -101,7 +119,9 @@ final class OptionsTest extends TestCase
             // update parameter in expected result
             $expected = array_merge($expected, [$param => "#f00"]);
             // test color change
-            $this->assertEquals($expected, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            $expected["backgroundGradient"] = "";
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -127,7 +147,9 @@ final class OptionsTest extends TestCase
             // update parameter in expected result
             $expected = array_merge($expected, ["background" => $output]);
             // test color change
-            $this->assertEquals($expected, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            $expected["backgroundGradient"] = "";
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -146,7 +168,10 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // test that theme is still default
-            $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            $expected = $this->defaultTheme;
+            $expected["backgroundGradient"] = "";
+            $this->assertEquals($expected, $actual);
         }
     }
 
