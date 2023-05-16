@@ -221,7 +221,7 @@ function utf8Strlen(string $string): int
 function splitLines(string $text, int $maxChars, int $line1Offset): string
 {
     // if too many characters, insert \n before a " " or "-" if possible
-    if (utf8Strlen($text) > $maxChars && strpos($text, "\n") === false) {
+    if ($maxChars > 0 && utf8Strlen($text) > $maxChars && strpos($text, "\n") === false) {
         // prefer splitting at " - " if possible
         if (strpos($text, " - ") !== false) {
             $text = str_replace(" - ", "\n- ", $text);
@@ -393,7 +393,7 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // if the translations contain over max characters or a newline, split the text into two tspan elements
-    $maxCharsPerLineLabels = intval(floor($cardWidth / $numColumns / 7.5));
+    $maxCharsPerLineLabels = $numColumns > 0 ? intval(floor($cardWidth / $numColumns / 7.5)) : 0;
     $totalContributionsText = splitLines($localeTranslations["Total Contributions"], $maxCharsPerLineLabels, -9);
     if ($stats["mode"] === "weekly") {
         $currentStreakText = splitLines($localeTranslations["Week Streak"], $maxCharsPerLineLabels, -9);
@@ -404,7 +404,7 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // if the ranges contain over max characters, split the text into two tspan elements
-    $maxCharsPerLineDates = intval(floor($cardWidth / $numColumns / 6));
+    $maxCharsPerLineDates = $numColumns > 0 ? intval(floor($cardWidth / $numColumns / 6)) : 0;
     $totalContributionsRange = splitLines($totalContributionsRange, $maxCharsPerLineDates, 0);
     $currentStreakRange = splitLines($currentStreakRange, $maxCharsPerLineDates, 0);
     $longestStreakRange = splitLines($longestStreakRange, $maxCharsPerLineDates, 0);
