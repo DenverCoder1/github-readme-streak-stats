@@ -15,6 +15,9 @@ const preview = {
     type: "svg",
     exclude_days: "",
     card_width: "495",
+    hide_total_contributions: "false",
+    hide_current_streak: "false",
+    hide_longest_streak: "false",
   },
 
   /**
@@ -23,6 +26,11 @@ const preview = {
   update() {
     // get parameter values from all .param elements
     const params = this.objectFromElements(document.querySelectorAll(".param"));
+    // convert sections to hide_... parameters
+    params.hide_total_contributions = String(!params.sections.includes("total"));
+    params.hide_current_streak = String(!params.sections.includes("current"));
+    params.hide_longest_streak = String(!params.sections.includes("longest"));
+    delete params.sections;
     // convert parameters to query string
     const query = Object.keys(params)
       .filter((key) => params[key] !== this.defaults[key])
@@ -302,6 +310,29 @@ const preview = {
   },
 
   /**
+   * Update checkboxes based on the query string parameter
+   *
+   * @param {string|null} param - the query string parameter to read
+   * @param {string} selector - the selector of the parent container to find the checkboxes
+   */
+  updateCheckboxes(param, selector) {
+    if (!param) {
+      return;
+    }
+    // uncheck all checkboxes
+    [...document.querySelectorAll(`${selector} input[value]`)].forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    // check checkboxes based on values in the query string
+    param.split(",").forEach((value) => {
+      const checkbox = document.querySelector(`${selector} input[value="${value}"]`);
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    });
+  },
+
+  /**
    * Assign values to input boxes based on the query string
    *
    * @param {URLSearchParams} searchParams - the query string parameters or empty to use the current URL
@@ -334,15 +365,9 @@ const preview = {
       preview.checkColor(backgroundParams[2], "background-color2");
     }
     // set weekday checkboxes
-    const excludeDays = searchParams.get("exclude_days");
-    if (excludeDays) {
-      excludeDays.split(",").forEach((day) => {
-        const checkbox = document.querySelector(`.weekdays input[value="${day}"]`);
-        if (checkbox) {
-          checkbox.checked = true;
-        }
-      });
-    }
+    this.updateCheckboxes(searchParams.get("exclude_days"), ".weekdays");
+    // set show sections checkboxes
+    this.updateCheckboxes(searchParams.get("sections"), ".sections");
   },
 };
 
@@ -401,12 +426,22 @@ window.addEventListener(
     };
     document.querySelector("#background-type-solid").addEventListener("change", toggleBackgroundType, false);
     document.querySelector("#background-type-gradient").addEventListener("change", toggleBackgroundType, false);
+    // function to update the hidden input box when checkboxes are clicked
+    const updateCheckboxTextField = (parentSelector, inputSelector) => {
+      const checked = document.querySelectorAll(`${parentSelector} input:checked`);
+      document.querySelector(inputSelector).value = [...checked].map((node) => node.value).join(",");
+      preview.update();
+    };
     // when weekdays are toggled, update the input field
-    document.querySelectorAll('.weekdays input[type="checkbox"]').forEach((el) => {
+    document.querySelectorAll(".weekdays input[type='checkbox']").forEach((el) => {
       el.addEventListener("click", () => {
-        const checked = document.querySelectorAll(".weekdays input:checked");
-        document.querySelector("#exclude-days").value = [...checked].map((node) => node.value).join(",");
-        preview.update();
+        updateCheckboxTextField(".weekdays", "#exclude-days");
+      });
+    });
+    // when sections are toggled, update the input field
+    document.querySelectorAll(".sections input[type='checkbox']").forEach((el) => {
+      el.addEventListener("click", () => {
+        updateCheckboxTextField(".sections", "#sections");
       });
     });
     // when mode is set to "weekly", disable checkboxes, otherwise enable them

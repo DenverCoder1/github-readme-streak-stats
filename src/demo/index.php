@@ -138,7 +138,7 @@ function camelToSkewer(string $str): string
                 </select>
 
                 <span id="exclude-days-label">Exclude Days</span>
-                <div class="weekdays" role="group" aria-labelledby="exclude-days-label">
+                <div class="checkbox-buttons weekdays" role="group" aria-labelledby="exclude-days-label">
                     <input type="checkbox" value="Sun" id="weekday-sun" />
                     <label for="weekday-sun" data-tooltip="Exclude Sunday" title="Exclude Sunday">S</label>
                     <input type="checkbox" value="Mon" id="weekday-mon" />
@@ -156,15 +156,26 @@ function camelToSkewer(string $str): string
                     <input type="hidden" id="exclude-days" name="exclude_days" class="param" />
                 </div>
 
+                <span id="show-sections-label">Show Sections</span>
+                <div class="checkbox-buttons sections" role="group" aria-labelledby="show-sections-label">
+                    <input type="checkbox" value="total" id="section-total" checked />
+                    <label for="section-total" data-tooltip="Total Contributions" title="Total Contributions">Total</label>
+                    <input type="checkbox" value="current" id="section-current" checked />
+                    <label for="section-current" data-tooltip="Current Streak" title="Current Streak">Current</label>
+                    <input type="checkbox" value="longest" id="section-longest" checked />
+                    <label for="section-longest" data-tooltip="Longest Streak" title="Longest Streak">Longest</label>
+                    <input type="hidden" id="sections" name="sections" class="param" value="total,current,longest" />
+                </div>
+
+                <label for="card-width">Card Width</label>
+                <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1" min="300" />
+
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">
                     <option value="svg">SVG</option>
                     <option value="png">PNG</option>
                     <option value="json">JSON</option>
                 </select>
-
-                <label for="card-width">Card Width</label>
-                <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1" min="300" />
 
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
