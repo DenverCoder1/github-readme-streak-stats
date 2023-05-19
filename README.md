@@ -33,7 +33,7 @@
 
 Here you can customize your Streak Stats card with a live preview.
 
-<http://streak-stats.demolab.com>
+<https://streak-stats.demolab.com>
 
 [![Demo Site](https://user-images.githubusercontent.com/20955511/114579753-dbac8780-9c86-11eb-97dd-207039f67d20.gif "Demo Site")](http://streak-stats.demolab.com/demo/)
 
