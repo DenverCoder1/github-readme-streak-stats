@@ -211,6 +211,15 @@ return [
         "Longest Week Streak" => "दीर्घकालीन साप्ताहिक सातत्यता",
         "Present" => "आज पर्यंत",
     ],
+    "ne" => [
+        "Total Contributions" => "कुल योगदान",
+        "Current Streak" => "हालको दैनिक योगदान",
+        "Longest Streak" => "सबैभन्दा लामो दैनिक योगदान",
+        "Week Streak" => "सप्ताहिक योगदान",
+        "Longest Week Streak" => "सबैभन्दा लामो साप्ताहिक योगदान",
+        "Present" => "आज सम्म",
+        "Excluding" => "बाहेक",
+    ],
     "nl" => [
         "Total Contributions" => "Totale Bijdrage",
         "Current Streak" => "Huidige Serie",
