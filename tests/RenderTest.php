@@ -20,6 +20,7 @@ final class RenderTest extends TestCase
         "currStreakLabel" => "777777",
         "sideLabels" => "888888",
         "dates" => "999999",
+        "excludeDaysLabel" => "aaaaaa",
     ];
 
     private $testStats = [

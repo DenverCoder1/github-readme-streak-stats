@@ -59,6 +59,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     `currStreakLabel`      |               Current streak label               |                             **hex code** without `#` or **css color**                              |
 |        `sideLabels`        |         Total and longest streak labels          |                             **hex code** without `#` or **css color**                              |
 |          `dates`           |              Date range text color               |                             **hex code** without `#` or **css color**                              |
+|     `excludeDaysLabel`     | Excluding text color (defaults to `dates` color) |                             **hex code** without `#` or **css color**                              |
 |       `date_format`        |  Date format pattern or empty for locale format  |                        See note below on [📅 Date Formats](#-date-formats)                         |
 |          `locale`          |  Locale for labels and numbers (Default: `en`)   |                            ISO 639-1 code - See [🗪 Locales](#-locales)                             |
 |           `type`           |          Output format (Default: `svg`)          |                              Current options: `svg`, `png` or `json`                               |

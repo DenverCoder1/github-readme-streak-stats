@@ -20,6 +20,7 @@ final class OptionsTest extends TestCase
         "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#151515",
         "dates" => "#464646",
+        "excludeDaysLabel" => "#464646",
     ];
 
     /**
@@ -118,6 +119,10 @@ final class OptionsTest extends TestCase
             $params[$param] = "f00";
             // update parameter in expected result
             $expected = array_merge($expected, [$param => "#f00"]);
+            // if `dates` is set, `excludeDaysLabel` should be set to the same value
+            if ($param === "dates") {
+                $expected = array_merge($expected, ["excludeDaysLabel" => "#f00"]);
+            }
             // test color change
             $actual = getRequestedTheme($params);
             $expected["backgroundGradient"] = "";

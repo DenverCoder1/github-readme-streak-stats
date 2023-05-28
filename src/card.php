@@ -146,6 +146,11 @@ function getRequestedTheme(array $params): array
         }
     }
 
+    // if `dates` is set and `excludeDaysLabel` is not, use `dates` color for `excludeDaysLabel`
+    if (isset($params["dates"]) && !isset($params["excludeDaysLabel"])) {
+        $theme["excludeDaysLabel"] = $theme["dates"];
+    }
+
     // hide borders
     if (isset($params["hide_border"]) && $params["hide_border"] == "true") {
         $theme["border"] = "#0000"; // transparent
@@ -417,7 +422,7 @@ function generateCard(array $stats, array $params = null): string
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
                 <g transform='translate({$offset},187)'>
-                    <text stroke-width='0' text-anchor='right' fill='{$theme["dates"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='10px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
+                    <text stroke-width='0' text-anchor='right' fill='{$theme["excludeDaysLabel"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='10px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         * {$localeTranslations["Excluding"]} {$daysCommaSeparated}
                     </text>
                 </g>
