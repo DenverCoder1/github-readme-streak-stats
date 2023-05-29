@@ -20,6 +20,7 @@ final class OptionsTest extends TestCase
         "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#151515",
         "dates" => "#464646",
+        "excludeDaysLabel" => "#464646",
     ];
 
     /**

@@ -20,6 +20,7 @@ final class RenderTest extends TestCase
         "currStreakLabel" => "777777",
         "sideLabels" => "888888",
         "dates" => "999999",
+        "excludeDaysLabel" => "aaaaaa",
     ];
 
     private $testStats = [
@@ -248,5 +249,17 @@ final class RenderTest extends TestCase
             "<!-- Longest Streak big number -->\n<g transform='translate(82.5,48)'>",
             $renderCollapsedSpaces
         );
+    }
+
+    /**
+     * Test excluded days of the week
+     */
+    public function testExcludeDaysParameter(): void
+    {
+        $this->testParams["exclude_days"] = "Sun,Sat";
+        $this->testStats["excludedDays"] = ["Sun", "Sat"];
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='#aaaaaa'", $render);
+        $this->assertStringContainsString("* Excluding Sun, Sat", $render);
     }
 }

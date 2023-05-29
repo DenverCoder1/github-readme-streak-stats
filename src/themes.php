@@ -13,6 +13,7 @@ return [
         "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#151515",
         "dates" => "#464646",
+        "excludeDaysLabel" => "#464646",
     ],
     "dark" => [
         "background" => "#151515",
@@ -25,6 +26,7 @@ return [
         "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#FEFEFE",
         "dates" => "#9E9E9E",
+        "excludeDaysLabel" => "#9E9E9E",
     ],
     "highcontrast" => [
         "background" => "#000000",
@@ -37,6 +39,7 @@ return [
         "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#FFFFFF",
         "dates" => "#C5C5C5",
+        "excludeDaysLabel" => "#C5C5C5",
     ],
     "transparent" => [
         "background" => "#0000",
@@ -49,6 +52,7 @@ return [
         "currStreakLabel" => "#0579C3",
         "sideLabels" => "#006AFF",
         "dates" => "#417E87",
+        "excludeDaysLabel" => "#417E87",
     ],
     "radical" => [
         "background" => "#141321",
@@ -61,6 +65,7 @@ return [
         "currStreakLabel" => "#F8D847",
         "sideLabels" => "#FE428E",
         "dates" => "#A9FEF7",
+        "excludeDaysLabel" => "#A9FEF7",
     ],
     "merko" => [
         "background" => "#0A0F0B",
@@ -73,6 +78,7 @@ return [
         "currStreakLabel" => "#B7D364",
         "sideLabels" => "#ABD200",
         "dates" => "#68B587",
+        "excludeDaysLabel" => "#68B587",
     ],
     "gruvbox" => [
         "background" => "#282828",
@@ -85,6 +91,7 @@ return [
         "currStreakLabel" => "#FE8019",
         "sideLabels" => "#FABD2F",
         "dates" => "#8EC07C",
+        "excludeDaysLabel" => "#8EC07C",
     ],
     "gruvbox-duo" => [
         "background" => "#0000",
@@ -97,6 +104,7 @@ return [
         "currStreakLabel" => "#FE8019",
         "sideLabels" => "#FABD2F",
         "dates" => "#8EC07C",
+        "excludeDaysLabel" => "#8EC07C",
     ],
     "tokyonight" => [
         "background" => "#1A1B27",
@@ -109,6 +117,7 @@ return [
         "currStreakLabel" => "#BF91F3",
         "sideLabels" => "#70A5FD",
         "dates" => "#38BDAE",
+        "excludeDaysLabel" => "#38BDAE",
     ],
     "tokyonight-duo" => [
         "background" => "#0000",
@@ -121,6 +130,7 @@ return [
         "currStreakLabel" => "#BF91F3",
         "sideLabels" => "#70A5FD",
         "dates" => "#38BDAE",
+        "excludeDaysLabel" => "#38BDAE",
     ],
     "onedark" => [
         "background" => "#282C34",
@@ -133,6 +143,7 @@ return [
         "currStreakLabel" => "#8EB573",
         "sideLabels" => "#E4BF7A",
         "dates" => "#DF6D74",
+        "excludeDaysLabel" => "#DF6D74",
     ],
     "onedark-duo" => [
         "background" => "#0000",
@@ -145,6 +156,7 @@ return [
         "currStreakLabel" => "#8EB573",
         "sideLabels" => "#E4BF7A",
         "dates" => "#DF6D74",
+        "excludeDaysLabel" => "#DF6D74",
     ],
     "cobalt" => [
         "background" => "#0000",
@@ -157,6 +169,7 @@ return [
         "currStreakLabel" => "#0480EF",
         "sideLabels" => "#E683D9",
         "dates" => "#75EEB2",
+        "excludeDaysLabel" => "#75EEB2",
     ],
     "synthwave" => [
         "background" => "#2B213A",
@@ -169,6 +182,7 @@ return [
         "currStreakLabel" => "#EF8539",
         "sideLabels" => "#E2E9EC",
         "dates" => "#E5289E",
+        "excludeDaysLabel" => "#E5289E",
     ],
     "dracula" => [
         "background" => "#282A36",
@@ -181,6 +195,7 @@ return [
         "currStreakLabel" => "#79DAFA",
         "sideLabels" => "#FF6E96",
         "dates" => "#F8F8F2",
+        "excludeDaysLabel" => "#F8F8F2",
     ],
     "prussian" => [
         "background" => "#172F45",
@@ -193,6 +208,7 @@ return [
         "currStreakLabel" => "#38A0FF",
         "sideLabels" => "#BDDFFF",
         "dates" => "#6E93B5",
+        "excludeDaysLabel" => "#6E93B5",
     ],
     "monokai" => [
         "background" => "#272822",
@@ -205,6 +221,7 @@ return [
         "currStreakLabel" => "#E28905",
         "sideLabels" => "#EB1F6A",
         "dates" => "#F1F1EB",
+        "excludeDaysLabel" => "#F1F1EB",
     ],
     "vue" => [
         "background" => "#FFFEFE",
@@ -217,6 +234,7 @@ return [
         "currStreakLabel" => "#41B883",
         "sideLabels" => "#41B883",
         "dates" => "#273849",
+        "excludeDaysLabel" => "#273849",
     ],
     "vue-dark" => [
         "background" => "#273849",
@@ -229,6 +247,7 @@ return [
         "currStreakLabel" => "#41B883",
         "sideLabels" => "#41B883",
         "dates" => "#FFFEFE",
+        "excludeDaysLabel" => "#FFFEFE",
     ],
     "shades-of-purple" => [
         "background" => "#2D2B55",
@@ -241,6 +260,7 @@ return [
         "currStreakLabel" => "#B362FF",
         "sideLabels" => "#FAD000",
         "dates" => "#A599E9",
+        "excludeDaysLabel" => "#A599E9",
     ],
     "nightowl" => [
         "background" => "#011627",
@@ -253,6 +273,7 @@ return [
         "currStreakLabel" => "#FFEB95",
         "sideLabels" => "#C792EA",
         "dates" => "#7FDBCA",
+        "excludeDaysLabel" => "#7FDBCA",
     ],
     "buefy" => [
         "background" => "#FFFFFF",
@@ -265,6 +286,7 @@ return [
         "currStreakLabel" => "#FF3860",
         "sideLabels" => "#7957D5",
         "dates" => "#363636",
+        "excludeDaysLabel" => "#363636",
     ],
     "buefy-dark" => [
         "background" => "#1A1B27",
@@ -277,6 +299,7 @@ return [
         "currStreakLabel" => "#FF3860",
         "sideLabels" => "#7957D5",
         "dates" => "#ABABAB",
+        "excludeDaysLabel" => "#ABABAB",
     ],
     "blue-green" => [
         "background" => "#040F0F",
@@ -289,6 +312,7 @@ return [
         "currStreakLabel" => "#F5B700",
         "sideLabels" => "#2F97C1",
         "dates" => "#0CF574",
+        "excludeDaysLabel" => "#0CF574",
     ],
     "algolia" => [
         "background" => "#050F2C",
@@ -301,6 +325,7 @@ return [
         "currStreakLabel" => "#2DDE98",
         "sideLabels" => "#00AEFF",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "great-gatsby" => [
         "background" => "#000",
@@ -313,6 +338,7 @@ return [
         "currStreakLabel" => "#FFB74D",
         "sideLabels" => "#FFA726",
         "dates" => "#FFD95B",
+        "excludeDaysLabel" => "#FFD95B",
     ],
     "darcula" => [
         "background" => "#242424",
@@ -325,6 +351,7 @@ return [
         "currStreakLabel" => "#84628F",
         "sideLabels" => "#BA5F17",
         "dates" => "#BEBEBE",
+        "excludeDaysLabel" => "#BEBEBE",
     ],
     "bear" => [
         "background" => "#1F2023",
@@ -337,6 +364,7 @@ return [
         "currStreakLabel" => "#00AEFF",
         "sideLabels" => "#E03C8A",
         "dates" => "#BCB28D",
+        "excludeDaysLabel" => "#BCB28D",
     ],
     "solarized-dark" => [
         "background" => "#002B36",
@@ -349,6 +377,7 @@ return [
         "currStreakLabel" => "#B58900",
         "sideLabels" => "#268BD2",
         "dates" => "#859900",
+        "excludeDaysLabel" => "#859900",
     ],
     "solarized-light" => [
         "background" => "#FDF6E3",
@@ -361,6 +390,7 @@ return [
         "currStreakLabel" => "#B58900",
         "sideLabels" => "#268BD2",
         "dates" => "#859900",
+        "excludeDaysLabel" => "#859900",
     ],
     "chartreuse-dark" => [
         "background" => "#000",
@@ -373,6 +403,7 @@ return [
         "currStreakLabel" => "#00AEFF",
         "sideLabels" => "#7FFF00",
         "dates" => "#FFF",
+        "excludeDaysLabel" => "#FFF",
     ],
     "nord" => [
         "background" => "#2E3440",
@@ -385,6 +416,7 @@ return [
         "currStreakLabel" => "#88C0D0",
         "sideLabels" => "#81A1C1",
         "dates" => "#D8DEE9",
+        "excludeDaysLabel" => "#D8DEE9",
     ],
     "gotham" => [
         "background" => "#0C1014",
@@ -397,6 +429,7 @@ return [
         "currStreakLabel" => "#599CAB",
         "sideLabels" => "#2AA889",
         "dates" => "#99D1CE",
+        "excludeDaysLabel" => "#99D1CE",
     ],
     "material" => [
         "background" => "#263238",
@@ -409,6 +442,7 @@ return [
         "currStreakLabel" => "#FFAB91",
         "sideLabels" => "#80CBC4",
         "dates" => "#B0BEC5",
+        "excludeDaysLabel" => "#B0BEC5",
     ],
     "material-palenight" => [
         "background" => "#292D3E",
@@ -421,6 +455,7 @@ return [
         "currStreakLabel" => "#89DDFF",
         "sideLabels" => "#C792EA",
         "dates" => "#A6ACCD",
+        "excludeDaysLabel" => "#A6ACCD",
     ],
     "graywhite" => [
         "background" => "#FFFFFF",
@@ -433,6 +468,7 @@ return [
         "currStreakLabel" => "#24292E",
         "sideLabels" => "#24292E",
         "dates" => "#24292E",
+        "excludeDaysLabel" => "#24292E",
     ],
     "vision-friendly-dark" => [
         "background" => "#000000",
@@ -445,6 +481,7 @@ return [
         "currStreakLabel" => "#785EF0",
         "sideLabels" => "#FFB000",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "ayu-mirage" => [
         "background" => "#1F2430",
@@ -457,6 +494,7 @@ return [
         "currStreakLabel" => "#73D0FF",
         "sideLabels" => "#F4CD7C",
         "dates" => "#C7C8C2",
+        "excludeDaysLabel" => "#C7C8C2",
     ],
     "midnight-purple" => [
         "background" => "#000000",
@@ -469,6 +507,7 @@ return [
         "currStreakLabel" => "#9F4BFF",
         "sideLabels" => "#9745F5",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "calm" => [
         "background" => "#373F51",
@@ -481,6 +520,7 @@ return [
         "currStreakLabel" => "#EDAE49",
         "sideLabels" => "#E07A5F",
         "dates" => "#EBCFB2",
+        "excludeDaysLabel" => "#EBCFB2",
     ],
     "flag-india" => [
         "background" => "#FFFFFF",
@@ -493,6 +533,7 @@ return [
         "currStreakLabel" => "#250E62",
         "sideLabels" => "#FF8F1C",
         "dates" => "#509E2F",
+        "excludeDaysLabel" => "#509E2F",
     ],
     "omni" => [
         "background" => "#191622",
@@ -505,6 +546,7 @@ return [
         "currStreakLabel" => "#E7DE79",
         "sideLabels" => "#FF79C6",
         "dates" => "#E1E1E6",
+        "excludeDaysLabel" => "#E1E1E6",
     ],
     "react" => [
         "background" => "#20232A",
@@ -517,6 +559,7 @@ return [
         "currStreakLabel" => "#61DAFB",
         "sideLabels" => "#61DAFB",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "jolly" => [
         "background" => "#291B3E",
@@ -529,6 +572,7 @@ return [
         "currStreakLabel" => "#A960FF",
         "sideLabels" => "#FF64DA",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "maroongold" => [
         "background" => "#260000",
@@ -541,6 +585,7 @@ return [
         "currStreakLabel" => "#F7EF8A",
         "sideLabels" => "#F7EF8A",
         "dates" => "#E0AA3E",
+        "excludeDaysLabel" => "#E0AA3E",
     ],
     "yeblu" => [
         "background" => "#002046",
@@ -553,6 +598,7 @@ return [
         "currStreakLabel" => "#FFFF00",
         "sideLabels" => "#FFFF00",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "blueberry" => [
         "background" => "#242938",
@@ -565,6 +611,7 @@ return [
         "currStreakLabel" => "#89DDFF",
         "sideLabels" => "#82AAFF",
         "dates" => "#27E8A7",
+        "excludeDaysLabel" => "#27E8A7",
     ],
     "blueberry-duo" => [
         "background" => "#0000",
@@ -577,6 +624,7 @@ return [
         "currStreakLabel" => "#89DDFF",
         "sideLabels" => "#82AAFF",
         "dates" => "#27E8A7",
+        "excludeDaysLabel" => "#27E8A7",
     ],
     "slateorange" => [
         "background" => "#36393F",
@@ -589,6 +637,7 @@ return [
         "currStreakLabel" => "#FAA627",
         "sideLabels" => "#FAA627",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "kacho-ga" => [
         "background" => "#402B23",
@@ -601,6 +650,7 @@ return [
         "currStreakLabel" => "#A64833",
         "sideLabels" => "#BF4A3F",
         "dates" => "#D9C8A9",
+        "excludeDaysLabel" => "#D9C8A9",
     ],
     "ads-juicy-fresh" => [
         "background" => "#0D0C15",
@@ -613,6 +663,7 @@ return [
         "currStreakLabel" => "#FF5700",
         "sideLabels" => "#FFF",
         "dates" => "#6562AF",
+        "excludeDaysLabel" => "#6562AF",
     ],
     "black-ice" => [
         "background" => "#151515",
@@ -625,6 +676,7 @@ return [
         "currStreakLabel" => "#00E7FF",
         "sideLabels" => "#FFF",
         "dates" => "#9F9F9F",
+        "excludeDaysLabel" => "#9F9F9F",
     ],
     "soft-green" => [
         "background" => "#222428",
@@ -637,6 +689,7 @@ return [
         "currStreakLabel" => "#00DC4D",
         "sideLabels" => "#3DDC77",
         "dates" => "#CECECE",
+        "excludeDaysLabel" => "#CECECE",
     ],
     "blood" => [
         "background" => "#FFF",
@@ -649,6 +702,7 @@ return [
         "currStreakLabel" => "#FF5F5F",
         "sideLabels" => "#FF5F5F",
         "dates" => "#273849",
+        "excludeDaysLabel" => "#273849",
     ],
     "blood-dark" => [
         "background" => "#142B37",
@@ -661,6 +715,7 @@ return [
         "currStreakLabel" => "#FF5F5F",
         "sideLabels" => "#FF5F5F",
         "dates" => "#FFF",
+        "excludeDaysLabel" => "#FFF",
     ],
     "green-nur" => [
         "background" => "#0A1E17",
@@ -673,6 +728,7 @@ return [
         "currStreakLabel" => "#5AFFC8",
         "sideLabels" => "#5AFFC8",
         "dates" => "#FFF",
+        "excludeDaysLabel" => "#FFF",
     ],
     "neon-dark" => [
         "background" => "#020200",
@@ -685,6 +741,7 @@ return [
         "sideNums" => "#5CADC0",
         "sideLabels" => "#5CADC0",
         "dates" => "#ED7B25",
+        "excludeDaysLabel" => "#ED7B25",
     ],
     "neon-palenight" => [
         "background" => "#212237",
@@ -697,6 +754,7 @@ return [
         "sideNums" => "#5CADC0",
         "sideLabels" => "#5CADC0",
         "dates" => "#ED7B25",
+        "excludeDaysLabel" => "#ED7B25",
     ],
     "dark-smoky" => [
         "background" => "#0B0C10",
@@ -709,6 +767,7 @@ return [
         "sideNums" => "#EDF5E1",
         "sideLabels" => "#EDF5E1",
         "dates" => "#45A29E",
+        "excludeDaysLabel" => "#45A29E",
     ],
     "monokai-metallian" => [
         "background" => "#1F222E",
@@ -716,6 +775,7 @@ return [
         "currStreakLabel" => "#F85D7F",
         "currStreakNum" => "#F8D866",
         "dates" => "#9CA2B8",
+        "excludeDaysLabel" => "#9CA2B8",
         "fire" => "#FC9867",
         "ring" => "#FC9867",
         "sideLabels" => "#F85D7F",
@@ -728,6 +788,7 @@ return [
         "currStreakLabel" => "#5D8CB3",
         "currStreakNum" => "#5D8CB3",
         "dates" => "#5D8CB3",
+        "excludeDaysLabel" => "#5D8CB3",
         "fire" => "#718CA1",
         "ring" => "#718CA1",
         "sideLabels" => "#5D8CB3",
@@ -745,6 +806,7 @@ return [
         "currStreakLabel" => "#28ECFA",
         "sideLabels" => "#0F80AA",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "earth" => [
         "background" => "#1E1615",
@@ -757,6 +819,7 @@ return [
         "currStreakLabel" => "#C48519",
         "sideLabels" => "#C48519",
         "dates" => "#BA9D6F",
+        "excludeDaysLabel" => "#BA9D6F",
     ],
     "deepblue" => [
         "background" => "#165795",
@@ -769,6 +832,7 @@ return [
         "currStreakLabel" => "#0FDD21",
         "sideLabels" => "#1ADD40",
         "dates" => "#11E2E7",
+        "excludeDaysLabel" => "#11E2E7",
     ],
     "holi-theme" => [
         "background" => "#030314",
@@ -781,6 +845,7 @@ return [
         "currStreakLabel" => "#D6E7FF",
         "sideLabels" => "#D6E7FF",
         "dates" => "#85A4C0",
+        "excludeDaysLabel" => "#85A4C0",
     ],
     "ayu-light" => [
         "background" => "#FAFAFA",
@@ -793,6 +858,7 @@ return [
         "currStreakLabel" => "#F07171",
         "sideLabels" => "#55B4D4",
         "dates" => "#575F66",
+        "excludeDaysLabel" => "#575F66",
     ],
     "javascript" => [
         "background" => "#F7DF1E",
@@ -805,6 +871,7 @@ return [
         "currStreakLabel" => "#000000",
         "sideLabels" => "#000000",
         "dates" => "#000000",
+        "excludeDaysLabel" => "#000000",
     ],
     "javascript-dark" => [
         "background" => "#000000",
@@ -817,6 +884,7 @@ return [
         "currStreakLabel" => "#F7DF1E",
         "sideLabels" => "#F7DF1E",
         "dates" => "#F7DF1E",
+        "excludeDaysLabel" => "#F7DF1E",
     ],
     "noctis-minimus" => [
         "background" => "#1B2932",
@@ -829,6 +897,7 @@ return [
         "currStreakLabel" => "#72B7C0",
         "sideLabels" => "#D3B692",
         "dates" => "#C5CDD3",
+        "excludeDaysLabel" => "#C5CDD3",
     ],
     "github-dark" => [
         "background" => "#0D1117",
@@ -841,6 +910,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#FFFFFF",
         "dates" => "#39D353",
+        "excludeDaysLabel" => "#39D353",
     ],
     "github-dark-blue" => [
         "background" => "#0D1117",
@@ -853,6 +923,7 @@ return [
         "currStreakLabel" => "#FEFEFE",
         "sideLabels" => "#FEFEFE",
         "dates" => "#9E9E9E",
+        "excludeDaysLabel" => "#9E9E9E",
     ],
     "github-light" => [
         "background" => "#FFFFFF",
@@ -865,6 +936,7 @@ return [
         "currStreakLabel" => "#24292F",
         "sideLabels" => "#24292F",
         "dates" => "#1F6FEB",
+        "excludeDaysLabel" => "#1F6FEB",
     ],
     "elegant" => [
         "background" => "#03071E",
@@ -877,6 +949,7 @@ return [
         "currStreakLabel" => "#ABCDEF",
         "sideLabels" => "#FEDCBA",
         "dates" => "#FF7B00",
+        "excludeDaysLabel" => "#FF7B00",
     ],
     "leafy" => [
         "background" => "#081C15",
@@ -889,6 +962,7 @@ return [
         "currStreakLabel" => "#FF5400",
         "sideLabels" => "#ABCABC",
         "dates" => "#FECFEC",
+        "excludeDaysLabel" => "#FECFEC",
     ],
     "navy-gear" => [
         "background" => "#000021",
@@ -901,6 +975,7 @@ return [
         "currStreakLabel" => "#C3DD00",
         "sideLabels" => "#C3DD00",
         "dates" => "#1FA0DD",
+        "excludeDaysLabel" => "#1FA0DD",
     ],
     "hacker" => [
         "background" => "#000000",
@@ -913,6 +988,7 @@ return [
         "currStreakLabel" => "#20C20E",
         "sideLabels" => "#20C20E",
         "dates" => "#20C20E",
+        "excludeDaysLabel" => "#20C20E",
     ],
     "garden" => [
         "background" => "#094A4A",
@@ -925,6 +1001,7 @@ return [
         "currStreakLabel" => "#6FDD6C",
         "sideLabels" => "#6FDD6C",
         "dates" => "#6FDD6C",
+        "excludeDaysLabel" => "#6FDD6C",
     ],
     "github-green-purple" => [
         "background" => "#000",
@@ -937,6 +1014,7 @@ return [
         "currStreakLabel" => "#800080",
         "sideLabels" => "#7FFF00",
         "dates" => "#FFF",
+        "excludeDaysLabel" => "#FFF",
     ],
     "icegray" => [
         "background" => "#FFFFFF",
@@ -949,6 +1027,7 @@ return [
         "currStreakLabel" => "#515151",
         "sideLabels" => "#515151",
         "dates" => "#636363",
+        "excludeDaysLabel" => "#636363",
     ],
     "neon-blurange" => [
         "background" => "#030D6B",
@@ -961,6 +1040,7 @@ return [
         "currStreakLabel" => "#25FB88",
         "sideLabels" => "#25FB88",
         "dates" => "#C7CCFF",
+        "excludeDaysLabel" => "#C7CCFF",
     ],
     "yellowdark" => [
         "background" => "#000000",
@@ -973,6 +1053,7 @@ return [
         "currStreakLabel" => "#FFEF00",
         "sideLabels" => "#FFEF00",
         "dates" => "#A5A5A5",
+        "excludeDaysLabel" => "#A5A5A5",
     ],
     "java-dark" => [
         "background" => "#000000",
@@ -985,6 +1066,7 @@ return [
         "currStreakLabel" => "#F89820",
         "sideLabels" => "#F89820",
         "dates" => "#5382A1",
+        "excludeDaysLabel" => "#5382A1",
     ],
     "android-dark" => [
         "background" => "#000000",
@@ -997,6 +1079,7 @@ return [
         "currStreakLabel" => "#3DDC84",
         "sideLabels" => "#3DDC84",
         "dates" => "#3DDC84",
+        "excludeDaysLabel" => "#3DDC84",
     ],
     "deuteranopia-friendly-theme" => [
         "background" => "#000000",
@@ -1009,6 +1092,7 @@ return [
         "currStreakLabel" => "#0072B2",
         "sideLabels" => "#CC79A7",
         "dates" => "#009E73",
+        "excludeDaysLabel" => "#009E73",
     ],
     "windows-dark" => [
         "background" => "#000000",
@@ -1021,6 +1105,7 @@ return [
         "currStreakLabel" => "#00A4EF",
         "sideLabels" => "#00A4EF",
         "dates" => "#00A4EF",
+        "excludeDaysLabel" => "#00A4EF",
     ],
     "git-dark" => [
         "background" => "#000000",
@@ -1033,6 +1118,7 @@ return [
         "currStreakLabel" => "#F05033",
         "sideLabels" => "#F05033",
         "dates" => "#F05033",
+        "excludeDaysLabel" => "#F05033",
     ],
     "python-dark" => [
         "background" => "#000000",
@@ -1045,6 +1131,7 @@ return [
         "currStreakLabel" => "#FFD43B",
         "sideLabels" => "#FFD43B",
         "dates" => "#FFD43B",
+        "excludeDaysLabel" => "#FFD43B",
     ],
     "sea" => [
         "background" => "#1565C0",
@@ -1057,6 +1144,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#FFFFFF",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "sea-dark" => [
         "background" => "#00C0FF",
@@ -1069,6 +1157,7 @@ return [
         "currStreakLabel" => "#000000",
         "sideLabels" => "#000000",
         "dates" => "#000000",
+        "excludeDaysLabel" => "#000000",
     ],
     "violet-dark" => [
         "background" => "#000000",
@@ -1081,6 +1170,7 @@ return [
         "currStreakLabel" => "#FF0089",
         "sideLabels" => "#FF0089",
         "dates" => "#FF0089",
+        "excludeDaysLabel" => "#FF0089",
     ],
     "horizon" => [
         "background" => "#1C1E26",
@@ -1093,6 +1183,7 @@ return [
         "currStreakLabel" => "#23BD87",
         "sideLabels" => "#23BD87",
         "dates" => "#FAB795",
+        "excludeDaysLabel" => "#FAB795",
     ],
     "modern-lilac" => [
         "background" => "#0A0E12",
@@ -1105,6 +1196,7 @@ return [
         "currStreakLabel" => "#FAB795",
         "sideLabels" => "#C770F0",
         "dates" => "#FAB795",
+        "excludeDaysLabel" => "#FAB795",
     ],
     "modern-lilac2" => [
         "background" => "#0A0E12",
@@ -1117,6 +1209,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#C770F0",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "halloween" => [
         "background" => "#1C1A2B",
@@ -1129,6 +1222,7 @@ return [
         "currStreakLabel" => "#FB9600",
         "sideLabels" => "#FB9600",
         "dates" => "#FFC400",
+        "excludeDaysLabel" => "#FFC400",
     ],
     "violet-punch" => [
         "background" => "#000000",
@@ -1141,6 +1235,7 @@ return [
         "currStreakLabel" => "#AFB5DD",
         "sideLabels" => "#AFB5DD",
         "dates" => "#DDDDDD",
+        "excludeDaysLabel" => "#DDDDDD",
     ],
     "submarine-flowers" => [
         "background" => "#013E4E",
@@ -1153,6 +1248,7 @@ return [
         "currStreakLabel" => "#FFF000",
         "sideLabels" => "#FF8888",
         "dates" => "#FF8650",
+        "excludeDaysLabel" => "#FF8650",
     ],
     "rising-sun" => [
         "background" => "#0C1116",
@@ -1165,6 +1261,7 @@ return [
         "currStreakLabel" => "#FFF7ED",
         "sideLabels" => "#FFF7ED",
         "dates" => "#F6882B",
+        "excludeDaysLabel" => "#F6882B",
     ],
     "gruvbox-light" => [
         "background" => "#FBF1C7",
@@ -1177,6 +1274,7 @@ return [
         "currStreakLabel" => "#AF3A03",
         "sideLabels" => "#B57614",
         "dates" => "#427B58",
+        "excludeDaysLabel" => "#427B58",
     ],
     "outrun" => [
         "background" => "#141439",
@@ -1189,6 +1287,7 @@ return [
         "currStreakLabel" => "#FF1AFF",
         "sideLabels" => "#FFCC00",
         "dates" => "#8080FF",
+        "excludeDaysLabel" => "#8080FF",
     ],
     "ocean-dark" => [
         "background" => "#151A28",
@@ -1201,6 +1300,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#8957B2",
         "dates" => "#92D534",
+        "excludeDaysLabel" => "#92D534",
     ],
     "discord-old-blurple" => [
         "background" => "#2C2F33",
@@ -1213,6 +1313,7 @@ return [
         "currStreakLabel" => "#7289DA",
         "sideLabels" => "#7289DA",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "aura-dark" => [
         "background" => "#252334",
@@ -1225,6 +1326,7 @@ return [
         "currStreakLabel" => "#6CFFD0",
         "sideLabels" => "#FF7372",
         "dates" => "#DBDBDB",
+        "excludeDaysLabel" => "#DBDBDB",
     ],
     "panda" => [
         "background" => "#31353A",
@@ -1237,6 +1339,7 @@ return [
         "currStreakLabel" => "#19F9D899",
         "sideLabels" => "#19F9D899",
         "dates" => "#FF75B5",
+        "excludeDaysLabel" => "#FF75B5",
     ],
     "cobalt2" => [
         "background" => "#193549",
@@ -1249,6 +1352,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#FFC600",
         "dates" => "#0088FF",
+        "excludeDaysLabel" => "#0088FF",
     ],
     "swift" => [
         "background" => "#F7F7F7",
@@ -1261,6 +1365,7 @@ return [
         "currStreakLabel" => "#F05237",
         "sideLabels" => "#000000",
         "dates" => "#000000",
+        "excludeDaysLabel" => "#000000",
     ],
     "aura" => [
         "background" => "#15141B",
@@ -1273,6 +1378,7 @@ return [
         "currStreakLabel" => "#FFCA85",
         "sideLabels" => "#A277FF",
         "dates" => "#61FFCA",
+        "excludeDaysLabel" => "#61FFCA",
     ],
     "apprentice" => [
         "background" => "#262626",
@@ -1285,6 +1391,7 @@ return [
         "currStreakLabel" => "#FFFFAF",
         "sideLabels" => "#FFFFFF",
         "dates" => "#BCBCBC",
+        "excludeDaysLabel" => "#BCBCBC",
     ],
     "moltack" => [
         "background" => "#F5E1C0",
@@ -1297,6 +1404,7 @@ return [
         "currStreakLabel" => "#86092C",
         "sideLabels" => "#86092C",
         "dates" => "#574038",
+        "excludeDaysLabel" => "#574038",
     ],
     "codestackr" => [
         "background" => "#09131B",
@@ -1309,6 +1417,7 @@ return [
         "currStreakLabel" => "#FFE400",
         "sideLabels" => "#FF652F",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "rose-pine" => [
         "background" => "#191724",
@@ -1321,6 +1430,7 @@ return [
         "currStreakLabel" => "#EBBCBA",
         "sideLabels" => "#9CCFD8",
         "dates" => "#E0DEF4",
+        "excludeDaysLabel" => "#E0DEF4",
     ],
     "date-night" => [
         "background" => "#170F0C",
@@ -1333,6 +1443,7 @@ return [
         "currStreakLabel" => "#BB8470",
         "sideLabels" => "#DA7885",
         "dates" => "#E1B2A2",
+        "excludeDaysLabel" => "#E1B2A2",
     ],
     "one-dark-pro" => [
         "background" => "#23272E",
@@ -1345,6 +1456,7 @@ return [
         "currStreakLabel" => "#C678DD",
         "sideLabels" => "#61AFEF",
         "dates" => "#E5C06E",
+        "excludeDaysLabel" => "#E5C06E",
     ],
     "rose" => [
         "background" => "#E9D8D4",
@@ -1357,6 +1469,7 @@ return [
         "currStreakLabel" => "#B71F36",
         "sideLabels" => "#8D192B",
         "dates" => "#862931",
+        "excludeDaysLabel" => "#862931",
     ],
     "neon" => [
         "background" => "#000000",
@@ -1369,6 +1482,7 @@ return [
         "currStreakLabel" => "#FF449F",
         "sideLabels" => "#00EAD3",
         "dates" => "#FFF5B7",
+        "excludeDaysLabel" => "#FFF5B7",
     ],
     "sunset-gradient" => [
         "background" => "45,8A2386,E94056,F27120",
@@ -1381,6 +1495,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#FFFFFF",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "ocean-gradient" => [
         "background" => "90,0093EA,80D0C8,80D0C8",
@@ -1393,6 +1508,7 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#FFFFFF",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
     "ambient-gradient" => [
         "background" => "35,4158D0,C850C0,FFCC70",
@@ -1405,5 +1521,6 @@ return [
         "currStreakLabel" => "#FFFFFF",
         "sideLabels" => "#FFFFFF",
         "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ],
 ];
