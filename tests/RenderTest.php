@@ -250,4 +250,16 @@ final class RenderTest extends TestCase
             $renderCollapsedSpaces
         );
     }
+
+    /**
+     * Test excluded days of the week
+     */
+    public function testExcludeDaysParameter(): void
+    {
+        $this->testParams["exclude_days"] = "Sun,Sat";
+        $this->testStats["excludedDays"] = ["Sun", "Sat"];
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("fill='#aaaaaa'", $render);
+        $this->assertStringContainsString("* Excluding Sun, Sat", $render);
+    }
 }
