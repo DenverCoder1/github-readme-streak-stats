@@ -59,7 +59,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     `currStreakLabel`      |               Current streak label               |                             **hex code** without `#` or **css color**                              |
 |        `sideLabels`        |         Total and longest streak labels          |                             **hex code** without `#` or **css color**                              |
 |          `dates`           |              Date range text color               |                             **hex code** without `#` or **css color**                              |
-|     `excludeDaysLabel`     | Excluding text color (defaults to `dates` color) |                             **hex code** without `#` or **css color**                              |
+|     `excludeDaysLabel`     |       Excluded days of the week text color       |                             **hex code** without `#` or **css color**                              |
 |       `date_format`        |  Date format pattern or empty for locale format  |                        See note below on [📅 Date Formats](#-date-formats)                         |
 |          `locale`          |  Locale for labels and numbers (Default: `en`)   |                            ISO 639-1 code - See [🗪 Locales](#-locales)                             |
 |           `type`           |          Output format (Default: `svg`)          |                              Current options: `svg`, `png` or `json`                               |
@@ -188,7 +188,7 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 1. Sign in to **Vercel** or create a new account at <https://vercel.com>
 2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
-   - You may also fork the repository and clone your fork instead if you intend to make changes
+    - You may also fork the repository and clone your fork instead if you intend to make changes
 3. Enter the directory with `cd github-readme-streak-stats`
 4. Switch branches to the `vercel` branch with `git checkout vercel`
 5. Make sure you have the [Vercel CLI](https://vercel.com/download) installed

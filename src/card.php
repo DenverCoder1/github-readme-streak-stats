@@ -146,11 +146,6 @@ function getRequestedTheme(array $params): array
         }
     }
 
-    // if `dates` is set and `excludeDaysLabel` is not, use `dates` color for `excludeDaysLabel`
-    if (isset($params["dates"]) && !isset($params["excludeDaysLabel"])) {
-        $theme["excludeDaysLabel"] = $theme["dates"];
-    }
-
     // hide borders
     if (isset($params["hide_border"]) && $params["hide_border"] == "true") {
         $theme["border"] = "#0000"; // transparent
