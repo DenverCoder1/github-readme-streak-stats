@@ -188,7 +188,7 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 1. Sign in to **Vercel** or create a new account at <https://vercel.com>
 2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
-    - You may also fork the repository and clone your fork instead if you intend to make changes
+   - You may also fork the repository and clone your fork instead if you intend to make changes
 3. Enter the directory with `cd github-readme-streak-stats`
 4. Switch branches to the `vercel` branch with `git checkout vercel`
 5. Make sure you have the [Vercel CLI](https://vercel.com/download) installed
