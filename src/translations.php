@@ -246,7 +246,7 @@ return [
         "Present" => "اوس",
     ],
     "pt_BR" => [
-        "Total Contributions" => "Total de Contribuições",
+        "Total Contributions" => "Contribuições Totais",
         "Current Streak" => "Sequência Atual",
         "Longest Streak" => "Maior Sequência",
         "Week Streak" => "Sequência Semanal",
