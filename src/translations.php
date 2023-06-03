@@ -252,6 +252,7 @@ return [
         "Week Streak" => "Sequência Semanal",
         "Longest Week Streak" => "Maior Sequência Semanal",
         "Present" => "Presente",
+        "Excluding" => "Exceto",
     ],
     "ru" => [
         "Total Contributions" => "Общий вклад",
