@@ -246,12 +246,13 @@ return [
         "Present" => "اوس",
     ],
     "pt_BR" => [
-        "Total Contributions" => "Total de Contribuições",
+        "Total Contributions" => "Contribuições Totais",
         "Current Streak" => "Sequência Atual",
         "Longest Streak" => "Maior Sequência",
         "Week Streak" => "Sequência Semanal",
         "Longest Week Streak" => "Maior Sequência Semanal",
         "Present" => "Presente",
+        "Excluding" => "Exceto",
     ],
     "ru" => [
         "Total Contributions" => "Общий вклад",
