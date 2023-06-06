@@ -227,6 +227,7 @@ return [
         "Week Streak" => "Week Serie",
         "Longest Week Streak" => "Langste Week Serie",
         "Present" => "Vandaag",
+        "Excluding" => "Exclusief",
     ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
