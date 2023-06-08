@@ -74,6 +74,15 @@ return [
         "Longest Week Streak" => "দীর্ঘতম সপ্তাহ স্ট্রিক",
         "Present" => "বর্তমান",
     ],
+    "ca" => [
+        "Total Contributions" => "Aportacions totals",
+        "Current Streak" => "Ratxa actual",
+        "Longest Streak" => "Ratxa més llarga",
+        "Week Streak" => "Ratxa setmanal",
+        "Longest Week Streak" => "Ratxa setmanal més llarga",
+        "Present" => "Actual",
+        "Excluding" => "Excloent",
+    ],
     "da" => [
         "Total Contributions" => "Totalt Antal Bidrag",
         "Current Streak" => "Nuværende i Træk",
