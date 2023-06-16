@@ -181,8 +181,38 @@ h2 {
   display: none;
 }
 
-.parameters label {
+.parameters label,
+.parameters span[data-property] {
   text-transform: capitalize;
+}
+
+.checkbox-buttons input {
+  display: none !important;
+}
+
+.checkbox-buttons input[type="checkbox"] + label {
+  font-size: 90%;
+  display: inline-block;
+  border-radius: 6px;
+  height: 30px;
+  margin: 2px 3px 2px 0;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--card-background);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0 10px;
+}
+
+.checkbox-buttons input[type="checkbox"]:checked + label {
+  background: var(--text);
+  color: var(--background);
+}
+
+.checkbox-buttons input[type="checkbox"]:disabled + label {
+  background: var(--card-background);
+  color: var(--stroke);
 }
 
 span[title="required"] {
