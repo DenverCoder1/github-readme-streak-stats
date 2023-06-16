@@ -116,7 +116,7 @@ return [
         "Week Streak" => "Racha Semanal",
         "Longest Week Streak" => "Racha Semanal Más Larga",
         "Present" => "Presente",
-        "Excluding" => "Excluyendo"
+        "Excluding" => "Excluyendo",
     ],
     "fa" => [
         "rtl" => true,
@@ -134,7 +134,7 @@ return [
         "Week Streak" => "Séquence de la semaine",
         "Longest Week Streak" => "Plus longue séquence hebdomadaire",
         "Present" => "Aujourd'hui",
-        "Excluding" => "À l'exclusion de"
+        "Excluding" => "À l'exclusion de",
     ],
     "he" => [
         "rtl" => true,
