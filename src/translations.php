@@ -116,6 +116,7 @@ return [
         "Week Streak" => "Racha Semanal",
         "Longest Week Streak" => "Racha Semanal Más Larga",
         "Present" => "Presente",
+        "Excluding" => "Excluyendo"
     ],
     "fa" => [
         "rtl" => true,
@@ -133,6 +134,7 @@ return [
         "Week Streak" => "Séquence de la semaine",
         "Longest Week Streak" => "Plus longue séquence hebdomadaire",
         "Present" => "Aujourd'hui",
+        "Excluding" => "À l'exclusion de"
     ],
     "he" => [
         "rtl" => true,
@@ -355,6 +357,7 @@ return [
         "Week Streak" => "Chuỗi tuần",
         "Longest Week Streak" => "Chuỗi tuần lớn nhất",
         "Present" => "Hiện tại",
+        "Excluding" => "Ngoại trừ",
     ],
     "yo" => [
         "Total Contributions" => "Lapapọ ilowosi",
@@ -372,6 +375,7 @@ return [
         "Week Streak" => "周连续贡献",
         "Longest Week Streak" => "最长周连续贡献",
         "Present" => "至今",
+        "Excluding" => "除外",
     ],
     "zh_Hant" => [
         "Total Contributions" => "合計貢獻",
@@ -380,5 +384,6 @@ return [
         "Week Streak" => "周連續貢獻",
         "Longest Week Streak" => "最常周連續貢獻",
         "Present" => "至今",
+        "Excluding" => "除外",
     ],
 ];
