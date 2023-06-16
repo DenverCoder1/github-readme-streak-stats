@@ -84,12 +84,12 @@ return [
         "Excluding" => "Excloent",
     ],
     "da" => [
-        "Total Contributions" => "Totalt Antal Bidrag",
-        "Current Streak" => "Nuværende i Træk",
-        "Longest Streak" => "Længst i Træk",
-        "Week Streak" => "Uger i Træk",
-        "Longest Week Streak" => "Mest Uger i Træk",
-        "Present" => "I Dag",
+        "Total Contributions" => "Samlet antal bidrag",
+        "Current Streak" => "Bidrag i træk",
+        "Longest Streak" => "Flest bidrag i træk",
+        "Week Streak" => "Ugentlige bidrag i træk",
+        "Longest Week Streak" => "Flest ugentlige bidrag i træk",
+        "Present" => "Nuværende",
     ],
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
