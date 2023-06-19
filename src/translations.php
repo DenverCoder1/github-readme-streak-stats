@@ -90,6 +90,8 @@ return [
         "Week Streak" => "Ugentlige bidrag i træk",
         "Longest Week Streak" => "Flest ugentlige bidrag i træk",
         "Present" => "Nuværende",
+        "Excluding" => "Ekskluderer",
+
     ],
     "de" => [
         "Total Contributions" => "Gesamte Beiträge",
