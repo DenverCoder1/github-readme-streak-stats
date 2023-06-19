@@ -8,16 +8,13 @@
   <br/>
   and longest streak on your GitHub profile README
 </p>
-
 <p align="center">
   <a href="https://github.com/search?q=extension%3Amd+%22github+readme+streak+stats+herokuapp%22&type=Code" alt="Users" title="Repo users">
     <img src="https://freshidea.com/jonah/app/github-search-results/streak-stats"/></a>
   <a href="https://discord.gg/fPrdqh3Zfu" alt="Discord" title="Dev Pro Tips Discussion & Support Server">
     <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
 </p>
-
 ## ⚡ Quick setup
-
 1. Copy-paste the markdown below into your GitHub profile README
 2. Replace the value after `?user=` with your GitHub username
 
@@ -186,20 +183,20 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 > **Note** PNG mode is not supported since Inkscape will not be installed.
 
-1. Sign in to **Vercel** or create a new account at <https://vercel.com>
-2. Clone this repository with `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`
-   - You may also fork the repository and clone your fork instead if you intend to make changes
-3. Enter the directory with `cd github-readme-streak-stats`
-4. Switch branches to the `vercel` branch with `git checkout vercel`
-5. Make sure you have the [Vercel CLI](https://vercel.com/download) installed
-6. Run `vercel` and follow the prompts to link your Vercel account and select a project name
-7. The app will be deployed to `<project-name>.vercel.app`
-8. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
-9. Scroll to the bottom and click **"Generate token"**
-10. Visit the [Vercel dashboard](https://vercel.com/dashboard) and select your project, then click **"Settings"**, then **"Environment Variables"**.
-11. Add a new variable with the key `TOKEN` and the value as your token from step 9 and click "Save".
-12. For the environment variable to be available, you will need to redeploy the app. Run `vercel --prod` to deploy to production.
+Here are the steps to sign in to Vercel or create a new account:
 
+1. Go to the Vercel website at <https://vercel.com> and sign in with your existing account or create a new account.
+2. Use the following command to clone the repository: `git clone https://github.com/DenverCoder1/github-readme-streak-stats.git`. If you plan to make changes, you can also fork the repository and clone your fork instead.
+3. Navigate to the cloned repository's directory using the command `cd github-readme-streak-stats`.
+4. Switch to the "vercel" branch using the command `git checkout vercel`.
+5. Make sure you have the Vercel CLI (Command Line Interface) installed on your system. If not, you can download it from [Vercel CLI](https://vercel.com/download).
+6. Run the command `vercel` and follow the prompts to link your Vercel account and choose a project name.
+7. After successful deployment, your app will be available at `<project-name>.vercel.app`.
+8. Open [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token on GitHub. You don't need to select any scopes for the token.
+9. Scroll to the bottom of the page and click on **"Generate token"**.
+10. Access the Vercel dashboard at [Vercel dashboard](https://vercel.com/dashboard) and select your project. Then, click on **"Settings"** and choose **"Environment Variables"**.
+11. Add a new environment variable with the key `TOKEN` and the value as the token you generated in step 9. Save the changes.
+12. To apply the new environment variable, you need to redeploy the app. Run `vercel --prod` to deploy the app to production.
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
 > **Note** To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
