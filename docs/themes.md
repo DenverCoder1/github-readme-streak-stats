@@ -125,6 +125,10 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `sunset-gradient`       | ![image](https://user-images.githubusercontent.com/20955511/233865257-3ed2bd35-458b-46bc-a189-57b0c8a2a473.png)  |
 |       `ocean-gradient`        | ![image](https://user-images.githubusercontent.com/20955511/233865264-3bb6c04d-05d2-47b1-857c-3f9a1277651f.png)  |
 |      `ambient-gradient`       | ![image](https://user-images.githubusercontent.com/20955511/233865269-81583e73-c9b6-4e4b-9475-bc130de1bfdd.png)  |
+|      `catppuccin-latte`       | ![image](https://user-images.githubusercontent.com/85760664/248204601-358a8a31-4ffc-4535-a617-840926ecd4f0.png)  |
+|     `catppuccino-frappe`      | ![image](https://user-images.githubusercontent.com/85760664/248204858-daa7bd60-1e83-4b4e-8afc-65644055235e.png)  |
+|    `catppuccino-macchiato`    | ![image](https://user-images.githubusercontent.com/85760664/248205012-15d74ba2-746a-4efd-b2f5-bc2db87b7c10.png)  |
+|      `catppuccino-mocha`      | ![image](https://user-images.githubusercontent.com/85760664/248204228-9f965d12-2013-48c9-b3a8-e9717b1c4e43.png)  |
 
 ### Can't find the theme you like?
 
