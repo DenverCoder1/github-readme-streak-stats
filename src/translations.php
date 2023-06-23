@@ -178,6 +178,7 @@ return [
         "Week Streak" => "Aksi Mingguan",
         "Longest Week Streak" => "Aksi Mingguan Terpanjang",
         "Present" => "Sekarang",
+        "Excluding" => "Tidak termasuk",
     ],
     "it" => [
         "Total Contributions" => "Contributi Totali",
@@ -331,6 +332,7 @@ return [
         "Week Streak" => "Haftalık Seri",
         "Longest Week Streak" => "En Uzun Haftalık Seri",
         "Present" => "Şu an",
+        "Excluding" => "Hariç",
     ],
     "uk" => [
         "Total Contributions" => "Загальний вклад",
@@ -367,6 +369,7 @@ return [
         "Week Streak" => "ṣiṣan ọsẹ",
         "Longest Week Streak" => "gunjulo ọsẹ ṣiṣan",
         "Present" => "lọwọlọwọ",
+        "Excluding" => "Yato si",
     ],
     "zh" => "zh_Hans",
     "zh_Hans" => [
