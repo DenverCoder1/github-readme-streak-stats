@@ -163,6 +163,14 @@ return [
         "Longest Week Streak" => "pi long tras semèn",
         "Present" => "Prezan",
     ],
+    "hu" => [
+        "Total Contributions" => "Összes hozzájárulás",
+        "Current Streak" => "Jelenlegi sorozat",
+        "Longest Streak" => "Leghosszabb sorozat",
+        "Week Streak" => "Heti sorozat",
+        "Longest Week Streak" => "Leghosszabb heti sorozat",
+        "Present" => "Jelen",
+    ],
     "hy" => [
         "Total Contributions" => "Ընդհանուր\nներդրումը",
         "Current Streak" => "Ընթացիկ շարք",
