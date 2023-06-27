@@ -170,6 +170,7 @@ return [
         "Week Streak" => "Heti sorozat",
         "Longest Week Streak" => "Leghosszabb heti sorozat",
         "Present" => "Jelen",
+        "Excluding" => "Kivéve",
     ],
     "hy" => [
         "Total Contributions" => "Ընդհանուր\nներդրումը",
