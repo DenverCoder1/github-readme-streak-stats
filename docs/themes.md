@@ -131,11 +131,6 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |      `catppuccino-mocha`      | ![image](https://user-images.githubusercontent.com/85760664/248204228-9f965d12-2013-48c9-b3a8-e9717b1c4e43.png)  |
 |         `burnt-neon`          | ![image](https://user-images.githubusercontent.com/112064697/250343082-de641726-1200-4264-885a-154d539cfc3f.png) |
 
-
-
-
-
-
 ### Can't find the theme you like?
 
 You can now customize your stats card with the interactive [Demo Site](https://streak-stats.demolab.com/demo/) or by customizing the [url parameters](/README.md#-options).
