@@ -129,6 +129,12 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |     `catppuccino-frappe`      | ![image](https://user-images.githubusercontent.com/85760664/248204858-daa7bd60-1e83-4b4e-8afc-65644055235e.png)  |
 |    `catppuccino-macchiato`    | ![image](https://user-images.githubusercontent.com/85760664/248205012-15d74ba2-746a-4efd-b2f5-bc2db87b7c10.png)  |
 |      `catppuccino-mocha`      | ![image](https://user-images.githubusercontent.com/85760664/248204228-9f965d12-2013-48c9-b3a8-e9717b1c4e43.png)  |
+|         `burnt-neon`          | ![image](https://github.com/Gemmus/github-readme-streak-stats/assets/112064697/0feb92fa-f7fe-478f-98de-fb3e9c339895)
+
+
+
+
+
 
 ### Can't find the theme you like?
 
