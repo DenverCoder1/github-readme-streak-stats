@@ -1575,7 +1575,7 @@ return [
         "dates" => "#BAC2DE",
         "excludeDaysLabel" => "#BAC2DE",
     ],
-     "burnt-neon" => [
+    "burnt-neon" => [
         "background" => "#0D1117",
         "border" => "#98989A",
         "stroke" => "#98989A",
