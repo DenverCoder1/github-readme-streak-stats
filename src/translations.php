@@ -300,6 +300,7 @@ return [
         "Week Streak" => "निरन्तरसप्ताहाः",
         "Longest Week Streak" => "दीर्घतमाः निरन्तरसप्ताहाः",
         "Present" => "वर्तमान",
+        "Excluding" => "बहिष्करणम्",
     ],
     "sr" => [
         "Total Contributions" => "Укупно додавања",
