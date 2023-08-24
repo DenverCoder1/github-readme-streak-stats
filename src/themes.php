@@ -1588,4 +1588,17 @@ return [
         "dates" => "#C6AB07",
         "excludeDaysLabel" => "#A5BC0B",
     ],
+    "humoris" => [
+        "background" => "#DFAF77",
+        "border" => "#E8E6E4",
+        "stroke" => "#191919",
+        "ring" => "#683C2C",
+        "fire" => "#191419",
+        "currStreakNum" => "#191419",
+        "sideNums" => "#191419",
+        "currStreakLabel" => "#393C3C",
+        "sideLabels" => "#393C3C",
+        "dates" => "#444444",
+        "excludeDaysLabel" => "#444444",
+    ],
 ];
