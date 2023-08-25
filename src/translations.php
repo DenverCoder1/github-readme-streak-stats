@@ -311,6 +311,15 @@ return [
         "Present" => "Данас",
         "Excluding" => "Искључујући",
     ],
+    "su" => [
+        "Total Contributions" => "Total Kontribusi",
+        "Current Streak" => "Aksi Ayeuna",
+        "Longest Streak" => "Aksi Pangpanjangna",
+        "Week Streak" => "Aksi Minggonan",
+        "Longest Week Streak" => "Aksi Minggonan Pangpanjangna",
+        "Present" => "Ayeuna",
+        "Excluding" => "Teu Kalebet",
+    ],
     "sv" => [
         "Total Contributions" => "Totalt antal uppladningar",
         "Current Streak" => "Dagar uppladdat i rad just nu",
