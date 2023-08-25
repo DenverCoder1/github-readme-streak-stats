@@ -10,7 +10,7 @@ on:
       - "**.md"
       - "**.js"
       - "**.css"
-      - "./github/workflows/prettier.yml"
+      - ".github/workflows/prettier.yml"
 
 jobs:
   prettier:
