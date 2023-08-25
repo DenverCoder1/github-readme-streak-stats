@@ -400,4 +400,13 @@ return [
         "Present" => "至今",
         "Excluding" => "除外",
     ],
+    "su" => [
+        "Total Contributions" => "Total Kontribusi",
+        "Current Streak" => "Aksi Ayeuna",
+        "Longest Streak" => "Aksi Pangpanjangna",
+        "Week Streak" => "Aksi Minggonan",
+        "Longest Week Streak" => "Aksi Minggonan Pangpanjangna",
+        "Present" => "Ayeuna",
+        "Excluding" => "Teu Kalebet",
+    ],
 ];
