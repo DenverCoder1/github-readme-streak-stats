@@ -131,6 +131,12 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |      `catppuccino-mocha`      | ![image](https://user-images.githubusercontent.com/85760664/248204228-9f965d12-2013-48c9-b3a8-e9717b1c4e43.png)  |
 |         `burnt-neon`          | ![image](https://user-images.githubusercontent.com/112064697/250343082-de641726-1200-4264-885a-154d539cfc3f.png) |
 |           `humoris`           | ![image](https://user-images.githubusercontent.com/20955511/263020536-793bedbd-cca6-47e5-92dc-c7b38ab05bce.png)  |
+|         `shadow-red`          | ![image](https://user-images.githubusercontent.com/86386385/263270902-867918ec-b51b-4ac5-bd30-f569b3fd548a.png)  |
+|        `shadow-green`         | ![image](https://user-images.githubusercontent.com/86386385/263270868-6ffa5e30-061d-4577-9e4e-d3c9ad13f92c.png)  |
+|        `shadow-blue`          | ![image](https://user-images.githubusercontent.com/86386385/263270085-a849f755-7dc8-4ec4-b088-018f7f7fa8c5.png)  |
+|       `shadow-orange`         | ![image](https://user-images.githubusercontent.com/86386385/263271663-52065c8d-a6ab-481a-9f13-9282d459201c.png)  |
+|       `shadow-purple`         | ![image](https://user-images.githubusercontent.com/86386385/263271669-4a952f86-1d09-4496-9417-68bc7ec44dad.png)  |
+|        `shadow-brown`         | ![image](https://user-images.githubusercontent.com/86386385/263271679-73bd54b3-f2ac-4107-9825-a741cdf2b960.png)  |
 
 ### Can't find the theme you like?
 
