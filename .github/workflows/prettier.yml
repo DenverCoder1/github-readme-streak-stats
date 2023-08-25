@@ -35,7 +35,9 @@ jobs:
         run: composer lint
 
       - name: Prettify code
-        run: composer lint-fix
+        run: |
+          composer lint-fix
+          git diff
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
