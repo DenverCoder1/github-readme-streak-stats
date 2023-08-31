@@ -159,12 +159,12 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 <details>
   <summary><b>Instructions for Deploying to Heroku ($5-$7/month)</b></summary>
   
-  ### Step-by-step instructions for deploying to Heroku
+### Step-by-step instructions for deploying to Heroku
   
-  1. Sign in to **Heroku** or create a new account at <https://heroku.com>
-  2. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
-  3. Scroll to the bottom and click **"Generate token"**
-  4. Click the Deploy button below
+1. Sign in to **Heroku** or create a new account at <https://heroku.com>
+2. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+3. Scroll to the bottom and click **"Generate token"**
+4. Click the Deploy button below
 
 [![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main "Deploy to Heroku")
 
@@ -181,8 +181,27 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 <details>
   <summary><b>Instructions for Deploying to Vercel (Free)</b></summary>
-  
-### Step-by-step instructions for deploying to Vercel
+
+### Step-by-step instructions for deploying to Vercel (automatic)
+
+1. Sign in to **Vercel** or create a new account at <https://vercel.com>
+2. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+3. Scroll to the bottom and click **"Generate token"**
+4. Click the Deploy button below
+
+[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats>)
+
+5. Create your repository by filling in a Repository Name and clicking "Create"
+6. **Add the token** as a Config Var with the key `TOKEN`:
+
+![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/17a433d6-0aaa-4c69-9a53-6d4638318fbb)
+
+6. Click **"Deploy"** at the end of the form
+7. Once the app is deployed, click the screenshot or continue to the dashboard to find your domain to use in place of `streak-stats.demolab.com`
+
+![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
+
+### Step-by-step instructions for deploying to Vercel (manual)
 
 > **Note** PNG mode is not supported since Inkscape will not be installed.
 
