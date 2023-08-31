@@ -150,17 +150,17 @@ The current streak is the number of consecutive days ending with the current day
 
 ## 📤 Deploying it on your own
 
-If you can, it is preferable to host the files on your own server.
+It is preferable to host the files on your own server and it takes less than 2 minutes to set up.
 
 Doing this can lead to better uptime and more control over customization (you can modify the code for your usage).
 
-You can deploy the PHP files on any website server with PHP installed or as a Heroku app.
+You can deploy the PHP files on any website server with PHP installed including Heroku and Vercel.
 
 The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
 ### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
 
-Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel. It takes less than 2 minutes to set up.
+Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
 ### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
 
@@ -173,15 +173,14 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 #### Option 1: Deploy to Vercel quickly with the Deploy button (recommended)
 
-1. Sign in to **Vercel** or create a new account at <https://vercel.com>
-2. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
-3. Scroll to the bottom and click **"Generate token"**
-4. Click the Deploy button below
+1. Click the Deploy button below
 
 [![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://vercel.com/button)][verceldeploy]
 
-5. Create your repository by filling in a Repository Name and clicking "Create"
-6. **Add the token** as a Config Var with the key `TOKEN`:
+2. Create your repository by filling in a Repository Name and clicking "Create"
+3. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+4. Scroll to the bottom and click **"Generate token"**
+5. **Add the token** as a Config Var with the key `TOKEN`:
 
 ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/17a433d6-0aaa-4c69-9a53-6d4638318fbb)
 
