@@ -27,7 +27,13 @@
 
 3. Star the repo 😄
 
-> **Note** See below for customization options and about deploying the app on your own.
+Check out the [Demo Site](https://streak-stats.demolab.com) or [Options](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-options) below for available customizations.
+
+> It is recommended to self-host the project more better reliability.
+>
+> [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main "Deploy to Heroku") [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/12c1fef8-ed1f-47f9-ae83-49cdaeb07ae9)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats> "Deploy with Vercel")
+>
+> See [Deploying it on your own](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-deploying-it-on-your-own) for more details.
 
 ## ⚙ Demo Site
 
