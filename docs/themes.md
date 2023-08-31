@@ -125,6 +125,18 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `sunset-gradient`       | ![image](https://user-images.githubusercontent.com/20955511/233865257-3ed2bd35-458b-46bc-a189-57b0c8a2a473.png)  |
 |       `ocean-gradient`        | ![image](https://user-images.githubusercontent.com/20955511/233865264-3bb6c04d-05d2-47b1-857c-3f9a1277651f.png)  |
 |      `ambient-gradient`       | ![image](https://user-images.githubusercontent.com/20955511/233865269-81583e73-c9b6-4e4b-9475-bc130de1bfdd.png)  |
+|      `catppuccin-latte`       | ![image](https://user-images.githubusercontent.com/85760664/248204601-358a8a31-4ffc-4535-a617-840926ecd4f0.png)  |
+|     `catppuccino-frappe`      | ![image](https://user-images.githubusercontent.com/85760664/248204858-daa7bd60-1e83-4b4e-8afc-65644055235e.png)  |
+|    `catppuccino-macchiato`    | ![image](https://user-images.githubusercontent.com/85760664/248205012-15d74ba2-746a-4efd-b2f5-bc2db87b7c10.png)  |
+|      `catppuccino-mocha`      | ![image](https://user-images.githubusercontent.com/85760664/248204228-9f965d12-2013-48c9-b3a8-e9717b1c4e43.png)  |
+|         `burnt-neon`          | ![image](https://user-images.githubusercontent.com/112064697/250343082-de641726-1200-4264-885a-154d539cfc3f.png) |
+|           `humoris`           | ![image](https://user-images.githubusercontent.com/20955511/263020536-793bedbd-cca6-47e5-92dc-c7b38ab05bce.png)  |
+|         `shadow-red`          | ![image](https://user-images.githubusercontent.com/86386385/263407052-345edfdf-b6ee-4b53-a4c4-7dcb4948f6dc.png)  |
+|        `shadow-green`         | ![image](https://user-images.githubusercontent.com/86386385/263407047-d769c2cf-e435-4d46-9a34-04c16f61d200.png)  |
+|         `shadow-blue`         | ![image](https://user-images.githubusercontent.com/86386385/263407038-bdcd2ed9-4d2c-4a46-b8df-1b989ee517f5.png)  |
+|        `shadow-orange`        | ![image](https://user-images.githubusercontent.com/86386385/263406777-07fd919b-7b4f-4fa9-ac47-3ebd0602a80b.png)  |
+|        `shadow-purple`        | ![image](https://user-images.githubusercontent.com/86386385/263406551-46e14eac-fdbc-4b90-9df8-85c0bd1eeb41.png)  |
+|        `shadow-brown`         | ![image](https://user-images.githubusercontent.com/86386385/263406156-5e17541d-4dcf-4315-b68d-d36c95d53767.png)  |
 
 ### Can't find the theme you like?
 
