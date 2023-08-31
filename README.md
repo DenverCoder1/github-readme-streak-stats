@@ -158,35 +158,14 @@ You can deploy the PHP files on any website server with PHP installed or as a He
 
 The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
-### Deploy Streak Stats instantly
+### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
 
-[![Heroku_logo](https://user-images.githubusercontent.com/20955511/136292872-ab2b3918-3350-4878-93a2-aa1f569b095a.png)](https://heroku.com)
+Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel. It takes less than 2 minutes to set up.
 
-<details>
-  <summary><b>Instructions for Deploying to Heroku ($5-$7/month)</b></summary>
-  
-### Step-by-step instructions for deploying to Heroku
-  
-1. Sign in to **Heroku** or create a new account at <https://heroku.com>
-2. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
-3. Scroll to the bottom and click **"Generate token"**
-4. Click the Deploy button below
-
-[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main "Deploy to Heroku")
-
-5. **Add the token** as a Config Var with the key `TOKEN`:
-
-![heroku config variables](https://user-images.githubusercontent.com/20955511/136292022-a8d9b3b5-d7d8-4a5e-a049-8d23b51ce9d7.png)
-
-6. Click **"Deploy App"** at the end of the form
-7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `streak-stats.demolab.com`
-
-</details>
-
-[![Vercel_logo](https://user-images.githubusercontent.com/20955511/209479243-5b14048b-e9ae-42da-aec3-1cc88a97aaee.png)](https://vercel.com)
+### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
 
 <details>
-  <summary><b>Instructions for Deploying to Vercel (Free)</b></summary>
+  <summary><b>Instructions for deploying to Vercel</b></summary>
 
 ### Step-by-step instructions for deploying to Vercel
 
@@ -199,7 +178,7 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 3. Scroll to the bottom and click **"Generate token"**
 4. Click the Deploy button below
 
-[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats>)
+[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://vercel.com/button)][verceldeploy]
 
 5. Create your repository by filling in a Repository Name and clicking "Create"
 6. **Add the token** as a Config Var with the key `TOKEN`:
@@ -231,6 +210,38 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 > **Note** To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
 
 </details>
+
+### [![Deploy on Heroku](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/e8b575af-5746-4200-a295-7e7baa448383)][herokudeploy]
+
+Heroku is another great option for hosting the files. All features are supported on Heroku and it is where the default domain is hosted. Heroku is not free, however, and you will need to pay between \$5 and \$7 per month to keep the app running. Expand the instructions below to learn how to deploy to Heroku.
+
+<details>
+  <summary><b>Instructions for deploying to Heroku</b></summary>
+  
+### Step-by-step instructions for deploying to Heroku
+  
+1. Sign in to **Heroku** or create a new account at <https://heroku.com>
+2. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+3. Scroll to the bottom and click **"Generate token"**
+4. Click the Deploy button below
+
+[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)][herokudeploy]
+
+5. **Add the token** as a Config Var with the key `TOKEN`:
+
+![heroku config variables](https://user-images.githubusercontent.com/20955511/136292022-a8d9b3b5-d7d8-4a5e-a049-8d23b51ce9d7.png)
+
+6. Click **"Deploy App"** at the end of the form
+7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `streak-stats.demolab.com`
+
+</details>
+
+### ![Deploy on your own](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/e36ed842-ab56-473a-83fd-ace5bf968996)
+
+You can transfer the files to any webserver using FTP or other means, then refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for installation steps.
+
+[verceldeploy]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats
+[herokudeploy]: https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main
 
 ## 🤗 Contributing
 
