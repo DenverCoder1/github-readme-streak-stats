@@ -31,7 +31,7 @@ Check out the [Demo Site](https://streak-stats.demolab.com) or [Options](https:/
 
 > It is recommended to self-host the project more better reliability.
 >
-> [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main "Deploy to Heroku") [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/12c1fef8-ed1f-47f9-ae83-49cdaeb07ae9)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats> "Deploy with Vercel")
+> [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)][herokudeploy] [![Deploy to Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
 >
 > See [Deploying it on your own](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-deploying-it-on-your-own) for more details.
 
@@ -158,7 +158,7 @@ You can deploy the PHP files on any website server with PHP installed including 
 
 The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
-### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
+### [![Deploy to Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
