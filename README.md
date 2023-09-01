@@ -158,7 +158,7 @@ You can deploy the PHP files on any website server with PHP installed including 
 
 The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
-### [![Deploy to Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
+### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
@@ -175,19 +175,19 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 1. Click the Deploy button below
 
-[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://vercel.com/button)][verceldeploy]
+[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
 
 2. Create your repository by filling in a Repository Name and clicking "Create"
 3. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
 4. Scroll to the bottom and click **"Generate token"**
 5. **Add the token** as a Config Var with the key `TOKEN`:
 
-![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/17a433d6-0aaa-4c69-9a53-6d4638318fbb)
+![vercel environment variables](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/17a433d6-0aaa-4c69-9a53-6d4638318fbb)
 
 6. Click **"Deploy"** at the end of the form
 7. Once the app is deployed, click the screenshot of your app or continue to the dashboard to find your domain to use in place of `streak-stats.demolab.com`
 
-![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
+![deployment](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
 
 #### Option 2: Deploy to Vercel manually
 
