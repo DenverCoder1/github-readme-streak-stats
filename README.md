@@ -162,14 +162,14 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
+> **Note** PNG mode is not supported since Inkscape will not be installed but the default SVG mode will work.
+
 ### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
 
 <details>
   <summary><b>Instructions for deploying to Vercel</b></summary>
 
 ### Step-by-step instructions for deploying to Vercel
-
-> **Note** PNG mode is not supported since Inkscape will not be installed but the standard SVG mode will work.
 
 #### Option 1: Deploy to Vercel quickly with the Deploy button (recommended)
 
