@@ -31,7 +31,7 @@ Check out the [Demo Site](https://streak-stats.demolab.com) or [Options](https:/
 
 > It is recommended to self-host the project more better reliability.
 >
-> [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main "Deploy to Heroku") [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/12c1fef8-ed1f-47f9-ae83-49cdaeb07ae9)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats> "Deploy with Vercel")
+> [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)][herokudeploy] [![Deploy to Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
 >
 > See [Deploying it on your own](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-deploying-it-on-your-own) for more details.
 
@@ -162,6 +162,8 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
+> **Note** PNG mode is not supported since Inkscape will not be installed but the default SVG mode will work.
+
 ### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
 
 <details>
@@ -169,25 +171,23 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 ### Step-by-step instructions for deploying to Vercel
 
-> **Note** PNG mode is not supported since Inkscape will not be installed but the standard SVG mode will work.
-
 #### Option 1: Deploy to Vercel quickly with the Deploy button (recommended)
 
 1. Click the Deploy button below
 
-[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://vercel.com/button)][verceldeploy]
+[![](https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png)](#) [![Deploy with Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
 
 2. Create your repository by filling in a Repository Name and clicking "Create"
 3. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
 4. Scroll to the bottom and click **"Generate token"**
 5. **Add the token** as a Config Var with the key `TOKEN`:
 
-![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/17a433d6-0aaa-4c69-9a53-6d4638318fbb)
+![vercel environment variables](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/17a433d6-0aaa-4c69-9a53-6d4638318fbb)
 
 6. Click **"Deploy"** at the end of the form
 7. Once the app is deployed, click the screenshot of your app or continue to the dashboard to find your domain to use in place of `streak-stats.demolab.com`
 
-![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
+![deployment](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
 
 #### Option 2: Deploy to Vercel manually
 
