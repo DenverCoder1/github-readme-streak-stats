@@ -1,5 +1,9 @@
 # FAQ
 
+## How do I create a Readme for my profile?
+
+A profile readme appears on your profile page when you create a repository with the same name as your username and add a `README.md` file to it. For example, the repository for the user [`DenverCoder1`](https://github.com/DenverCoder1) is located at [`DenverCoder1/DenverCoder1`](https://github.com/DenverCoder1/DenverCoder1).
+
 ## How do I include GitHub Readme Streak Stats in my Readme?
 
 Markdown files on GitHub support embedded images using Markdown or HTML. You can customize your Streak Stats image on the [demo site](https://streak-stats.demolab.com/demo/) and use the image source in either of the following ways:
@@ -71,6 +75,10 @@ You can [specify theme context](https://github.blog/changelog/2022-05-19-specify
 ```
 <!-- prettier-ignore-end -->
 
-## How do I create a Readme for my profile?
+## Why and how do I self-host GitHub Readme Streak Stats?
 
-A profile readme appears on your profile page when you create a repository with the same name as your username and add a `README.md` file to it. For example, the repository for the user [`DenverCoder1`](https://github.com/DenverCoder1) is located at [`DenverCoder1/DenverCoder1`](https://github.com/DenverCoder1/DenverCoder1).
+Self-hosting the code can be done online and only takes a couple minutes. The benefits include better uptime since it will use your own access token so will not run into ratelimiting issues and it allows you to customize the deployment for your own use case.
+
+### [📺 Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
+
+See [Deploying it on your own](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-deploying-it-on-your-own) in the Readme for detailed instructions.
