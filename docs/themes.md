@@ -137,6 +137,10 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |        `shadow-orange`        | ![image](https://user-images.githubusercontent.com/86386385/263406777-07fd919b-7b4f-4fa9-ac47-3ebd0602a80b.png)  |
 |        `shadow-purple`        | ![image](https://user-images.githubusercontent.com/86386385/263406551-46e14eac-fdbc-4b90-9df8-85c0bd1eeb41.png)  |
 |        `shadow-brown`         | ![image](https://user-images.githubusercontent.com/86386385/263406156-5e17541d-4dcf-4315-b68d-d36c95d53767.png)  |
+| `github-dark-dimmed` | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/b29e3fe2-86ca-4bf5-81ce-9f6187b02c99) |
+| `blue-navy` | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/29a78acd-56e8-465d-aff0-f984ecc14423) |
+| `calm-pink` | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/7a789c2c-33d7-41a9-8a6e-034bbfe3e915) |
+
 
 ### Can't find the theme you like?
 
