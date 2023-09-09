@@ -344,6 +344,15 @@ return [
         "Longest Week Streak" => "நீண்ட வார\nபங்களிப்புகள்",
         "Present" => "இன்றுவரை",
     ],
+    "th" => [
+        "Total Contributions" => "คอนทริบิ้วต์ทั้งหมด",
+        "Current Streak" => "สตรีคปัจจุบัน",
+        "Longest Streak" => "สตรีคที่ยาวนานที่สุด",
+        "Week Streak" => "สตรีคประจำสัปดาห์",
+        "Longest Week Streak" => "สตรีคประจำสัปดาห์\nที่ยาวนานที่สุด",
+        "Present" => "ปัจจุบัน",
+        "Excluding" => "ยกเว้น",
+    ],
     "tr" => [
         "Total Contributions" => "Toplam Katkı",
         "Current Streak" => "Güncel Seri",
