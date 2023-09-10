@@ -233,6 +233,15 @@ return [
         "Longest Week Streak" => "दीर्घकालीन साप्ताहिक सातत्यता",
         "Present" => "आज पर्यंत",
     ],
+    "ms" => [
+        "Total Contributions" => "Jumlah Sumbangan",
+        "Current Streak" => "Tindakan Semasa",
+        "Longest Streak" => "Tindakan Terpanjang",
+        "Week Streak" => "Tindakan Setiap Minggu",
+        "Longest Week Streak" => "Tindakan Setiap Minggu Terpanjang",
+        "Present" => "Sekarang",
+        "Excluding" => "Mengecualikan",
+    ],
     "ne" => [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "हालको दैनिक योगदान",
