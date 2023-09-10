@@ -324,10 +324,10 @@ return [
         "Total Contributions" => "Total Kontribusi",
         "Current Streak" => "Aksi Ayeuna",
         "Longest Streak" => "Aksi Pangpanjangna",
-        "Week Streak" => "Aksi Minggonan",
-        "Longest Week Streak" => "Aksi Minggonan Pangpanjangna",
+        "Week Streak" => "Aksi Tiap Minggon",
+        "Longest Week Streak" => "Aksi Tiap Minggon Pangpanjangna",
         "Present" => "Ayeuna",
-        "Excluding" => "Teu Kalebet",
+        "Excluding" => "Teu Kaasup",
     ],
     "sv" => [
         "Total Contributions" => "Totalt antal uppladningar",
