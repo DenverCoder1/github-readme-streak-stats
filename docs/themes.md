@@ -140,8 +140,8 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |     `github-dark-dimmed`      | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/b29e3fe2-86ca-4bf5-81ce-9f6187b02c99) |
 |          `blue-navy`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/29a78acd-56e8-465d-aff0-f984ecc14423) |
 |          `calm-pink`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/7a789c2c-33d7-41a9-8a6e-034bbfe3e915) |
-|        `whatsapp-light`       |      ![image](https://user-images.githubusercontent.com/86386385/266839259-1fe6a2b7-d2f2-46b0-b94d-397ff3f2a95a.png)      |
-|         `whatsapp-dark`       |      ![image](https://user-images.githubusercontent.com/86386385/266839261-d9a4a98c-ef9f-45ab-a3d6-1dca785225c3.png)      |
+|       `whatsapp-light`        |      ![image](https://user-images.githubusercontent.com/86386385/266839259-1fe6a2b7-d2f2-46b0-b94d-397ff3f2a95a.png)      |
+|        `whatsapp-dark`        |      ![image](https://user-images.githubusercontent.com/86386385/266839261-d9a4a98c-ef9f-45ab-a3d6-1dca785225c3.png)      |
 
 ### Can't find the theme you like?
 
