@@ -57,6 +57,7 @@ return [
         "Week Streak" => "السلسلة المتتالية الأُسبوعية",
         "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
+        "Excluding" => "باستثناء",
     ],
     "bg" => [
         "Total Contributions" => "Общ принос",
@@ -206,6 +207,7 @@ return [
         "Week Streak" => "週間ストリーク",
         "Longest Week Streak" => "最長の週間ストリーク",
         "Present" => "今",
+        "Excluding" => "除く",
     ],
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
@@ -267,6 +269,7 @@ return [
         "Week Streak" => "Seria Tygodni",
         "Longest Week Streak" => "Najdłuższa Seria Tygodni",
         "Present" => "Dziś",
+        "Excluding" => "Nie licząc",
     ],
     "ps" => [
         "rtl" => true,
@@ -336,6 +339,7 @@ return [
         "Week Streak" => "Antal veckor i rad",
         "Longest Week Streak" => "Längst antal veckor i rad",
         "Present" => "Just nu",
+        "Excluding" => "Exklusive",
     ],
     "sw" => [
         "Total Contributions" => "Jumla ya Michango",
@@ -344,6 +348,7 @@ return [
         "Week Streak" => "Mfululizo wa wiki",
         "Longest Week Streak" => "Mfululizo mrefu zaidi wa wiki",
         "Present" => "Sasa",
+        "Excluding" => "Ukiondoa",
     ],
     "ta" => [
         "Total Contributions" => "மொத்த\nபங்களிப்புகள்",
