@@ -142,6 +142,13 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |          `calm-pink`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/7a789c2c-33d7-41a9-8a6e-034bbfe3e915) |
 |       `whatsapp-light`        |      ![image](https://user-images.githubusercontent.com/86386385/266839259-1fe6a2b7-d2f2-46b0-b94d-397ff3f2a95a.png)      |
 |        `whatsapp-dark`        |      ![image](https://user-images.githubusercontent.com/86386385/266839261-d9a4a98c-ef9f-45ab-a3d6-1dca785225c3.png)      |
+|          `carbonfox`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/a26f8086-91de-49d7-83ca-8453cd031e72) |
+|           `dawnfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/feff8dd8-d7c0-4d1d-9a84-129f1333a9e7) |
+|           `dayfox`            | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/74111bcb-9825-4d26-a2c8-abec3618274f) |
+|           `duskfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/8dfd700c-e391-4ba0-a434-db4d4455000d) |
+|          `nightfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/00ab9a73-67d6-430f-8b22-da49a3e49091) |
+|           `nordfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/6feef268-ed8f-4d60-bbd8-f7a0a7a58ce8) |
+|           `terafox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/ef943ced-365f-4ce5-965a-a9499ce1d8e1) |
 
 ### Can't find the theme you like?
 
