@@ -10,6 +10,7 @@ on:
       - "**.md"
       - "**.js"
       - "**.css"
+      - ".github/workflows/prettier.yml"
 
 jobs:
   prettier:
@@ -27,14 +28,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install prettier and plugin-php
-        run: npm install --global prettier @prettier/plugin-php
+        run: npm install --global prettier@2.8.1 @prettier/plugin-php@0.18.9
 
       - name: Lint with Prettier
         continue-on-error: true
         run: composer lint
 
       - name: Prettify code
-        run: composer lint-fix
+        run: |
+          composer lint-fix
+          git diff
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9

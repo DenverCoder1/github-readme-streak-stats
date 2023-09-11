@@ -121,6 +121,7 @@ h2 {
 .btn:disabled {
   background: var(--blue-transparent);
   box-shadow: none;
+  cursor: not-allowed;
 }
 
 .parameters {
@@ -180,8 +181,38 @@ h2 {
   display: none;
 }
 
-.parameters label {
+.parameters label,
+.parameters span[data-property] {
   text-transform: capitalize;
+}
+
+.checkbox-buttons input {
+  display: none !important;
+}
+
+.checkbox-buttons input[type="checkbox"] + label {
+  font-size: 90%;
+  display: inline-block;
+  border-radius: 6px;
+  height: 30px;
+  margin: 2px 3px 2px 0;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--card-background);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0 10px;
+}
+
+.checkbox-buttons input[type="checkbox"]:checked + label {
+  background: var(--text);
+  color: var(--background);
+}
+
+.checkbox-buttons input[type="checkbox"]:disabled + label {
+  background: var(--card-background);
+  color: var(--stroke);
 }
 
 span[title="required"] {
@@ -199,14 +230,42 @@ input:focus:invalid {
 
 .advanced summary {
   padding: 6px;
+  cursor: pointer;
 }
 
 .advanced .parameters {
   margin-top: 8px;
+}
+
+.radio-button-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.advanced .color-properties {
   grid-template-columns: auto 1fr auto;
 }
 
-.advanced .parameters label:first-of-type {
+.advanced .grid-middle {
+  display: grid;
+  grid-template-columns: 30% 35% 35%;
+}
+
+.input-text-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25em;
+}
+
+.input-text-group span {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding-right: 1.5em;
+}
+
+.advanced .color-properties label:first-of-type {
   font-weight: bold;
 }
 
@@ -237,7 +296,8 @@ input:focus:invalid {
   border-left: 4px solid var(--yellow);
 }
 
-.output .md {
+.output .md,
+.output .json {
   background: var(--border);
   border-radius: 6px;
   padding: 12px 16px;
@@ -282,9 +342,10 @@ input:focus:invalid {
 .btn.tooltip:after {
   content: "";
   position: absolute;
-  transform: translateY(-27px);
+  transform: translateY(-25px);
   border-style: solid;
   border-color: #4a4a4afa transparent transparent transparent;
+  border-width: 5px;
   pointer-events: none;
   opacity: 0;
 }
@@ -302,7 +363,7 @@ input:focus:invalid {
   content: "You must first input a valid username.";
 }
 
-textarea#exportedPhp {
+textarea#exported-php {
   margin-top: 10px;
   width: 100%;
   resize: vertical;

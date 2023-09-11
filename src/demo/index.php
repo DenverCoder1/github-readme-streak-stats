@@ -47,8 +47,8 @@ function camelToSkewer(string $str): string
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
     <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/toggle-dark.css">
+    <link rel="stylesheet" href="./css/style.css?v=<?= filemtime("./css/style.css") ?>">
+    <link rel="stylesheet" href="./css/toggle-dark.css?v=<?= filemtime("./css/toggle-dark.css") ?>">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -56,10 +56,10 @@ function camelToSkewer(string $str): string
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="mask-icon" href="icon.svg" color="#fb8c00">
 
-    <script type="text/javascript" src="./js/script.js" defer></script>
-    <script type="text/javascript" src="./js/accordion.js" defer></script>
-    <script type="text/javascript" src="./js/toggle-dark.js" defer></script>
-    <script type="text/javascript" src="./js/jscolor.min.js" defer></script>
+    <script type="text/javascript" src="./js/script.js?v=<?= filemtime("./js/script.js") ?>" defer></script>
+    <script type="text/javascript" src="./js/accordion.js?v=<?= filemtime("./js/accordion.js") ?>" defer></script>
+    <script type="text/javascript" src="./js/toggle-dark.js?v=<?= filemtime("./js/toggle-dark.js") ?>" defer></script>
+    <script type="text/javascript" src="./js/jscolor.min.js?v=<?= filemtime("./js/jscolor.min.js") ?>" defer></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
@@ -81,7 +81,7 @@ function camelToSkewer(string $str): string
             <h2>Properties</h2>
             <form class="parameters">
                 <label for="user">Username<span title="required">*</span></label>
-                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen">
+                <input class="param" type="text" id="user" name="user" placeholder="DenverCoder1" pattern="^[A-Za-z\d-]{0,39}[A-Za-z\d]$" title="Up to 40 letters or hyphens but not ending with hyphen" />
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme">
@@ -101,14 +101,14 @@ function camelToSkewer(string $str): string
                     <?php endforeach; ?>
                 </select>
 
-                <label for="hide_border">Hide Border</label>
-                <select class="param" id="hide_border" name="hide_border">
+                <label for="hide-border">Hide Border</label>
+                <select class="param" id="hide-border" name="hide_border">
                     <option>false</option>
                     <option>true</option>
                 </select>
-                
-                <label for="border_radius">Border Radius</label>
-                <input class="param" type="number" id="border_radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1">
+
+                <label for="border-radius">Border Radius</label>
+                <input class="param" type="number" id="border-radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1" min="0" />
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
@@ -120,8 +120,8 @@ function camelToSkewer(string $str): string
                     <?php endforeach; ?>
                 </select>
 
-                <label for="date_format">Date Format</label>
-                <select class="param" id="date_format" name="date_format">
+                <label for="date-format">Date Format</label>
+                <select class="param" id="date-format" name="date_format">
                     <option value="">default</option>
                     <option value="M j[, Y]">Aug 10, 2016</option>
                     <option value="j M[ Y]">10 Aug 2016</option>
@@ -137,22 +137,79 @@ function camelToSkewer(string $str): string
                     <option value="weekly">Weekly</option>
                 </select>
 
+                <span id="exclude-days-label">Exclude Days</span>
+                <div class="checkbox-buttons weekdays" role="group" aria-labelledby="exclude-days-label">
+                    <input type="checkbox" value="Sun" id="weekday-sun" />
+                    <label for="weekday-sun" data-tooltip="Exclude Sunday" title="Exclude Sunday">S</label>
+                    <input type="checkbox" value="Mon" id="weekday-mon" />
+                    <label for="weekday-mon" data-tooltip="Exclude Monday" title="Exclude Monday">M</label>
+                    <input type="checkbox" value="Tue" id="weekday-tue" />
+                    <label for="weekday-tue" data-tooltip="Exclude Tuesday" title="Exclude Tuesday">T</label>
+                    <input type="checkbox" value="Wed" id="weekday-wed" />
+                    <label for="weekday-wed" data-tooltip="Exclude Wednesday" title="Exclude Wednesday">W</label>
+                    <input type="checkbox" value="Thu" id="weekday-thu" />
+                    <label for="weekday-thu" data-tooltip="Exclude Thursday" title="Exclude Thursday">T</label>
+                    <input type="checkbox" value="Fri" id="weekday-fri" />
+                    <label for="weekday-fri" data-tooltip="Exclude Friday" title="Exclude Friday">F</label>
+                    <input type="checkbox" value="Sat" id="weekday-sat" />
+                    <label for="weekday-sat" data-tooltip="Exclude Saturday" title="Exclude Saturday">S</label>
+                    <input type="hidden" id="exclude-days" name="exclude_days" class="param" />
+                </div>
+
+                <span id="show-sections-label">Show Sections</span>
+                <div class="checkbox-buttons sections" role="group" aria-labelledby="show-sections-label">
+                    <input type="checkbox" value="total" id="section-total" checked />
+                    <label for="section-total" data-tooltip="Total Contributions" title="Total Contributions">Total</label>
+                    <input type="checkbox" value="current" id="section-current" checked />
+                    <label for="section-current" data-tooltip="Current Streak" title="Current Streak">Current</label>
+                    <input type="checkbox" value="longest" id="section-longest" checked />
+                    <label for="section-longest" data-tooltip="Longest Streak" title="Longest Streak">Longest</label>
+                    <input type="hidden" id="sections" name="sections" class="param" value="total,current,longest" />
+                </div>
+
+                <label for="card-width">Card Width</label>
+                <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1" min="300" />
+
+                <label for="type">Output Type</label>
+                <select class="param" id="type" name="type">
+                    <option value="svg">SVG</option>
+                    <option value="png">PNG</option>
+                    <option value="json">JSON</option>
+                </select>
+
                 <details class="advanced">
                     <summary>⚙ Advanced Options</summary>
-                    <div class="content parameters">
-                        <label for="theme">Add Property</label>
-                        <select id="properties" name="properties">
-                            <?php foreach ($THEMES["default"] as $option => $color): ?>
-                                <option><?php echo $option; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <button class="plus btn" onclick="return preview.addProperty();">+</button>
+                    <div class="content">
+                        <div class="radio-buttons parameters" role="radiogroup" aria-labelledby="background-type-label">
+                            <!-- Radio buttons to choose between solid and gradient background -->
+                            <span id="background-type-label">Background Type</span>
+                            <div class="radio-button-group">
+                                <div>
+                                    <input type="radio" id="background-type-solid" name="background-type" value="solid" checked />
+                                    <label for="background-type-solid">Solid</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="background-type-gradient" name="background-type" value="gradient" />
+                                    <label for="background-type-gradient">Gradient</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="color-properties parameters">
+                            <label for="properties">Add Property</label>
+                            <select id="properties" name="properties">
+                                <?php foreach ($THEMES["default"] as $option => $color): ?>
+                                    <option><?php echo $option; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <button class="plus btn" type="button" onclick="preview.addProperty()">+</button>
+                        </div>
                     </div>
-                    <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
-                    <textarea id="exportedPhp" hidden></textarea>
+                    <button class="btn" type="button" onclick="preview.exportPhp()">Export to PHP</button>
+                    <button id="clear-button" class="btn" type="button" onclick="preview.removeAllProperties()" disabled>Clear Options</button>
+                    <textarea id="exported-php" hidden></textarea>
                 </details>
 
-                <input class="btn" type="submit" value="Open Permalink">
+                <button class="btn" type="submit">Open Permalink</button>
             </form>
         </div>
 
@@ -160,6 +217,9 @@ function camelToSkewer(string $str): string
             <div class="top">
                 <h2>Preview</h2>
                 <img alt="GitHub Readme Streak Stats" src="preview.php?user=" />
+                <div class="json" style="display: none;">
+                    <pre></pre>
+                </div>
                 <p class="warning">
                     Note: The stats above are just examples and not from your GitHub profile.
                 </p>

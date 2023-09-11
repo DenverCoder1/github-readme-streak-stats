@@ -22,6 +22,7 @@ $demoStats = [
         "end" => date("Y-m-d"),
         "length" => 16,
     ],
+    "excludedDays" => normalizeDays(explode(",", $_GET["exclude_days"] ?? "")),
 ];
 
 if ($mode == "weekly") {
@@ -36,6 +37,7 @@ if ($mode == "weekly") {
         "end" => getPreviousSunday(date("Y-m-d")),
         "length" => 3,
     ];
+    unset($demoStats["excludedDays"]);
 }
 
 // set content type to SVG image

@@ -10,16 +10,17 @@ require_once "src/card.php";
 final class OptionsTest extends TestCase
 {
     private $defaultTheme = [
-        "background" => "#fffefe",
-        "border" => "#e4e2e2",
-        "stroke" => "#e4e2e2",
-        "ring" => "#fb8c00",
-        "fire" => "#fb8c00",
+        "background" => "#FFFEFE",
+        "border" => "#E4E2E2",
+        "stroke" => "#E4E2E2",
+        "ring" => "#FB8C00",
+        "fire" => "#FB8C00",
         "currStreakNum" => "#151515",
         "sideNums" => "#151515",
-        "currStreakLabel" => "#fb8c00",
+        "currStreakLabel" => "#FB8C00",
         "sideLabels" => "#151515",
         "dates" => "#464646",
+        "excludeDaysLabel" => "#464646",
     ];
 
     /**
@@ -30,9 +31,16 @@ final class OptionsTest extends TestCase
         // check that getRequestedTheme returns correct colors for each theme
         $themes = include "src/themes.php";
         foreach ($themes as $theme => $colors) {
-            $params = ["theme" => $theme];
-            $actualColors = getRequestedTheme($params);
-            $this->assertEquals($colors, $actualColors);
+            $actualColors = getRequestedTheme(["theme" => $theme]);
+            $expectedColors = $colors;
+            if (strpos($colors["background"], ",") !== false) {
+                $expectedColors["background"] = "url(#gradient)";
+                // check that the background gradient is correct
+                $this->assertStringContainsString("<linearGradient", $actualColors["backgroundGradient"]);
+            }
+            unset($expectedColors["backgroundGradient"]);
+            unset($actualColors["backgroundGradient"]);
+            $this->assertEquals($expectedColors, $actualColors);
         }
     }
 
@@ -45,7 +53,10 @@ final class OptionsTest extends TestCase
         // request parameters
         $params = ["theme" => "not a theme name"];
         // test that invalid theme name gives default values
-        $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+        $actual = getRequestedTheme($params);
+        $expected = $this->defaultTheme;
+        $expected["backgroundGradient"] = "";
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -55,7 +66,9 @@ final class OptionsTest extends TestCase
     {
         // check that all themes contain all parameters and have valid values
         $themes = include "src/themes.php";
-        $hexRegex = "/^#([a-f0-9]{3}|[a-f0-9]{4}|[a-f0-9]{6}|[a-f0-9]{8})$/";
+        $hexPartialRegex = "(?:[A-F0-9]{3}|[A-F0-9]{4}|[A-F0-9]{6}|[A-F0-9]{8})";
+        $hexRegex = "/^#{$hexPartialRegex}$/";
+        $backgroundRegex = "/^#{$hexPartialRegex}|-?\d+(?:,{$hexPartialRegex})+$/";
         foreach ($themes as $theme => $colors) {
             // check that there are no extra keys in the theme
             $this->assertEquals(
@@ -67,11 +80,26 @@ final class OptionsTest extends TestCase
             foreach (array_keys($this->defaultTheme) as $param) {
                 // check that the key exists
                 $this->assertArrayHasKey($param, $colors, "The theme '$theme' is missing the key '$param'.");
+                if ($param === "background") {
+                    // check that the key is a valid background value
+                    $this->assertMatchesRegularExpression(
+                        $backgroundRegex,
+                        $colors[$param],
+                        "The parameter '$param' of '$theme' is not a valid background value."
+                    );
+                    continue;
+                }
                 // check that the key is a valid hex color
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
-                    strtolower($colors[$param]),
+                    strtoupper($colors[$param]),
                     "The parameter '$param' of '$theme' is not a valid hex color."
+                );
+                // check that the key is a valid hex color in uppercase
+                $this->assertMatchesRegularExpression(
+                    $hexRegex,
+                    $colors[$param],
+                    "The parameter '$param' of '$theme' should not contain lowercase letters."
                 );
             }
         }
@@ -92,7 +120,9 @@ final class OptionsTest extends TestCase
             // update parameter in expected result
             $expected = array_merge($expected, [$param => "#f00"]);
             // test color change
-            $this->assertEquals($expected, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            $expected["backgroundGradient"] = "";
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -118,7 +148,9 @@ final class OptionsTest extends TestCase
             // update parameter in expected result
             $expected = array_merge($expected, ["background" => $output]);
             // test color change
-            $this->assertEquals($expected, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            $expected["backgroundGradient"] = "";
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -137,7 +169,10 @@ final class OptionsTest extends TestCase
             // set request parameter
             $params = ["background" => $input];
             // test that theme is still default
-            $this->assertEquals($this->defaultTheme, getRequestedTheme($params));
+            $actual = getRequestedTheme($params);
+            $expected = $this->defaultTheme;
+            $expected["backgroundGradient"] = "";
+            $this->assertEquals($expected, $actual);
         }
     }
 
@@ -192,5 +227,32 @@ final class OptionsTest extends TestCase
         $year = date("Y");
         $formatted = formatDate("$year-04-12", "Y/m/d", "en");
         $this->assertEquals("$year/04/12", $formatted);
+    }
+
+    /**
+     * Test normalizing theme name
+     */
+    public function testNormalizeThemeName(): void
+    {
+        $this->assertEquals("mytheme", normalizeThemeName("myTheme"));
+        $this->assertEquals("my-theme", normalizeThemeName("My_Theme"));
+        $this->assertEquals("my-theme", normalizeThemeName("my_theme"));
+        $this->assertEquals("my-theme", normalizeThemeName("my-theme"));
+    }
+
+    /**
+     * Test all theme names are normalized
+     */
+    public function testAllThemeNamesNormalized(): void
+    {
+        $themes = include "src/themes.php";
+        foreach (array_keys($themes) as $theme) {
+            $normalized = normalizeThemeName($theme);
+            $this->assertEquals(
+                $theme,
+                $normalized,
+                "Theme name '$theme' is not normalized. It should contain only lowercase letters, numbers, and dashes. Consider renaming it to '$normalized'."
+            );
+        }
     }
 }
