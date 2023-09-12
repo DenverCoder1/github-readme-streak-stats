@@ -57,6 +57,7 @@ return [
         "Week Streak" => "السلسلة المتتالية الأُسبوعية",
         "Longest Week Streak" => "أُطول سلسلة متتالية أُسبوعية",
         "Present" => "الحاضر",
+        "Excluding" => "باستثناء",
     ],
     "bg" => [
         "Total Contributions" => "Общ принос",
