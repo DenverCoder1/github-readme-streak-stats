@@ -261,6 +261,14 @@ return [
         "Present" => "Vandaag",
         "Excluding" => "Exclusief",
     ],
+    "ph_CB" => [
+        "Total Contributions" => "Kinatibuk-ang Kontribusyon",
+        "Current Streak" => "Kasamtangan nga Streak",
+        "Longest Streak" => "Pinakataas nga Streak",
+        "Week Streak" => "Sinemana nga Streak",
+        "Longest Week Streak" => "Pinakataas nga Semana nga Streak",
+        "Present" => "Karon",
+    ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
         "Current Streak" => "Aktualna Seria",
