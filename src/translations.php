@@ -261,6 +261,14 @@ return [
         "Present" => "Vandaag",
         "Excluding" => "Exclusief",
     ],
+    "ph" => [
+        "Total Contributions" => "Kabuuang Kontribusyon",
+        "Current Streak" => "Kasalukuyang Streak",
+        "Longest Streak" => "Pinakamahabang Streak",
+        "Week Streak" => "Linggong Streak",
+        "Longest Week Streak" => "Pinakamahabang Linggong Streak",
+        "Present" => "Kasalukuyan",
+    ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
         "Current Streak" => "Aktualna Seria",
