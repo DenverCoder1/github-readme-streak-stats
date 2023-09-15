@@ -261,7 +261,7 @@ return [
         "Present" => "Vandaag",
         "Excluding" => "Exclusief",
     ],
-    "ph_CB" => [
+    "ceb" => [
         "Total Contributions" => "Kinatibuk-ang Kontribusyon",
         "Current Streak" => "Kasamtangan nga Streak",
         "Longest Streak" => "Pinakataas nga Streak",
