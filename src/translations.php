@@ -261,7 +261,7 @@ return [
         "Present" => "Vandaag",
         "Excluding" => "Exclusief",
     ],
-    "ph" => [
+    "fil" => [
         "Total Contributions" => "Kabuuang Kontribusyon",
         "Current Streak" => "Kasalukuyang Streak",
         "Longest Streak" => "Pinakamahabang Streak",
