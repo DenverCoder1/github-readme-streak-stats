@@ -91,6 +91,7 @@ return [
         "Week Streak" => "Sinemana nga Streak",
         "Longest Week Streak" => "Pinakataas nga Semana nga Streak",
         "Present" => "Karon",
+        "Excluding" => "Wala'y Labot",
     ],
     "da" => [
         "Total Contributions" => "Samlet antal bidrag",
