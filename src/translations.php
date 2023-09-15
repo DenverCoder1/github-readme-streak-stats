@@ -136,6 +136,7 @@ return [
         "Week Streak" => "Linggong Streak",
         "Longest Week Streak" => "Pinakamahabang Linggong Streak",
         "Present" => "Kasalukuyan",
+        "Excluding" => "Hindi Kasama",
     ],
     "fr" => [
         "Total Contributions" => "Contributions totales",
