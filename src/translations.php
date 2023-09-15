@@ -138,6 +138,15 @@ return [
         "Longest Week Streak" => "طولانی ترین پی‌رفت هفته",
         "Present" => "اکنون",
     ],
+    "fil" => [
+        "Total Contributions" => "Kabuuang Kontribusyon",
+        "Current Streak" => "Kasalukuyang Streak",
+        "Longest Streak" => "Pinakamahabang Streak",
+        "Week Streak" => "Linggong Streak",
+        "Longest Week Streak" => "Pinakamahabang Linggong Streak",
+        "Present" => "Kasalukuyan",
+        "Excluding" => "Hindi Kasama",
+    ],
     "fr" => [
         "Total Contributions" => "Contributions totales",
         "Current Streak" => "Séquence actuelle",
