@@ -129,6 +129,14 @@ return [
         "Longest Week Streak" => "طولانی ترین پی‌رفت هفته",
         "Present" => "اکنون",
     ],
+    "fil" => [
+        "Total Contributions" => "Kabuuang Kontribusyon",
+        "Current Streak" => "Kasalukuyang Streak",
+        "Longest Streak" => "Pinakamahabang Streak",
+        "Week Streak" => "Linggong Streak",
+        "Longest Week Streak" => "Pinakamahabang Linggong Streak",
+        "Present" => "Kasalukuyan",
+    ],
     "fr" => [
         "Total Contributions" => "Contributions totales",
         "Current Streak" => "Séquence actuelle",
@@ -260,14 +268,6 @@ return [
         "Longest Week Streak" => "Langste Week Serie",
         "Present" => "Vandaag",
         "Excluding" => "Exclusief",
-    ],
-    "fil" => [
-        "Total Contributions" => "Kabuuang Kontribusyon",
-        "Current Streak" => "Kasalukuyang Streak",
-        "Longest Streak" => "Pinakamahabang Streak",
-        "Week Streak" => "Linggong Streak",
-        "Longest Week Streak" => "Pinakamahabang Linggong Streak",
-        "Present" => "Kasalukuyan",
     ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
