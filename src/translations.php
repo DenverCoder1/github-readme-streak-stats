@@ -84,6 +84,15 @@ return [
         "Present" => "Actual",
         "Excluding" => "Excloent",
     ],
+    "ceb" => [
+        "Total Contributions" => "Kinatibuk-ang Kontribusyon",
+        "Current Streak" => "Kasamtangan nga Streak",
+        "Longest Streak" => "Pinakataas nga Streak",
+        "Week Streak" => "Sinemana nga Streak",
+        "Longest Week Streak" => "Pinakataas nga Semana nga Streak",
+        "Present" => "Karon",
+        "Excluding" => "Wala'y Labot",
+    ],
     "da" => [
         "Total Contributions" => "Samlet antal bidrag",
         "Current Streak" => "Bidrag i træk",
