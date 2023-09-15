@@ -84,6 +84,14 @@ return [
         "Present" => "Actual",
         "Excluding" => "Excloent",
     ],
+    "ceb" => [
+        "Total Contributions" => "Kinatibuk-ang Kontribusyon",
+        "Current Streak" => "Kasamtangan nga Streak",
+        "Longest Streak" => "Pinakataas nga Streak",
+        "Week Streak" => "Sinemana nga Streak",
+        "Longest Week Streak" => "Pinakataas nga Semana nga Streak",
+        "Present" => "Karon",
+    ],
     "da" => [
         "Total Contributions" => "Samlet antal bidrag",
         "Current Streak" => "Bidrag i træk",
@@ -260,14 +268,6 @@ return [
         "Longest Week Streak" => "Langste Week Serie",
         "Present" => "Vandaag",
         "Excluding" => "Exclusief",
-    ],
-    "ceb" => [
-        "Total Contributions" => "Kinatibuk-ang Kontribusyon",
-        "Current Streak" => "Kasamtangan nga Streak",
-        "Longest Streak" => "Pinakataas nga Streak",
-        "Week Streak" => "Sinemana nga Streak",
-        "Longest Week Streak" => "Pinakataas nga Semana nga Streak",
-        "Present" => "Karon",
     ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
