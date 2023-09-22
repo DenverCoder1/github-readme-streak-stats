@@ -149,6 +149,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |          `nightfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/00ab9a73-67d6-430f-8b22-da49a3e49091) |
 |           `nordfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/6feef268-ed8f-4d60-bbd8-f7a0a7a58ce8) |
 |           `terafox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/ef943ced-365f-4ce5-965a-a9499ce1d8e1) |
+|           `iceberg`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/912d8f6a-ba21-4668-9109-300c67a1f1c2) |
 
 ### Can't find the theme you like?
 
