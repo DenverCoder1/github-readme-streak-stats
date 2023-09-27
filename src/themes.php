@@ -1835,4 +1835,17 @@ return [
         "dates" => "#FDA47F",
         "excludeDaysLabel" => "#E85C51",
     ],
+    "iceberg" => [
+        "background" => "#1E2132",
+        "border" => "#33374C",
+        "stroke" => "#33374C",
+        "ring" => "#84A0C6",
+        "fire" => "#84A0C6",
+        "currStreakNum" => "#D2D4DE",
+        "sideNums" => "#327698",
+        "currStreakLabel" => "#D2D4DE",
+        "sideLabels" => "#D2D4DE",
+        "dates" => "#327698",
+        "excludeDaysLabel" => "#84A0C6",
+    ],
 ];
