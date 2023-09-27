@@ -173,6 +173,7 @@ return [
         "Week Streak" => "सप्ताहिक योगदान",
         "Longest Week Streak" => "दीर्घ साप्ताहिक योगदान",
         "Present" => "आज तक",
+        "Excluding" => "के सिवा",
     ],
     "ht" => [
         "Total Contributions" => "kontribisyon total",
