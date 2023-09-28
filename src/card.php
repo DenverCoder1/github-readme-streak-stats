@@ -61,18 +61,16 @@ function formatDate(string $dateString, string|null $format, string $locale): st
  *
  * @param array<string> $days List of days to translate
  * @param string $locale Locale code
- * @param "long"|"short" $dayOfWeekFormat Format for the day of the week (long or short)
  *
  * @return array<string> Translated days
  */
-function translateDays(array $days, string $locale, string $dayOfWeekFormat): array
+function translateDays(array $days, string $locale): array
 {
     if ($locale === "en") {
         return $days;
     }
     $patternGenerator = new IntlDatePatternGenerator($locale);
-    $skeleton = $dayOfWeekFormat === "long" ? "EEEE" : "EEE";
-    $pattern = $patternGenerator->getBestPattern($skeleton);
+    $pattern = $patternGenerator->getBestPattern("EEE");
     $dateFormatter = new IntlDateFormatter(
         $locale,
         IntlDateFormatter::NONE,
@@ -97,8 +95,7 @@ function translateDays(array $days, string $locale, string $dayOfWeekFormat): ar
 function getExcludingDaysText($excludedDays, $localeTranslations, $localeCode)
 {
     $separator = $localeTranslations["comma_separator"] ?? ", ";
-    $dayOfWeekFormat = $localeTranslations["day_of_week_format"] ?? "EEE";
-    $daysCommaSeparated = implode($separator, translateDays($excludedDays, $localeCode, $dayOfWeekFormat));
+    $daysCommaSeparated = implode($separator, translateDays($excludedDays, $localeCode));
     return str_replace("{days}", $daysCommaSeparated, $localeTranslations["Excluding {days}"]);
 }
 

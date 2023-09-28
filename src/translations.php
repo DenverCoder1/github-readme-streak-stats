@@ -239,8 +239,7 @@ return [
         "Longest Week Streak" => "最長の週間ストリーク",
         "Present" => "今",
         "Excluding {days}" => "{days}を除く",
-        "comma_separator" => "、",
-        "day_of_week_format" => "long",
+        "comma_separator" => "・",
     ],
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
