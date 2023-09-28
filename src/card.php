@@ -87,6 +87,22 @@ function translateDays(array $days, string $locale, string $dayOfWeekFormat): ar
 }
 
 /**
+ * Get the excluding days text
+ *
+ * @param array<string> $excludedDays List of excluded days
+ * @param array<string,string> $localeTranslations Translations for the locale
+ * @param string $localeCode Locale code
+ * @return string Excluding days text
+ */
+function getExcludingDaysText($excludedDays, $localeTranslations, $localeCode)
+{
+    $separator = $localeTranslations["comma_separator"] ?? ", ";
+    $dayOfWeekFormat = $localeTranslations["day_of_week_format"] ?? "EEE";
+    $daysCommaSeparated = implode($separator, translateDays($excludedDays, $localeCode, $dayOfWeekFormat));
+    return str_replace("{days}", $daysCommaSeparated, $localeTranslations["Excluding {days}"]);
+}
+
+/**
  * Normalize a theme name
  *
  * @param string $theme Theme name
@@ -414,11 +430,8 @@ function generateCard(array $stats, array $params = null): string
     // if days are excluded, add a note to the corner
     $excludedDays = "";
     if (!empty($stats["excludedDays"])) {
-        $separator = $localeTranslations["comma_separator"] ?? ", ";
-        $dayOfWeekFormat = $localeTranslations["day_of_week_format"] ?? "EEE";
-        $daysCommaSeparated = implode($separator, translateDays($stats["excludedDays"], $localeCode, $dayOfWeekFormat));
         $offset = $direction === "rtl" ? $cardWidth - 5 : 5;
-        $excludingDaysText = str_replace("{days}", $daysCommaSeparated, $localeTranslations["Excluding {days}"]);
+        $excludingDaysText = getExcludingDaysText($stats["excludedDays"], $localeTranslations, $localeCode);
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
                 <g transform='translate({$offset},187)'>
