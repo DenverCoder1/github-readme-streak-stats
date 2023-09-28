@@ -313,6 +313,7 @@ return [
         "Week Streak" => "Текущая серия недель",
         "Longest Week Streak" => "Самая длинная серия недель",
         "Present" => "Сейчас",
+        "Excluding" => "Не включая",
     ],
     "rw" => [
         "Total Contributions" => "Imisanzu yose",
