@@ -29,7 +29,7 @@
  * Day of Week Format
  * ------------------
  * The default day of week format is "EEE" which is usually a short abbreviation of the day of week (e.g. "Mon", "Tue", etc.).
- * To force the full day of week to be displayed for a locale, add `"day_of_week_format" => "EEEE"` to the locale array.
+ * To force the full day of week to be displayed for a locale (e.g. "Monday", "Tuesday", etc.), add `"day_of_week_format" => "long"` to the locale array.
  *
  * Aliases
  * -------
@@ -240,7 +240,7 @@ return [
         "Present" => "今",
         "Excluding {days}" => "{days}を除く",
         "comma_separator" => "、",
-        "day_of_week_format" => "EEEE",
+        "day_of_week_format" => "long",
     ],
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",

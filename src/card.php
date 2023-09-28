@@ -61,16 +61,17 @@ function formatDate(string $dateString, string|null $format, string $locale): st
  *
  * @param array<string> $days List of days to translate
  * @param string $locale Locale code
- * @param string $skeleton Skeleton for the date pattern (eg. "EEE" for short day names, "EEEE" for long day names)
+ * @param "long"|"short" $dayOfWeekFormat Format for the day of the week (long or short)
  *
  * @return array<string> Translated days
  */
-function translateDays(array $days, string $locale, string $skeleton): array
+function translateDays(array $days, string $locale, string $dayOfWeekFormat): array
 {
     if ($locale === "en") {
         return $days;
     }
     $patternGenerator = new IntlDatePatternGenerator($locale);
+    $skeleton = $dayOfWeekFormat === "long" ? "EEEE" : "EEE";
     $pattern = $patternGenerator->getBestPattern($skeleton);
     $dateFormatter = new IntlDateFormatter(
         $locale,
@@ -414,8 +415,8 @@ function generateCard(array $stats, array $params = null): string
     $excludedDays = "";
     if (!empty($stats["excludedDays"])) {
         $separator = $localeTranslations["comma_separator"] ?? ", ";
-        $skeleton = $localeTranslations["day_of_week_format"] ?? "EEE";
-        $daysCommaSeparated = implode($separator, translateDays($stats["excludedDays"], $localeCode, $skeleton));
+        $dayOfWeekFormat = $localeTranslations["day_of_week_format"] ?? "EEE";
+        $daysCommaSeparated = implode($separator, translateDays($stats["excludedDays"], $localeCode, $dayOfWeekFormat));
         $offset = $direction === "rtl" ? $cardWidth - 5 : 5;
         $excludingDaysText = str_replace("{days}", $daysCommaSeparated, $localeTranslations["Excluding {days}"]);
         $excludedDays = "<g style='isolation: isolate'>
