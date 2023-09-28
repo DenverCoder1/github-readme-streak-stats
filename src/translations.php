@@ -226,6 +226,7 @@ return [
         "Week Streak" => "週間ストリーク",
         "Longest Week Streak" => "最長の週間ストリーク",
         "Present" => "今",
+        "Excluding" => "除きます",
     ],
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
