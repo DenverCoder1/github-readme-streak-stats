@@ -17,7 +17,7 @@ function getProgress(array $translations): array
         "Week Streak",
         "Longest Week Streak",
         "Present",
-        "Excluding",
+        "Excluding {days}",
     ];
 
     $translations_file = file(__DIR__ . "/../src/translations.php");

@@ -25,7 +25,9 @@ final class TranslationsTest extends TestCase
             "Week Streak",
             "Longest Week Streak",
             "Present",
-            "Excluding",
+            "Excluding {days}",
+            "comma_separator",
+            "day_of_week_format",
         ];
         foreach ($locales as $locale) {
             // if it is a string, assert that the alias exists in the translations file
