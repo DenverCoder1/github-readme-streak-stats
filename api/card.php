@@ -85,6 +85,21 @@ function translateDays(array $days, string $locale): array
 }
 
 /**
+ * Get the excluding days text
+ *
+ * @param array<string> $excludedDays List of excluded days
+ * @param array<string,string> $localeTranslations Translations for the locale
+ * @param string $localeCode Locale code
+ * @return string Excluding days text
+ */
+function getExcludingDaysText($excludedDays, $localeTranslations, $localeCode)
+{
+    $separator = $localeTranslations["comma_separator"] ?? ", ";
+    $daysCommaSeparated = implode($separator, translateDays($excludedDays, $localeCode));
+    return str_replace("{days}", $daysCommaSeparated, $localeTranslations["Excluding {days}"]);
+}
+
+/**
  * Normalize a theme name
  *
  * @param string $theme Theme name
@@ -412,13 +427,13 @@ function generateCard(array $stats, array $params = null): string
     // if days are excluded, add a note to the corner
     $excludedDays = "";
     if (!empty($stats["excludedDays"])) {
-        $daysCommaSeparated = implode(", ", translateDays($stats["excludedDays"], $localeCode));
         $offset = $direction === "rtl" ? $cardWidth - 5 : 5;
+        $excludingDaysText = getExcludingDaysText($stats["excludedDays"], $localeTranslations, $localeCode);
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
                 <g transform='translate({$offset},187)'>
                     <text stroke-width='0' text-anchor='right' fill='{$theme["excludeDaysLabel"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='10px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
-                        * {$localeTranslations["Excluding"]} {$daysCommaSeparated}
+                        * {$excludingDaysText}
                     </text>
                 </g>
             </g>";
@@ -696,6 +711,9 @@ function convertSvgToPng(string $svg, int $cardWidth): string
 
     // remove style and animations
     $svg = removeAnimations($svg);
+
+    // replace newlines with spaces
+    $svg = str_replace("\n", " ", $svg);
 
     // escape svg for shell
     $svg = escapeshellarg($svg);
