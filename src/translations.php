@@ -458,5 +458,6 @@ return [
         "Longest Week Streak" => "最常周連續貢獻",
         "Present" => "至今",
         "Excluding {days}" => "除外 {days}",
+        "comma_separator" => "、",
     ],
 ];
