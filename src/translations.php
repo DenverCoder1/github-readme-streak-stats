@@ -26,11 +26,6 @@
  * ---------------
  * To change the comma separator in the enumeration of excluded days, add `"comma_separator" => ", "` to the locale array with the desired separator as the value.
  *
- * Day of Week Format
- * ------------------
- * The default day of week format is "EEE" which is usually a short abbreviation of the day of week (e.g. "Mon", "Tue", etc.).
- * To force the full day of week to be displayed for a locale (e.g. "Monday", "Tuesday", etc.), add `"day_of_week_format" => "long"` to the locale array.
- *
  * Aliases
  * -------
  * To add an alias for a locale, add the alias as a key to the locale array with the locale it should redirect to as the value.
