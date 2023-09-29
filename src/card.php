@@ -697,6 +697,9 @@ function convertSvgToPng(string $svg, int $cardWidth): string
     // remove style and animations
     $svg = removeAnimations($svg);
 
+    // replace newlines with spaces
+    $svg = str_replace("\n", " ", $svg);
+
     // escape svg for shell
     $svg = escapeshellarg($svg);
 
