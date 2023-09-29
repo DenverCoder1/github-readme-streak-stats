@@ -124,7 +124,6 @@ return [
         "Longest Week Streak" => "Μεγαλύτερη Εβδομαδιαία Σειρά",
         "Present" => "Σήμερα",
         "Excluding {days}" => "Εξαιρούνται {days}",
-        "comma_separator" => " ",
     ],
     "es" => [
         "Total Contributions" => "Contribuciones Totales",
