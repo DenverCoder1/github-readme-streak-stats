@@ -235,6 +235,15 @@ return [
         "Excluding {days}" => "{days}を除く",
         "comma_separator" => "・",
     ],
+    "jv" => [
+        "Total Contributions" => "Total Kontribusi",
+        "Current Streak" => "Tumindak Saiki",
+        "Longest Streak" => "Tumindak Paling Dawa",
+        "Week Streak" => "Tumindak Saben Minggu",
+        "Longest Week Streak" => "Tumindak Saben Minggu Paling Dawa",
+        "Present" => "Saiki",
+        "Excluding {days}" => "Ora kelebu {days}",
+    ],
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
         "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
