@@ -296,7 +296,7 @@ input:focus:invalid {
   border-left: 4px solid var(--yellow);
 }
 
-.output .md,
+.output .code-container,
 .output .json {
   background: var(--border);
   border-radius: 6px;

@@ -43,8 +43,10 @@ const preview = {
     if (params.type !== "json") {
       const repoLink = "https://git.io/streak-stats";
       const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
+      const html = `<a href="${repoLink}"><img src="${imageURL}" alt="Readme Streak Stats" /></a>`;
       document.querySelector(".output img").src = demoImageURL;
       document.querySelector(".md code").innerText = md;
+      document.querySelector(".html code").innerText = html;
       document.querySelector(".output img").style.display = "block";
       document.querySelector(".output .json").style.display = "none";
     } else {
@@ -55,10 +57,13 @@ const preview = {
         .then((data) => (document.querySelector(".output .json pre").innerText = JSON.stringify(data, null, 2)))
         .catch(console.error);
       document.querySelector(".md code").innerText = imageURL;
+      document.querySelector(".html code").innerText = imageURL;
     }
     // disable copy button if username is invalid
-    const copyButton = document.querySelector(".copy-button");
-    copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+    const copyButtons = document.querySelectorAll(".copy-button");
+    copyButtons.forEach(button => {
+      button.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+    });
     // disable clear button if no added advanced options
     const clearButton = document.querySelector("#clear-button");
     clearButton.disabled = !document.querySelectorAll(".minus").length;
@@ -379,7 +384,11 @@ const clipboard = {
   copy(el) {
     // create input box to copy from
     const input = document.createElement("input");
-    input.value = document.querySelector(".md code").innerText;
+    if (el.classList.contains("copy-md")) {
+      input.value = document.querySelector(".md code").innerText;
+    } else if (el.classList.contains("copy-html")) {
+      input.value = document.querySelector(".html code").innerText;
+    }
     document.body.appendChild(input);
     // select all
     input.select();
