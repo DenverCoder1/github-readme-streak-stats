@@ -223,15 +223,28 @@ function camelToSkewer(string $str): string
                 <p class="warning">
                     Note: The stats above are just examples and not from your GitHub profile.
                 </p>
-
-                <h2>Markdown</h2>
-                <div class="md">
-                    <code></code>
+                
+                <div>
+                    <h2>Markdown</h2>
+                    <div class="code-container md">
+                        <code></code>
+                    </div>
+                    
+                    <button class="copy-button btn tooltip copy-md" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+                        Copy To Clipboard
+                    </button>
                 </div>
-
-                <button class="copy-button btn tooltip" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
-                    Copy To Clipboard
-                </button>
+                
+                <div>
+                    <h2>HTML</h2>
+                    <div class="code-container html">
+                        <code></code>
+                    </div>
+                    
+                    <button class="copy-button btn tooltip copy-html" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+                        Copy To Clipboard
+                    </button>
+                </div>
             </div>
             <div class="bottom">
                 <a href="https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/docs/faq.md" target="_blank" class="underline-hover faq">
