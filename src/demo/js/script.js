@@ -47,17 +47,22 @@ const preview = {
       document.querySelector(".output img").src = demoImageURL;
       document.querySelector(".md code").innerText = md;
       document.querySelector(".html code").innerText = html;
+      document.querySelector(".copy-md").style.display = "block";
+      document.querySelector(".copy-html").style.display = "block";
       document.querySelector(".output img").style.display = "block";
       document.querySelector(".output .json").style.display = "none";
+      document.querySelector(".copy-json").style.display = "none";
     } else {
-      document.querySelector(".output img").style.display = "none";
-      document.querySelector(".output .json").style.display = "block";
       fetch(demoImageURL)
         .then((response) => response.json())
         .then((data) => (document.querySelector(".output .json pre").innerText = JSON.stringify(data, null, 2)))
         .catch(console.error);
-      document.querySelector(".md code").innerText = imageURL;
-      document.querySelector(".html code").innerText = imageURL;
+      document.querySelector(".json code").innerText = imageURL;
+      document.querySelector(".copy-md").style.display = "none";
+      document.querySelector(".copy-html").style.display = "none";
+      document.querySelector(".output img").style.display = "none";
+      document.querySelector(".output .json").style.display = "block";
+      document.querySelector(".copy-json").style.display = "block";
     }
     // disable copy button if username is invalid
     const copyButtons = document.querySelectorAll(".copy-button");
