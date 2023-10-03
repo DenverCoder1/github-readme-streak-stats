@@ -51,7 +51,7 @@ const preview = {
       document.querySelector(".copy-html").parentElement.style.display = "block";
       document.querySelector(".output img").style.display = "block";
       document.querySelector(".output .json").style.display = "none";
-      document.querySelector(".copy-json").style.display = "none";
+      document.querySelector(".copy-json").parentElement.style.display = "none";
     } else {
       fetch(demoImageURL)
         .then((response) => response.json())
