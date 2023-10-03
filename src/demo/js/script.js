@@ -61,7 +61,7 @@ const preview = {
     }
     // disable copy button if username is invalid
     const copyButtons = document.querySelectorAll(".copy-button");
-    copyButtons.forEach(button => {
+    copyButtons.forEach((button) => {
       button.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
     });
     // disable clear button if no added advanced options
