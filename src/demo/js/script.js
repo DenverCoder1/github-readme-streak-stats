@@ -58,11 +58,11 @@ const preview = {
         .then((data) => (document.querySelector(".output .json pre").innerText = JSON.stringify(data, null, 2)))
         .catch(console.error);
       document.querySelector(".json code").innerText = imageURL;
-      document.querySelector(".copy-md").style.display = "none";
-      document.querySelector(".copy-html").style.display = "none";
+      document.querySelector(".copy-md").parentElement.style.display = "none";
+      document.querySelector(".copy-html").parentElement.style.display = "none";
       document.querySelector(".output img").style.display = "none";
       document.querySelector(".output .json").style.display = "block";
-      document.querySelector(".copy-json").style.display = "block";
+      document.querySelector(".copy-json").parentElement.style.display = "block";
     }
     // disable copy button if username is invalid
     const copyButtons = document.querySelectorAll(".copy-button");
