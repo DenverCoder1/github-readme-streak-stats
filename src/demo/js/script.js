@@ -393,6 +393,8 @@ const clipboard = {
       input.value = document.querySelector(".md code").innerText;
     } else if (el.classList.contains("copy-html")) {
       input.value = document.querySelector(".html code").innerText;
+    } else if (el.classList.contains("copy-json")) {
+      input.value = document.querySelector(".json code").innerText;
     }
     document.body.appendChild(input);
     // select all
