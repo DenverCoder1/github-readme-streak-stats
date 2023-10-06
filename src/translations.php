@@ -269,6 +269,7 @@ return [
         "Week Streak" => "साप्ताहिक सातत्यता",
         "Longest Week Streak" => "दीर्घकालीन साप्ताहिक सातत्यता",
         "Present" => "आज पर्यंत",
+        "Excluding {days}" => "वगळून {days}",
     ],
     "ms" => [
         "Total Contributions" => "Jumlah Sumbangan",
