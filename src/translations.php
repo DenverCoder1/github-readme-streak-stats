@@ -315,6 +315,7 @@ return [
         "Longest Week Streak" => "د اونۍ تر ټولو اوږد پرمختګ",
         "Present" => "اوس",
         "comma_separator" => "، ",
+        "Excluding {days}" => "پرته {days}",
     ],
     "pt_BR" => [
         "Total Contributions" => "Total de Contribuições",
