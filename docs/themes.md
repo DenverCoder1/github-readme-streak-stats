@@ -150,6 +150,8 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |           `nordfox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/6feef268-ed8f-4d60-bbd8-f7a0a7a58ce8) |
 |           `terafox`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/ef943ced-365f-4ce5-965a-a9499ce1d8e1) |
 |           `iceberg`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/912d8f6a-ba21-4668-9109-300c67a1f1c2) |
+|       `whatsapp-light2`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/45d22825-e71b-42c7-aabf-14f50d47beef) |
+|        `whatsapp-dark2`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/4b41e537-368f-4f67-a1e6-81ca757ce5f7) |
 
 ### Can't find the theme you like?
 
