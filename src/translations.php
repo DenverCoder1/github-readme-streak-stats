@@ -300,11 +300,11 @@ return [
     ],
     "no" => [
         "Total Contributions" => "Totalt Antall Bidrag",
-        "Current Streak" => "Nåværende Bidragsrekke",
+        "Current Streak" => "Nåværende\nBidragsrekke",
         "Longest Streak" => "Lengste Bidragsrekke",
-        "Week Streak" => "Ukentlig Bidragsrekke",
-        "Longest Week Streak" => "Lengste Ukentlige Bidragsrekke",
-        "Present" => "Nåværende",
+        "Week Streak" => "Ukentlig\nBidragsrekke",
+        "Longest Week Streak" => "Lengste Ukentlige\nBidragsrekke",
+        "Present" => "I dag",
         "Excluding {days}" => "Ekskluderer {days}",
     ],
     "pl" => [
