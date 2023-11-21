@@ -298,6 +298,15 @@ return [
         "Present" => "Vandaag",
         "Excluding {days}" => "Exclusief {days}",
     ],
+    "no" => [
+        "Total Contributions" => "Totalt Antall Bidrag",
+        "Current Streak" => "Nåværende\nBidragsrekke",
+        "Longest Streak" => "Lengste Bidragsrekke",
+        "Week Streak" => "Ukentlig\nBidragsrekke",
+        "Longest Week Streak" => "Lengste Ukentlige\nBidragsrekke",
+        "Present" => "I dag",
+        "Excluding {days}" => "Ekskluderer {days}",
+    ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
         "Current Streak" => "Aktualna Seria",
