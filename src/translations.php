@@ -262,15 +262,6 @@ return [
         "Present" => "현재",
         "Excluding {days}" => "{days} 제외된",
     ],
-    "my_MM" => [
-        "Total Contributions" => "စုစုပေါင်း ပံ့ပိုးမှုများ",
-        "Current Streak" => "ယနေ့ထိ မပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
-        "Longest Streak" => "အကြာဆုံးမပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
-        "Week Streak" => "အပတ်စဉ် ပံ့ပိုးမှု",
-        "Longest Week Streak" => "အကြာဆုံးမပျက်မကွက် ပံ့ပိုးမှုအပတ်ပေါင်း",
-        "Present" => "လက်ရှိ",
-        "Excluding {days}" => "{days} မှလွဲ၍",
-    ],
     "mr" => [
         "Total Contributions" => "एकूण योगदान",
         "Current Streak" => "साध्यकालीन सातत्यता",
@@ -288,6 +279,15 @@ return [
         "Longest Week Streak" => "Tindakan Setiap Minggu Terpanjang",
         "Present" => "Sekarang",
         "Excluding {days}" => "Mengecualikan {days}",
+    ],
+    "my_MM" => [
+        "Total Contributions" => "စုစုပေါင်း ပံ့ပိုးမှုများ",
+        "Current Streak" => "ယနေ့ထိ မပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
+        "Longest Streak" => "အကြာဆုံးမပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
+        "Week Streak" => "အပတ်စဉ် ပံ့ပိုးမှု",
+        "Longest Week Streak" => "အကြာဆုံးမပျက်မကွက် ပံ့ပိုးမှုအပတ်ပေါင်း",
+        "Present" => "လက်ရှိ",
+        "Excluding {days}" => "{days} မှလွဲ၍",
     ],
     "ne" => [
         "Total Contributions" => "कुल योगदान",
