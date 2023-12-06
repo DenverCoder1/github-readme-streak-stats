@@ -270,7 +270,6 @@ return [
         "Longest Week Streak" => "အကြာဆုံးမပျက်မကွက် ပံ့ပိုးမှုအပတ်ပေါင်း",
         "Present" => "လက်ရှိ",
         "Excluding {days}" => "{days} မှလွဲ၍",
-   
     ],
     "mr" => [
         "Total Contributions" => "एकूण योगदान",
