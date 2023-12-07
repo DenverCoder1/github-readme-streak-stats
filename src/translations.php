@@ -280,7 +280,7 @@ return [
         "Present" => "Sekarang",
         "Excluding {days}" => "Mengecualikan {days}",
     ],
-    "my_MM" => [
+    "my" => [
         "Total Contributions" => "စုစုပေါင်း ပံ့ပိုးမှုများ",
         "Current Streak" => "ယနေ့ထိ မပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
         "Longest Streak" => "အကြာဆုံးမပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
