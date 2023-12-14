@@ -1,0 +1,20 @@
+# Generated files
+vendor/
+node_modules/
+*.log
+composer.phar
+yarn.lock
+package-lock.json
+composer.lock
+
+# Local Configuration
+package.json
+.DS_Store
+
+# Environment
+.env
+DOCKER_ENV
+docker_tag
+
+# IDE
+.vscode/
