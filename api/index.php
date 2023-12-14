@@ -19,10 +19,11 @@ if (!isset($_ENV["TOKEN"])) {
     renderOutput($message, 500);
 }
 
-// set cache to refresh once per hour
-header("Expires: " . gmdate("D, d M Y H:i:s", time() + 3600) . " GMT");
+// set cache to refresh once per three horus
+$cacheMinutes = 3 * 60 * 60;
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheMinutes) . " GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: public, max-age=3600");
+header("Cache-Control: public, max-age=$cacheMinutes");
 
 // redirect to demo site if user is not given
 if (!isset($_REQUEST["user"])) {

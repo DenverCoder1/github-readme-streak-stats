@@ -43,22 +43,32 @@ const preview = {
     if (params.type !== "json") {
       const repoLink = "https://git.io/streak-stats";
       const md = `[![GitHub Streak](${imageURL})](${repoLink})`;
+      const html = `<a href="${repoLink}"><img src="${imageURL}" alt="GitHub Streak" /></a>`;
       document.querySelector(".output img").src = demoImageURL;
       document.querySelector(".md code").innerText = md;
+      document.querySelector(".html code").innerText = html;
+      document.querySelector(".copy-md").parentElement.style.display = "block";
+      document.querySelector(".copy-html").parentElement.style.display = "block";
       document.querySelector(".output img").style.display = "block";
       document.querySelector(".output .json").style.display = "none";
+      document.querySelector(".copy-json").parentElement.style.display = "none";
     } else {
-      document.querySelector(".output img").style.display = "none";
-      document.querySelector(".output .json").style.display = "block";
       fetch(demoImageURL)
         .then((response) => response.json())
         .then((data) => (document.querySelector(".output .json pre").innerText = JSON.stringify(data, null, 2)))
         .catch(console.error);
-      document.querySelector(".md code").innerText = imageURL;
+      document.querySelector(".json code").innerText = imageURL;
+      document.querySelector(".copy-md").parentElement.style.display = "none";
+      document.querySelector(".copy-html").parentElement.style.display = "none";
+      document.querySelector(".output img").style.display = "none";
+      document.querySelector(".output .json").style.display = "block";
+      document.querySelector(".copy-json").parentElement.style.display = "block";
     }
     // disable copy button if username is invalid
-    const copyButton = document.querySelector(".copy-button");
-    copyButton.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+    const copyButtons = document.querySelectorAll(".copy-button");
+    copyButtons.forEach((button) => {
+      button.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+    });
     // disable clear button if no added advanced options
     const clearButton = document.querySelector("#clear-button");
     clearButton.disabled = !document.querySelectorAll(".minus").length;
@@ -213,6 +223,7 @@ const preview = {
     const option = Array.prototype.find.call(selectElement.options, (o) => o.value === property);
     selectElement.disabled = false;
     option.disabled = false;
+    selectElement.value = option.value;
     // update and exit
     this.update();
   },
@@ -379,7 +390,13 @@ const clipboard = {
   copy(el) {
     // create input box to copy from
     const input = document.createElement("input");
-    input.value = document.querySelector(".md code").innerText;
+    if (el.classList.contains("copy-md")) {
+      input.value = document.querySelector(".md code").innerText;
+    } else if (el.classList.contains("copy-html")) {
+      input.value = document.querySelector(".html code").innerText;
+    } else if (el.classList.contains("copy-json")) {
+      input.value = document.querySelector(".json code").innerText;
+    }
     document.body.appendChild(input);
     // select all
     input.select();
