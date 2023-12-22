@@ -370,6 +370,17 @@ return [
         "Present" => "वर्तमान",
         "Excluding {days}" => "बहिष्करणम् {days}",
     ],
+    "sd_PK" => [
+        "rtl" => true,
+        "Total Contributions" => "کل حصہ داری",
+        "Current Streak" => "موجوده سلسلو",
+        "Longest Streak" => "تمام پري جو سلسلو",
+        "Week Streak" => "ھفتي جو سلسلو",
+        "Longest Week Streak" => "تمام پري جو ھفتيوار سلسلو",
+        "Present" => "موجوده",
+        "Excluding {days}" => "نڪتل {days}",
+        "comma_separator" => "، ",
+    ],
     "sr" => [
         "Total Contributions" => "Укупно додавања",
         "Current Streak" => "Тренутна серија",
