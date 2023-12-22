@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "src/translations.php"
+      - "api/translations.php"
       - "scripts/translation-progress.php"
       - ".github/workflows/translation-progress.yml"
       - "README.md"
