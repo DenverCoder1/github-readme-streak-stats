@@ -11,10 +11,10 @@ This documentation contains a set of guidelines to help you during the contribut
 You can refer to the following articles on the basics of Git and GitHub in case you are stuck:
 
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
-- [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
+- [Cloning a Repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 - [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)
 - [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
-- [Learn GitHub from Scratch](https://lab.github.com/githubtraining/introduction-to-github)
+- [Learn GitHub from Scratch](https://github.com/githubtraining/introduction-to-github)
 
 ### Installing Requirements
 
