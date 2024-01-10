@@ -1874,4 +1874,17 @@ return [
         "dates" => "#858A8D",
         "excludeDaysLabel" => "#FFD179",
     ],
+    "travelers-theme" => [
+        "background" => "#150E1F",
+        "border" => "#E4E2E2",
+        "stroke" => "#F28157",
+        "ring" => "#F28157",
+        "fire" => "#F28157",
+        "currStreakNum" => "#F2F2F2",
+        "sideNums" => "#F28157",
+        "currStreakLabel" => "#F2F2F2",
+        "sideLabels" => "#F2F2F2",
+        "dates" => "#F2F2F2",
+        "excludeDaysLabel" => "#464646",
+    ],
 ];
