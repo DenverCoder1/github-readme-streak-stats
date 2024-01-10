@@ -152,7 +152,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |           `iceberg`           | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/912d8f6a-ba21-4668-9109-300c67a1f1c2) |
 |       `whatsapp-light2`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/45d22825-e71b-42c7-aabf-14f50d47beef) |
 |       `whatsapp-dark2`        | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/4b41e537-368f-4f67-a1e6-81ca757ce5f7) |
-|         `travelers-theme`         | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/71530690/cbda586c-5b78-4cd1-b803-de1a013f2e98) |
+|       `travelers-theme`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/71530690/cbda586c-5b78-4cd1-b803-de1a013f2e98) |
 
 ### Can't find the theme you like?
 
