@@ -153,6 +153,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `whatsapp-light2`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/45d22825-e71b-42c7-aabf-14f50d47beef) |
 |       `whatsapp-dark2`        | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/4b41e537-368f-4f67-a1e6-81ca757ce5f7) |
 |       `travelers-theme`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/45b0bb8c-fb88-4f2e-ad97-665db6bce4a7) |
+|       `youtube-dark`			| ![image](https://raw.githubusercontent.com/wamikabro/wamikabro/a524c9984b6d55819c6f5c7f4a26158e3a36686f/youtube-dark.png) |
 
 ### Can't find the theme you like?
 
