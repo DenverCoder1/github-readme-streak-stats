@@ -1887,4 +1887,17 @@ return [
         "dates" => "#F2F2F2",
         "excludeDaysLabel" => "#464646",
     ],
+    "youtube-dark" => [
+        "background" => "#0F0F0F",
+        "border" => "#272727",
+        "stroke" => "#272727",
+        "ring" => "#FFFFFF",
+        "fire" => "#FFFFFF",
+        "currStreakNum" => "#FF0000",
+        "sideNums" => "#FF0000",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#FFFFFF",
+        "dates" => "#BCBCBC",
+        "excludeDaysLabel" => "#FFFFFF",
+    ],
 ];
