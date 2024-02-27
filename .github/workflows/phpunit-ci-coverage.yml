@@ -7,6 +7,9 @@ on:
     branches:
       - main
 
+env:
+  PHP_VERSION: 8.2
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -15,10 +18,12 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_extensions: intl
+          php_version: ${{ env.PHP_VERSION }}
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
           php_extensions: intl
+          php_version: ${{ env.PHP_VERSION }}
           bootstrap: vendor/autoload.php
           configuration: tests/phpunit/phpunit.xml
           args: --testdox
