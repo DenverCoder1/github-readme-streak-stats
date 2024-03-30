@@ -1028,16 +1028,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.0.6",
+            "version": "11.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6af32d7938fc366f86e49a5f5ebb314018d1b1fb"
+                "reference": "591bbfe416400385527d5086b346b92c06de404b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6af32d7938fc366f86e49a5f5ebb314018d1b1fb",
-                "reference": "6af32d7938fc366f86e49a5f5ebb314018d1b1fb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/591bbfe416400385527d5086b346b92c06de404b",
+                "reference": "591bbfe416400385527d5086b346b92c06de404b",
                 "shasum": ""
             },
             "require": {
@@ -1108,7 +1108,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.0.6"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.0.9"
             },
             "funding": [
                 {
@@ -1124,7 +1124,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-12T15:40:01+00:00"
+            "time": "2024-03-28T10:09:42+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -1500,16 +1500,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "7.0.0",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "100d8b855d7180f79f9a9a5c483f2d960581c3ea"
+                "reference": "4eb3a442574d0e9d141aab209cd4aaf25701b09a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/100d8b855d7180f79f9a9a5c483f2d960581c3ea",
-                "reference": "100d8b855d7180f79f9a9a5c483f2d960581c3ea",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4eb3a442574d0e9d141aab209cd4aaf25701b09a",
+                "reference": "4eb3a442574d0e9d141aab209cd4aaf25701b09a",
                 "shasum": ""
             },
             "require": {
@@ -1524,7 +1524,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "7.0-dev"
+                    "dev-main": "7.1-dev"
                 }
             },
             "autoload": {
@@ -1552,7 +1552,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
                 "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/7.0.0"
+                "source": "https://github.com/sebastianbergmann/environment/tree/7.1.0"
             },
             "funding": [
                 {
@@ -1560,7 +1560,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-02T05:57:54+00:00"
+            "time": "2024-03-23T08:56:34+00:00"
         },
         {
             "name": "sebastian/exporter",
