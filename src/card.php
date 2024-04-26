@@ -322,6 +322,12 @@ function getCardWidth(array $params, int $numColumns = 3): int
     return max($minimumWidth, intval($params["card_width"] ?? $defaultWidth));
 }
 
+/**
+ * Get the card height from params taking into account minimum and default values
+ *
+ * @param array<string,string> $params Request parameters
+ * @return int Card width
+ */
 function getCardHeight(array $params): int
 {
     $defaultHeight = 195;
