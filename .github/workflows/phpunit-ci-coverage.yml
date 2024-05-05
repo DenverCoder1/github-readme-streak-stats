@@ -20,7 +20,7 @@ jobs:
           php_extensions: intl
           php_version: ${{ env.PHP_VERSION }}
       - name: PHPUnit Tests
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v4
         with:
           php_extensions: intl
           php_version: ${{ env.PHP_VERSION }}
