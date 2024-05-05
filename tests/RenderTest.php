@@ -242,11 +242,11 @@ final class RenderTest extends TestCase
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $renderCollapsedSpaces = preg_replace("/(\s)\s*/", '$1', $render);
         $this->assertStringContainsString(
-            "<!-- Total Contributions big number -->\n<g transform='translate(412.5,48)'>",
+            "<!-- Total Contributions big number -->\n<g transform='translate(412.5, 48)'>",
             $renderCollapsedSpaces
         );
         $this->assertStringContainsString(
-            "<!-- Longest Streak big number -->\n<g transform='translate(82.5,48)'>",
+            "<!-- Longest Streak big number -->\n<g transform='translate(82.5, 48)'>",
             $renderCollapsedSpaces
         );
     }

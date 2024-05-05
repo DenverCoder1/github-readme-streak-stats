@@ -378,8 +378,8 @@ function generateCard(array $stats, array $params = null): string
     $columnWidth = $numColumns > 0 ? $cardWidth / $numColumns : 0;
 
     $cardHeight = getCardHeight($params);
-    $rectHeight = $cardHeight-1;
-    $offsetHeight = ($cardHeight-195) / 2;
+    $rectHeight = $cardHeight - 1;
+    $offsetHeight = ($cardHeight - 195) / 2;
 
     // offsets for the bars between columns
     $barOffsets = [-999, -999];
@@ -411,7 +411,7 @@ function generateCard(array $stats, array $params = null): string
     $longestStreakOffsetHeight = $totalContributionsOffsetHeight = [
         48 + $rowOffsets,
         84 + $rowOffsets,
-        114 + $rowOffsets
+        114 + $rowOffsets,
     ];
 
     $currentStreakOffsetHeight = [
@@ -419,7 +419,7 @@ function generateCard(array $stats, array $params = null): string
         108 + $rowOffsets,
         145 + $rowOffsets,
         71 + $rowOffsets,
-        19 + $rowOffsets
+        19.5 + $rowOffsets,
     ];
 
     // total contributions
@@ -532,21 +532,21 @@ function generateCard(array $stats, array $params = null): string
             </g>
             <g style='isolation: isolate'>
                 <!-- Current Streak big number -->
-                <g transform='translate({$currentStreakOffset},{$currentStreakOffsetHeight[0]})'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[0]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["currStreakNum"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='animation: currstreak 0.6s linear forwards'>
                         {$currentStreak}
                     </text>
                 </g>
 
                 <!-- Current Streak label -->
-                <g transform='translate({$currentStreakOffset},{$currentStreakOffsetHeight[1]})'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[1]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["currStreakLabel"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='700' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         {$currentStreakText}
                     </text>
                 </g>
 
                 <!-- Current Streak range -->
-                <g transform='translate({$currentStreakOffset},{$currentStreakOffsetHeight[2]})'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[2]})'>
                     <text x='0' y='21' stroke-width='0' text-anchor='middle' fill='{$theme["dates"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         {$currentStreakRange}
                     </text>
@@ -572,14 +572,14 @@ function generateCard(array $stats, array $params = null): string
                 </g>
 
                 <!-- Longest Streak label -->
-                <g transform='translate({$longestStreakOffset},{$longestStreakOffsetHeight[1]})'>
+                <g transform='translate({$longestStreakOffset}, {$longestStreakOffsetHeight[1]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["sideLabels"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.3s'>
                         {$longestStreakText}
                     </text>
                 </g>
 
                 <!-- Longest Streak range -->
-                <g transform='translate({$longestStreakOffset},{$longestStreakOffsetHeight[2]})'>
+                <g transform='translate({$longestStreakOffset}, {$longestStreakOffsetHeight[2]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["dates"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.4s'>
                         {$longestStreakRange}
                     </text>
@@ -615,9 +615,10 @@ function generateErrorCard(string $message, array $params = null): string
 
     // read card_height parameter
     $cardHeight = getCardHeight($params);
-    $rectHeight = $cardHeight-1;
-    $offsetHeight = ($cardHeight-195) / 2;
+    $rectHeight = $cardHeight - 1;
+    $offsetHeight = ($cardHeight - 195) / 2;
     $centerOffsetHeight = $cardHeight / 2;
+    $errorLabelOffset = $centerOffsetHeight + 10.5;
 
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation: isolate' viewBox='0 0 {$cardWidth} {$cardHeight}' width='{$cardWidth}px' height='{$cardHeight}px'>
         <style>
@@ -637,7 +638,7 @@ function generateErrorCard(string $message, array $params = null): string
             </g>
             <g style='isolation: isolate'>
                 <!-- Error lable -->
-                <g transform='translate({$centerOffset},{$centerOffsetHeight})'>
+                <g transform='translate({$centerOffset}, {$errorLabelOffset})'>
                     <text x='0' y='50' dy='0.25em' stroke-width='0' text-anchor='middle' fill='{$theme["sideLabels"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal'>
                         {$message}
                     </text>
@@ -794,8 +795,6 @@ function generateOutput(string|array $output, array $params = null): array
     $params = $params ?? $_REQUEST;
 
     $requestedType = $params["type"] ?? "svg";
-
-//    var_dump($output);
 
     // output JSON data
     if ($requestedType === "json") {
