@@ -394,8 +394,6 @@ function generateCard(array $stats, array $params = null): string
     for ($i = 0; $i < $numColumns; $i++) {
         $columnOffsets[] = $columnWidth / 2 + $columnWidth * $i;
     }
-    // offets for the text in each row
-    $rowOffsets = $offsetHeight;
 
     // reverse the column offsets if the locale is right-to-left
     if ($direction === "rtl") {
@@ -409,17 +407,17 @@ function generateCard(array $stats, array $params = null): string
 
     //offset height
     $longestStreakOffsetHeight = $totalContributionsOffsetHeight = [
-        48 + $rowOffsets,
-        84 + $rowOffsets,
-        114 + $rowOffsets,
+        48 + $offsetHeight,
+        84 + $offsetHeight,
+        114 + $offsetHeight,
     ];
 
     $currentStreakOffsetHeight = [
-        48 + $rowOffsets,
-        108 + $rowOffsets,
-        145 + $rowOffsets,
-        71 + $rowOffsets,
-        19.5 + $rowOffsets,
+        48 + $offsetHeight,
+        108 + $offsetHeight,
+        145 + $offsetHeight,
+        71 + $offsetHeight,
+        19.5 + $offsetHeight,
     ];
 
     // total contributions
