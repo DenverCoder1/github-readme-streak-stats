@@ -379,22 +379,18 @@ function generateCard(array $stats, array $params = null): string
 
     $cardHeight = getCardHeight($params);
     $rectHeight = $cardHeight - 1;
-    $offsetHeight = ($cardHeight - 195) / 2;
+    $heightOffset = ($cardHeight - 195) / 2;
 
-    // offsets for the bars between columns
+    // X offsets for the bars between columns
     $barOffsets = [-999, -999];
     for ($i = 0; $i < $numColumns - 1; $i++) {
         $barOffsets[$i] = $columnWidth * ($i + 1);
     }
-    // offsets Y for the bars
-    $barOffsetsY = [28 + $offsetHeight / 2, 170 + $offsetHeight];
-
     // offsets for the text in each column
     $columnOffsets = [];
     for ($i = 0; $i < $numColumns; $i++) {
         $columnOffsets[] = $columnWidth / 2 + $columnWidth * $i;
     }
-
     // reverse the column offsets if the locale is right-to-left
     if ($direction === "rtl") {
         $columnOffsets = array_reverse($columnOffsets);
@@ -405,19 +401,20 @@ function generateCard(array $stats, array $params = null): string
     $currentStreakOffset = $showCurrentStreak ? $columnOffsets[$nextColumnIndex++] : -999;
     $longestStreakOffset = $showLongestStreak ? $columnOffsets[$nextColumnIndex++] : -999;
 
-    //offset height
-    $longestStreakOffsetHeight = $totalContributionsOffsetHeight = [
-        48 + $offsetHeight,
-        84 + $offsetHeight,
-        114 + $offsetHeight,
+    // Y offsets for the bars
+    $barHeightOffsets = [28 + $heightOffset / 2, 170 + $heightOffset];
+    // Y offsets for the numbers and dates
+    $longestStreakHeightOffset = $totalContributionsHeightOffset = [
+        48 + $heightOffset,
+        84 + $heightOffset,
+        114 + $heightOffset,
     ];
-
-    $currentStreakOffsetHeight = [
-        48 + $offsetHeight,
-        108 + $offsetHeight,
-        145 + $offsetHeight,
-        71 + $offsetHeight,
-        19.5 + $offsetHeight,
+    $currentStreakHeightOffset = [
+        48 + $heightOffset,
+        108 + $heightOffset,
+        145 + $heightOffset,
+        71 + $heightOffset,
+        19.5 + $heightOffset,
     ];
 
     // total contributions
@@ -503,26 +500,26 @@ function generateCard(array $stats, array $params = null): string
                 <rect stroke='{$theme["border"]}' fill='{$theme["background"]}' rx='{$borderRadius}' x='0.5' y='0.5' width='{$rectWidth}' height='{$rectHeight}'/>
             </g>
             <g style='isolation: isolate'>
-                <line x1='{$barOffsets[0]}' y1='{$barOffsetsY[0]}' x2='{$barOffsets[0]}' y2='{$barOffsetsY[1]}' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
-                <line x1='{$barOffsets[1]}' y1='$barOffsetsY[0]' x2='{$barOffsets[1]}' y2='$barOffsetsY[1]' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
+                <line x1='{$barOffsets[0]}' y1='{$barHeightOffsets[0]}' x2='{$barOffsets[0]}' y2='{$barHeightOffsets[1]}' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
+                <line x1='{$barOffsets[1]}' y1='$barHeightOffsets[0]' x2='{$barOffsets[1]}' y2='$barHeightOffsets[1]' vector-effect='non-scaling-stroke' stroke-width='1' stroke='{$theme["stroke"]}' stroke-linejoin='miter' stroke-linecap='square' stroke-miterlimit='3'/>
             </g>
             <g style='isolation: isolate'>
                 <!-- Total Contributions big number -->
-                <g transform='translate({$totalContributionsOffset}, {$totalContributionsOffsetHeight[0]})'>
+                <g transform='translate({$totalContributionsOffset}, {$totalContributionsHeightOffset[0]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["sideNums"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s'>
                         {$totalContributions}
                     </text>
                 </g>
 
                 <!-- Total Contributions label -->
-                <g transform='translate({$totalContributionsOffset}, {$totalContributionsOffsetHeight[1]})'>
+                <g transform='translate({$totalContributionsOffset}, {$totalContributionsHeightOffset[1]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["sideLabels"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.7s'>
                         {$totalContributionsText}
                     </text>
                 </g>
 
                 <!-- Total Contributions range -->
-                <g transform='translate({$totalContributionsOffset}, {$totalContributionsOffsetHeight[2]})'>
+                <g transform='translate({$totalContributionsOffset}, {$totalContributionsHeightOffset[2]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["dates"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.8s'>
                         {$totalContributionsRange}
                     </text>
@@ -530,21 +527,21 @@ function generateCard(array $stats, array $params = null): string
             </g>
             <g style='isolation: isolate'>
                 <!-- Current Streak big number -->
-                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[0]})'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakHeightOffset[0]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["currStreakNum"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='animation: currstreak 0.6s linear forwards'>
                         {$currentStreak}
                     </text>
                 </g>
 
                 <!-- Current Streak label -->
-                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[1]})'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakHeightOffset[1]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["currStreakLabel"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='700' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         {$currentStreakText}
                     </text>
                 </g>
 
                 <!-- Current Streak range -->
-                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[2]})'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakHeightOffset[2]})'>
                     <text x='0' y='21' stroke-width='0' text-anchor='middle' fill='{$theme["dates"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         {$currentStreakRange}
                     </text>
@@ -552,10 +549,10 @@ function generateCard(array $stats, array $params = null): string
 
                 <!-- Ring around number -->
                 <g mask='url(#mask_out_ring_behind_fire)'>
-                    <circle cx='{$currentStreakOffset}' cy='{$currentStreakOffsetHeight[3]}' r='40' fill='none' stroke='{$theme["ring"]}' stroke-width='5' style='opacity: 0; animation: fadein 0.5s linear forwards 0.4s'></circle>
+                    <circle cx='{$currentStreakOffset}' cy='{$currentStreakHeightOffset[3]}' r='40' fill='none' stroke='{$theme["ring"]}' stroke-width='5' style='opacity: 0; animation: fadein 0.5s linear forwards 0.4s'></circle>
                 </g>
                 <!-- Fire icon -->
-                <g transform='translate({$currentStreakOffset}, {$currentStreakOffsetHeight[4]})' stroke-opacity='0' style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s'>
+                <g transform='translate({$currentStreakOffset}, {$currentStreakHeightOffset[4]})' stroke-opacity='0' style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s'>
                     <path d='M -12 -0.5 L 15 -0.5 L 15 23.5 L -12 23.5 L -12 -0.5 Z' fill='none'/>
                     <path d='M 1.5 0.67 C 1.5 0.67 2.24 3.32 2.24 5.47 C 2.24 7.53 0.89 9.2 -1.17 9.2 C -3.23 9.2 -4.79 7.53 -4.79 5.47 L -4.76 5.11 C -6.78 7.51 -8 10.62 -8 13.99 C -8 18.41 -4.42 22 0 22 C 4.42 22 8 18.41 8 13.99 C 8 8.6 5.41 3.79 1.5 0.67 Z M -0.29 19 C -2.07 19 -3.51 17.6 -3.51 15.86 C -3.51 14.24 -2.46 13.1 -0.7 12.74 C 1.07 12.38 2.9 11.53 3.92 10.16 C 4.31 11.45 4.51 12.81 4.51 14.2 C 4.51 16.85 2.36 19 -0.29 19 Z' fill='{$theme["fire"]}' stroke-opacity='0'/>
                 </g>
@@ -563,21 +560,21 @@ function generateCard(array $stats, array $params = null): string
             </g>
             <g style='isolation: isolate'>
                 <!-- Longest Streak big number -->
-                <g transform='translate({$longestStreakOffset}, {$longestStreakOffsetHeight[0]})'>
+                <g transform='translate({$longestStreakOffset}, {$longestStreakHeightOffset[0]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["sideNums"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.2s'>
                         {$longestStreak}
                     </text>
                 </g>
 
                 <!-- Longest Streak label -->
-                <g transform='translate({$longestStreakOffset}, {$longestStreakOffsetHeight[1]})'>
+                <g transform='translate({$longestStreakOffset}, {$longestStreakHeightOffset[1]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["sideLabels"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.3s'>
                         {$longestStreakText}
                     </text>
                 </g>
 
                 <!-- Longest Streak range -->
-                <g transform='translate({$longestStreakOffset}, {$longestStreakOffsetHeight[2]})'>
+                <g transform='translate({$longestStreakOffset}, {$longestStreakHeightOffset[2]})'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='{$theme["dates"]}' stroke='none' font-family='\"Segoe UI\", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.4s'>
                         {$longestStreakRange}
                     </text>
@@ -614,9 +611,8 @@ function generateErrorCard(string $message, array $params = null): string
     // read card_height parameter
     $cardHeight = getCardHeight($params);
     $rectHeight = $cardHeight - 1;
-    $offsetHeight = ($cardHeight - 195) / 2;
-    $centerOffsetHeight = $cardHeight / 2;
-    $errorLabelOffset = $centerOffsetHeight + 10.5;
+    $heightOffset = ($cardHeight - 195) / 2;
+    $errorLabelOffset = $cardHeight / 2 + 10.5;
 
     return "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='isolation: isolate' viewBox='0 0 {$cardWidth} {$cardHeight}' width='{$cardWidth}px' height='{$cardHeight}px'>
         <style>
@@ -650,7 +646,7 @@ function generateErrorCard(string $message, array $params = null): string
                     </mask>
                 </defs>
                 <!-- Sad face -->
-                <g transform='translate({$centerOffset}, {$offsetHeight})'>
+                <g transform='translate({$centerOffset}, {$heightOffset})'>
                     <path fill='{$theme["fire"]}' d='M0,35.8c-25.2,0-45.7,20.5-45.7,45.7s20.5,45.8,45.7,45.8s45.7-20.5,45.7-45.7S25.2,35.8,0,35.8z M0,122.3c-11.2,0-21.4-4.5-28.8-11.9c-2.9-2.9-5.4-6.3-7.4-10c-3-5.7-4.6-12.1-4.6-18.9c0-22.5,18.3-40.8,40.8-40.8 c10.7,0,20.4,4.1,27.7,10.9c3.8,3.5,6.9,7.7,9.1,12.4c2.6,5.3,4,11.3,4,17.6C40.8,104.1,22.5,122.3,0,122.3z'/>
                     <path fill='{$theme["fire"]}' d='M4.8,93.8c5.4,1.1,10.3,4.2,13.7,8.6l3.9-3c-4.1-5.3-10-9-16.6-10.4c-10.6-2.2-21.7,1.9-28.3,10.4l3.9,3 C-13.1,95.3-3.9,91.9,4.8,93.8z'/>
                     <circle fill='{$theme["fire"]}' cx='-15' cy='71' r='4.9'/>
