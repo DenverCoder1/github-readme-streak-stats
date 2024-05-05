@@ -178,13 +178,13 @@ function camelToSkewer(string $str): string
                 <input type="hidden" id="sections" name="sections" class="param" value="total,current,longest"/>
             </div>
 
-            <label for="card-height">Card Height</label>
-            <input class="param" type="number" id="card-height" name="card_height" placeholder="195" value="195" step="1"
-                   min="100"/>
-
             <label for="card-width">Card Width</label>
             <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1"
                    min="300"/>
+
+            <label for="card-height">Card Height</label>
+            <input class="param" type="number" id="card-height" name="card_height" placeholder="195" value="195" step="1"
+                   min="170"/>
 
             <label for="type">Output Type</label>
             <select class="param" id="type" name="type">

@@ -331,7 +331,7 @@ function getCardWidth(array $params, int $numColumns = 3): int
 function getCardHeight(array $params): int
 {
     $defaultHeight = 195;
-    $minimumHeight = 100;
+    $minimumHeight = 170;
     return max($minimumHeight, intval($params["card_height"] ?? $defaultHeight));
 }
 
