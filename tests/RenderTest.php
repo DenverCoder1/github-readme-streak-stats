@@ -234,6 +234,22 @@ final class RenderTest extends TestCase
     }
 
     /**
+     * Test card height option
+     */
+    public function testCardHeight(): void
+    {
+        $this->testParams["card_height"] = "300";
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertStringContainsString("viewBox='0 0 495 300' width='495px' height='300px'", $render);
+        $this->assertStringContainsString("<rect width='495' height='300' rx='4.5'/>", $render);
+        $this->assertStringContainsString("<line x1='165' y1='54.25'", $render);
+        $this->assertStringContainsString("<line x1='330' y1='54.25'", $render);
+        $this->assertStringContainsString("<g transform='translate(82.5, 100.5)'>", $render);
+        $this->assertStringContainsString("<g transform='translate(247.5, 100.5)'>", $render);
+        $this->assertStringContainsString("<g transform='translate(412.5, 100.5)'>", $render);
+    }
+
+    /**
      * Test first and third columns swapped when direction is rtl
      */
     public function testFirstAndThirdColumnsSwappedWhenDirectionIsRtl(): void
@@ -242,11 +258,11 @@ final class RenderTest extends TestCase
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $renderCollapsedSpaces = preg_replace("/(\s)\s*/", '$1', $render);
         $this->assertStringContainsString(
-            "<!-- Total Contributions big number -->\n<g transform='translate(412.5,48)'>",
+            "<!-- Total Contributions big number -->\n<g transform='translate(412.5, 48)'>",
             $renderCollapsedSpaces
         );
         $this->assertStringContainsString(
-            "<!-- Longest Streak big number -->\n<g transform='translate(82.5,48)'>",
+            "<!-- Longest Streak big number -->\n<g transform='translate(82.5, 48)'>",
             $renderCollapsedSpaces
         );
     }

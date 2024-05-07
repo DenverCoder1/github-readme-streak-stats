@@ -15,6 +15,7 @@ const preview = {
     type: "svg",
     exclude_days: "",
     card_width: "495",
+    card_height: "195",
     hide_total_contributions: "false",
     hide_current_streak: "false",
     hide_longest_streak: "false",

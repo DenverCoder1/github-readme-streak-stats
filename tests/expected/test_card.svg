@@ -31,21 +31,21 @@
             </g>
             <g style='isolation: isolate'>
                 <!-- Total Contributions big number -->
-                <g transform='translate(82.5,48)'>
+                <g transform='translate(82.5, 48)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#666666' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.6s'>
                         2,048
                     </text>
                 </g>
 
                 <!-- Total Contributions label -->
-                <g transform='translate(82.5,84)'>
+                <g transform='translate(82.5, 84)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#888888' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.7s'>
                         Total Contributions
                     </text>
                 </g>
 
                 <!-- Total Contributions range -->
-                <g transform='translate(82.5,114)'>
+                <g transform='translate(82.5, 114)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#999999' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.8s'>
                         Aug 10, 2016 - Present
                     </text>
@@ -53,21 +53,21 @@
             </g>
             <g style='isolation: isolate'>
                 <!-- Current Streak big number -->
-                <g transform='translate(247.5,48)'>
+                <g transform='translate(247.5, 48)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#555555' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='animation: currstreak 0.6s linear forwards'>
                         16
                     </text>
                 </g>
 
                 <!-- Current Streak label -->
-                <g transform='translate(247.5,108)'>
+                <g transform='translate(247.5, 108)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#777777' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='700' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         Current Streak
                     </text>
                 </g>
 
                 <!-- Current Streak range -->
-                <g transform='translate(247.5,145)'>
+                <g transform='translate(247.5, 145)'>
                     <text x='0' y='21' stroke-width='0' text-anchor='middle' fill='#999999' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 0.9s'>
                         Mar 28, 2019 - Apr 12, 2019
                     </text>
@@ -86,21 +86,21 @@
             </g>
             <g style='isolation: isolate'>
                 <!-- Longest Streak big number -->
-                <g transform='translate(412.5,48)'>
+                <g transform='translate(412.5, 48)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#666666' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='700' font-size='28px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.2s'>
                         86
                     </text>
                 </g>
 
                 <!-- Longest Streak label -->
-                <g transform='translate(412.5,84)'>
+                <g transform='translate(412.5, 84)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#888888' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='14px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.3s'>
                         Longest Streak
                     </text>
                 </g>
 
                 <!-- Longest Streak range -->
-                <g transform='translate(412.5,114)'>
+                <g transform='translate(412.5, 114)'>
                     <text x='0' y='32' stroke-width='0' text-anchor='middle' fill='#999999' stroke='none' font-family='"Segoe UI", Ubuntu, sans-serif' font-weight='400' font-size='12px' font-style='normal' style='opacity: 0; animation: fadein 0.5s linear forwards 1.4s'>
                         Dec 19, 2016 - Mar 14, 2016
                     </text>

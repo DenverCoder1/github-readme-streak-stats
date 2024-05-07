@@ -162,6 +162,15 @@ return [
         "Present" => "Aujourd'hui",
         "Excluding {days}" => "À l'exclusion de {days}",
     ],
+    "gu" => [
+        "Total Contributions" => "કુલ યોગદાન",
+        "Current Streak" => "સતત દૈનિક યોગદાન",
+        "Longest Streak" => "સૌથી લાંબુ દૈનિક યોગદાન",
+        "Week Streak" => "અઠવાડીક યોગદાન",
+        "Longest Week Streak" => "સૌથી લાંબુ અઠવાડીક યોગદાન",
+        "Present" => "અત્યાર સુધી",
+        "Excluding {days}" => "સિવાય {days}",
+    ],
     "he" => [
         "rtl" => true,
         "Total Contributions" => "סכום התרומות",
