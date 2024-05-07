@@ -11,6 +11,9 @@ on:
       - ".github/workflows/translation-progress.yml"
       - "README.md"
 
+env:
+  PHP_VERSION: 8.2
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -20,7 +23,8 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_extensions: intl
-
+          php_version: ${{ env.PHP_VERSION }}
+  
       - name: Update Translations
         run: php scripts/translation-progress.php
 
