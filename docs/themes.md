@@ -154,7 +154,8 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `whatsapp-dark2`        | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/86386385/4b41e537-368f-4f67-a1e6-81ca757ce5f7) |
 |       `travelers-theme`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/45b0bb8c-fb88-4f2e-ad97-665db6bce4a7) |
 |        `youtube-dark`         | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/62086478/6f774511-2477-46d2-b7bd-de3a57a3ca78) |
-|        `meta`         | ![image](/src/assets/meta-preview.png) |
+|        `meta-light`         | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/105522342/c9429386-0b15-4efc-9bf0-c67f4aec05d4) |
+|        `meta-dark`         | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/105522342/62119e5a-29fc-4285-ac5d-4125c49dff8c) |
 
 ### Can't find the theme you like?
 
