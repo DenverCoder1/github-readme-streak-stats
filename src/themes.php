@@ -1900,4 +1900,17 @@ return [
         "dates" => "#BCBCBC",
         "excludeDaysLabel" => "#FFFFFF",
     ],
+    "meta" => [
+        "background" => "#FFFFFF",
+        "border" => "#1C2B33",
+        "stroke" => "#1C2B33",
+        "ring" => "#0081FB",
+        "fire" => "#006EE9",
+        "currStreakNum" => "#1C2B33",
+        "sideNums" => "#1C2B33",
+        "currStreakLabel" => "#1C2B33",
+        "sideLabels" => "#1C2B33",
+        "dates" => "#1C2B33",
+        "excludeDaysLabel" => "#1C2B33",
+    ]
 ];
