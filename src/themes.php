@@ -1900,7 +1900,7 @@ return [
         "dates" => "#BCBCBC",
         "excludeDaysLabel" => "#FFFFFF",
     ],
-    "meta" => [
+    "meta-light" => [
         "background" => "#FFFFFF",
         "border" => "#1C2B33",
         "stroke" => "#1C2B33",
@@ -1912,5 +1912,18 @@ return [
         "sideLabels" => "#1C2B33",
         "dates" => "#1C2B33",
         "excludeDaysLabel" => "#1C2B33",
+    ],
+    "meta-dark" => [
+        "background" => "#1C2B33",
+        "border" => "#FFFFFF",
+        "stroke" => "#FFFFFF",
+        "ring" => "#0081FB",
+        "fire" => "#006EE9",
+        "currStreakNum" => "#FFFFFF",
+        "sideNums" => "#FFFFFF",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#FFFFFF",
+        "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
     ]
 ];
