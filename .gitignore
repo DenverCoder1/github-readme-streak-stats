@@ -8,7 +8,6 @@ package-lock.json
 .vercel
 
 # Local Configuration
-package.json
 .DS_Store
 
 # Environment
