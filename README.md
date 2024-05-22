@@ -146,7 +146,7 @@ The longest streak is the highest number of consecutive days on which you have m
 
 The current streak is the number of consecutive days ending with the current day on which you have made at least one contribution. If you have made a contribution today, it will be counted towards the current streak, however, if you have not made a contribution today, the streak will only count days before today so that your streak will not be zero.
 
-> **Note**
+> [!NOTE]  
 > You may need to wait up to 24 hours for new contributions to show up ([Learn how contributions are counted](https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile))
 
 ## 📤 Deploying it on your own
@@ -163,12 +163,13 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
-> **Note** PNG mode is not supported since Inkscape will not be installed but the default SVG mode will work.
+> [!NOTE]  
+> PNG mode is not supported since Inkscape will not be installed but the default SVG mode will work.
 
 ### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
 
 <details>
-  <summary><b>Instructions for deploying to Vercel</b></summary>
+  <summary><b>Instructions for deploying to Vercel (Free)</b></summary>
 
 ### Step-by-step instructions for deploying to Vercel
 
@@ -190,6 +191,11 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 ![deployment](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
 
+> ⚠️ **Note**
+> If you receive an error related to libssl or Node 20.x, you can fix this by opening your Vercel project settings and changing the Node.js version to 18.x.
+>
+> ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5fb18fb5-debe-4620-9c8b-193ab442a617)
+
 #### Option 2: Deploy to Vercel manually
 
 1. Sign in to **Vercel** or create a new account at <https://vercel.com>
@@ -207,7 +213,14 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
-> **Note** To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
+> ⚠️ **Note**  
+> To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
+
+> ⚠️ **Note**  
+> If you receive an error related to libssl or Node 20.x, you can fix this by opening your Vercel project settings and changing the Node.js version to 18.x.
+>
+> ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5fb18fb5-debe-4620-9c8b-193ab442a617)
+
 
 </details>
 
@@ -216,7 +229,7 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 Heroku is another great option for hosting the files. All features are supported on Heroku and it is where the default domain is hosted. Heroku is not free, however, and you will need to pay between \$5 and \$7 per month to keep the app running. Expand the instructions below to learn how to deploy to Heroku.
 
 <details>
-  <summary><b>Instructions for deploying to Heroku</b></summary>
+  <summary><b>Instructions for deploying to Heroku (Paid)</b></summary>
   
 ### Step-by-step instructions for deploying to Heroku
   
