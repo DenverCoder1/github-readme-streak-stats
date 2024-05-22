@@ -221,7 +221,6 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 >
 > ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5fb18fb5-debe-4620-9c8b-193ab442a617)
 
-
 </details>
 
 ### [![Deploy on Heroku](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/e8b575af-5746-4200-a295-7e7baa448383)][herokudeploy]
