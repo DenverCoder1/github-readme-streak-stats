@@ -1925,5 +1925,5 @@ return [
         "sideLabels" => "#FFFFFF",
         "dates" => "#FFFFFF",
         "excludeDaysLabel" => "#FFFFFF",
-    ]
+    ],
 ];
