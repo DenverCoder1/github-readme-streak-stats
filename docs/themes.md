@@ -156,7 +156,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |        `youtube-dark`         | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/62086478/6f774511-2477-46d2-b7bd-de3a57a3ca78)  |
 |         `meta-light`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/105522342/c9429386-0b15-4efc-9bf0-c67f4aec05d4) |
 |          `meta-dark`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/105522342/62119e5a-29fc-4285-ac5d-4125c49dff8c) |
-|       `dark-minimalist`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/77511070/11ba7899-1ad3-4c4b-880b-6f9e7c285f1b) |
+|       `dark-minimalist`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/77511070/11ba7899-1ad3-4c4b-880b-6f9e7c285f1b)  |
 
 ### Can't find the theme you like?
 
