@@ -1926,4 +1926,17 @@ return [
         "dates" => "#FFFFFF",
         "excludeDaysLabel" => "#FFFFFF",
     ],
+    "dark-minimalist" => [
+        "background" => "#211F27",
+        "border" => "#B9B9C0",
+        "stroke" => "#B9B9C0",
+        "ring" => "#D484F4",
+        "fire" => "#D484F4",
+        "currStreakNum" => "#89B4FA",
+        "sideNums" => "#E5E5E5",
+        "currStreakLabel" => "#89B4FA",
+        "sideLabels" => "#E5E5E5",
+        "dates" => "#D0D1D3",
+        "excludeDaysLabel" => "#D0D1D3",
+    ],
 ];
