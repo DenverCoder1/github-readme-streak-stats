@@ -2,13 +2,11 @@
   <img src="https://i.imgur.com/GZHodUG.png" width="100px"/>
   <h3 align="center">Github Readme Streak Stats</h3>
 </p>
-
 <p align="center">
   Display your total contributions, current streak,
   <br/>
   and longest streak on your GitHub profile README
 </p>
-
 <p align="center">
   <a href="https://github.com/search?q=extension%3Amd+%22github+readme+streak+stats+herokuapp%22&type=Code" alt="Users" title="Repo users">
     <img src="https://freshidea.com/jonah/app/github-search-results/streak-stats"/></a>
@@ -263,6 +261,43 @@ Contributions are welcome! Feel free to [open an issue](https://github.com/Denve
 Make sure your request is meaningful and you have tested the app locally before submitting a pull request.
 
 Refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for more details on contributing, installing requirements, and running the application.
+
+## HOW TO CONTRIBUTE
+Contributing to a project or a community can be a rewarding experience. Here’s a guide on how you can contribute, especially to open-source projects or collaborative coding communities:
+
+1. Find a Project to Contribute to
+Explore repositories on GitHub, GitLab, or Bitbucket. Start by looking for beginner-friendly repositories. Look for tags like good first issue, beginner-friendly, or help wanted.
+Follow communities like dev.to, Reddit’s r/programming, or join coding Discord groups.
+If you want to contribute to coding tutorials or blogs, you can write for platforms like Medium, Hashnode, or even your YouTube channel!
+2. Understand the Project
+Read the README file: This gives you a summary of the project, its goals, and how you can help.
+Study contribution guidelines: Some projects have specific steps for contributing. Look for a CONTRIBUTING.md file.
+Check the project’s issue tracker: This will show bugs or feature requests that need attention.
+3. Set Up Your Environment
+Fork and clone the repository: Create a copy of the repository under your GitHub account, then clone it to your local machine.
+Set up the project locally: Follow any installation guides provided in the documentation.
+4. Pick an Issue and Solve It
+Choose a simple issue first, especially if you’re new to the project. Beginners can start with documentation improvements, bug fixes, or minor feature additions.
+Ask for clarification on issues if needed, especially if they’re tagged as beginner-friendly.
+5. Submit a Pull Request (PR)
+After making your changes, push them to your fork and submit a pull request to the original repository. Make sure to:
+Write a clear PR description.
+Link the issue you’re solving.
+Explain your changes in detail.
+Some projects may have automated tests or a review process, so be patient as maintainers review your contribution.
+6. Follow the Discussion
+Be open to feedback. Sometimes you’ll need to make revisions based on suggestions from maintainers or other contributors.
+7. Stay Engaged
+After your first contribution, keep following the project for new issues or opportunities to help.
+If you enjoy the project, you can become a long-term contributor or even a maintainer.
+8. Contributing to Your Own Projects
+You can also create and open-source your own projects! Share them with the community and encourage others to contribute.
+If you want to contribute via your YouTube channel "Code Wise With Rb", you can:
+
+Collaborate with others in creating educational content.
+Feature guest coders or developers for tutorials.
+Share your projects and ask for feedback from your viewers.
+
 
 ## 🙋‍♂️ Support
 
