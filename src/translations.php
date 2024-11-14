@@ -142,6 +142,7 @@ return [
         "Week Streak" => "پی‌رفت هفته",
         "Longest Week Streak" => "طولانی ترین پی‌رفت هفته",
         "Present" => "اکنون",
+        "Excluding {days}" => "{days} مستثنی کردن",
         "comma_separator" => "، ",
     ],
     "fil" => [
