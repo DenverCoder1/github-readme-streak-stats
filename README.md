@@ -17,7 +17,7 @@
 </p>
 
 ## ⚡ Quick setup
-
+## By Mudassir ALam
 1. Copy-paste the markdown below into your GitHub profile README
 2. Replace the value after `?user=` with your GitHub username
 
