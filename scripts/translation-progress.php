@@ -78,7 +78,7 @@ function progressToBadges(array $progress): string
             $table .= "<tr>";
         }
         $line_url = "https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/src/translations.php#L{$data["line_number"]}";
-        $table .= "<td><a href=\"{$line_url}\"><code>{$data["locale"]}</code></a> - {$data["locale_name"]}<br /><a href=\"{$line_url}\"><img src=\"https://progress-bar.dev/{$data["percentage"]}\" alt=\"{$data["locale_name"]} {$data["percentage"]}%\"></a></td>";
+        $table .= "<td><a href=\"{$line_url}\"><code>{$data["locale"]}</code></a> - {$data["locale_name"]}<br /><a href=\"{$line_url}\"><img src=\"https://progress-bar.xyz/{$data["percentage"]}\" alt=\"{$data["locale_name"]} {$data["percentage"]}%\"></a></td>";
         $i++;
         if ($i % $per_row === 0) {
             $table .= "</tr>";
