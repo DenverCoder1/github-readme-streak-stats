@@ -425,6 +425,7 @@ return [
         "Week Streak" => "Mfululizo wa wiki",
         "Longest Week Streak" => "Mfululizo mrefu zaidi wa wiki",
         "Present" => "Sasa",
+        "Excluding {days}" => "Ukiondoa {days}",
     ],
     "ta" => [
         "Total Contributions" => "மொத்த\nபங்களிப்புகள்",
