@@ -1939,4 +1939,17 @@ return [
         "dates" => "#D0D1D3",
         "excludeDaysLabel" => "#D0D1D3",
     ],
+    "telegram" => [
+        "background" => "#FFFFFF",
+        "border" => "#333333",
+        "stroke" => "#333333",
+        "ring" => "#0088CC",
+        "fire" => "#179CDE",
+        "currStreakNum" => "#179CDE",
+        "sideNums" => "#0088CC",
+        "currStreakLabel" => "#179CDE",
+        "sideLabels" => "#0088CC",
+        "dates" => "#0088CC",
+        "excludeDaysLabel" => "#0088CC"
+    ],
 ];
