@@ -157,6 +157,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |         `meta-light`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/105522342/c9429386-0b15-4efc-9bf0-c67f4aec05d4) |
 |          `meta-dark`          | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/105522342/62119e5a-29fc-4285-ac5d-4125c49dff8c) |
 |       `dark-minimalist`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/77511070/11ba7899-1ad3-4c4b-880b-6f9e7c285f1b)  |
+|          `telegram`           |                  ![image](https://github.com/user-attachments/assets/59a5d9d5-8a2a-4916-aa46-a0a49a6f0372)                 |
 
 ### Can't find the theme you like?
 
