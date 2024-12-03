@@ -1950,6 +1950,6 @@ return [
         "currStreakLabel" => "#179CDE",
         "sideLabels" => "#0088CC",
         "dates" => "#0088CC",
-        "excludeDaysLabel" => "#0088CC"
+        "excludeDaysLabel" => "#0088CC",
     ],
 ];
