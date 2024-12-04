@@ -1952,4 +1952,17 @@ return [
         "dates" => "#0088CC",
         "excludeDaysLabel" => "#0088CC",
     ],
+    "taiga" => [
+        "background" => "#031B1B",
+        "border" => "#062E2F",
+        "stroke" => "#062E2F",
+        "ring" => "#1F8F92",
+        "fire" => "#1FBABE",
+        "currStreakNum" => "#1FBABE",
+        "sideNums" => "#1F8F92",
+        "currStreakLabel" => "#1F8F92",
+        "sideLabels" => "#1FBABE",
+        "dates" => "#1F8F92",
+        "excludeDaysLabel" => "#1F8F92",
+    ],
 ];
