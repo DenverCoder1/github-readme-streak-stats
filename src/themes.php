@@ -1965,4 +1965,17 @@ return [
         "dates" => "#1F8F92",
         "excludeDaysLabel" => "#1F8F92",
     ],
+    "microsoft" => [
+        "background" => "#FFFFFF",
+        "border" => "#737373",
+        "stroke" => "#737373",
+        "ring" => "#7FBA00",
+        "fire" => "#F25022",
+        "currStreakNum" => "#00A4EF",
+        "sideNums" => "#FFB900",
+        "currStreakLabel" => "#00A4EF",
+        "sideLabels" => "#FFB900",
+        "dates" => "#7FBA00",
+        "excludeDaysLabel" => "#7FBA00",
+    ],
 ];
