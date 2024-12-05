@@ -160,6 +160,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |          `telegram`           |                 ![image](https://github.com/user-attachments/assets/59a5d9d5-8a2a-4916-aa46-a0a49a6f0372)                  |
 |            `taiga`            |                 ![image](https://github.com/user-attachments/assets/be4e961d-a13e-401a-90f8-f2b062a8c0f9)                  |
 |          `microsoft`          |                 ![image](https://github.com/user-attachments/assets/4c2cce9d-90b5-4e38-8422-656c5a78b4d9)                  |
+|       `microsoft-dark`        |                 ![image](https://github.com/user-attachments/assets/a5918d7d-f568-4012-b06f-d9cfacaece04)                  |
 
 ### Can't find the theme you like?
 
