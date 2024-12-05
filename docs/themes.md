@@ -159,6 +159,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `dark-minimalist`       | ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/77511070/11ba7899-1ad3-4c4b-880b-6f9e7c285f1b)  |
 |          `telegram`           |                 ![image](https://github.com/user-attachments/assets/59a5d9d5-8a2a-4916-aa46-a0a49a6f0372)                  |
 |            `taiga`            |                 ![image](https://github.com/user-attachments/assets/be4e961d-a13e-401a-90f8-f2b062a8c0f9)                  |
+|      `telegram-gradient`      |                 ![image](https://github.com/user-attachments/assets/985c3e04-a5dd-4cba-a66e-d43ad9668af0)                  |
 
 ### Can't find the theme you like?
 
