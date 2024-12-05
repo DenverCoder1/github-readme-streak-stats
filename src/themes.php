@@ -1965,4 +1965,17 @@ return [
         "dates" => "#1F8F92",
         "excludeDaysLabel" => "#1F8F92",
     ],
+    "telegram-gradient" => [
+        "background" => "45,0088CC,179CDE",
+        "border" => "#FFFFFF",
+        "stroke" => "#FFFFFF",
+        "ring" => "#FFFFFF",
+        "fire" => "#FFFFFF",
+        "currStreakNum" => "#FFFFFF",
+        "sideNums" => "#FFFFFF",
+        "currStreakLabel" => "#FFFFFF",
+        "sideLabels" => "#FFFFFF",
+        "dates" => "#FFFFFF",
+        "excludeDaysLabel" => "#FFFFFF",
+    ],
 ];
