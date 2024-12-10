@@ -173,6 +173,12 @@ function camelToSkewer(string $str): string
                 <label for="card-width">Card Height</label>
                 <input class="param" type="number" id="card-width" name="card_height" placeholder="195" value="195" step="1" min="170" />
 
+                <label for="short-total-contributions">Short Total Contributions</label>
+                <select class="param" id="short-total-contributions" name="short_total_contributions">
+                    <option>false</option>
+                    <option>true</option>
+                </select>
+
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">
                     <option value="svg">SVG</option>

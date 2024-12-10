@@ -49,6 +49,11 @@ final class RenderTest extends TestCase
         $render = generateCard($this->testStats, $this->testParams);
         $expected = file_get_contents("tests/expected/test_card.svg");
         $this->assertEquals($expected, $render);
+
+        // Test short_total_contributions parameter
+        $this->testParams["short_total_contributions"] = "true";
+        $render = generateCard($this->testStats, $this->testParams);
+        $this->assertStringContainsString("2K", $render);
     }
 
     /**

@@ -336,6 +336,21 @@ function getCardHeight(array $params): int
 }
 
 /**
+ * Convert large numbers into short form
+ *
+ * @param float $num The number to convert
+ * @return string The number in short form
+ */
+function shortNumber(float $num): string
+{
+    $units = ['', 'K', 'M', 'B', 'T'];
+    for ($i = 0; $num >= 1000; $i++) {
+        $num /= 1000;
+    }
+    return round($num, 1) . $units[$i];
+}
+
+/**
  * Generate SVG output for a stats array
  *
  * @param array<string,mixed> $stats Streak stats
@@ -418,12 +433,16 @@ function generateCard(array $stats, array $params = null): string
     ];
 
     // total contributions
-    $totalContributions = $numFormatter->format($stats["totalContributions"]);
+    $totalContributions = $params["short_total_contributions"] === "true"
+        ? shortNumber($stats["totalContributions"])
+        : $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
     $totalContributionsRange = $firstContribution . " - " . $localeTranslations["Present"];
 
     // current streak
-    $currentStreak = $numFormatter->format($stats["currentStreak"]["length"]);
+    $currentStreak = $params["short_total_contributions"] === "true"
+        ? shortNumber($stats["currentStreak"]["length"])
+        : $numFormatter->format($stats["currentStreak"]["length"]);
     $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat, $localeCode);
     $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat, $localeCode);
     $currentStreakRange = $currentStreakStart;
@@ -432,7 +451,9 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // longest streak
-    $longestStreak = $numFormatter->format($stats["longestStreak"]["length"]);
+    $longestStreak = $params["short_total_contributions"] === "true"
+        ? shortNumber($stats["longestStreak"]["length"])
+        : $numFormatter->format($stats["longestStreak"]["length"]);
     $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat, $localeCode);
     $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat, $localeCode);
     $longestStreakRange = $longestStreakStart;
