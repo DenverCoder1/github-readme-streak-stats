@@ -336,23 +336,26 @@ function getCardHeight(array $params): int
 }
 
 /**
- * Convert large numbers into short form
+ * Format number using locale and short number if requested
  *
- * @param float $num The number to convert
- * @param NumberFormatter $numFormatter Number formatter
- * @return string The number in short form
+ * @param float $num The number to format
+ * @param string $localeCode Locale code
+ * @param bool $useShortNumbers Whether to use short numbers
+ * @return string The formatted number
  */
-function shortNumber(float $num, NumberFormatter $numFormatter = null): string
+function formatNumber(float $num, string $localeCode, bool $useShortNumbers): string
 {
-    $units = ["", "K", "M", "B", "T"];
-    for ($i = 0; $num >= 1000; $i++) {
-        $num /= 1000;
+    $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
+    $suffix = "";
+    if ($useShortNumbers) {
+        $units = ["", "K", "M", "B", "T"];
+        for ($i = 0; $num >= 1000; $i++) {
+            $num /= 1000;
+        }
+        $suffix = $units[$i];
+        $num = round($num, 1);
     }
-    $numeric = round($num, 1);
-    if ($numFormatter) {
-        $numeric = $numFormatter->format($numeric);
-    }
-    return $numeric . $units[$i];
+    return $numFormatter->format($num) . $suffix;
 }
 
 /**
@@ -381,9 +384,6 @@ function generateCard(array $stats, array $params = null): string
     // get date format
     // locale date formatter (used only if date_format is not specified)
     $dateFormat = $params["date_format"] ?? ($localeTranslations["date_format"] ?? null);
-
-    // number formatter
-    $numFormatter = new NumberFormatter($localeCode, NumberFormatter::DECIMAL);
 
     // read border_radius parameter, default to 4.5 if not set
     $borderRadius = $params["border_radius"] ?? 4.5;
@@ -440,16 +440,12 @@ function generateCard(array $stats, array $params = null): string
     $useShortNumbers = ($params["short_numbers"] ?? "") === "true";
 
     // total contributions
-    $totalContributions = $useShortNumbers
-        ? shortNumber($stats["totalContributions"], $numFormatter)
-        : $numFormatter->format($stats["totalContributions"]);
+    $totalContributions = formatNumber($stats["totalContributions"], $localeCode, $useShortNumbers);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
     $totalContributionsRange = $firstContribution . " - " . $localeTranslations["Present"];
 
     // current streak
-    $currentStreak = $useShortNumbers
-        ? shortNumber($stats["currentStreak"]["length"], $numFormatter)
-        : $numFormatter->format($stats["currentStreak"]["length"]);
+    $currentStreak = formatNumber($stats["currentStreak"]["length"], $localeCode, $useShortNumbers);
     $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat, $localeCode);
     $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat, $localeCode);
     $currentStreakRange = $currentStreakStart;
@@ -458,9 +454,7 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // longest streak
-    $longestStreak = $useShortNumbers
-        ? shortNumber($stats["longestStreak"]["length"], $numFormatter)
-        : $numFormatter->format($stats["longestStreak"]["length"]);
+    $longestStreak = formatNumber($stats["longestStreak"]["length"], $localeCode, $useShortNumbers);
     $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat, $localeCode);
     $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat, $localeCode);
     $longestStreakRange = $longestStreakStart;
