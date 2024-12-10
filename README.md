@@ -191,11 +191,6 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 ![deployment](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/32092461-5983-4fed-b21b-29be55ed85e8)
 
-> ⚠️ **Note**
-> If you receive an error related to libssl or Node 20.x, you can fix this by opening your Vercel project settings and changing the Node.js version to 18.x.
->
-> ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5fb18fb5-debe-4620-9c8b-193ab442a617)
-
 #### Option 2: Deploy to Vercel manually
 
 1. Sign in to **Vercel** or create a new account at <https://vercel.com>
@@ -215,11 +210,6 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 > ⚠️ **Note**  
 > To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
-
-> ⚠️ **Note**  
-> If you receive an error related to libssl or Node 20.x, you can fix this by opening your Vercel project settings and changing the Node.js version to 18.x.
->
-> ![image](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5fb18fb5-debe-4620-9c8b-193ab442a617)
 
 </details>
 
