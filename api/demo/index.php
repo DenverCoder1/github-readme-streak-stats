@@ -131,6 +131,12 @@ function fileModifiedTime(string $filename): int
                     <?php endforeach; ?>
                 </select>
 
+                <label for="short-numbers">Short Numbers</label>
+                <select class="param" id="short-numbers" name="short_numbers">
+                    <option>false</option>
+                    <option>true</option>
+                </select>
+
                 <label for="date-format">Date Format</label>
                 <select class="param" id="date-format" name="date_format">
                     <option value="">default</option>

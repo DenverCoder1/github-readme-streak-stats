@@ -19,6 +19,7 @@ const preview = {
     hide_total_contributions: "false",
     hide_current_streak: "false",
     hide_longest_streak: "false",
+    short_numbers: "false",
   },
 
   /**
