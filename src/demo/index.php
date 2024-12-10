@@ -46,7 +46,7 @@ function camelToSkewer(string $str): string
         gtag('config', 'G-48CYVH0XEF');
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
-    <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
+    <link href="https://css-gg-cdn.pages.dev/css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=<?= filemtime("./css/style.css") ?>">
     <link rel="stylesheet" href="./css/toggle-dark.css?v=<?= filemtime("./css/toggle-dark.css") ?>">
 
