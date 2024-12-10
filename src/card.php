@@ -339,15 +339,20 @@ function getCardHeight(array $params): int
  * Convert large numbers into short form
  *
  * @param float $num The number to convert
+ * @param NumberFormatter $numFormatter Number formatter
  * @return string The number in short form
  */
-function shortNumber(float $num): string
+function shortNumber(float $num, NumberFormatter $numFormatter = null): string
 {
     $units = ["", "K", "M", "B", "T"];
     for ($i = 0; $num >= 1000; $i++) {
         $num /= 1000;
     }
-    return round($num, 1) . $units[$i];
+    $numeric = round($num, 1);
+    if ($numFormatter) {
+        $numeric = $numFormatter->format($numeric);
+    }
+    return $numeric . $units[$i];
 }
 
 /**
@@ -432,19 +437,19 @@ function generateCard(array $stats, array $params = null): string
         19.5 + $heightOffset,
     ];
 
+    $useShortNumbers = ($params["short_numbers"] ?? "") === "true";
+
     // total contributions
-    $totalContributions =
-        $params["short_total_contributions"] === "true"
-            ? shortNumber($stats["totalContributions"])
-            : $numFormatter->format($stats["totalContributions"]);
+    $totalContributions = $useShortNumbers
+        ? shortNumber($stats["totalContributions"], $numFormatter)
+        : $numFormatter->format($stats["totalContributions"]);
     $firstContribution = formatDate($stats["firstContribution"], $dateFormat, $localeCode);
     $totalContributionsRange = $firstContribution . " - " . $localeTranslations["Present"];
 
     // current streak
-    $currentStreak =
-        $params["short_total_contributions"] === "true"
-            ? shortNumber($stats["currentStreak"]["length"])
-            : $numFormatter->format($stats["currentStreak"]["length"]);
+    $currentStreak = $useShortNumbers
+        ? shortNumber($stats["currentStreak"]["length"], $numFormatter)
+        : $numFormatter->format($stats["currentStreak"]["length"]);
     $currentStreakStart = formatDate($stats["currentStreak"]["start"], $dateFormat, $localeCode);
     $currentStreakEnd = formatDate($stats["currentStreak"]["end"], $dateFormat, $localeCode);
     $currentStreakRange = $currentStreakStart;
@@ -453,10 +458,9 @@ function generateCard(array $stats, array $params = null): string
     }
 
     // longest streak
-    $longestStreak =
-        $params["short_total_contributions"] === "true"
-            ? shortNumber($stats["longestStreak"]["length"])
-            : $numFormatter->format($stats["longestStreak"]["length"]);
+    $longestStreak = $useShortNumbers
+        ? shortNumber($stats["longestStreak"]["length"], $numFormatter)
+        : $numFormatter->format($stats["longestStreak"]["length"]);
     $longestStreakStart = formatDate($stats["longestStreak"]["start"], $dateFormat, $localeCode);
     $longestStreakEnd = formatDate($stats["longestStreak"]["end"], $dateFormat, $localeCode);
     $longestStreakRange = $longestStreakStart;
