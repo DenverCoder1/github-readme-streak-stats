@@ -162,6 +162,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |      `telegram-gradient`      |                 ![image](https://github.com/user-attachments/assets/985c3e04-a5dd-4cba-a66e-d43ad9668af0)                  |
 |          `microsoft`          |                 ![image](https://github.com/user-attachments/assets/4c2cce9d-90b5-4e38-8422-656c5a78b4d9)                  |
 |       `microsoft-dark`        |                 ![image](https://github.com/user-attachments/assets/a5918d7d-f568-4012-b06f-d9cfacaece04)                  |
+|       `hacker-inverted`       |                 ![image](https://github.com/user-attachments/assets/b64c136a-827b-4177-98f9-28db59bba0ef)                  |
 
 ### Can't find the theme you like?
 
