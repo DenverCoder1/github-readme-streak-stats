@@ -2004,4 +2004,17 @@ return [
         "dates" => "#7FBA00",
         "excludeDaysLabel" => "#7FBA00",
     ],
+    "hacker-inverted" => [
+        "background" => "#20C20E",
+        "border" => "#000000",
+        "stroke" => "#000000",
+        "ring" => "#000000",
+        "fire" => "#000000",
+        "currStreakNum" => "#000000",
+        "sideNums" => "#000000",
+        "currStreakLabel" => "#000000",
+        "sideLabels" => "#000000",
+        "dates" => "#000000",
+        "excludeDaysLabel" => "#000000",
+    ],
 ];
