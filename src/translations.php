@@ -72,6 +72,15 @@ return [
         "Longest Week Streak" => "Най-дълга седмична серия",
         "Present" => "Сега",
     ],
+    "bho_IN" => [
+        "Total Contributions" => "कुल योगदान",
+        "Current Streak" => "चालू रोजाना योगदान",
+        "Longest Streak" => "सबसे लंबा रोजाना योगदान",
+        "Week Streak" => "सप्ताहिक योगदान",
+        "Longest Week Streak" => "सबसे लंबा सप्ताहिक योगदान",
+        "Present" => "आज ले",
+        "Excluding {days}" => "{days} के छोड़के",
+    ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
         "Current Streak" => "কারেন্ট স্ট্রীক",
