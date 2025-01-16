@@ -72,7 +72,7 @@ return [
         "Longest Week Streak" => "Най-дълга седмична серия",
         "Present" => "Сега",
     ],
-    "bho_IN" => [
+    "bho" => [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "चालू रोजाना योगदान",
         "Longest Streak" => "सबसे लंबा रोजाना योगदान",
