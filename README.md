@@ -278,6 +278,9 @@ Refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for more details on contributing, i
 
 ---
 
+### Use this Link to create your GitHub Stats
+[GitHub Stats](https://github-readme-streak-stats-orcin-ten.vercel.app/demo/?user=Tharun007-TK&theme=synthwave&hide_border=true&border_radius=4.7&locale=en&short_numbers=true&date_format=M+j%5B%2C+Y%5D&mode=daily&exclude_days=&sections=total%2Ccurrent%2Clongest&card_width=495&card_height=195&type=svg&background-type=gradient&properties=border)
+
 Made with ❤️ and PHP
 
 <a href="https://heroku.com/"><img alt="Powered by Heroku" title="Powered by Heroku" src="https://img.shields.io/badge/-Powered%20by%20Heroku-6567a5?style=for-the-badge&logo=heroku&logoColor=white"/></a>
