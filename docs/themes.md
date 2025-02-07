@@ -163,6 +163,8 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |          `microsoft`          |                 ![image](https://github.com/user-attachments/assets/4c2cce9d-90b5-4e38-8422-656c5a78b4d9)                  |
 |       `microsoft-dark`        |                 ![image](https://github.com/user-attachments/assets/a5918d7d-f568-4012-b06f-d9cfacaece04)                  |
 |       `hacker-inverted`       |                 ![image](https://github.com/user-attachments/assets/b64c136a-827b-4177-98f9-28db59bba0ef)                  |
+|      `rust-ferris-light`      |                 ![image](https://github.com/user-attachments/assets/2e1d175f-c39d-4e56-be41-d9c277f1e83a)                  |
+|      `rust-ferris-dark`       |                 ![image](https://github.com/user-attachments/assets/05e3f9ac-708d-415d-990f-ede3d0a84bab)                  |
 
 ### Can't find the theme you like?
 
