@@ -2043,4 +2043,17 @@ return [
         "dates" => "#F66200",
         "excludeDaysLabel" => "#F66200",
     ],
+    "cyber-streakglow" => [
+        "background" => "42,E20FEB,0D00EB",
+        "border" => "#00EBE1",
+        "stroke" => "#0FEB00",
+        "ring" => "#5AEB59",
+        "fire" => "#DDEB00",
+        "currStreakNum" => "#EBEBEB",
+        "sideNums" => "#D6EBC0",
+        "currStreakLabel" => "#46EB00",
+        "sideLabels" => "#64E8EB",
+        "dates" => "#EBEBEB",
+        "excludeDaysLabel" => "#A7EB3F",
+    ],
 ];
