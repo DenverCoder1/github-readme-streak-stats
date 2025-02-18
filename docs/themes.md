@@ -163,6 +163,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |          `microsoft`          |                 ![image](https://github.com/user-attachments/assets/4c2cce9d-90b5-4e38-8422-656c5a78b4d9)                  |
 |       `microsoft-dark`        |                 ![image](https://github.com/user-attachments/assets/a5918d7d-f568-4012-b06f-d9cfacaece04)                  |
 |       `hacker-inverted`       |                 ![image](https://github.com/user-attachments/assets/b64c136a-827b-4177-98f9-28db59bba0ef)                  |
+|      `cyber-streakglow`       |                 ![image](https://github.com/user-attachments/assets/8c6108e1-f3a1-4653-9f68-08ed6dcfc498)                  |
 
 ### Can't find the theme you like?
 
