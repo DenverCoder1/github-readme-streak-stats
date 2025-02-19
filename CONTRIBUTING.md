@@ -41,6 +41,46 @@ Install PHP from [XAMPP](https://www.apachefriends.org/index.html) or [php.net](
 
 [📥 Download Composer](https://getcomposer.org/download/)
 
+#### Docker
+
+Docker provides an easier way to set up the development environment with all dependencies pre-configured.
+
+##### Requirements
+
+- Docker
+- Docker Compose (optional, but recommended)
+
+##### Quick setup
+
+1. Start the container using Docker:
+
+```
+docker run -d --network host --name streak-stats --restart unless-stopped -e TOKEN=<your-github-token> -e APPPORT=9000 qcdev/github-readme-streak-stats
+```
+
+> [!TIP]
+> You can set the APPPORT for a more suitable Port depending your need.
+
+##### Using docker compose
+
+1. Export your Github Token:
+
+```sh
+export TOKEN=<your-github-token>
+```
+2. Get the [docker-compose.yml file](https://github.com/qcoudeyr/Docker-github-readme-streak-stats/blob/main/docker-compose.yml) from this [repo](https://github.com/qcoudeyr/Docker-github-readme-streak-stats).
+
+3. Start the container using Docker Compose:
+
+```sh
+docker-compose up -d
+```
+
+The service will be available at `http://localhost:9000`
+
+> [!Note]
+> You will need a reverse proxy open to the public internet for external use. For simple public use (like Github), consider using the [Vercel installation](https://github.com/DenverCoder1/github-readme-streak-stats) instead.
+
 ### Clone the repository
 
 ```
@@ -77,6 +117,9 @@ composer start
 Open http://localhost:8000/?user=DenverCoder1 to run the project locally
 
 Open http://localhost:8000/demo/ to run the demo site
+
+For Docker installation:
+Open http://localhost:9000/?user=DenverCoder1 (or your configured port)
 
 ### Running the tests
 
