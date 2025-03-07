@@ -31,7 +31,7 @@
       "php -S localhost:8000 -t src"
     ],
     "test": "./vendor/bin/phpunit --testdox tests",
-    "lint": "./node_modules/.bin/prettier --check *.md **/*.{php,md,js,css}",
-    "lint-fix": "./node_modules/.bin/prettier --write *.md **/*.{php,md,js,css}"
+    "lint": "npx prettier --check *.md **/*.{php,md,js,css}",
+    "lint-fix": "npx prettier --write *.md **/*.{php,md,js,css}"
   }
 }
