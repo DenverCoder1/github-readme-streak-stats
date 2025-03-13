@@ -232,7 +232,7 @@ return [
         "Week Streak" => "Aksi Mingguan",
         "Longest Week Streak" => "Aksi Mingguan Terpanjang",
         "Present" => "Sekarang",
-        "Excluding {days}" => "Tidak termasuk {days}",
+        "Excluding {days}" => "Kecuali {days}",
     ],
     "it" => [
         "Total Contributions" => "Contributi Totali",
