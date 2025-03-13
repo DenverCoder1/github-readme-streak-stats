@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install prettier and plugin-php
-        run: npm install --global prettier@2.8.1 @prettier/plugin-php@0.18.9
+        run: npm i
 
       - name: Lint with Prettier
         continue-on-error: true
