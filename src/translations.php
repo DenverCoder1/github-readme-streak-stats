@@ -297,7 +297,7 @@ return [
         "Week Streak" => "Tindakan Setiap Minggu",
         "Longest Week Streak" => "Tindakan Setiap Minggu Terpanjang",
         "Present" => "Sekarang",
-        "Excluding {days}" => "Mengecualikan {days}",
+        "Excluding {days}" => "Kecuali {days}",
     ],
     "my" => [
         "Total Contributions" => "စုစုပေါင်း ပံ့ပိုးမှုများ",
