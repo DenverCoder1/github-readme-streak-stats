@@ -47,6 +47,11 @@ body {
   font-family: Segoe UI, Ubuntu, sans-serif;
   padding-top: 10px;
   color: var(--text);
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .github {
