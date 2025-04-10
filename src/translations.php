@@ -516,7 +516,7 @@ return [
         "Current Streak" => "目前連續貢獻",
         "Longest Streak" => "最長連續貢獻",
         "Week Streak" => "周連續貢獻",
-        "Longest Week Streak" => "最常周連續貢獻",
+        "Longest Week Streak" => "最長周連續貢獻",
         "Present" => "至今",
         "Excluding {days}" => "除外 {days}",
         "comma_separator" => "、",
