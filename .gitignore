@@ -12,6 +12,7 @@ package-lock.json
 
 # Environment
 .env
+.php-version
 DOCKER_ENV
 docker_tag
 
