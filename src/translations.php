@@ -88,6 +88,7 @@ return [
         "Week Streak" => "সপ্তাহ স্ট্রীক",
         "Longest Week Streak" => "দীর্ঘতম সপ্তাহ স্ট্রিক",
         "Present" => "বর্তমান",
+        "Excluding {days}" => "{days} বাদে",
     ],
     "ca" => [
         "Total Contributions" => "Aportacions totals",
