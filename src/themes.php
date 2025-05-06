@@ -2056,4 +2056,17 @@ return [
         "dates" => "#EBEBEB",
         "excludeDaysLabel" => "#A7EB3F",
     ],
+    "Vitesse" => [
+        "background" => "#000000",
+        "border" => "#4D9375",
+        "stroke" => "#5D99A9",
+        "ring" => "#4D9375",
+        "fire" => "#CB7676",
+        "currStreakNum" => "#B8A965",
+        "sideNums" => "#4D9375",
+        "currStreakLabel" => "#80A665",
+        "sideLabels" => "#80A665",
+        "dates" => "#BD976A",
+        "excludeDaysLabel" => "#758575DD",
+    ],
 ];
