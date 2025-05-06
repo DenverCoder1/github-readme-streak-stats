@@ -83,11 +83,12 @@ return [
     ],
     "bn" => [
         "Total Contributions" => "মোট অবদান",
-        "Current Streak" => "কারেন্ট স্ট্রীক",
+        "Current Streak" => "বর্তমান স্ট্রিক",
         "Longest Streak" => "দীর্ঘতম স্ট্রিক",
-        "Week Streak" => "সপ্তাহ স্ট্রীক",
+        "Week Streak" => "সপ্তাহ স্ট্রিক",
         "Longest Week Streak" => "দীর্ঘতম সপ্তাহ স্ট্রিক",
         "Present" => "বর্তমান",
+        "Excluding {days}" => "{days} বাদে",
     ],
     "ca" => [
         "Total Contributions" => "Aportacions totals",
