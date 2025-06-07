@@ -300,6 +300,15 @@ return [
         "Present" => "Sekarang",
         "Excluding {days}" => "Kecuali {days}",
     ],
+    "ms_ID" => [
+        "Total Contributions" => "Total Kontribusi",
+        "Current Streak" => "Rangkaian Saat Ini",
+        "Longest Streak" => "Rangkaian Terpanjang",
+        "Week Streak" => "Rangkaian Mingguan",
+        "Longest Week Streak" => "Rangkaian Mingguan Terpanjang",
+        "Present" => "Sekarang",
+        "Excluding {days}" => "Tidak termasuk {days}",
+    ],
     "my" => [
         "Total Contributions" => "စုစုပေါင်း ပံ့ပိုးမှုများ",
         "Current Streak" => "ယနေ့ထိ မပျက်မကွက် ပံ့ပိုးမှုရက်ပေါင်း",
