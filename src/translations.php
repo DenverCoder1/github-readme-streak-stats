@@ -365,6 +365,15 @@ return [
         "comma_separator" => "، ",
         "Excluding {days}" => "پرته {days}",
     ],
+    "pt" => [
+        "Total Contributions" => "Contribuições Totais",
+        "Current Streak" => "Sequência Atual",
+        "Longest Streak" => "Maior Sequência",
+        "Week Streak" => "Sequência da Semana",
+        "Longest Week Streak" => "Maior Sequência da Semana",
+        "Present" => "Presente",
+        "Excluding {days}" => "Excluindo {days}",
+    ],
     "pt_BR" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Sequência Atual",
