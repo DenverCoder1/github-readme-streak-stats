@@ -462,6 +462,7 @@ return [
         "Week Streak" => "வார\nபங்களிப்புகள்",
         "Longest Week Streak" => "நீண்ட வார\nபங்களிப்புகள்",
         "Present" => "இன்றுவரை",
+        "Excluding {days}" => "{days} தவிர",
     ],
     "th" => [
         "Total Contributions" => "คอนทริบิ้วต์ทั้งหมด",
