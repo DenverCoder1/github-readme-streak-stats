@@ -253,6 +253,39 @@ Heroku is another great option for hosting the files. All features are supported
 
 You can transfer the files to any webserver using FTP or other means, then refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for installation steps.
 
+### 🐳 Docker
+
+Docker is a great option for self-hosting with full control over your environment. All features are supported including PNG rendering with Inkscape. Expand the instructions below to learn how to deploy with Docker.
+
+<details>
+  <summary><b>Instructions for deploying with Docker</b></summary>
+
+### Step-by-step instructions for deploying with Docker
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
+   cd github-readme-streak-stats
+   ```
+
+2. Visit https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats to create a new Personal Access Token (no scopes required)
+
+3. Scroll to the bottom and click "Generate token"
+
+4. Build the Docker image:
+   ```bash
+   docker build -t streak-stats .
+   ```
+
+5. Run the container with your GitHub token:
+   ```bash
+   docker run -d -p 8080:80 -e TOKEN=your_github_token_here streak-stats
+   ```
+
+6. Visit http://localhost:8080 to access your self-hosted instance
+
+</details>
+
 [hspace]: https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png
 [verceldeploy]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats
 [herokudeploy]: https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main
