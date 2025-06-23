@@ -37,8 +37,11 @@ PassEnv TOKEN\n\
         Options -Indexes\n\
         AllowOverride None\n\
         Require all granted\n\
-        Header always set X-Content-Type-Options nosniff\n\
-        Header always set X-Frame-Options DENY\n\
+        Header always set Access-Control-Allow-Origin "*"\n\
+        Header always set Content-Type "image/svg+xml" "expr=%{REQUEST_URI} =~ m#\\.svg$#i"\n\
+        Header always set Content-Security-Policy "default-src 'none'; style-src 'unsafe-inline'; img-src data:;" "expr=%{REQUEST_URI} =~ m#\\.svg$#i"\n\
+        Header always set Referrer-Policy "no-referrer-when-downgrade"\n\
+        Header always set X-Content-Type-Options "nosniff"\n\
     </Directory>\n\
     ErrorLog ${APACHE_LOG_DIR}/error.log\n\
     CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
