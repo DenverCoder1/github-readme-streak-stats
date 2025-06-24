@@ -1,5 +1,5 @@
-# Use official PHP with Apache
-FROM php:8.2-apache
+# Use PHP 8.3 (8.4 not supported yet)
+FROM php:8.3-apache@sha256:6be4ef702b2dd05352f7e5fe14667696a4ad091c9d2ad9083becbee4300dc3b1
 
 # Install system dependencies and PHP extensions in one layer
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer/composer:latest-bin@sha256:c9bda63056674836406cacfbbdd8ef770fb4692ac419c967034225213c64e11b /composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
