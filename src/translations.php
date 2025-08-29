@@ -280,7 +280,7 @@ return [
         "Week Streak" => "주간 연속 기여 수",
         "Longest Week Streak" => "최장 주간 연속 기여 수",
         "Present" => "현재",
-        "Excluding {days}" => "{days} 제외하고",
+        "Excluding {days}" => "{days}를 제외하고",
     ],
     "mr" => [
         "Total Contributions" => "एकूण योगदान",
