@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.18.8",
