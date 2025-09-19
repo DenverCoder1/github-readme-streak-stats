@@ -541,4 +541,15 @@ return [
         "Excluding {days}" => "除外 {days}",
         "comma_separator" => "、",
     ],
+    "mal" => [
+        "Total Contributions" => "മൊത്തം സംഭാവനകൾ",
+        "Current Streak" => "നിലവിലെ സ്ട്രീക്ക്",
+        "Longest Streak" => "
+ഏറ്റവും ദൈർഘ്യമേറിയ സ്ട്രീക്ക്",
+        "Week Streak" => "പ്രതിവാര സ്ട്രീക്ക്",
+        "Longest Week Streak" => "ദൈർഘ്യമേറിയ ആഴ്ച സ്‌ട്രീക്ക്",
+        "Present" => "ഇപ്പം",
+        "Excluding {days}" => "{days} ഒഴികെ",
+        "comma_separator" => "、",
+    ],
 ];
