@@ -420,14 +420,24 @@ return [
         "Excluding {days}" => "نڪتل {days}",
         "comma_separator" => "، ",
     ],
-    "sr" => [
-        "Total Contributions" => "Укупно додавања",
+    "sr" => "sr_Cyrl",
+    "sr_Cyrl" => [
+        "Total Contributions" => "Укупно доприноса",
         "Current Streak" => "Тренутна серија",
         "Longest Streak" => "Најдужа серија",
         "Week Streak" => "Недељна серија",
-        "Longest Week Streak" => "Најдужа недељена серија",
+        "Longest Week Streak" => "Најдужа недељна серија",
         "Present" => "Данас",
         "Excluding {days}" => "Искључујући {days}",
+    ],
+    "sr_Latn" => [
+        "Total Contributions" => "Ukupno doprinosa",
+        "Current Streak" => "Trenutna serija",
+        "Longest Streak" => "Najduža serija",
+        "Week Streak" => "Nedeljna serija",
+        "Longest Week Streak" => "Najduža nedeljna serija",
+        "Present" => "Danas",
+        "Excluding {days}" => "Isključujući {days}",
     ],
     "su" => [
         "Total Contributions" => "Total Kontribusi",
