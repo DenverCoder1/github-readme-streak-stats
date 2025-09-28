@@ -2069,7 +2069,7 @@ return [
         "dates" => "#BD976A",
         "excludeDaysLabel" => "#758575DD",
     ],
-        "aura" => [
+        "dark-aura" => [
         "background" => "#760A11", 
         "border" => "#310C69C5",  
         "stroke" => "#FF1D5E",     
