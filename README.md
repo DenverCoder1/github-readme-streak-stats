@@ -263,6 +263,7 @@ Docker is a great option for self-hosting with full control over your environmen
 ### Step-by-step instructions for deploying with Docker
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/DenverCoder1/github-readme-streak-stats.git
    cd github-readme-streak-stats
@@ -273,11 +274,13 @@ Docker is a great option for self-hosting with full control over your environmen
 3. Scroll to the bottom and click "Generate token"
 
 4. Build the Docker image:
+
    ```bash
    docker build -t streak-stats .
    ```
 
 5. Run the container with your GitHub token:
+
    ```bash
    docker run -d -p 8080:80 -e TOKEN=your_github_token_here streak-stats
    ```
