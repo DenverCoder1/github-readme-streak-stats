@@ -261,14 +261,13 @@ final class RenderTest extends TestCase
     {
         $this->testParams["locale"] = "he";
         $render = generateOutput($this->testStats, $this->testParams)["body"];
-        $renderCollapsedSpaces = preg_replace("/(\s)\s*/", '$1', $render);
-        $this->assertStringContainsString(
-            "<!-- Total Contributions big number -->\n<g transform='translate(412.5, 48)'>",
-            $renderCollapsedSpaces
+        $this->assertMatchesRegularExpression(
+            "/<!-- Total Contributions big number -->\\s*<g transform='translate\\(412\\.5, 48\\)'>/",
+            $render
         );
-        $this->assertStringContainsString(
-            "<!-- Longest Streak big number -->\n<g transform='translate(82.5, 48)'>",
-            $renderCollapsedSpaces
+        $this->assertMatchesRegularExpression(
+            "/<!-- Longest Streak big number -->\\s*<g transform='translate\\(82\\.5, 48\\)'>/",
+            $render
         );
     }
 

@@ -31,7 +31,7 @@
       "php -S localhost:8000 -t api"
     ],
     "test": "./vendor/bin/phpunit --testdox tests",
-    "lint": "prettier --check *.md **/*.{php,md,js,css} !**/*.min.js --print-width 120",
-    "lint-fix": "prettier --write *.md **/*.{php,md,js,css} !**/*.min.js --print-width 120"
+    "lint": "npx prettier --check *.md **/*.{php,md,js,css}",
+    "lint-fix": "npx prettier --write *.md **/*.{php,md,js,css}"
   }
 }
