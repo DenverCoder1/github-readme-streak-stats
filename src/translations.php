@@ -282,6 +282,15 @@ return [
         "Present" => "현재",
         "Excluding {days}" => "{days} 제외하고",
     ],
+    "mi" => [
+        "Total Contributions" => "Tapeke Tākoha",
+        "Current Streak" => "Raupapa Nāianei",
+        "Longest Streak" => "Raupapa Roa Rawa",
+        "Week Streak" => "Raupapa Wiki",
+        "Longest Week Streak" => "Raupapa Wiki Roa Rawa",
+        "Present" => "O Nāianei",
+        "Excluding {days}" => "Haunga {ngā rā}",
+    ],
     "mr" => [
         "Total Contributions" => "एकूण योगदान",
         "Current Streak" => "साध्यकालीन सातत्यता",
