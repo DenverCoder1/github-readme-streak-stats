@@ -465,6 +465,7 @@ return [
         "Week Streak" => "Antal veckor i rad",
         "Longest Week Streak" => "Längst antal veckor i rad",
         "Present" => "Just nu",
+        "Excluding {days}" => "Utom {dagar}",
     ],
     "sw" => [
         "Total Contributions" => "Jumla ya Michango",
