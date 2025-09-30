@@ -2069,4 +2069,17 @@ return [
         "dates" => "#BD976A",
         "excludeDaysLabel" => "#758575DD",
     ],
+    "everforest-dark" => [
+        "background" => "#2D353B",
+        "border" => "#4F585E",
+        "stroke" => "#4F585E",
+        "ring" => "#A7C080",
+        "fire" => "#A7C080",
+        "currStreakNum" => "#D3C6AA",
+        "sideNums" => "#A7C080",
+        "currStreakLabel" => "#D3C6AA",
+        "sideLabels" => "#A7C080",
+        "dates" => "#9DA9A0",
+        "excludeDaysLabel" => "#9DA9A0",
+    ],
 ];
