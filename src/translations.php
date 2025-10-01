@@ -393,6 +393,15 @@ return [
         "Present" => "Presente",
         "Excluding {days}" => "Exceto {days}",
     ],
+    "ro_cuDiacritice" => [
+        "Total Contributions" => "Contribuții totale",
+        "Current Streak" => "Seria Actuală",
+        "Longest Streak" => "Cea mai lungă serie",
+        "Week Streak" => "Seria săptămânală",
+        "Longest Week Streak" => "Cea mai lungă serie săptămânală",
+        "Present" => "Prezent",
+        "Excluding {days}" => "Excluzând {days}",
+    ],
     "ru" => [
         "Total Contributions" => "Общий вклад",
         "Current Streak" => "Текущая серия",
