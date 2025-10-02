@@ -2069,4 +2069,17 @@ return [
         "dates" => "#BD976A",
         "excludeDaysLabel" => "#758575DD",
     ],
+    "nord-aurora" => [
+        "background" => "#4C566A",
+        "border" => "#8FBCBB",
+        "stroke" => "#D8DEE9",
+        "ring" => "#A3BE8C",
+        "fire" => "#BF616A",
+        "currStreakNum" => "#A3BE8C",
+        "sideNums" => "#B48EAD",
+        "currStreakLabel" => "#EBCB8B",
+        "sideLabels" => "#D08770",
+        "dates" => "#88C0D0",
+        "excludeDaysLabel" => "#81a1c1",
+    ],
 ];
