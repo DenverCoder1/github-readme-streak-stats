@@ -280,7 +280,17 @@ return [
         "Week Streak" => "주간 연속 기여 수",
         "Longest Week Streak" => "최장 주간 연속 기여 수",
         "Present" => "현재",
-        "Excluding {days}" => "{days} 제외하고",
+        "Excluding {days}" => "{days}를 제외하고",
+    ],
+    "mal" => [
+        "Total Contributions" => "മൊത്തം സംഭാവനകൾ",
+        "Current Streak" => "നിലവിലെ സ്ട്രീക്ക്",
+        "Longest Streak" => "ഏറ്റവും ദൈർഘ്യമേറിയ സ്ട്രീക്ക്",
+        "Week Streak" => "പ്രതിവാര സ്ട്രീക്ക്",
+        "Longest Week Streak" => "ദൈർഘ്യമേറിയ ആഴ്ച സ്‌ട്രീക്ക്",
+        "Present" => "ഇപ്പം",
+        "Excluding {days}" => "{days} ഒഴികെ",
+        "comma_separator" => "、",
     ],
     "mr" => [
         "Total Contributions" => "एकूण योगदान",
@@ -420,14 +430,24 @@ return [
         "Excluding {days}" => "نڪتل {days}",
         "comma_separator" => "، ",
     ],
-    "sr" => [
-        "Total Contributions" => "Укупно додавања",
+    "sr" => "sr_Cyrl",
+    "sr_Cyrl" => [
+        "Total Contributions" => "Укупно доприноса",
         "Current Streak" => "Тренутна серија",
         "Longest Streak" => "Најдужа серија",
         "Week Streak" => "Недељна серија",
-        "Longest Week Streak" => "Најдужа недељена серија",
+        "Longest Week Streak" => "Најдужа недељна серија",
         "Present" => "Данас",
         "Excluding {days}" => "Искључујући {days}",
+    ],
+    "sr_Latn" => [
+        "Total Contributions" => "Ukupno doprinosa",
+        "Current Streak" => "Trenutna serija",
+        "Longest Streak" => "Najduža serija",
+        "Week Streak" => "Nedeljna serija",
+        "Longest Week Streak" => "Najduža nedeljna serija",
+        "Present" => "Danas",
+        "Excluding {days}" => "Isključujući {days}",
     ],
     "su" => [
         "Total Contributions" => "Total Kontribusi",
@@ -445,6 +465,7 @@ return [
         "Week Streak" => "Antal veckor i rad",
         "Longest Week Streak" => "Längst antal veckor i rad",
         "Present" => "Just nu",
+        "Excluding {days}" => "Utom {dagar}",
     ],
     "sw" => [
         "Total Contributions" => "Jumla ya Michango",
@@ -462,6 +483,7 @@ return [
         "Week Streak" => "வார\nபங்களிப்புகள்",
         "Longest Week Streak" => "நீண்ட வார\nபங்களிப்புகள்",
         "Present" => "இன்றுவரை",
+        "Excluding {days}" => "{days} தவிர",
     ],
     "th" => [
         "Total Contributions" => "คอนทริบิ้วต์ทั้งหมด",
