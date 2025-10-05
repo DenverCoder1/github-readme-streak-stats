@@ -167,6 +167,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |      `rust-ferris-dark`       |                 ![image](https://github.com/user-attachments/assets/05e3f9ac-708d-415d-990f-ede3d0a84bab)                  |
 |      `cyber-streakglow`       |                 ![image](https://github.com/user-attachments/assets/8c6108e1-f3a1-4653-9f68-08ed6dcfc498)                  |
 |           `vitesse`           |                 ![image](https://github.com/user-attachments/assets/baa2fa20-36ea-4158-befc-79c21f102f87)                  |
+|          `dark-aura`          |                 ![Image](https://github.com/user-attachments/assets/14889d0e-26db-4fa6-8026-6312c9b4636e)                  |
 
 ### Can't find the theme you like?
 

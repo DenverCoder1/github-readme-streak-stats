@@ -112,7 +112,7 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString("<rect width='495' height='195' rx='16'/>", $render);
         $this->assertStringContainsString(
             "<rect stroke='#111111' fill='#000000' rx='16' x='0.5' y='0.5' width='494' height='194'/>",
-            $render
+            $render,
         );
     }
 
@@ -126,19 +126,19 @@ final class RenderTest extends TestCase
         // Check label that is too long, split
         $this->assertEquals(
             "<tspan x='0' dy='-9'>Chuỗi đóng góp hiện</tspan><tspan x='0' dy='16'>tại</tspan>",
-            splitLines("Chuỗi đóng góp hiện tại", 22, -9)
+            splitLines("Chuỗi đóng góp hiện tại", 22, -9),
         );
         // Check label with manually inserted line break, split
         $this->assertEquals(
             "<tspan x='0' dy='-9'>Chuỗi đóng góp</tspan><tspan x='0' dy='16'>hiện tại</tspan>",
-            splitLines("Chuỗi đóng góp\nhiện tại", 22, -9)
+            splitLines("Chuỗi đóng góp\nhiện tại", 22, -9),
         );
         // Check date range label, no split
         $this->assertEquals("Mar 28, 2019 – Apr 12, 2019", splitLines("Mar 28, 2019 – Apr 12, 2019", 28, 0));
         // Check date range label that is too long, split
         $this->assertEquals(
             "<tspan x='0' dy='0'>19 de dez. de 2021</tspan><tspan x='0' dy='16'>- 14 de mar.</tspan>",
-            splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0)
+            splitLines("19 de dez. de 2021 - 14 de mar.", 24, 0),
         );
     }
 
@@ -194,7 +194,7 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString("fill='url(#gradient)'", $render);
         $this->assertStringContainsString(
             "<linearGradient id='gradient' gradientTransform='rotate(45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='100%' stop-color='#e11' /></linearGradient>",
-            $render
+            $render,
         );
     }
 
@@ -208,7 +208,7 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString("fill='url(#gradient)'", $render);
         $this->assertStringContainsString(
             "<linearGradient id='gradient' gradientTransform='rotate(-45)' gradientUnits='userSpaceOnUse'><stop offset='0%' stop-color='#f00' /><stop offset='33.333333333333%' stop-color='#4e5' /><stop offset='66.666666666667%' stop-color='#ddd' /><stop offset='100%' stop-color='#fff' /></linearGradient>",
-            $render
+            $render,
         );
     }
 
@@ -261,14 +261,13 @@ final class RenderTest extends TestCase
     {
         $this->testParams["locale"] = "he";
         $render = generateOutput($this->testStats, $this->testParams)["body"];
-        $renderCollapsedSpaces = preg_replace("/(\s)\s*/", '$1', $render);
-        $this->assertStringContainsString(
-            "<!-- Total Contributions big number -->\n<g transform='translate(412.5, 48)'>",
-            $renderCollapsedSpaces
+        $this->assertMatchesRegularExpression(
+            "/<!-- Total Contributions big number -->\\s*<g transform='translate\\(412\\.5, 48\\)'>/",
+            $render,
         );
-        $this->assertStringContainsString(
-            "<!-- Longest Streak big number -->\n<g transform='translate(82.5, 48)'>",
-            $renderCollapsedSpaces
+        $this->assertMatchesRegularExpression(
+            "/<!-- Longest Streak big number -->\\s*<g transform='translate\\(82\\.5, 48\\)'>/",
+            $render,
         );
     }
 
