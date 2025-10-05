@@ -2081,5 +2081,17 @@ return [
         "sideLabels" => "#D08770",
         "dates" => "#88C0D0",
         "excludeDaysLabel" => "#81a1c1",
+    "dark-aura" => [
+        "background" => "#760A11",
+        "border" => "#310C69C5",
+        "stroke" => "#FF1D5E",
+        "ring" => "#C1184E",
+        "fire" => "#EB4511",
+        "currStreakNum" => "#EB5454",
+        "sideNums" => "#EB5454",
+        "currStreakLabel" => "#FF8F62",
+        "sideLabels" => "#FF8F62",
+        "dates" => "#EB5454",
+        "excludeDaysLabel" => "#758575DD",
     ],
 ];
