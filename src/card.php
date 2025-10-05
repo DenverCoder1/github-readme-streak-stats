@@ -27,7 +27,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
                 $locale,
                 IntlDateFormatter::MEDIUM,
                 IntlDateFormatter::NONE,
-                pattern: $pattern
+                pattern: $pattern,
             );
             $formatted = $dateFormatter->format($date);
         }
@@ -44,7 +44,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
                 $locale,
                 IntlDateFormatter::MEDIUM,
                 IntlDateFormatter::NONE,
-                pattern: $pattern
+                pattern: $pattern,
             );
             $formatted = $dateFormatter->format($date);
         }
@@ -75,7 +75,7 @@ function translateDays(array $days, string $locale): array
         $locale,
         IntlDateFormatter::NONE,
         IntlDateFormatter::NONE,
-        pattern: $pattern
+        pattern: $pattern,
     );
     $translatedDays = [];
     foreach ($days as $day) {
@@ -250,7 +250,7 @@ function splitLines(string $text, int $maxChars, int $line1Offset): string
     return preg_replace(
         "/^(.*)\n(.*)/",
         "<tspan x='0' dy='{$line1Offset}'>$1</tspan><tspan x='0' dy='16'>$2</tspan>",
-        $text
+        $text,
     );
 }
 
@@ -752,7 +752,7 @@ function convertHexColors(string $svg): string
             $opacity = $result["opacity"];
             return "{$attribute}='{$color}' {$opacityAttribute}='{$opacity}'";
         },
-        $svg
+        $svg,
     );
 
     return $svg;
