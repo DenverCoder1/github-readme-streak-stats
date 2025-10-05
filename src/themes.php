@@ -2080,7 +2080,7 @@ return [
         "currStreakLabel" => "#EBCB8B",
         "sideLabels" => "#D08770",
         "dates" => "#88C0D0",
-        "excludeDaysLabel" => "#81a1c1",
+        "excludeDaysLabel" => "#81A1C1",
     ],
     "dark-aura" => [
         "background" => "#760A11",
