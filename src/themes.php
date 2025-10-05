@@ -2081,6 +2081,7 @@ return [
         "sideLabels" => "#A7C080",
         "dates" => "#9DA9A0",
         "excludeDaysLabel" => "#9DA9A0",
+    ],
     "dark-aura" => [
         "background" => "#760A11",
         "border" => "#310C69C5",
