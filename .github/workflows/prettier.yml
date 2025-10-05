@@ -27,6 +27,11 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
       - name: Install prettier and plugin-php
         run: npm i
 
