@@ -355,6 +355,15 @@ return [
         "Present" => "I dag",
         "Excluding {days}" => "Ekskluderer {days}",
     ],
+    "pa" => [
+        "Total Contributions" => "ਕੁੱਲ ਯੋਗਦਾਨ",
+        "Current Streak" => "ਮੌਜੂਦਾ ਲਗਾਤਾਰ ਦਿਨ",
+        "Longest Streak" => "ਸਭ ਤੋਂ ਲੰਬੀ ਲਗਾਤਾਰ ਸਿਰੀਂ",
+        "Week Streak" => "ਹਫ਼ਤਾ ਲਗਾਤਾਰ ਸਿਰੀਂ",
+        "Longest Week Streak" => "ਸਭ ਤੋਂ ਲੰਬੀ ਹਫ਼ਤਾਵਾਰੀ ਸਿਰੀਂ",
+        "Present" => "ਮੌਜੂਦ",
+        "Excluding {days}" => "{days} ਨੂੰ ਛੱਡ ਕੇ",
+    ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",
         "Current Streak" => "Aktualna Seria",
