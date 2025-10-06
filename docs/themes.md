@@ -167,6 +167,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |      `rust-ferris-dark`       |                 ![image](https://github.com/user-attachments/assets/05e3f9ac-708d-415d-990f-ede3d0a84bab)                  |
 |      `cyber-streakglow`       |                 ![image](https://github.com/user-attachments/assets/8c6108e1-f3a1-4653-9f68-08ed6dcfc498)                  |
 |           `vitesse`           |                 ![image](https://github.com/user-attachments/assets/baa2fa20-36ea-4158-befc-79c21f102f87)                  |
+|       `everforest-dark`       |                 ![image](https://github.com/user-attachments/assets/45a4e0a0-d330-4233-9d76-89003e59bb31)                  |
 
 ### Can't find the theme you like?
 
