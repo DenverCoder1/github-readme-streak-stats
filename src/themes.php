@@ -2108,4 +2108,17 @@ return [
         "dates" => "#EB5454",
         "excludeDaysLabel" => "#758575DD",
     ],
+    "everforest-light" => [
+        "background" => "#F2F4EF",
+        "border" => "#C7CCC2",
+        "stroke" => "#C7CCC2",
+        "ring" => "#7F9C6F",
+        "fire" => "#7F9C6F",
+        "currStreakNum" => "#55674E",
+        "sideNums" => "#7F9C6F",
+        "currStreakLabel" => "#55674E",
+        "sideLabels" => "#7F9C6F",
+        "dates" => "#8B9286",
+        "excludeDaysLabel" => "#8B9286",
+    ],
 ];
