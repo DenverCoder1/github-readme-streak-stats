@@ -2108,4 +2108,17 @@ return [
         "dates" => "#EB5454",
         "excludeDaysLabel" => "#758575DD",
     ],
+    "oceanic-next" => [
+        "background" => "#1B2B34",
+        "border" => "#343D46",
+        "stroke" => "#4F5B66",
+        "ring" => "#6699CC",
+        "fire" => "#EC5F67",
+        "currStreakNum" => "#99C794",
+        "sideNums" => "#6699CC",
+        "currStreakLabel" => "#FAC863",
+        "sideLabels" => "#5FB3B3",
+        "dates" => "#A7ADBA",
+        "excludeDaysLabel" => "#A7ADBA",
+    ],
 ];
