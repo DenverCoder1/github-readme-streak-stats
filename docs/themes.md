@@ -169,6 +169,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |           `vitesse`           |                 ![image](https://github.com/user-attachments/assets/baa2fa20-36ea-4158-befc-79c21f102f87)                  |
 |         `nord-aurora`         |                 ![image](https://github.com/user-attachments/assets/d61bf5c3-66f2-4c02-bd9d-30bf1be47c97)                  |
 |          `dark-aura`          |                 ![Image](https://github.com/user-attachments/assets/14889d0e-26db-4fa6-8026-6312c9b4636e)                  |
+|       `everforest-dark`       |                 ![image](https://github.com/user-attachments/assets/45a4e0a0-d330-4233-9d76-89003e59bb31)                  |
 
 ### Can't find the theme you like?
 
