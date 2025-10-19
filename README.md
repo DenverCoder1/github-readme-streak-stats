@@ -211,7 +211,7 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 10. Visit the Vercel dashboard at <https://vercel.com/dashboard> and select your project. Then, click on **"Settings"** and choose **"Environment Variables"**.
 11. Add a new environment variable with the key `TOKEN` and the value as the token you generated in step 9, then save your changes
 12. (Optional) You can also set the `WHITELIST` environment variable to restrict which GitHub usernames can be accessed through the service. Provide the usernames as a comma-separated list, for example: `user1,user2,user3`. If the variable is not set, information can be requested for any GitHub user.
-13. To apply the new environment variable, you need to redeploy the app. Run `vercel --prod` to deploy the app to production.
+13. To apply the new environment variable(s), you need to redeploy the app. Run `vercel --prod` to deploy the app to production.
 
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
