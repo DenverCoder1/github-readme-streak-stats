@@ -22,7 +22,7 @@ function camelToSkewer(string $str): string
         function ($matches) {
             return "-" . strtolower($matches[0]);
         },
-        $str
+        $str,
     );
 }
 

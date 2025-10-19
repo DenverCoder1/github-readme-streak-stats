@@ -74,7 +74,7 @@ final class OptionsTest extends TestCase
             $this->assertEquals(
                 array_diff_key($colors, $this->defaultTheme),
                 [],
-                "The theme '$theme' contains invalid parameters."
+                "The theme '$theme' contains invalid parameters.",
             );
             # check that no parameters are missing and all values are valid
             foreach (array_keys($this->defaultTheme) as $param) {
@@ -85,7 +85,7 @@ final class OptionsTest extends TestCase
                     $this->assertMatchesRegularExpression(
                         $backgroundRegex,
                         $colors[$param],
-                        "The parameter '$param' of '$theme' is not a valid background value."
+                        "The parameter '$param' of '$theme' is not a valid background value.",
                     );
                     continue;
                 }
@@ -93,13 +93,13 @@ final class OptionsTest extends TestCase
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
                     strtoupper($colors[$param]),
-                    "The parameter '$param' of '$theme' is not a valid hex color."
+                    "The parameter '$param' of '$theme' is not a valid hex color.",
                 );
                 // check that the key is a valid hex color in uppercase
                 $this->assertMatchesRegularExpression(
                     $hexRegex,
                     $colors[$param],
-                    "The parameter '$param' of '$theme' should not contain lowercase letters."
+                    "The parameter '$param' of '$theme' should not contain lowercase letters.",
                 );
             }
         }
@@ -251,7 +251,7 @@ final class OptionsTest extends TestCase
             $this->assertEquals(
                 $theme,
                 $normalized,
-                "Theme name '$theme' is not normalized. It should contain only lowercase letters, numbers, and dashes. Consider renaming it to '$normalized'."
+                "Theme name '$theme' is not normalized. It should contain only lowercase letters, numbers, and dashes. Consider renaming it to '$normalized'.",
             );
         }
     }

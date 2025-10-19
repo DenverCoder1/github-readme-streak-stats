@@ -292,6 +292,15 @@ return [
         "Excluding {days}" => "{days} ഒഴികെ",
         "comma_separator" => "、",
     ],
+    "mi" => [
+        "Total Contributions" => "Tapeke Tākoha",
+        "Current Streak" => "Raupapa Nāianei",
+        "Longest Streak" => "Raupapa Roa Rawa",
+        "Week Streak" => "Raupapa Wiki",
+        "Longest Week Streak" => "Raupapa Wiki Roa Rawa",
+        "Present" => "O Nāianei",
+        "Excluding {days}" => "Haunga {ngā rā}",
+    ],
     "mr" => [
         "Total Contributions" => "एकूण योगदान",
         "Current Streak" => "साध्यकालीन सातत्यता",
@@ -354,6 +363,15 @@ return [
         "Longest Week Streak" => "Lengste Ukentlige\nBidragsrekke",
         "Present" => "I dag",
         "Excluding {days}" => "Ekskluderer {days}",
+    ],
+    "pa" => [
+        "Total Contributions" => "ਕੁੱਲ ਯੋਗਦਾਨ",
+        "Current Streak" => "ਮੌਜੂਦਾ ਲਗਾਤਾਰ ਦਿਨ",
+        "Longest Streak" => "ਸਭ ਤੋਂ ਲੰਬੀ ਲਗਾਤਾਰ ਸਿਰੀਂ",
+        "Week Streak" => "ਹਫ਼ਤਾ ਲਗਾਤਾਰ ਸਿਰੀਂ",
+        "Longest Week Streak" => "ਸਭ ਤੋਂ ਲੰਬੀ ਹਫ਼ਤਾਵਾਰੀ ਸਿਰੀਂ",
+        "Present" => "ਮੌਜੂਦ",
+        "Excluding {days}" => "{days} ਨੂੰ ਛੱਡ ਕੇ",
     ],
     "pl" => [
         "Total Contributions" => "Suma Kontrybucji",

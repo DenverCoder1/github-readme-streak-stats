@@ -123,6 +123,6 @@ $update = updateReadme(
     dirname(__DIR__, 1) . "/README.md",
     "<!-- TRANSLATION_PROGRESS_START -->",
     "<!-- TRANSLATION_PROGRESS_END -->",
-    $badges
+    $badges,
 );
 exit($update === false ? 1 : 0);
