@@ -172,7 +172,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `everforest-dark`       |                 ![image](https://github.com/user-attachments/assets/45a4e0a0-d330-4233-9d76-89003e59bb31)                  |
 |      `everforest-light`       |                 ![image](https://github.com/user-attachments/assets/592466c0-5a67-48cc-adf0-f8a21ca891b6)                  |
 |        `oceanic-next`         |                 ![image](https://github.com/user-attachments/assets/e0182770-a511-42b6-a40b-644317268a0f)                  |
-|        `sakura-x`         |                 ![image](https://github-readme-streak-stats.herokuapp.com/?user=cnrxad&background=1A1B26&border=9D4EDD&stroke=FFFFFF&ring=9D4EDD&fire=E5C07B&currStreakNum=FFFFFF&sideNums=9D4EDD&currStreakLabel=E5C07B&sideLabels=E5C07B&dates=C0CAF5&excludeDaysLabel=C0CAF5)                  |
+|        `sakura-x`         |                 ![image](https://github.com/user-attachments/assets/65360cfa-9d5e-42f2-b3c9-cc2815623413)                  |
 
 ### Can't find the theme you like?
 
