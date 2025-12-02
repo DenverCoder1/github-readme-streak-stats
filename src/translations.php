@@ -10,11 +10,11 @@
  * If the default date format for the locale displays correctly, you should omit the date_format parameter.
  * Supplying a date format is optional and will be used instead of the default locale date format.
  *
- * Different year   Same year   Format string
- * --------------   ---------   -------------
- * 10/8/2016        10/8        j/n[/Y]
- * 8/10/2016        8/10        n/j[/Y]
- * 2016.8.10        8.10        [Y.]n.j
+ * Different year    Same year    Format string
+ * --------------    ---------    -------------
+ * 10/8/2016         10/8         j/n[/Y]
+ * 8/10/2016         8/10         n/j[/Y]
+ * 2016.8.10         8.10         [Y.]n.j
  *
  * For info on valid date_format strings, see https://github.com/DenverCoder1/github-readme-streak-stats#date-formats
  *
@@ -63,6 +63,15 @@ return [
         "Present" => "الحاضر",
         "Excluding {days}" => "باستثناء {days}",
         "comma_separator" => "، ",
+    ],
+    "as" => [
+        "Total Contributions" => "মুঠ বৰঙণি",
+        "Current Streak" => "বৰ্তমান ষ্ট্ৰীক",
+        "Longest Streak" => "দীৰ্ঘতম ষ্ট্ৰীক",
+        "Week Streak" => "সপ্তাহ ষ্ট্ৰীক",
+        "Longest Week Streak" => "দীৰ্ঘতম সপ্তাহ ষ্ট্ৰীক",
+        "Present" => "বৰ্তমান",
+        "Excluding {days}" => "{days} বাদ দি",
     ],
     "bg" => [
         "Total Contributions" => "Общ принос",
@@ -126,6 +135,15 @@ return [
         "Present" => "Heute",
         "Excluding {days}" => "Ausgenommen {days}",
     ],
+    "doi" => [
+        "Total Contributions" => "कुल जोगदान",
+        "Current Streak" => "मौजूदा सिलसिलेवार जोगदान",
+        "Longest Streak" => "सप्पने थमां लम्मा सिलसिलेवार जोगदान",
+        "Week Streak" => "हफ्तावार जोगदान",
+        "Longest Week Streak" => "सप्पने थमां लम्मा हफ्तावार जोगदान",
+        "Present" => "ऐस बखत तगर",
+        "Excluding {days}" => "{days} नूं छड्डियै",
+    ],
     "el" => [
         "Total Contributions" => "Συνολικές Συνεισφορές",
         "Current Streak" => "Τρέχουσα Σειρά",
@@ -172,6 +190,15 @@ return [
         "Longest Week Streak" => "Plus longue séquence hebdomadaire",
         "Present" => "Aujourd'hui",
         "Excluding {days}" => "À l'exclusion de {days}",
+    ],
+    "gom" => [
+        "Total Contributions" => "एकूण योगदान",
+        "Current Streak" => "सद्य धारेर",
+        "Longest Streak" => "सगळ्यांत लांब धारेर",
+        "Week Streak" => "साताळ्याचो धारेर",
+        "Longest Week Streak" => "सगळ्यांत लांब साताळ्याचो धारेर",
+        "Present" => "सद्या",
+        "Excluding {days}" => "{days} वगळून",
     ],
     "gu" => [
         "Total Contributions" => "કુલ યોગદાન",
@@ -271,7 +298,7 @@ return [
         "Week Streak" => "ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Longest Week Streak" => "ಅತ್ಯಧಿಕ ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Present" => "ಪ್ರಸ್ತುತ",
-        "Excluding {days}" => "ಹೊರತುಪಡಿಸಿ {days}",
+        "Excluding {days}" => "ಹೊರತುಪಡಿಸಿ {days}",
     ],
     "ko" => [
         "Total Contributions" => "총 기여 수",
@@ -281,6 +308,15 @@ return [
         "Longest Week Streak" => "최장 주간 연속 기여 수",
         "Present" => "현재",
         "Excluding {days}" => "{days}를 제외하고",
+    ],
+    "mai" => [
+        "Total Contributions" => "कुल योगदान",
+        "Current Streak" => "वर्तमान योगदान क्रम",
+        "Longest Streak" => "सभसँ लम्बा योगदान क्रम",
+        "Week Streak" => "साप्ताहिक योगदान क्रम",
+        "Longest Week Streak" => "सभसँ लम्बा साप्ताहिक योगदान क्रम",
+        "Present" => "एखन धरि",
+        "Excluding {days}" => "{days} कए छोड़िकय",
     ],
     "mal" => [
         "Total Contributions" => "മൊത്തം സംഭാവനകൾ",
@@ -437,6 +473,15 @@ return [
         "Present" => "वर्तमान",
         "Excluding {days}" => "बहिष्करणम् {days}",
     ],
+    "sat" => [
+        "Total Contributions" => "ᱡᱚᱛᱚ\nᱜᱚᱲᱚ",
+        "Current Streak" => "ᱱᱤᱛᱚᱜ ᱥᱴᱨᱤᱠ",
+        "Longest Streak" => "ᱡᱷᱟᱨᱱᱟ ᱥᱴᱨᱤᱠ",
+        "Week Streak" => "ᱥᱟᱛᱟᱢ ᱥᱴᱨᱤᱠ",
+        "Longest Week Streak" => "ᱡᱷᱟᱨᱱᱟ ᱥᱟᱛᱟᱢ ᱥᱴᱨᱤᱠ",
+        "Present" => "ᱱᱤᱛᱚᱜ",
+        "Excluding {days}" => "{days} ᱵᱟᱫ ᱠᱟᱛᱮ",
+    ],
     "sd_PK" => [
         "rtl" => true,
         "Total Contributions" => "کل حصہ داری",
@@ -540,6 +585,24 @@ return [
         "Present" => "حاظر",
         "Excluding {days}" => "خارج {days}",
         "comma_separator" => "، ",
+    ],
+    "te" => [
+        "Total Contributions" => "మొత్తం సహకారం",
+        "Current Streak" => "ప్రస్తుత సహకారం",
+        "Longest Streak" => "అత్యధిక సహకారం",
+        "Week Streak" => "వారపు సహకారం",
+        "Longest Week Streak" => "అత్యధిక వారపు సహకారం",
+        "Present" => "ప్రస్తుతం",
+        "Excluding {days}" => "{days} మినహా",
+    ],
+    "tcy" => [
+        "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
+        "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
+        "Longest Streak" => "ಅತ್ಯಧಿಕ ಸ್ಟ್ರೀಕ್",
+        "Week Streak" => "ವಾರದ ಸ್ಟ್ರೀಕ್",
+        "Longest Week Streak" => "ಅತ್ಯಧಿಕ ವಾರದ ಸ್ಟ್ರೀಕ್",
+        "Present" => "ಇತ್ತೆಗ್",
+        "Excluding {days}" => "{days} ಬುಡ್ದು",
     ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
