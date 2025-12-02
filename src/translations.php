@@ -10,11 +10,11 @@
  * If the default date format for the locale displays correctly, you should omit the date_format parameter.
  * Supplying a date format is optional and will be used instead of the default locale date format.
  *
- * Different year    Same year    Format string
- * --------------    ---------    -------------
- * 10/8/2016         10/8         j/n[/Y]
- * 8/10/2016         8/10         n/j[/Y]
- * 2016.8.10         8.10         [Y.]n.j
+ * Different year   Same year   Format string
+ * --------------   ---------   -------------
+ * 10/8/2016        10/8        j/n[/Y]
+ * 8/10/2016        8/10        n/j[/Y]
+ * 2016.8.10        8.10        [Y.]n.j
  *
  * For info on valid date_format strings, see https://github.com/DenverCoder1/github-readme-streak-stats#date-formats
  *
