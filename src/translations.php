@@ -586,15 +586,6 @@ return [
         "Excluding {days}" => "خارج {days}",
         "comma_separator" => "، ",
     ],
-    "te" => [
-        "Total Contributions" => "మొత్తం సహకారం",
-        "Current Streak" => "ప్రస్తుత సహకారం",
-        "Longest Streak" => "అత్యధిక సహకారం",
-        "Week Streak" => "వారపు సహకారం",
-        "Longest Week Streak" => "అత్యధిక వారపు సహకారం",
-        "Present" => "ప్రస్తుతం",
-        "Excluding {days}" => "{days} మినహా",
-    ],
     "tcy" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
         "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
@@ -603,6 +594,15 @@ return [
         "Longest Week Streak" => "ಅತ್ಯಧಿಕ ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Present" => "ಇತ್ತೆಗ್",
         "Excluding {days}" => "{days} ಬುಡ್ದು",
+    ],
+    "te" => [
+        "Total Contributions" => "మొత్తం సహకారం",
+        "Current Streak" => "ప్రస్తుత సహకారం",
+        "Longest Streak" => "అత్యధిక సహకారం",
+        "Week Streak" => "వారపు సహకారం",
+        "Longest Week Streak" => "అత్యధిక వారపు సహకారం",
+        "Present" => "ప్రస్తుతం",
+        "Excluding {days}" => "{days} మినహా",
     ],
     "vi" => [
         "Total Contributions" => "Tổng số đóng góp",
