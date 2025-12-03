@@ -135,15 +135,6 @@ return [
         "Present" => "Heute",
         "Excluding {days}" => "Ausgenommen {days}",
     ],
-    "doi" => [
-        "Total Contributions" => "कुल जोगदान",
-        "Current Streak" => "मौजूदा सिलसिलेवार जोगदान",
-        "Longest Streak" => "सप्पने थमां लम्मा सिलसिलेवार जोगदान",
-        "Week Streak" => "हफ्तावार जोगदान",
-        "Longest Week Streak" => "सप्पने थमां लम्मा हफ्तावार जोगदान",
-        "Present" => "ऐस बखत तगर",
-        "Excluding {days}" => "{days} नूं छड्डियै",
-    ],
     "el" => [
         "Total Contributions" => "Συνολικές Συνεισφορές",
         "Current Streak" => "Τρέχουσα Σειρά",
@@ -190,15 +181,6 @@ return [
         "Longest Week Streak" => "Plus longue séquence hebdomadaire",
         "Present" => "Aujourd'hui",
         "Excluding {days}" => "À l'exclusion de {days}",
-    ],
-    "gom" => [
-        "Total Contributions" => "एकूण योगदान",
-        "Current Streak" => "सद्य धारेर",
-        "Longest Streak" => "सगळ्यांत लांब धारेर",
-        "Week Streak" => "साताळ्याचो धारेर",
-        "Longest Week Streak" => "सगळ्यांत लांब साताळ्याचो धारेर",
-        "Present" => "सद्या",
-        "Excluding {days}" => "{days} वगळून",
     ],
     "gu" => [
         "Total Contributions" => "કુલ યોગદાન",
