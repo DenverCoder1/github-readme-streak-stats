@@ -455,15 +455,6 @@ return [
         "Present" => "वर्तमान",
         "Excluding {days}" => "बहिष्करणम् {days}",
     ],
-    "sat" => [
-        "Total Contributions" => "ᱡᱚᱛᱚ\nᱜᱚᱲᱚ",
-        "Current Streak" => "ᱱᱤᱛᱚᱜ ᱥᱴᱨᱤᱠ",
-        "Longest Streak" => "ᱡᱷᱟᱨᱱᱟ ᱥᱴᱨᱤᱠ",
-        "Week Streak" => "ᱥᱟᱛᱟᱢ ᱥᱴᱨᱤᱠ",
-        "Longest Week Streak" => "ᱡᱷᱟᱨᱱᱟ ᱥᱟᱛᱟᱢ ᱥᱴᱨᱤᱠ",
-        "Present" => "ᱱᱤᱛᱚᱜ",
-        "Excluding {days}" => "{days} ᱵᱟᱫ ᱠᱟᱛᱮ",
-    ],
     "sd_PK" => [
         "rtl" => true,
         "Total Contributions" => "کل حصہ داری",
