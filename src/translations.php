@@ -280,7 +280,7 @@ return [
         "Week Streak" => "ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Longest Week Streak" => "ಅತ್ಯಧಿಕ ವಾರದ ಸ್ಟ್ರೀಕ್",
         "Present" => "ಪ್ರಸ್ತುತ",
-        "Excluding {days}" => "ಹೊರತುಪಡಿಸಿ {days}",
+        "Excluding {days}" => "ಹೊರತುಪಡಿಸಿ {days}",
     ],
     "ko" => [
         "Total Contributions" => "총 기여 수",
