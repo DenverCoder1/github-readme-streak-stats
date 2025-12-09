@@ -85,12 +85,12 @@ function camelToSkewer(string $str): string
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme">
-                    <?php
-
-                    //added sort in alphabetical order
+                    <?php 
+                    
+                    //Added sort in alphabetical order
                     ksort($THEMES, SORT_NATURAL | SORT_FLAG_CASE);
 
-                    foreach ($THEMES as $theme => $options) : ?>
+                    foreach ($THEMES as $theme => $options): ?>
                         <?php
                         $dataAttrs = "";
                         foreach ($options as $key => $value) {
@@ -117,7 +117,7 @@ function camelToSkewer(string $str): string
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
-                    <?php foreach ($LOCALES as $locale) : ?>
+                    <?php foreach ($LOCALES as $locale): ?>
                         <option value="<?php echo $locale; ?>">
                             <?php $display = Locale::getDisplayName($locale, $locale); ?>
                             <?php echo $display . " (" . $locale . ")"; ?>
@@ -211,7 +211,7 @@ function camelToSkewer(string $str): string
                         <div class="color-properties parameters">
                             <label for="properties">Add Property</label>
                             <select id="properties" name="properties">
-                                <?php foreach ($THEMES["default"] as $option => $color) : ?>
+                                <?php foreach ($THEMES["default"] as $option => $color): ?>
                                     <option><?php echo $option; ?></option>
                                 <?php endforeach; ?>
                             </select>
@@ -237,24 +237,24 @@ function camelToSkewer(string $str): string
                 <p class="warning">
                     Note: The stats above are just examples and not from your GitHub profile.
                 </p>
-
+                
                 <div>
                     <h2>Markdown</h2>
                     <div class="code-container md">
                         <code></code>
                     </div>
-
+                    
                     <button class="copy-button btn tooltip copy-md" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                         Copy To Clipboard
                     </button>
                 </div>
-
+                
                 <div>
                     <h2>HTML</h2>
                     <div class="code-container html">
                         <code></code>
                     </div>
-
+                    
                     <button class="copy-button btn tooltip copy-html" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                         Copy To Clipboard
                     </button>
@@ -265,7 +265,7 @@ function camelToSkewer(string $str): string
                     <div class="code-container json">
                         <code></code>
                     </div>
-
+                    
                     <button class="copy-button btn tooltip copy-json" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                         Copy To Clipboard
                     </button>
