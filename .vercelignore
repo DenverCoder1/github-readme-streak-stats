@@ -1,0 +1,14 @@
+tests/
+.git/
+.github/
+.devcontainer/
+node_modules/
+*.md
+!README.md
+.editorconfig
+.prettierrc.js
+.prettierignore
+.deepsource.toml
+phpunit.xml
+Dockerfile
+Procfile
