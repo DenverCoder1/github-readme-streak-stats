@@ -93,6 +93,37 @@ final class StatsTest extends TestCase
         getContributionGraphs("help");
     }
 
+
+    /**
+     * Test that a valid username can be accessed with whitelist
+     */
+    public function testValidUsernameWithWhitelist(): void
+    {
+        $_ENV["WHITELIST"] = "DenverCoder1";
+        try {
+            $contributionGraphs = getContributionGraphs("DenverCoder1");
+            $this->assertIsArray($contributionGraphs);
+            $this->assertNotEmpty($contributionGraphs);
+        } finally {
+            unset($_ENV["WHITELIST"]);
+        }
+    }
+
+    /**
+     * Test that a not whitelisted username returns 'not whitelisted' error
+     */
+    public function testNotWhitelistedUsername(): void
+    {
+        $_ENV["WHITELIST"] = "DenverCoder1";
+        try {
+            $this->expectException(InvalidArgumentException::class);
+            $this->expectExceptionMessage("User not in whitelist.");
+            getContributionGraphs("help");
+        } finally {
+            unset($_ENV["WHITELIST"]);
+        }
+    }
+
     /**
      * Test that an organization name returns 'not a user' error
      */

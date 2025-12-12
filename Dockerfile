@@ -30,6 +30,7 @@ RUN a2enmod rewrite headers && \
     echo 'ServerTokens Prod\n\
 ServerSignature Off\n\
 PassEnv TOKEN\n\
+PassEnv WHITELIST\n\
 <VirtualHost *:80>\n\
     ServerAdmin webmaster@localhost\n\
     DocumentRoot /var/www/html/src\n\

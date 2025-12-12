@@ -210,7 +210,8 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 9. Scroll to the bottom of the page and click on **"Generate token"**
 10. Visit the Vercel dashboard at <https://vercel.com/dashboard> and select your project. Then, click on **"Settings"** and choose **"Environment Variables"**.
 11. Add a new environment variable with the key `TOKEN` and the value as the token you generated in step 9, then save your changes
-12. To apply the new environment variable, you need to redeploy the app. Run `vercel --prod` to deploy the app to production.
+12. (Optional) You can also set the `WHITELIST` environment variable to restrict which GitHub usernames can be accessed through the service. Provide the usernames as a comma-separated list, for example: `user1,user2,user3`. If the variable is not set, information can be requested for any GitHub user.
+13. To apply the new environment variable(s), you need to redeploy the app. Run `vercel --prod` to deploy the app to production.
 
 ![image](https://user-images.githubusercontent.com/20955511/209588756-8bf5b0cd-9aa6-41e8-909c-97bf41e525b3.png)
 
@@ -244,8 +245,9 @@ Heroku is another great option for hosting the files. All features are supported
 
 ![heroku config variables](https://user-images.githubusercontent.com/20955511/136292022-a8d9b3b5-d7d8-4a5e-a049-8d23b51ce9d7.png)
 
-6. Click **"Deploy App"** at the end of the form
-7. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `streak-stats.demolab.com`
+6. (Optional) You can also set the `WHITELIST` Config Var to restrict which GitHub usernames can be accessed through the service. Provide the usernames as a comma-separated list, for example: `user1,user2,user3`. If the variable is not set, information can be requested for any GitHub user.
+7. Click **"Deploy App"** at the end of the form
+8. Once the app is deployed, you can use `<your-app-name>.herokuapp.com` in place of `streak-stats.demolab.com`
 
 </details>
 
@@ -285,7 +287,14 @@ Docker is a great option for self-hosting with full control over your environmen
    docker run -d -p 8080:80 -e TOKEN=your_github_token_here streak-stats
    ```
 
-6. Visit http://localhost:8080 to access your self-hosted instance
+6. You can also optionally set the `WHITELIST` environment variable to restrict which GitHub usernames can be accessed through the service. If the `WHITELIST` variable is not set, information can be requested for any GitHub user.
+   Provide the usernames as a comma-separated list, for example:
+
+   ```bash
+   docker run -d -p 8080:80 -e TOKEN=your_github_token_here -e WHITELIST=user1,user2,user3 streak-stats
+   ```
+
+7. Visit http://localhost:8080 to access your self-hosted instance
 
 </details>
 
