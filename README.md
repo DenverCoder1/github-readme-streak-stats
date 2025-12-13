@@ -176,6 +176,9 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 #### Option 1: Deploy to Vercel quickly with the Deploy button (recommended)
 
+> [!IMPORTANT]
+> Make sure that you host the **vercel** branch as otherwise you'll get the 404 error from Vercel. You can set the vercel branch as default after forking the repo.
+
 1. Click the Deploy button below
 
 [![][hspace]](#) [![Deploy with Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
