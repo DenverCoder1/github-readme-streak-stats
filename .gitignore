@@ -7,6 +7,9 @@ yarn.lock
 package-lock.json
 .vercel
 
+# Cache directory
+cache/
+
 # Local Configuration
 .DS_Store
 
