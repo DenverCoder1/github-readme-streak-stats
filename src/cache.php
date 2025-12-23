@@ -9,8 +9,8 @@ declare(strict_types=1);
  */
 
 // Default cache duration: 24 hours (in seconds)
-define('CACHE_DURATION', 24 * 60 * 60);
-define('CACHE_DIR', __DIR__ . '/../cache');
+define("CACHE_DURATION", 24 * 60 * 60);
+define("CACHE_DIR", __DIR__ . "/../cache");
 
 /**
  * Generate a cache key for a user's request
@@ -24,7 +24,7 @@ function getCacheKey(string $user, array $options = []): string
     // Normalize options
     ksort($options);
     $optionsString = json_encode($options);
-    return hash('sha256', $user . $optionsString);
+    return hash("sha256", $user . $optionsString);
 }
 
 /**
@@ -35,7 +35,7 @@ function getCacheKey(string $user, array $options = []): string
  */
 function getCacheFilePath(string $key): string
 {
-    return CACHE_DIR . '/' . $key . '.json';
+    return CACHE_DIR . "/" . $key . ".json";
 }
 
 /**
@@ -128,7 +128,7 @@ function clearExpiredCache(int $maxAge = CACHE_DURATION): int
     }
 
     $deleted = 0;
-    $files = glob(CACHE_DIR . '/*.json');
+    $files = glob(CACHE_DIR . "/*.json");
 
     if ($files === false) {
         return 0;
