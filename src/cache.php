@@ -24,7 +24,7 @@ function getCacheKey(string $user, array $options = []): string
     // Normalize options
     ksort($options);
     $optionsString = json_encode($options);
-    return md5($user . $optionsString);
+    return hash('sha256', $user . $optionsString);
 }
 
 /**
@@ -71,11 +71,13 @@ function getCachedStats(string $user, array $options = [], int $maxAge = CACHE_D
     $fileAge = time() - filemtime($filePath);
     if ($fileAge > $maxAge) {
         // Cache expired, delete the file
-        @unlink($filePath);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
         return null;
     }
 
-    $contents = @file_get_contents($filePath);
+    $contents = file_get_contents($filePath);
     if ($contents === false) {
         return null;
     }
@@ -135,7 +137,7 @@ function clearExpiredCache(int $maxAge = CACHE_DURATION): int
     foreach ($files as $file) {
         $fileAge = time() - filemtime($file);
         if ($fileAge > $maxAge) {
-            if (@unlink($file)) {
+            if (file_exists($file) && unlink($file)) {
                 $deleted++;
             }
         }
@@ -156,13 +158,13 @@ function clearUserCache(string $user): bool
         return true;
     }
 
-    // Since we use md5 hash, we need to check all files
+    // Since we use a hash, we need to check all files
     // For simplicity, just clear the cache with empty options
     $key = getCacheKey($user, []);
     $filePath = getCacheFilePath($key);
 
     if (file_exists($filePath)) {
-        return @unlink($filePath);
+        return unlink($filePath);
     }
 
     return true;
