@@ -41,9 +41,9 @@ try {
 
     // Build cache options based on request parameters
     $cacheOptions = [
-        'starting_year' => $startingYear,
-        'mode' => $mode,
-        'exclude_days' => $excludeDaysRaw,
+        "starting_year" => $startingYear,
+        "mode" => $mode,
+        "exclude_days" => $excludeDaysRaw,
     ];
 
     // Check for cached stats first (24 hour cache)
