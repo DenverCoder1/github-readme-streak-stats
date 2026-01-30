@@ -804,9 +804,10 @@ function convertSvgToPng(string $svg, int $cardWidth, int $cardHeight): string
  *
  * @param string|array $output The stats (array) or error message (string) to display
  * @param array<string,string>|NULL $params Request parameters
+ * @param int $errorCode The HTTP error code (used for JSON responses)
  * @return array The Content-Type header and the response body, and status code in case of an error
  */
-function generateOutput(string|array $output, array $params = null): array
+function generateOutput(string|array $output, array $params = null, int $errorCode = 200): array
 {
     $params = $params ?? $_REQUEST;
 
@@ -815,7 +816,7 @@ function generateOutput(string|array $output, array $params = null): array
     // output JSON data
     if ($requestedType === "json") {
         // generate array from output
-        $data = gettype($output) === "string" ? ["error" => $output] : $output;
+        $data = gettype($output) === "string" ? ["error" => $output, "code" => $errorCode] : $output;
         return [
             "contentType" => "application/json",
             "body" => json_encode($data),
@@ -864,13 +865,15 @@ function generateOutput(string|array $output, array $params = null): array
  * Set headers and output response
  *
  * @param string|array $output The Content-Type header and the response body
- * @param int $responseCode The HTTP response code to send
+ * @param int $responseCode The HTTP response code to send (stored for JSON consumers but always returns 200 for images)
  * @return void The function exits after sending the response
  */
 function renderOutput(string|array $output, int $responseCode = 200): void
 {
-    $response = generateOutput($output);
-    http_response_code($response["status"] ?? $responseCode);
+    $response = generateOutput($output, null, $responseCode);
+    // Always return HTTP 200 for SVG/PNG so GitHub's image proxy (Camo) displays error cards
+    // instead of broken images. The original error code is included in JSON responses.
+    http_response_code(200);
     header("Content-Type: {$response["contentType"]}");
     exit($response["body"]);
 }
