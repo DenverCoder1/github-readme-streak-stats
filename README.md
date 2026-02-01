@@ -1,3 +1,56 @@
+# GitHub Readme Streak Stats - Vercel Fork
+
+**Custom fork of [GitHub Readme Streak Stats](https://github.com/denvercoder1/github-readme-streak-stats) optimized for Vercel deployment.**
+
+This version adds serverless API routes and one-click deployment on Vercel.
+
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/FlavioKde/github-readme-streak-stats)
+
+## ✨ Features added in this fork
+- ✅ **Serverless API Routes** - Runs on Vercel Functions
+- ✅ **One-click deployment** - Deploy instantly with Vercel
+- ✅ **Automatic scaling** - Vercel handles traffic spikes
+- ✅ **Environment variables** - Easy configuration via Vercel dashboard
+
+## 🤔 ¿How does this work?
+
+### Opción 1: Auto-despliegue (RECOMENDADA)
+Cada usuario despliega su **propia instancia** en su cuenta de Vercel:
+1. Haz fork de este repositorio
+2. Deploy en Vercel con un clic
+3. Usa **tus propias** Serverless Functions
+4. **Sin límites compartidos**, tu control total
+
+### Opción 2: Usar endpoint público (LIMITADO)
+Puedes usar: `https://tu-api.vercel.app/api/stats?user=USUARIO`
+⚠️ **Rate limits aplican** - Para uso personal mejor auto-desplegar
+
+## 🚀 Despliegue en 2 minutos
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=TU_URL)
+
+## 📈 Change history
+
+Consult [CHANGELOG.md](CHANGELOG.md) to see all the modifications specific to this fork for Vercel.
+
+## 📋 Documentation
+
+- **[CHANGELOG.md](CHANGELOG.md)** - Change history of this fork
+- **[Documentación original](docs/)** - Features and use of the base project 
+- [Guía de despliegue en Vercel](docs/vercel-guide.md)
+
+## 🛣️ Roadmap
+
+- [ ] Implementar endpoint `/api/streak`
+- [ ] Añadir soporte para parámetros (`user`, `theme`, etc.)
+- [ ] Generar SVG real
+- [ ] Añadir tests
+- [ ] Documentación avanzada
+
+--- 
+
+### ORIGINAL README CONTINUES BELOW 
+
 <p align="center">
   <img src="https://i.imgur.com/GZHodUG.png" width="100px"/>
   <h3 align="center">Github Readme Streak Stats</h3>
