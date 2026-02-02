@@ -19,3 +19,5 @@ docker_tag
 # IDE
 .vscode/
 .idea/
+
+.vercel
