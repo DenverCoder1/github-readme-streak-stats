@@ -1,9 +1,44 @@
 {
+  "name": "github-readme-streak-stats-vercel",
+  "version": "0.1.0",
+  "description": "GitHub Readme Streak Stats - Fork optimized for Vercel deployment",
+  "type": "module",
   "engines": {
-    "node": "22.x"
+    "node": ">=18.x",
+    "php": ">=8.1"
+  },
+  "scripts": {
+    "dev": "npx vercel dev",
+    "start": "npx vercel dev",
+    "deploy": "npx vercel --prod",
+    "format": "prettier --write .",
+    "php:demo": "php -S localhost:8000 -t public",
+    "clean": "rmdir /s node_modules && del package-lock.json"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.24.0",
-    "prettier": "^3.6.2"
-  }
+    "prettier": "^3.8.1"
+  },
+  "keywords": [
+    "github",
+    "streak",
+    "stats",
+    "vercel",
+    "serverless",
+    "api",
+    "fork"
+  ],
+  "author": "FlavioKde (Vercel Fork) - Original by DenverCoder1",
+  "contributors": [
+    "DenverCoder1 <github-readme-streak-stats@denvercoder1.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlavioKde/github-readme-streak-stats.git"
+  },
+  "homepage": "https://github.com/FlavioKde/github-readme-streak-stats#readme"
 }
