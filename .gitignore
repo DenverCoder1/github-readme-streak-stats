@@ -21,3 +21,4 @@ docker_tag
 .idea/
 
 .vercel
+.env*.local
