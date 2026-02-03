@@ -8,9 +8,7 @@
     "php": ">=8.1"
   },
   "scripts": {
-    "dev": "npx vercel dev",
-    "start": "npx vercel dev",
-    "deploy": "npx vercel --prod",
+    "deploy": "vercel --prod",
     "format": "prettier --write .",
     "php:demo": "php -S localhost:8000 -t public",
     "clean": "rmdir /s node_modules && del package-lock.json"
