@@ -411,6 +411,15 @@ return [
         "Present" => "Presente",
         "Excluding {days}" => "Exceto {days}",
     ],
+    "ro" => [
+        "Total Contributions" => "Contribuții totale",
+        "Current Streak" => "Perioada curentă",
+        "Longest Streak" => "Cea mai lungă perioadă",
+        "Week Streak" => "Perioada săptămânală",
+        "Longest Week Streak" => "Cea mai lungă perioadă săptămânală",
+        "Present" => "Prezent",
+        "Excluding {days}" => "Excludând {days}",
+    ],
     "ru" => [
         "Total Contributions" => "Общий вклад",
         "Current Streak" => "Текущая серия",
