@@ -172,6 +172,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |       `everforest-dark`       |                 ![image](https://github.com/user-attachments/assets/45a4e0a0-d330-4233-9d76-89003e59bb31)                  |
 |      `everforest-light`       |                 ![image](https://github.com/user-attachments/assets/592466c0-5a67-48cc-adf0-f8a21ca891b6)                  |
 |        `oceanic-next`         |                 ![image](https://github.com/user-attachments/assets/e0182770-a511-42b6-a40b-644317268a0f)                  |
+|       `kanagawa-paper`        |                 ![image](https://github.com/user-attachments/assets/541a521d-a6a8-4b55-ab79-7b1a9bdb092c)                  |
 |          `sakura-x`           |                 ![image](https://github.com/user-attachments/assets/65360cfa-9d5e-42f2-b3c9-cc2815623413)                  |
 
 ### Can't find the theme you like?
