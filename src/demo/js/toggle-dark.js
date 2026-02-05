@@ -39,7 +39,7 @@ function getCookie(name) {
  * Turn on dark mode
  */
 function darkmode() {
-  document.querySelector(".darkmode i").className = "gg-sun";
+  document.querySelector("#darkmode-icon").innerText = "🌞";
   setCookie("darkmode", "on", 9999);
   document.body.setAttribute("data-theme", "dark");
 }
@@ -48,7 +48,7 @@ function darkmode() {
  * Turn on light mode
  */
 function lightmode() {
-  document.querySelector(".darkmode i").className = "gg-moon";
+  document.querySelector("#darkmode-icon").innerText = "🌙";
   setCookie("darkmode", "off", 9999);
   document.body.removeAttribute("data-theme");
 }

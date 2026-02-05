@@ -22,7 +22,7 @@ function camelToSkewer(string $str): string
         function ($matches) {
             return "-" . strtolower($matches[0]);
         },
-        $str,
+        $str
     );
 }
 ?>
@@ -46,7 +46,6 @@ function camelToSkewer(string $str): string
         gtag('config', 'G-48CYVH0XEF');
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
-    <link href="https://css-gg-cdn.pages.dev/css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=<?= filemtime("./css/style.css") ?>">
     <link rel="stylesheet" href="./css/toggle-dark.css?v=<?= filemtime("./css/toggle-dark.css") ?>">
 
@@ -281,7 +280,13 @@ function camelToSkewer(string $str): string
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo $darkmode === "on" ? "gg-sun" : "gg-moon"; ?>"></i>
+         <span id="darkmode-icon">
+            <?php if ($darkmode === "on"): ?>
+                🌞
+            <?php else: ?>
+                🌙
+            <?php endif; ?>
+         </span>
     </a>
 </body>
 
