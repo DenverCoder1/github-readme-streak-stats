@@ -2147,4 +2147,17 @@ return [
         "dates" => "#C0CAF5",
         "excludeDaysLabel" => "#C0CAF5",
     ],
+    "kanagawa-paper" => [
+        "background" => "#1F1F28",
+        "border" => "#54546D",
+        "stroke" => "#727169",
+        "ring" => "#7FB4CA",
+        "fire" => "#E46876",
+        "currStreakNum" => "#98BB6C",
+        "sideNums" => "#7E9CD8",
+        "currStreakLabel" => "#E6C384",
+        "sideLabels" => "#7AA89F",
+        "dates" => "#C4B28A",
+        "excludeDaysLabel" => "#C8C093",
+    ],
 ];
