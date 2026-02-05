@@ -45,6 +45,22 @@ final class OptionsTest extends TestCase
     }
 
     /**
+     * Test that all themes appear in the documentation (docs/themes.md)
+     */
+    public function testThemesInDocumentation(): void
+    {
+        $themes = include "src/themes.php";
+        $docContent = file_get_contents("docs/themes.md");
+        foreach (array_keys($themes) as $theme) {
+            $this->assertStringContainsString(
+                "`$theme`",
+                $docContent,
+                "The theme '$theme' is missing from the documentation (docs/themes.md).",
+            );
+        }
+    }
+
+    /**
      * Test fallback to default theme
      */
     public function testFallbackToDefaultTheme(): void

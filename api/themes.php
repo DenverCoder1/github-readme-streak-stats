@@ -2134,4 +2134,17 @@ return [
         "dates" => "#A7ADBA",
         "excludeDaysLabel" => "#A7ADBA",
     ],
+    "sakura-x" => [
+        "background" => "#1A1B26",
+        "border" => "#9D4EDD",
+        "stroke" => "#FFFFFF",
+        "ring" => "#9D4EDD",
+        "fire" => "#E5C07B",
+        "currStreakNum" => "#FFFFFF",
+        "sideNums" => "#9D4EDD",
+        "currStreakLabel" => "#E5C07B",
+        "sideLabels" => "#E5C07B",
+        "dates" => "#C0CAF5",
+        "excludeDaysLabel" => "#C0CAF5",
+    ],
 ];

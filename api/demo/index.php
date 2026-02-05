@@ -57,7 +57,6 @@ function fileModifiedTime(string $filename): int
         gtag('config', 'G-48CYVH0XEF');
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
-    <link href="https://css-gg-cdn.pages.dev/css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=<?= fileModifiedTime("./css/style.css") ?>">
     <link rel="stylesheet" href="./css/toggle-dark.css?v=<?= fileModifiedTime("./css/toggle-dark.css") ?>">
 
@@ -292,7 +291,13 @@ function fileModifiedTime(string $filename): int
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo $darkmode === "on" ? "gg-sun" : "gg-moon"; ?>"></i>
+         <span id="darkmode-icon">
+            <?php if ($darkmode === "on"): ?>
+                🌞
+            <?php else: ?>
+                🌙
+            <?php endif; ?>
+         </span>
     </a>
 </body>
 
