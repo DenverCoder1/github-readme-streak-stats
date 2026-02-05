@@ -171,6 +171,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |          `dark-aura`          |                 ![Image](https://github.com/user-attachments/assets/14889d0e-26db-4fa6-8026-6312c9b4636e)                  |
 |       `everforest-dark`       |                 ![image](https://github.com/user-attachments/assets/45a4e0a0-d330-4233-9d76-89003e59bb31)                  |
 |      `everforest-light`       |                 ![image](https://github.com/user-attachments/assets/592466c0-5a67-48cc-adf0-f8a21ca891b6)                  |
+|        `oceanic-next`         |                 ![image](https://github.com/user-attachments/assets/e0182770-a511-42b6-a40b-644317268a0f)                  |
 
 ### Can't find the theme you like?
 
