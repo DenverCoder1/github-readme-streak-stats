@@ -15,16 +15,24 @@ define("CACHE_DIR", __DIR__ . "/../cache");
 /**
  * Generate a cache key for a user's request
  *
+ * Uses structured JSON format to prevent hash collisions between different
+ * user/options combinations that could produce the same concatenated string.
+ *
  * @param string $user GitHub username
  * @param array $options Additional options that affect the stats (mode, exclude_days, starting_year)
  * @return string Cache key (filename-safe)
  */
 function getCacheKey(string $user, array $options = []): string
 {
-    // Normalize options
     ksort($options);
-    $optionsString = json_encode($options);
-    return hash("sha256", $user . $optionsString);
+    try {
+        $keyData = json_encode(["user" => $user, "options" => $options], JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+        // Fallback to simple concatenation if JSON encoding fails
+        error_log("Cache key JSON encoding failed: " . $e->getMessage());
+        $keyData = $user . serialize($options);
+    }
+    return hash("sha256", $keyData);
 }
 
 /**
@@ -68,17 +76,32 @@ function getCachedStats(string $user, array $options = [], int $maxAge = CACHE_D
         return null;
     }
 
-    $fileAge = time() - filemtime($filePath);
-    if ($fileAge > $maxAge) {
-        // Cache expired, delete the file
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
+    $mtime = @filemtime($filePath);
+    if ($mtime === false) {
         return null;
     }
 
-    $contents = file_get_contents($filePath);
-    if ($contents === false) {
+    $fileAge = time() - $mtime;
+    if ($fileAge > $maxAge) {
+        @unlink($filePath);
+        return null;
+    }
+
+    $handle = @fopen($filePath, "r");
+    if ($handle === false) {
+        return null;
+    }
+
+    if (!flock($handle, LOCK_SH)) {
+        fclose($handle);
+        return null;
+    }
+
+    $contents = @stream_get_contents($handle);
+    flock($handle, LOCK_UN);
+    fclose($handle);
+
+    if ($contents === false || $contents === "") {
         return null;
     }
 
@@ -101,18 +124,26 @@ function getCachedStats(string $user, array $options = [], int $maxAge = CACHE_D
 function setCachedStats(string $user, array $options, array $stats): bool
 {
     if (!ensureCacheDir()) {
+        error_log("Failed to create cache directory: " . CACHE_DIR);
         return false;
     }
 
     $key = getCacheKey($user, $options);
     $filePath = getCacheFilePath($key);
 
-    $data = json_encode($stats, JSON_PRETTY_PRINT);
+    $data = json_encode($stats);
     if ($data === false) {
+        error_log("Failed to encode stats to JSON for user: " . $user);
         return false;
     }
 
-    return file_put_contents($filePath, $data, LOCK_EX) !== false;
+    $result = file_put_contents($filePath, $data, LOCK_EX);
+    if ($result === false) {
+        error_log("Failed to write cache file: " . $filePath);
+        return false;
+    }
+
+    return true;
 }
 
 /**
@@ -135,9 +166,13 @@ function clearExpiredCache(int $maxAge = CACHE_DURATION): int
     }
 
     foreach ($files as $file) {
-        $fileAge = time() - filemtime($file);
+        $mtime = @filemtime($file);
+        if ($mtime === false) {
+            continue;
+        }
+        $fileAge = time() - $mtime;
         if ($fileAge > $maxAge) {
-            if (file_exists($file) && unlink($file)) {
+            if (@unlink($file)) {
                 $deleted++;
             }
         }
@@ -149,8 +184,13 @@ function clearExpiredCache(int $maxAge = CACHE_DURATION): int
 /**
  * Clear cache for a specific user
  *
+ * Note: This function only clears the cache for the user with empty/default options.
+ * Cache entries with non-empty options (starting_year, mode, exclude_days) will NOT
+ * be cleared. This is a limitation of the hash-based cache key system - we cannot
+ * enumerate all possible option combinations without storing additional metadata.
+ *
  * @param string $user GitHub username
- * @return bool True if cache was cleared
+ * @return bool True if cache was cleared (or didn't exist)
  */
 function clearUserCache(string $user): bool
 {
@@ -158,13 +198,11 @@ function clearUserCache(string $user): bool
         return true;
     }
 
-    // Since we use a hash, we need to check all files
-    // For simplicity, just clear the cache with empty options
     $key = getCacheKey($user, []);
     $filePath = getCacheFilePath($key);
 
     if (file_exists($filePath)) {
-        return unlink($filePath);
+        return @unlink($filePath);
     }
 
     return true;

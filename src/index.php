@@ -51,7 +51,7 @@ try {
 
     if ($cachedStats !== null) {
         // Use cached stats - instant response!
-        renderOutput($cachedStats);
+        $stats = $cachedStats;
     } else {
         // Fetch fresh data from GitHub API
         $contributionGraphs = getContributionGraphs($user, $startingYear);
@@ -67,9 +67,9 @@ try {
 
         // Cache the stats for 24 hours
         setCachedStats($user, $cacheOptions, $stats);
-
-        renderOutput($stats);
     }
+
+    renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {
     error_log("Error {$error->getCode()}: {$error->getMessage()}");
     if ($error->getCode() >= 500) {
