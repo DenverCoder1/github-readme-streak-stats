@@ -21,7 +21,7 @@ if (!isset($_SERVER["TOKEN"])) {
 }
 
 // set cache to refresh once per day (24 hours)
-$cacheSeconds = 24 * 60 * 60;
+$cacheSeconds = CACHE_DURATION;
 header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheSeconds) . " GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: public, max-age=$cacheSeconds");
