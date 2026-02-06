@@ -321,7 +321,7 @@ Refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for more details on contributing, i
 
 [☕ Buy me a coffee](https://ko-fi.com/jlawrence)
 
----
+--- 
 
 Made with ❤️ and PHP
 
