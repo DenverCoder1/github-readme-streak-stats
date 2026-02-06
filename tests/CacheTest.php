@@ -10,31 +10,6 @@ require_once "src/cache.php";
 
 final class CacheTest extends TestCase
 {
-    private string $testCacheDir;
-
-    protected function setUp(): void
-    {
-        // Use a temp directory for tests to avoid interfering with production cache
-        $this->testCacheDir = sys_get_temp_dir() . "/github-streak-cache-test-" . uniqid();
-        if (!is_dir($this->testCacheDir)) {
-            mkdir($this->testCacheDir, 0755, true);
-        }
-    }
-
-    protected function tearDown(): void
-    {
-        // Clean up test cache directory
-        if (is_dir($this->testCacheDir)) {
-            $files = glob($this->testCacheDir . "/*.json");
-            if ($files) {
-                foreach ($files as $file) {
-                    @unlink($file);
-                }
-            }
-            @rmdir($this->testCacheDir);
-        }
-    }
-
     /**
      * Test cache key generation produces consistent results
      */

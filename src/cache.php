@@ -76,18 +76,18 @@ function getCachedStats(string $user, array $options = [], int $maxAge = CACHE_D
         return null;
     }
 
-    $mtime = @filemtime($filePath);
+    $mtime = filemtime($filePath);
     if ($mtime === false) {
         return null;
     }
 
     $fileAge = time() - $mtime;
     if ($fileAge > $maxAge) {
-        @unlink($filePath);
+        unlink($filePath);
         return null;
     }
 
-    $handle = @fopen($filePath, "r");
+    $handle = fopen($filePath, "r");
     if ($handle === false) {
         return null;
     }
@@ -97,7 +97,7 @@ function getCachedStats(string $user, array $options = [], int $maxAge = CACHE_D
         return null;
     }
 
-    $contents = @stream_get_contents($handle);
+    $contents = stream_get_contents($handle);
     flock($handle, LOCK_UN);
     fclose($handle);
 
@@ -166,13 +166,13 @@ function clearExpiredCache(int $maxAge = CACHE_DURATION): int
     }
 
     foreach ($files as $file) {
-        $mtime = @filemtime($file);
+        $mtime = filemtime($file);
         if ($mtime === false) {
             continue;
         }
         $fileAge = time() - $mtime;
         if ($fileAge > $maxAge) {
-            if (@unlink($file)) {
+            if (unlink($file)) {
                 $deleted++;
             }
         }
@@ -202,7 +202,7 @@ function clearUserCache(string $user): bool
     $filePath = getCacheFilePath($key);
 
     if (file_exists($filePath)) {
-        return @unlink($filePath);
+        return unlink($filePath);
     }
 
     return true;
