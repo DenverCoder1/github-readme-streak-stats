@@ -46,8 +46,11 @@ try {
         "exclude_days" => $excludeDaysRaw,
     ];
 
-    // Check for cached stats first (24 hour cache)
-    $cachedStats = getCachedStats($user, $cacheOptions);
+    // Check if cache is disabled
+    $useCache = !isset($_SERVER["DISABLE_CACHE"]) || strtolower($_SERVER["DISABLE_CACHE"]) !== "true";
+
+    // Check for cached stats first (24 hour cache) unless cache is disabled
+    $cachedStats = $useCache ? getCachedStats($user, $cacheOptions) : null;
 
     if ($cachedStats !== null) {
         // Use cached stats - instant response!
@@ -65,8 +68,10 @@ try {
             $stats = getContributionStats($contributions, $excludeDays);
         }
 
-        // Cache the stats for 24 hours
-        setCachedStats($user, $cacheOptions, $stats);
+        // Cache the stats for 24 hours unless cache is disabled
+        if ($useCache) {
+            setCachedStats($user, $cacheOptions, $stats);
+        }
     }
 
     renderOutput($stats);
