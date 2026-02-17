@@ -273,6 +273,15 @@ return [
         "Present" => "Saiki",
         "Excluding {days}" => "Ora kelebu {days}",
     ],
+    "kk" => [
+        "Total Contributions" => "Жалпы үлес",
+        "Current Streak" => "Ағымдағы серия",
+        "Longest Streak" => "Ең ұзақ серия",
+        "Week Streak" => "Апталық серия",
+        "Longest Week Streak" => "Ең ұзақ апталық серия",
+        "Present" => "Қазір",
+        "Excluding {days}" => "{days} қоспағанда",
+    ],
     "kn" => [
         "Total Contributions" => "ಒಟ್ಟು ಕೊಡುಗೆ",
         "Current Streak" => "ಪ್ರಸ್ತುತ ಸ್ಟ್ರೀಕ್",
