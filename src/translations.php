@@ -164,6 +164,15 @@ return [
         "Excluding {days}" => "{days} مستثنی کردن",
         "comma_separator" => "، ",
     ],
+    "fi" => [
+    "Total Contributions" => "Kaikki julkaisut yhteensä",
+    "Current Streak" => "Nykyinen sarja",
+    "Longest Streak" => "Pisin sarja",
+    "Week Streak" => "Viikon sarja",
+    "Longest Week Streak" => "Pisin viikon sarja",
+    "Present" => "Nykyisin",
+    "Excluding {days}" => "Pois lukien {days}",
+],
     "fil" => [
         "Total Contributions" => "Kabuuang Kontribusyon",
         "Current Streak" => "Kasalukuyang Streak",
