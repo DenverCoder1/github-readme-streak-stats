@@ -108,7 +108,7 @@ function executeContributionGraphRequests(string $user, array $years): array
     }
     // close the handles
     foreach ($requests as $request) {
-        curl_multi_remove_handle($multi, $handle);
+        curl_multi_remove_handle($multi, $request);
     }
     curl_multi_close($multi);
     return $responses;
