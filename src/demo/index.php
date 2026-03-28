@@ -136,6 +136,14 @@ function camelToSkewer(string $str): string
                     <option value="[Y.]n.j">2016.8.10</option>
                 </select>
 
+                <label for="timezone">Timezone</label>
+                <input class="param" type="text" id="timezone" name="timezone" placeholder="Etc/UTC" list="timezone-list" />
+                <datalist id="timezone-list">
+                    <?php foreach (DateTimeZone::listIdentifiers() as $tz): ?>
+                        <option value="<?php echo $tz; ?>"></option>
+                    <?php endforeach; ?>
+                </datalist>
+
                 <label for="mode">Streak Mode</label>
                 <select class="param" id="mode" name="mode">
                     <option value="daily">Daily</option>

@@ -252,13 +252,16 @@ function getGraphQLCurlHandle(string $query, string $token): CurlHandle
  * Get an array of all dates with the number of contributions
  *
  * @param array<int,stdClass> $contributionCalendars List of GraphQL response objects by year
+ * @param string|null $timezone IANA timezone identifier (e.g. "America/New_York")
  * @return array<string,int> Y-M-D dates mapped to the number of contributions
  */
-function getContributionDates(array $contributionGraphs): array
+function getContributionDates(array $contributionGraphs, ?string $timezone = null): array
 {
     $contributions = [];
-    $today = date("Y-m-d");
-    $tomorrow = date("Y-m-d", strtotime("tomorrow"));
+    $tz = $timezone ? new DateTimeZone($timezone) : null;
+    $now = $tz ? new DateTime("now", $tz) : new DateTime("now");
+    $today = $now->format("Y-m-d");
+    $tomorrow = (clone $now)->modify("+1 day")->format("Y-m-d");
     // sort contribution calendars by year key
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {

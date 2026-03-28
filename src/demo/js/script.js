@@ -11,6 +11,7 @@ const preview = {
     date_format: "",
     locale: "en",
     border_radius: "4.5",
+    timezone: "",
     mode: "daily",
     type: "svg",
     exclude_days: "",
