@@ -39,11 +39,16 @@ try {
     $mode = isset($_GET["mode"]) ? $_GET["mode"] : null;
     $excludeDaysRaw = $_GET["exclude_days"] ?? "";
 
+    // validate timezone parameter
+    $timezoneRaw = $_GET["timezone"] ?? "";
+    $timezone = in_array($timezoneRaw, DateTimeZone::listIdentifiers()) ? $timezoneRaw : null;
+
     // Build cache options based on request parameters
     $cacheOptions = [
         "starting_year" => $startingYear,
         "mode" => $mode,
         "exclude_days" => $excludeDaysRaw,
+        "timezone" => $timezone,
     ];
 
     // Check if cache is disabled
@@ -58,7 +63,7 @@ try {
     } else {
         // Fetch fresh data from GitHub API
         $contributionGraphs = getContributionGraphs($user, $startingYear);
-        $contributions = getContributionDates($contributionGraphs);
+        $contributions = getContributionDates($contributionGraphs, $timezone);
 
         if ($mode === "weekly") {
             $stats = getWeeklyContributionStats($contributions);
