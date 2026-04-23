@@ -55,6 +55,29 @@ try {
     if ($cachedStats !== null) {
         // Use cached stats - instant response!
         $stats = $cachedStats;
+        $today = date("Y-m-d");
+        $currentStreakEnd = $stats["currentStreak"]["end"];
+        $currentStreakLength = $stats["currentStreak"]["length"];
+
+        if ($currentStreakLength == 0 || $currentStreakEnd != $today) {
+            try {
+                $contributionGraphs = getContributionGraphs($user, $startingYear);
+                $contributions = getContributionDates($contributionGraphs);
+
+                if ($mode === "weekly") {
+                    $stats = getWeeklyContributionStats($contributions);
+                } else {
+                    $excludeDays = normalizeDays(explode(",", $excludeDaysRaw));
+                    $stats = getContributionStats($contributions, $excludeDays);
+                }
+
+                if ($useCache) {
+                    setCachedStats($user, $cacheOptions, $stats);
+                }
+            } catch (Exception $e) {
+                error_log("Failed to fetch fresh stats for user {$user}: " . $e->getMessage());
+            }
+        }
     } else {
         // Fetch fresh data from GitHub API
         $contributionGraphs = getContributionGraphs($user, $startingYear);
