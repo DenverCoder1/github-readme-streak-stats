@@ -162,7 +162,7 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 ### GitHub Actions
 
-GitHub Actions can generate a static SVG in your profile repository so your README does not depend on the public hosted endpoint. By default it uses `GITHUB_TOKEN`; if you need private contribution data, create a PAT and pass it as the `token` input.
+GitHub Actions can generate a static SVG in your profile repository so your README does not depend on the public hosted endpoint. By default it uses `GITHUB_TOKEN`; if you need private contribution data, create a PAT, save it as a repository secret, and pass that secret as the `token` input.
 
 Create `/.github/workflows/streak-stats.yml` in your profile repo (`USERNAME/USERNAME`):
 
@@ -186,7 +186,7 @@ jobs:
       - name: Generate streak stats
         uses: DenverCoder1/github-readme-streak-stats@main
         with:
-          options: user=${{ github.repository_owner }}&theme=dark&disable_animations=true
+          options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
           path: profile/streak.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -204,6 +204,8 @@ Then embed the generated card from your profile README:
 ```md
 ![GitHub Streak](./profile/streak.svg)
 ```
+
+If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork. Do not put a PAT directly in the workflow file; store it in GitHub Secrets and reference it as `${{ secrets.YOUR_SECRET_NAME }}`.
 
 ### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
 

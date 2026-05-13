@@ -27,6 +27,7 @@ runs:
               php-version: "8.3"
               extensions: intl, curl
               coverage: none
+              github-token: ""
 
         - name: Install dependencies
           run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
