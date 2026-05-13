@@ -160,6 +160,51 @@ You can deploy the PHP files on any website server with PHP installed including 
 
 The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
+### GitHub Actions
+
+GitHub Actions can generate a static SVG in your profile repository so your README does not depend on the public hosted endpoint. By default it uses `GITHUB_TOKEN`; if you need private contribution data, create a PAT and pass it as the `token` input.
+
+Create `/.github/workflows/streak-stats.yml` in your profile repo (`USERNAME/USERNAME`):
+
+```yaml
+name: Update streak stats
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate streak stats
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=${{ github.repository_owner }}&theme=dark&disable_animations=true
+          path: profile/streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit streak stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/streak.svg
+          git commit -m "Update streak stats" || exit 0
+          git push
+```
+
+Then embed the generated card from your profile README:
+
+```md
+![GitHub Streak](./profile/streak.svg)
+```
+
 ### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
