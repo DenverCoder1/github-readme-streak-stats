@@ -49,44 +49,15 @@ try {
     // Check if cache is disabled
     $useCache = !isset($_SERVER["DISABLE_CACHE"]) || strtolower($_SERVER["DISABLE_CACHE"]) !== "true";
 
-    // Check for cached stats first (24 hour cache) unless cache is disabled
-    $cachedStats = $useCache ? getCachedStats($user, $cacheOptions) : null;
-
-    if ($cachedStats !== null) {
-        // Use cached stats - instant response!
-        $stats = $cachedStats;
-        $today = date("Y-m-d");
-        $currentStreakEnd = $stats["currentStreak"]["end"];
-        $currentStreakLength = $stats["currentStreak"]["length"];
-
-        if ($currentStreakLength == 0 || $currentStreakEnd != $today) {
-            try {
-                $contributionGraphs = getContributionGraphs($user, $startingYear);
-                $contributions = getContributionDates($contributionGraphs);
-
-                if ($mode === "weekly") {
-                    $stats = getWeeklyContributionStats($contributions);
-                } else {
-                    $excludeDays = normalizeDays(explode(",", $excludeDaysRaw));
-                    $stats = getContributionStats($contributions, $excludeDays);
-                }
-
-                if ($useCache) {
-                    setCachedStats($user, $cacheOptions, $stats);
-                }
-            } catch (Exception $e) {
-                error_log("Failed to fetch fresh stats for user {$user}: " . $e->getMessage());
-            }
-        }
-    } else {
-        // Fetch fresh data from GitHub API
+    // Fetches fresh stats from the GitHub API and updates the cache if enabled
+    $fetchFreshStats = function () use ($user, $startingYear, $mode, $excludeDaysRaw, $useCache, $cacheOptions) {
         $contributionGraphs = getContributionGraphs($user, $startingYear);
         $contributions = getContributionDates($contributionGraphs);
 
         if ($mode === "weekly") {
             $stats = getWeeklyContributionStats($contributions);
         } else {
-            // split and normalize excluded days
+            // Split and normalize excluded days
             $excludeDays = normalizeDays(explode(",", $excludeDaysRaw));
             $stats = getContributionStats($contributions, $excludeDays);
         }
@@ -94,6 +65,23 @@ try {
         // Cache the stats for 24 hours unless cache is disabled
         if ($useCache) {
             setCachedStats($user, $cacheOptions, $stats);
+        }
+
+        return $stats;
+    };
+
+    // Check for cached stats first (24 hour cache) unless cache is disabled
+    $stats = $useCache ? getCachedStats($user, $cacheOptions) : null;
+
+    if ($stats === null) {
+        // No cached stats - fetch fresh data from GitHub API
+        $stats = $fetchFreshStats();
+    } elseif ($stats["currentStreak"]["length"] == 0 || $stats["currentStreak"]["end"] != date("Y-m-d")) {
+        // Cached streak may be stale - try refreshing, but fall back to cache on failure
+        try {
+            $stats = $fetchFreshStats();
+        } catch (Exception $e) {
+            error_log("Failed to fetch fresh stats for user {$user}: " . $e->getMessage());
         }
     }
 
