@@ -175,7 +175,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/streak-stats.yml'
+      - ".github/workflows/streak-stats.yml"
 
 jobs:
   build:
@@ -202,10 +202,12 @@ jobs:
           git push
 ```
 
-Then embed the generated card from your profile README:
+#### Show the generated stats in your README
 
-```md
-![GitHub Streak](./profile/streak.svg)
+Add this to your profile `README.md` file where you want the stats to appear:
+
+```html
+<a href="https://git.io/streak-stats"><img src="./profile/streak.svg" alt="GitHub Streak" /></a>
 ```
 
 If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork. Do not put a PAT directly in the workflow file; store it in GitHub Secrets and reference it as `${{ secrets.YOUR_SECRET_NAME }}`.
