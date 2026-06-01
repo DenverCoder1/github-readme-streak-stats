@@ -173,6 +173,9 @@ on:
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/streak-stats.yml'
 
 jobs:
   build:
