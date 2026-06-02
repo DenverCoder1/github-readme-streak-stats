@@ -7,6 +7,7 @@ require_once "../vendor/autoload.php";
 require_once "stats.php";
 require_once "card.php";
 require_once "cache.php";
+require_once "generator.php";
 
 // load .env
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
@@ -33,47 +34,7 @@ if (!isset($_REQUEST["user"])) {
 }
 
 try {
-    // get streak stats for user given in query string
-    $user = preg_replace("/[^a-zA-Z0-9\-]/", "", $_REQUEST["user"]);
-    $startingYear = isset($_REQUEST["starting_year"]) ? intval($_REQUEST["starting_year"]) : null;
-    $mode = isset($_GET["mode"]) ? $_GET["mode"] : null;
-    $excludeDaysRaw = $_GET["exclude_days"] ?? "";
-
-    // Build cache options based on request parameters
-    $cacheOptions = [
-        "starting_year" => $startingYear,
-        "mode" => $mode,
-        "exclude_days" => $excludeDaysRaw,
-    ];
-
-    // Check if cache is disabled
-    $useCache = !isset($_SERVER["DISABLE_CACHE"]) || strtolower($_SERVER["DISABLE_CACHE"]) !== "true";
-
-    // Check for cached stats first (24 hour cache) unless cache is disabled
-    $cachedStats = $useCache ? getCachedStats($user, $cacheOptions) : null;
-
-    if ($cachedStats !== null) {
-        // Use cached stats - instant response!
-        $stats = $cachedStats;
-    } else {
-        // Fetch fresh data from GitHub API
-        $contributionGraphs = getContributionGraphs($user, $startingYear);
-        $contributions = getContributionDates($contributionGraphs);
-
-        if ($mode === "weekly") {
-            $stats = getWeeklyContributionStats($contributions);
-        } else {
-            // split and normalize excluded days
-            $excludeDays = normalizeDays(explode(",", $excludeDaysRaw));
-            $stats = getContributionStats($contributions, $excludeDays);
-        }
-
-        // Cache the stats for 24 hours unless cache is disabled
-        if ($useCache) {
-            setCachedStats($user, $cacheOptions, $stats);
-        }
-    }
-
+    $stats = generateStreakStats($_REQUEST["user"], $_REQUEST);
     renderOutput($stats);
 } catch (InvalidArgumentException | AssertionError $error) {
     error_log("Error {$error->getCode()}: {$error->getMessage()}");

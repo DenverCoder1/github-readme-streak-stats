@@ -1,0 +1,47 @@
+name: GitHub Readme Streak Stats Action
+description: Generate a GitHub Readme Streak Stats SVG in GitHub Actions.
+author: DenverCoder1
+inputs:
+    options:
+        description: Card options as a query string or JSON object.
+        required: false
+        default: ""
+    path:
+        description: Output path for the SVG file.
+        required: false
+        default: "profile/streak.svg"
+    token:
+        description: GitHub token (PAT or GITHUB_TOKEN).
+        required: false
+        default: ""
+outputs:
+    path:
+        description: Path where the SVG file was written.
+        value: ${{ steps.generate.outputs.path }}
+runs:
+    using: composite
+    steps:
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+              php-version: "8.3"
+              extensions: intl, curl
+              coverage: none
+              github-token: ""
+
+        - name: Install dependencies
+          run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+          shell: bash
+          working-directory: ${{ github.action_path }}
+
+        - name: Generate streak card
+          id: generate
+          run: php ${{ github.action_path }}/bin/generate-card.php
+          shell: bash
+          env:
+              INPUT_OPTIONS: ${{ inputs.options }}
+              INPUT_PATH: ${{ inputs.path }}
+              TOKEN: ${{ inputs.token || github.token }}
+branding:
+    icon: activity
+    color: orange
