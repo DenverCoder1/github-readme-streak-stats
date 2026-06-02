@@ -33,7 +33,7 @@ function generateStreakStats(string $user, array $params = []): array
     // Check for cached stats first (24 hour cache) unless cache is disabled
     $cachedStats = $useCache ? getCachedStats($user, $cacheOptions) : null;
 
-    if ($cachedStats !== null) {
+    if (!statsMissingOrStale($cachedStats)) {
         return $cachedStats;
     }
 
@@ -55,4 +55,41 @@ function generateStreakStats(string $user, array $params = []): array
     }
 
     return $stats;
+}
+
+/**
+ * Check if cached stats are missing or stale - Streak may be outdated if it ends before today
+ *
+ * @param array|null $cachedStats The cached stats to check
+ * @return bool True if the cached stats are stale and should be refreshed
+ */
+function statsMissingOrStale(?array $cachedStats): bool
+{
+    // If there are no cached stats, we need to refresh
+    if ($cachedStats === null) {
+        return true;
+    }
+
+    // If the cached stats don't have the expected structure, consider them stale
+    if (!isset($cachedStats["currentStreak"]["end"]) || !isset($cachedStats["currentStreak"]["length"])) {
+        return true;
+    }
+
+    // If the current streak length is 0, we can consider it stale to allow for new streaks to be detected without waiting for the cache to expire
+    $currentStreakLength = $cachedStats["currentStreak"]["length"];
+    if ($currentStreakLength === 0) {
+        return true;
+    }
+
+    // Check if the current streak ends before today (or before the start of the week for weekly mode)
+    // If the streak ends before today, it may be outdated and we should refresh to check for new contributions
+    $currentStreakEnd = $cachedStats["currentStreak"]["end"];
+    $mode = $cachedStats["mode"] ?? "daily";
+
+    if ($mode === "weekly") {
+        $startOfWeek = date("Y-m-d", strtotime("last Sunday"));
+        return $currentStreakEnd < $startOfWeek;
+    } else {
+        return $currentStreakEnd < date("Y-m-d");
+    }
 }
