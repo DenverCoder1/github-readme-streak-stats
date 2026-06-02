@@ -18,6 +18,8 @@
 
 ## ⚡ Quick setup
 
+### Option 1: Web Deployment
+
 1. Copy-paste the markdown below into your GitHub profile README
 2. Replace the value after `?user=` with your GitHub username
 
@@ -25,15 +27,82 @@
 [![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1)](https://git.io/streak-stats)
 ```
 
-3. Star the repo 😄
-
-### Next Steps
+#### Next Steps
 
 - Check out the [Demo Site](https://streak-stats.demolab.com) or [Options](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-options) below for available customizations.
 
 - It is recommended to self-host the project more better reliability. See [Deploying it on your own](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-deploying-it-on-your-own) for more details.
 
 [![][hspace]](#) [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)][herokudeploy] [![Deploy to Vercel](https://i.imgur.com/Mb3VLCi.png)][verceldeploy]
+
+### Option 2: GitHub Actions
+
+GitHub Actions can generate a static SVG in your profile repository so your README does not depend on the public hosted endpoint. If you need private contribution data, add a custom token to Repository Secrets using the steps below.
+
+<details>
+  <summary>Adding a Custom Token to Repository Secrets</summary><br/>
+
+1. Visit [this link](https://github.com/settings/tokens/new?description=GitHub%20Readme%20Streak%20Stats) to create a new Personal Access Token (no scopes required)
+2. Scroll to the bottom and click **"Generate token"**
+3. Visit your profile repository settings (Secrets and Variables > Actions) `https://github.com/[YOUR USERNAME]/[YOUR USERNAME]/settings/secrets/actions`
+4. Click "New Repository Secret" and create a secret with a custom name (eg. `STREAK_STATS_TOKEN`) and your token from step 2 as the value.
+5. Replace `${{ secrets.GITHUB_TOKEN }}` in the yml file below with `${{ secrets.STREAK_STATS_TOKEN }}` (using the custom name you gave the secret).
+
+</details>
+
+#### 1. Create the workflow file
+
+Create a folder in your repo named `.github` and within it a folder named `workflows` and add a file `/.github/workflows/streak-stats.yml` in your profile repo (`USERNAME/USERNAME`):
+
+```yaml
+name: Update streak stats
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # Run every day at 03:00
+  push:
+    paths:
+      - ".github/workflows/streak-stats.yml"  # Run any time this file is modified
+  workflow_dispatch:  # Run manually from the Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate streak stats
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
+          path: profile/streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit streak stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/streak.svg
+          git commit -m "Update streak stats" || exit 0
+          git push
+```
+
+#### 2. Show the generated stats in your README
+
+Add this to your profile `README.md` file where you want the stats to appear:
+
+```html
+<a href="https://git.io/streak-stats"><img src="./profile/streak.svg" alt="GitHub Streak" /></a>
+```
+
+If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork. Do not put a PAT directly in the workflow file; store it in GitHub Secrets and reference it as `${{ secrets.YOUR_SECRET_NAME }}`.
+
+#### Next Steps
+
+- Check out the [Options](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#-options) below for available customizations.
 
 ## ⚙ Demo Site
 
@@ -152,7 +221,7 @@ The current streak is the number of consecutive days ending with the current day
 
 ## 📤 Deploying it on your own
 
-It is preferable to host the files on your own server and it takes less than 2 minutes to set up.
+It is preferable to either use [GitHub Actions](https://github.com/DenverCoder1/github-readme-streak-stats?tab=readme-ov-file#option-2-github-actions), or host the files on your own server which takes less than 2 minutes to set up.
 
 Doing this can lead to better uptime and more control over customization (you can modify the code for your usage).
 
@@ -160,59 +229,7 @@ You can deploy the PHP files on any website server with PHP installed including 
 
 The Inkscape dependency is required for PNG rendering, as well as Segoe UI font for the intended rendering. If using Heroku, the buildpacks will install these for you automatically.
 
-### GitHub Actions
-
-GitHub Actions can generate a static SVG in your profile repository so your README does not depend on the public hosted endpoint. By default it uses `GITHUB_TOKEN`; if you need private contribution data, create a PAT, save it as a repository secret, and pass that secret as the `token` input.
-
-Create `/.github/workflows/streak-stats.yml` in your profile repo (`USERNAME/USERNAME`):
-
-```yaml
-name: Update streak stats
-
-on:
-  schedule:
-    - cron: "0 3 * * *"
-  workflow_dispatch:
-  push:
-    paths:
-      - ".github/workflows/streak-stats.yml"
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@main
-        with:
-          options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
-          path: profile/streak.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Commit streak stats
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/streak.svg
-          git commit -m "Update streak stats" || exit 0
-          git push
-```
-
-#### Show the generated stats in your README
-
-Add this to your profile `README.md` file where you want the stats to appear:
-
-```html
-<a href="https://git.io/streak-stats"><img src="./profile/streak.svg" alt="GitHub Streak" /></a>
-```
-
-If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork. Do not put a PAT directly in the workflow file; store it in GitHub Secrets and reference it as `${{ secrets.YOUR_SECRET_NAME }}`.
-
-### [![Deploy to Vercel](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/5a503e6b-c462-4627-82ee-651f2cb2a1fc)][verceldeploy]
+### Deploy to Vercel
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
@@ -270,7 +287,7 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 </details>
 
-### [![Deploy on Heroku](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/e8b575af-5746-4200-a295-7e7baa448383)][herokudeploy]
+### Deploy on Heroku
 
 Heroku is another great option for hosting the files. All features are supported on Heroku and it is where the default domain is hosted. Heroku is not free, however, and you will need to pay between \$5 and \$7 per month to keep the app running. Expand the instructions below to learn how to deploy to Heroku.
 
@@ -296,7 +313,7 @@ Heroku is another great option for hosting the files. All features are supported
 
 </details>
 
-### ![Deploy on your own](https://github.com/DenverCoder1/github-readme-streak-stats/assets/20955511/e36ed842-ab56-473a-83fd-ace5bf968996)
+### Deploy on your own
 
 You can transfer the files to any webserver using FTP or other means, then refer to [CONTRIBUTING.md](/CONTRIBUTING.md) for installation steps.
 
