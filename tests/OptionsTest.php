@@ -49,7 +49,7 @@ final class OptionsTest extends TestCase
      */
     public function testThemesInDocumentation(): void
     {
-        $themes = include "src/themes.php";
+        $themes = include "api/themes.php";
         $docContent = file_get_contents("docs/themes.md");
         foreach (array_keys($themes) as $theme) {
             $this->assertStringContainsString(
@@ -261,7 +261,7 @@ final class OptionsTest extends TestCase
      */
     public function testAllThemeNamesNormalized(): void
     {
-        $themes = include "src/themes.php";
+        $themes = include "api/themes.php";
         foreach (array_keys($themes) as $theme) {
             $normalized = normalizeThemeName($theme);
             $this->assertEquals(

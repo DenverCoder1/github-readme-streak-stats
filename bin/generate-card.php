@@ -5,10 +5,10 @@ declare(strict_types=1);
 $root = dirname(__DIR__);
 
 require_once "{$root}/vendor/autoload.php";
-require_once "{$root}/src/stats.php";
-require_once "{$root}/src/card.php";
-require_once "{$root}/src/cache.php";
-require_once "{$root}/src/generator.php";
+require_once "{$root}/api/stats.php";
+require_once "{$root}/api/card.php";
+require_once "{$root}/api/cache.php";
+require_once "{$root}/api/generator.php";
 
 $dotenv = \Dotenv\Dotenv::createImmutable($root);
 $dotenv->safeLoad();

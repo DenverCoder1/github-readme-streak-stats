@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 // load functions
 require_once dirname(__DIR__, 1) . "/vendor/autoload.php";
-require_once "src/cache.php";
+require_once "api/cache.php";
 
 final class CacheTest extends TestCase
 {
