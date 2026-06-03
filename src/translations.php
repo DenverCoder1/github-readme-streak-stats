@@ -217,7 +217,7 @@ return [
         "Week Streak" => "רצף שבועי",
         "Longest Week Streak" => "רצף שבועי הכי ארוך",
         "Present" => "היום",
-        "Excluding {days}" => "לא כולל {days}",
+        "Excluding {days}" => "לא כולל {ימים}",
     ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",
