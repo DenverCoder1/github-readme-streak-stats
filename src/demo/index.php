@@ -84,7 +84,12 @@ function camelToSkewer(string $str): string
 
                 <label for="theme">Theme</label>
                 <select class="param" id="theme" name="theme">
-                    <?php foreach ($THEMES as $theme => $options): ?>
+                    <?php 
+                    
+                    //Added sort in alphabetical order
+                    ksort($THEMES, SORT_NATURAL | SORT_FLAG_CASE);
+
+                    foreach ($THEMES as $theme => $options): ?>
                         <?php
                         $dataAttrs = "";
                         foreach ($options as $key => $value) {
