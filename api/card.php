@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
 declare(strict_types=1);
 
@@ -362,12 +363,12 @@ function formatNumber(float $num, string $localeCode, bool $useShortNumbers): st
  * Generate SVG output for a stats array
  *
  * @param array<string,mixed> $stats Streak stats
- * @param array<string,string>|NULL $params Request parameters
+ * @param array<string,string>|null $params Request parameters
  * @return string The generated SVG Streak Stats card
  *
  * @throws InvalidArgumentException If a locale does not exist
  */
-function generateCard(array $stats, array $params = null): string
+function generateCard(array $stats, ?array $params = null): string
 {
     $params = $params ?? $_REQUEST;
 
@@ -612,10 +613,10 @@ function generateCard(array $stats, array $params = null): string
  * Generate SVG displaying an error message
  *
  * @param string $message The error message to display
- * @param array<string,string>|NULL $params Request parameters
+ * @param array<string,string>|null $params Request parameters
  * @return string The generated SVG error card
  */
-function generateErrorCard(string $message, array $params = null): string
+function generateErrorCard(string $message, ?array $params = null): string
 {
     $params = $params ?? $_REQUEST;
 
@@ -803,11 +804,11 @@ function convertSvgToPng(string $svg, int $cardWidth, int $cardHeight): string
  * Return headers and response based on type
  *
  * @param string|array $output The stats (array) or error message (string) to display
- * @param array<string,string>|NULL $params Request parameters
+ * @param array<string,string>|null $params Request parameters
  * @param int $errorCode The HTTP error code (used for JSON responses)
  * @return array The Content-Type header and the response body, and status code in case of an error
  */
-function generateOutput(string|array $output, array $params = null, int $errorCode = 200): array
+function generateOutput(string|array $output, ?array $params = null, int $errorCode = 200): array
 {
     $params = $params ?? $_REQUEST;
 
