@@ -369,6 +369,7 @@ function formatNumber(float $num, string $localeCode, bool $useShortNumbers): st
  *
  * @throws InvalidArgumentException If a locale does not exist
  */
+// skipcq: PHP-R1006
 function generateCard(array $stats, ?array $params = null): string
 {
     $params = $params ?? $_REQUEST;
