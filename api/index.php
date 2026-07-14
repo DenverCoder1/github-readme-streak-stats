@@ -28,6 +28,7 @@ if (!isset($_ENV["TOKEN"])) {
 }
 
 // set cache to refresh once per day (24 hours)
+// skipcq: PHP-W1038
 $cacheSeconds = CACHE_DURATION;
 header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheSeconds) . " GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
