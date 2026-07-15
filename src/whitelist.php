@@ -8,7 +8,11 @@
  */
 function isWhitelisted(string $user): bool
 {
-    $whitelistRaw = $_ENV["WHITELIST"] ?? $_SERVER["WHITELIST"] ?? (getenv("WHITELIST") ?: "");
+    $whitelistRaw = $_ENV["WHITELIST"] ?? $_SERVER["WHITELIST"] ?? null;
+    if ($whitelistRaw === null) {
+        $whitelistRaw = getenv("WHITELIST");
+        $whitelistRaw = $whitelistRaw === false ? "" : $whitelistRaw;
+    }
     $whitelist = array_map("trim", array_filter(explode(",", $whitelistRaw)));
     return empty($whitelist) || in_array($user, $whitelist, true);
 }
