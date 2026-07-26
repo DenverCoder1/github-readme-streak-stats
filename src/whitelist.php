@@ -8,7 +8,7 @@
  */
 function isWhitelisted(string $user): bool
 {
-    $whitelistRaw = $_ENV["WHITELIST"] ?? $_SERVER["WHITELIST"] ?? null;
+    $whitelistRaw = $_ENV["WHITELIST"] ?? ($_SERVER["WHITELIST"] ?? null);
     if ($whitelistRaw === null) {
         $whitelistRaw = getenv("WHITELIST");
         $whitelistRaw = $whitelistRaw === false ? "" : $whitelistRaw;
