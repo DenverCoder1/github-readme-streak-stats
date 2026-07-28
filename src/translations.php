@@ -610,7 +610,7 @@ return [
         "Week Streak" => "ہفتہ وار تسلسل",
         "Longest Week Streak" => "طویل ترین ہفتہ وار تسلسل",
         "Present" => "حاظر",
-        "Excluding {days}" => "دن خارج کریں۔ {days}",
+        "Excluding {days}" => " خارج کردہ دن :۔ {days}",
         "comma_separator" => "، ",
     ],
     "vi" => [
