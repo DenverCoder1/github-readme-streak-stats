@@ -94,7 +94,11 @@ const preview = {
    * @returns {string} the workflow file content
    */
   generateWorkflow(params) {
-    const options = this.toQueryString(params, ["type"]) || "user=${{ github.repository_owner }}";
+    const githubExpressionStart = "$" + "{{ ";
+    const githubExpressionEnd = " }}";
+    const repositoryOwner = `${githubExpressionStart}github.repository_owner${githubExpressionEnd}`;
+    const githubToken = `${githubExpressionStart}secrets.GITHUB_TOKEN${githubExpressionEnd}`;
+    const options = this.toQueryString(params, ["type"]) || `user=${repositoryOwner}`;
 
     return `name: Update streak stats
 
@@ -120,7 +124,7 @@ jobs:
         with:
           options: ${options}
           path: profile/streak.svg
-          token: \${{ secrets.GITHUB_TOKEN }}
+          token: ${githubToken}
 
       - name: Commit streak stats
         run: |
