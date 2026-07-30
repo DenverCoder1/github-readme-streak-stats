@@ -321,6 +321,53 @@ final class StatsTest extends TestCase
     }
 
     /**
+     * Test contribution dates with timezone override
+     */
+    public function testContributionDatesWithTimezone(): void
+    {
+        $now = new DateTimeImmutable("2026-01-01T01:00:00+00:00");
+        $today = getCurrentDate("America/New_York", $now);
+        $tomorrow = date("Y-m-d", strtotime("$today +1 day"));
+        $inTwoDays = date("Y-m-d", strtotime("$today +2 days"));
+        $contributionGraphs = [
+            (object) [
+                "data" => (object) [
+                    "user" => (object) [
+                        "contributionsCollection" => (object) [
+                            "contributionCalendar" => (object) [
+                                "weeks" => (object) [
+                                    (object) [
+                                        "contributionDays" => (object) [
+                                            (object) [
+                                                "contributionCount" => 1,
+                                                "date" => $today,
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 0,
+                                                "date" => $tomorrow,
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 1,
+                                                "date" => $inTwoDays,
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        $contributions = getContributionDates($contributionGraphs, "America/New_York", $now);
+
+        $this->assertArrayHasKey($today, $contributions);
+        $this->assertArrayNotHasKey($tomorrow, $contributions);
+        $this->assertArrayNotHasKey($inTwoDays, $contributions);
+    }
+
+    /**
      * Test weekly stats
      */
     public function testWeeklyStats(): void
