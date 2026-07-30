@@ -94,9 +94,8 @@ const preview = {
    * @returns {string} the workflow file content
    */
   generateWorkflow(params) {
-    const githubExpression = (name) => ["$", "{{ ", name, " }}"].join("");
-    const repositoryOwner = githubExpression("github.repository_owner");
-    const githubToken = githubExpression("secrets.GITHUB_TOKEN");
+    const repositoryOwner = ["$", "{{ ", "github.repository_owner", " }}"].join("");
+    const githubToken = ["$", "{{ ", "secrets.GITHUB_TOKEN", " }}"].join("");
     const options = this.toQueryString(params, ["type"]) || `user=${repositoryOwner}`;
 
     return `name: Update streak stats
