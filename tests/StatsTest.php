@@ -321,6 +321,72 @@ final class StatsTest extends TestCase
     }
 
     /**
+     * Test repository creation keeps daily streak active
+     */
+    public function testRepositoryCreationContribution(): void
+    {
+        $contributionGraphs = [
+            (object) [
+                "data" => (object) [
+                    "user" => (object) [
+                        "contributionsCollection" => (object) [
+                            "contributionCalendar" => (object) [
+                                "weeks" => (object) [
+                                    (object) [
+                                        "contributionDays" => (object) [
+                                            (object) [
+                                                "contributionCount" => 2,
+                                                "date" => "2026-07-08",
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 0,
+                                                "date" => "2026-07-09",
+                                            ],
+                                            (object) [
+                                                "contributionCount" => 3,
+                                                "date" => "2026-07-10",
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            "repositoryContributions" => (object) [
+                                "nodes" => [
+                                    (object) [
+                                        "occurredAt" => "2026-07-09T12:00:00Z",
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        $contributions = getContributionDates($contributionGraphs);
+        $stats = getContributionStats($contributions);
+
+        $expected = [
+            "mode" => "daily",
+            "totalContributions" => 6,
+            "firstContribution" => "2026-07-08",
+            "longestStreak" => [
+                "start" => "2026-07-08",
+                "end" => "2026-07-10",
+                "length" => 3,
+            ],
+            "currentStreak" => [
+                "start" => "2026-07-08",
+                "end" => "2026-07-10",
+                "length" => 3,
+            ],
+            "excludedDays" => [],
+        ];
+        $this->assertEquals(["2026-07-08" => 2, "2026-07-09" => 1, "2026-07-10" => 3], $contributions);
+        $this->assertEquals($expected, $stats);
+    }
+
+    /**
      * Test weekly stats
      */
     public function testWeeklyStats(): void

@@ -28,6 +28,11 @@ function buildContributionGraphQuery(string $user, int $year): string
                         }
                     }
                 }
+                repositoryContributions(first: 100) {
+                    nodes {
+                        occurredAt
+                    }
+                }
             }
         }
     }";
@@ -275,7 +280,15 @@ function getContributionDates(array $contributionGraphs): array
                 }
             }
         }
+        $repositoryContributions = $graph->data->user->contributionsCollection->repositoryContributions->nodes ?? [];
+        foreach ($repositoryContributions as $repositoryContribution) {
+            $date = substr($repositoryContribution->occurredAt, 0, 10);
+            if ($date <= $today || $date == $tomorrow) {
+                $contributions[$date] = max($contributions[$date] ?? 0, 1);
+            }
+        }
     }
+    ksort($contributions);
     return $contributions;
 }
 
