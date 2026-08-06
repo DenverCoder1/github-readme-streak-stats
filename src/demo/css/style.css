@@ -311,6 +311,20 @@ input:focus:invalid {
   word-break: break-all;
 }
 
+.output .workflow {
+  word-break: normal;
+  overflow-x: auto;
+}
+
+.output .workflow code {
+  white-space: pre;
+}
+
+.workflow-note {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
 .output .btn {
   margin-top: 16px;
 }
