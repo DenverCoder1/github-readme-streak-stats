@@ -19,7 +19,7 @@ define("CACHE_DIR", __DIR__ . "/../cache");
  * user/options combinations that could produce the same concatenated string.
  *
  * @param string $user GitHub username
- * @param array $options Additional options that affect the stats (mode, exclude_days, starting_year)
+ * @param array $options Additional options that affect the stats (mode, exclude_days, starting_year, timezone)
  * @return string Cache key (filename-safe)
  */
 function getCacheKey(string $user, array $options = []): string
@@ -185,7 +185,7 @@ function clearExpiredCache(int $maxAge = CACHE_DURATION): int
  * Clear cache for a specific user
  *
  * Note: This function only clears the cache for the user with empty/default options.
- * Cache entries with non-empty options (starting_year, mode, exclude_days) will NOT
+ * Cache entries with non-empty options (starting_year, mode, exclude_days, timezone) will NOT
  * be cleared. This is a limitation of the hash-based cache key system - we cannot
  * enumerate all possible option combinations without storing additional metadata.
  *
