@@ -6,7 +6,13 @@
         { "src": "/", "dest": "/api/index.php" }
     ],
     "functions": {
-        "api/**/*.php": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.9.0"
+        },
+        "api/demo/index.php": {
+            "runtime": "vercel-php@0.9.0"
+        },
+        "api/demo/vercel-static.php": {
             "runtime": "vercel-php@0.9.0"
         }
     }
