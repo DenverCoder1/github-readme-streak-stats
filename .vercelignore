@@ -7,14 +7,18 @@ yarn.lock
 package-lock.json
 #composer.lock
 
+# Cache directory
+cache/
+
 # Local Configuration
-package.json
 .DS_Store
 
 # Environment
 .env
+.php-version
 DOCKER_ENV
 docker_tag
 
 # IDE
 .vscode/
+.idea/

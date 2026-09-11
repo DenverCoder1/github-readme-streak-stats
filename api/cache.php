@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 // Default cache duration: 24 hours (in seconds)
 define("CACHE_DURATION", 24 * 60 * 60);
-define("CACHE_DIR", __DIR__ . "/../cache");
+define("CACHE_DIR", "/tmp/cache");
 
 /**
  * Generate a cache key for a user's request
