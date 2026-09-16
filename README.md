@@ -72,19 +72,18 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@main
+        uses: DenverCoder1/github-readme-streak-stats@v1
         with:
           options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
           path: profile/streak.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit streak stats
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add profile/streak.svg
           git commit -m "Update streak stats" || exit 0
           git push
@@ -98,7 +97,22 @@ Add this to your profile `README.md` file where you want the stats to appear:
 <a href="https://git.io/streak-stats"><img src="./profile/streak.svg" alt="GitHub Streak" /></a>
 ```
 
-If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork. Do not put a PAT directly in the workflow file; store it in GitHub Secrets and reference it as `${{ secrets.YOUR_SECRET_NAME }}`.
+If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork.
+
+For private contributions, you will need a Personal Access Token (PAT):
+
+1. [Create a Personal Access Token](https://github.com/settings/tokens) (PAT) with the repo scope.
+2. Do not use the PAT directly in the workflow file; store it in the repository's GitHub Actions secrets (`Settings` > `Secrets and variables` > `Actions` -> `New repository secret`). Give it a descriptive name, such as `STREAK_STATS_TOKEN`.
+3. Update your workflow file to use the token with the name you specified:
+
+```yaml
+- name: Generate streak stats
+  uses: DenverCoder1/github-readme-streak-stats@v1
+  with:
+    options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
+    path: profile/streak.svg
+    token: ${{ secrets.STREAK_STATS_TOKEN }}
+```
 
 #### Next Steps
 

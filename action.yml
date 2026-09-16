@@ -22,12 +22,11 @@ runs:
     using: composite
     steps:
         - name: Setup PHP
-          uses: shivammathur/setup-php@v2
+          uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
           with:
               php-version: "8.3"
               extensions: intl, curl
               coverage: none
-              github-token: ""
 
         - name: Install dependencies
           run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
