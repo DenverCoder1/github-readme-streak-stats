@@ -9,10 +9,8 @@ permissions:
 
 concurrency:
   group: update-major-version-tag
-  # Queue overlapping runs rather than cancelling them: cancelling could
-  # abandon an in-progress update to a different major tag (e.g. v1 vs v2)
-  # that just happens to be running at the same time.
-  cancel-in-progress: false
+  # assume linear tag progression (not updating v1 and v2 at the same time)
+  cancel-in-progress: true
 
 jobs:
   update-major-tag:
