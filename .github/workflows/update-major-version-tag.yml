@@ -1,0 +1,65 @@
+name: Update Major Version Tag
+
+# Runs whenever a release is published (including "pre-release" if you want that too —
+# adjust the `if` condition below to change scope).
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  update-major-tag:
+    runs-on: ubuntu-latest
+    # Skip draft releases just in case; published releases won't normally be drafts,
+    # but this guards against workflow_dispatch/manual re-runs on stale events.
+    if: ${{ !github.event.release.draft }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine major version tag
+        id: major
+        run: |
+          tag="${{ github.event.release.tag_name }}"
+
+          # Expect semver-ish tags like v1.2.3 or 1.2.3
+          if [[ "$tag" =~ ^v?([0-9]+)\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+            major_num="${BASH_REMATCH[1]}"
+          else
+            echo "::error::Tag '$tag' does not look like a semver tag (vX.Y.Z). Skipping."
+            exit 1
+          fi
+
+          # Preserve the "v" prefix convention if the release tag used one.
+          if [[ "$tag" == v* ]]; then
+            major_tag="v${major_num}"
+          else
+            major_tag="${major_num}"
+          fi
+
+          echo "major_tag=${major_tag}" >> "$GITHUB_OUTPUT"
+          echo "Resolved major tag: ${major_tag} (from release tag ${tag})"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Move (or create) major version tag
+        env:
+          MAJOR_TAG: ${{ steps.major.outputs.major_tag }}
+          RELEASE_SHA: ${{ github.event.release.target_commitish }}
+        run: |
+          # target_commitish is usually a branch name for tags created via the UI/API,
+          # so resolve it to the actual commit the release's tag points at instead.
+          release_tag="${{ github.event.release.tag_name }}"
+          commit_sha="$(git rev-list -n 1 "$release_tag")"
+
+          echo "Pointing ${MAJOR_TAG} at ${commit_sha} (release ${release_tag})"
+
+          git tag -fa "$MAJOR_TAG" "$commit_sha" -m "Update ${MAJOR_TAG} to ${release_tag}"
+          git push origin "refs/tags/${MAJOR_TAG}" --force
