@@ -7,6 +7,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-major-version-tag
+  cancel-in-progress: true
+
 jobs:
   update-major-tag:
     runs-on: ubuntu-latest
@@ -19,8 +23,10 @@ jobs:
 
       - name: Determine major version tag
         id: major
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
-          tag="${{ github.event.release.tag_name }}"
+          tag="$RELEASE_TAG"
 
           # Expect semver-ish tags like v1.2.3 or 1.2.3
           if [[ "$tag" =~ ^v?([0-9]+)\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
