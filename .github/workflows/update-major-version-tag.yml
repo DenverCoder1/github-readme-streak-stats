@@ -9,7 +9,10 @@ permissions:
 
 concurrency:
   group: update-major-version-tag
-  cancel-in-progress: true
+  # Queue overlapping runs rather than cancelling them: cancelling could
+  # abandon an in-progress update to a different major tag (e.g. v1 vs v2)
+  # that just happens to be running at the same time.
+  cancel-in-progress: false
 
 jobs:
   update-major-tag:
@@ -20,6 +23,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          fetch-tags: true
 
       - name: Determine major version tag
         id: major
@@ -54,14 +58,13 @@ jobs:
       - name: Move (or create) major version tag
         env:
           MAJOR_TAG: ${{ steps.major.outputs.major_tag }}
-          RELEASE_SHA: ${{ github.event.release.target_commitish }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
           # target_commitish is usually a branch name for tags created via the UI/API,
           # so resolve it to the actual commit the release's tag points at instead.
-          release_tag="${{ github.event.release.tag_name }}"
-          commit_sha="$(git rev-list -n 1 "$release_tag")"
+          commit_sha="$(git rev-list -n 1 "$RELEASE_TAG")"
 
-          echo "Pointing ${MAJOR_TAG} at ${commit_sha} (release ${release_tag})"
+          echo "Pointing ${MAJOR_TAG} at ${commit_sha} (release ${RELEASE_TAG})"
 
-          git tag -fa "$MAJOR_TAG" "$commit_sha" -m "Update ${MAJOR_TAG} to ${release_tag}"
+          git tag -fa "$MAJOR_TAG" "$commit_sha" -m "Update ${MAJOR_TAG} to ${RELEASE_TAG}"
           git push origin "refs/tags/${MAJOR_TAG}" --force
