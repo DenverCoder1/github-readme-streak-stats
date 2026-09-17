@@ -1,7 +1,5 @@
 name: Update Major Version Tag
 
-# Runs whenever a release is published (including "pre-release" if you want that too —
-# adjust the `if` condition below to change scope).
 on:
   release:
     types: [published]
@@ -12,8 +10,6 @@ permissions:
 jobs:
   update-major-tag:
     runs-on: ubuntu-latest
-    # Skip draft releases just in case; published releases won't normally be drafts,
-    # but this guards against workflow_dispatch/manual re-runs on stale events.
     if: ${{ !github.event.release.draft }}
     steps:
       - name: Checkout
