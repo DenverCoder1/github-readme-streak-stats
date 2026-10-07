@@ -28,8 +28,9 @@ GitHub Readme Streak Stats uses the GitHub API to fetch your contribution data. 
 
 If you think your stats are not showing up because of a time zone issue, you can try one of the following:
 
-1. Change the date of the commit. You can [adjust the time](https://codewithhugo.com/change-the-date-of-a-git-commit/) of a past commit to make it in the middle of the day.
-2. Create a new commit in a repository with the date set to the date that is missing from your streak stats:
+1. Set the `timezone` option to your IANA timezone (for example, `timezone=Asia/Kolkata`) so the current-day check uses your local date.
+2. Change the date of the commit. You can [adjust the time](https://codewithhugo.com/change-the-date-of-a-git-commit/) of a past commit to make it in the middle of the day.
+3. Create a new commit in a repository with the date set to the date that is missing from your streak stats:
 
 ```bash
 git commit --date="2022-08-02 12:00" -m "Test commit" --allow-empty

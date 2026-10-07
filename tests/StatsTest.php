@@ -368,6 +368,52 @@ final class StatsTest extends TestCase
     }
 
     /**
+     * Test contribution dates are sorted when adjacent yearly calendars overlap
+     */
+    public function testContributionDatesWithOverlappingYearCalendars(): void
+    {
+        $day = static function (string $date, int $count): stdClass {
+            return (object) ["contributionCount" => $count, "date" => $date];
+        };
+        $graph = static function (array $days): stdClass {
+            return (object) [
+                "data" => (object) [
+                    "user" => (object) [
+                        "contributionsCollection" => (object) [
+                            "contributionCalendar" => (object) [
+                                "weeks" => [
+                                    (object) ["contributionDays" => $days],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ];
+        };
+
+        $contributionGraphs = [
+            2025 => $graph([
+                $day("2026-01-02", 1),
+                $day("2026-01-03", 0),
+            ]),
+            2026 => $graph([
+                $day("2026-01-01", 1),
+                $day("2026-01-02", 1),
+                $day("2026-01-03", 0),
+            ]),
+        ];
+
+        $contributions = getContributionDates(
+            $contributionGraphs,
+            "UTC",
+            new DateTimeImmutable("2026-01-03T12:00:00+00:00"),
+        );
+
+        $this->assertSame(["2026-01-01", "2026-01-02", "2026-01-03"], array_keys($contributions));
+        $this->assertSame(2, getContributionStats($contributions)["currentStreak"]["length"]);
+    }
+
+    /**
      * Test weekly stats
      */
     public function testWeeklyStats(): void

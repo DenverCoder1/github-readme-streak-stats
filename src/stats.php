@@ -278,6 +278,9 @@ function getContributionDates(array $contributionGraphs, string $timezone = "", 
             }
         }
     }
+    // Calendars for adjacent years can contain overlapping days at year boundaries.
+    // Sort after merging them so streak calculations always process dates chronologically.
+    ksort($contributions);
     return $contributions;
 }
 
