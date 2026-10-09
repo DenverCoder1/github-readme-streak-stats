@@ -184,6 +184,15 @@ return [
     ],
     "fil" => [
         "Total Contributions" => "Kabuuang Kontribusyon",
+        "Current Streak" => "Kasalukuyang Sunod-sunod",
+        "Longest Streak" => "Pinakamahabang Sunod-sunod",
+        "Week Streak" => "Linggong Sunod-sunod",
+        "Longest Week Streak" => "Pinakamahabang Linggong Sunod-sunod",
+        "Present" => "Kasalukuyan",
+        "Excluding {days}" => "Hindi Kasama {days}",
+    ],
+    "fil_PH" => [
+        "Total Contributions" => "Kabuuang Kontribusyon",
         "Current Streak" => "Kasalukuyang Streak",
         "Longest Streak" => "Pinakamahabang Streak",
         "Week Streak" => "Linggong Streak",
