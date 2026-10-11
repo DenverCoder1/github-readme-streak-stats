@@ -61,6 +61,33 @@ final class OptionsTest extends TestCase
     }
 
     /**
+     * Test that themes are listed alphabetically
+     */
+    public function testThemesAreAlphabetized(): void
+    {
+        $themes = include "src/themes.php";
+        $themeNames = array_keys($themes);
+        $sortedThemeNames = $themeNames;
+        sort($sortedThemeNames, SORT_NATURAL | SORT_FLAG_CASE);
+
+        $this->assertSame($sortedThemeNames, $themeNames, "Themes in src/themes.php should be alphabetized.");
+    }
+
+    /**
+     * Test that documented themes are listed alphabetically
+     */
+    public function testThemesInDocumentationAreAlphabetized(): void
+    {
+        $docContent = file_get_contents("docs/themes.md");
+        preg_match_all("/\|\s+`([^`]+)`\s+\|/", $docContent, $matches);
+        $themeNames = $matches[1];
+        $sortedThemeNames = $themeNames;
+        sort($sortedThemeNames, SORT_NATURAL | SORT_FLAG_CASE);
+
+        $this->assertSame($sortedThemeNames, $themeNames, "Themes in docs/themes.md should be alphabetized.");
+    }
+
+    /**
      * Test fallback to default theme
      */
     public function testFallbackToDefaultTheme(): void
