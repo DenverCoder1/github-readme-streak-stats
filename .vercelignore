@@ -10,8 +10,8 @@ cache/
 # Local Configuration
 .DS_Store
 
-# Docker (repo deploys via vercel-php runtime in vercel.json, not a Docker build)
-Dockerfile
+# Ignore only nested Dockerfiles; the root Dockerfile is the container entrypoint for Vercel
+.devcontainer/Dockerfile
 
 # Environment
 .env
