@@ -100,7 +100,9 @@ const preview = {
     const repositoryOwner = ["$", "{{ ", "github.repository_owner", " }}"].join("");
     const theme = encodeURIComponent(params.theme || "default");
     const extraOptions = this.toQueryString(params, ["user", "theme", "type", "disable_animations"]);
-    const options = [`user=${repositoryOwner}&theme=${theme}&disable_animations=true`, extraOptions].filter(Boolean).join("&");
+    const options = [`user=${repositoryOwner}&theme=${theme}&disable_animations=true`, extraOptions]
+      .filter(Boolean)
+      .join("&");
 
     return `name: Update streak stats
 
