@@ -336,6 +336,28 @@ input:focus:invalid {
   margin-top: 16px;
 }
 
+.deployment-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--stroke);
+  margin-bottom: 16px;
+}
+
+.deployment-tabs button {
+  flex: 1;
+  padding: 10px 8px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.deployment-tabs [aria-selected="true"] {
+  border-bottom-color: var(--blue-light);
+  font-weight: bold;
+}
+
 .top-bottom-split {
   display: flex;
   flex-direction: column;
