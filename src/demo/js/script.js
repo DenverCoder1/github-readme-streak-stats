@@ -39,6 +39,9 @@ const preview = {
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
     const demoImageURL = `preview.php?${query}`;
+    document.querySelectorAll('#deployment-label, .deployment-tabs, .output [role="tabpanel"]').forEach((element) => {
+      element.style.display = params.type === "json" ? "none" : "";
+    });
     // update preview
     if (params.type !== "json") {
       const repoLink = "https://git.io/streak-stats";
@@ -491,6 +494,29 @@ const tooltip = {
 window.addEventListener(
   "load",
   () => {
+    const tabs = [...document.querySelectorAll('.deployment-tabs [role="tab"]')];
+    const selectTab = (selectedTab) => {
+      tabs.forEach((tab) => {
+        const selected = tab === selectedTab;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        document.getElementById(tab.getAttribute("aria-controls")).hidden = !selected;
+      });
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index + tabs.length - 1) % tabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectTab(tabs[nextIndex]);
+        tabs[nextIndex].focus();
+      });
+    });
     // refresh preview on interactions with the page
     const refresh = () => preview.update();
     document.addEventListener("keyup", refresh, false);
