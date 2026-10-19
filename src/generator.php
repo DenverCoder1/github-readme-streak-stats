@@ -19,12 +19,14 @@ function generateStreakStats(string $user, array $params = []): array
     $startingYear = isset($params["starting_year"]) ? intval($params["starting_year"]) : null;
     $mode = isset($params["mode"]) ? strval($params["mode"]) : null;
     $excludeDaysRaw = isset($params["exclude_days"]) ? strval($params["exclude_days"]) : "";
+    $timezone = isset($params["timezone"]) ? strval($params["timezone"]) : "";
 
     // Build cache options based on request parameters
     $cacheOptions = [
         "starting_year" => $startingYear,
         "mode" => $mode,
         "exclude_days" => $excludeDaysRaw,
+        "timezone" => $timezone,
     ];
 
     // Check if cache is disabled
@@ -33,13 +35,13 @@ function generateStreakStats(string $user, array $params = []): array
     // Check for cached stats first (24 hour cache) unless cache is disabled
     $cachedStats = $useCache ? getCachedStats($user, $cacheOptions) : null;
 
-    if (!statsMissingOrStale($cachedStats)) {
+    if (!statsMissingOrStale($cachedStats, $timezone)) {
         return $cachedStats;
     }
 
     // Fetch fresh data from GitHub API
     $contributionGraphs = getContributionGraphs($user, $startingYear);
-    $contributions = getContributionDates($contributionGraphs);
+    $contributions = getContributionDates($contributionGraphs, $timezone);
 
     if ($mode === "weekly") {
         $stats = getWeeklyContributionStats($contributions);
@@ -61,9 +63,10 @@ function generateStreakStats(string $user, array $params = []): array
  * Check if cached stats are missing or stale - Streak may be outdated if it ends before today
  *
  * @param array|null $cachedStats The cached stats to check
+ * @param string $timezone Timezone identifier, or empty for the server default
  * @return bool True if the cached stats are stale and should be refreshed
  */
-function statsMissingOrStale(?array $cachedStats): bool
+function statsMissingOrStale(?array $cachedStats, string $timezone = ""): bool
 {
     // If there are no cached stats, we need to refresh
     if ($cachedStats === null) {
@@ -87,9 +90,10 @@ function statsMissingOrStale(?array $cachedStats): bool
     $mode = $cachedStats["mode"] ?? "daily";
 
     if ($mode === "weekly") {
-        $startOfWeek = date("Y-m-d", strtotime("last Sunday"));
+        $today = getCurrentDate($timezone);
+        $startOfWeek = getPreviousSunday($today);
         return $currentStreakEnd < $startOfWeek;
     } else {
-        return $currentStreakEnd < date("Y-m-d");
+        return $currentStreakEnd < getCurrentDate($timezone);
     }
 }

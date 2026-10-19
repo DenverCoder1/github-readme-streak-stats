@@ -119,6 +119,9 @@ function camelToSkewer(string $str): string
                     <?php endforeach; ?>
                 </select>
 
+                <label for="timezone">Timezone</label>
+                <input class="param" type="text" id="timezone" name="timezone" placeholder="UTC" />
+
                 <label for="short-numbers">Short Numbers</label>
                 <select class="param" id="short-numbers" name="short_numbers">
                     <option>false</option>

@@ -251,14 +251,16 @@ function getGraphQLCurlHandle(string $query, string $token): CurlHandle
 /**
  * Get an array of all dates with the number of contributions
  *
- * @param array<int,stdClass> $contributionCalendars List of GraphQL response objects by year
+ * @param array<int,stdClass> $contributionGraphs List of GraphQL response objects by year
+ * @param string $timezone Timezone identifier, or empty for the server default
+ * @param DateTimeImmutable|null $now Current time override for tests
  * @return array<string,int> Y-M-D dates mapped to the number of contributions
  */
-function getContributionDates(array $contributionGraphs): array
+function getContributionDates(array $contributionGraphs, string $timezone = "", ?DateTimeImmutable $now = null): array
 {
     $contributions = [];
-    $today = date("Y-m-d");
-    $tomorrow = date("Y-m-d", strtotime("tomorrow"));
+    $today = getCurrentDate($timezone, $now);
+    $tomorrow = date("Y-m-d", strtotime("$today +1 day"));
     // sort contribution calendars by year key
     ksort($contributionGraphs);
     foreach ($contributionGraphs as $graph) {
@@ -277,6 +279,25 @@ function getContributionDates(array $contributionGraphs): array
         }
     }
     return $contributions;
+}
+
+/**
+ * Get the current date for a requested timezone.
+ *
+ * @param string $timezone Timezone identifier, or empty for the server default
+ * @param DateTimeImmutable|null $now Current time override for tests
+ * @return string Current date in Y-m-d format
+ */
+function getCurrentDate(string $timezone = "", ?DateTimeImmutable $now = null): string
+{
+    try {
+        $dateTimezone = new DateTimeZone($timezone ?: date_default_timezone_get());
+    } catch (Exception) {
+        throw new InvalidArgumentException("Invalid timezone.", 400);
+    }
+
+    $now = $now ?: new DateTimeImmutable("now");
+    return $now->setTimezone($dateTimezone)->format("Y-m-d");
 }
 
 /**

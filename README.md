@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/search?q=path%3A*.md+%28streak-stats.demolab.com+OR+git.io%2Fstreak-stats+OR+denvercoder1%2Fgithub-readme-streak-stats+OR+github-readme-streak-stats-eight.vercel.app%29&type=code" alt="Users" title="Repo users">
-    <img src="https://freshidea.com/jonah/app/github-search-results/streak-stats"/></a>
+    <img src="https://www.pokegoplaces.com/github/github-search-results/streak-stats/"/></a>
   <a href="https://discord.gg/fPrdqh3Zfu" alt="Discord" title="Dev Pro Tips Discussion & Support Server">
     <img src="https://img.shields.io/discord/819650821314052106?color=7289DA&logo=discord&logoColor=white&style=for-the-badge"/></a>
 </p>
@@ -72,19 +72,18 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@main
+        uses: DenverCoder1/github-readme-streak-stats@v1
         with:
           options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
           path: profile/streak.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit streak stats
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add profile/streak.svg
           git commit -m "Update streak stats" || exit 0
           git push
@@ -98,7 +97,22 @@ Add this to your profile `README.md` file where you want the stats to appear:
 <a href="https://git.io/streak-stats"><img src="./profile/streak.svg" alt="GitHub Streak" /></a>
 ```
 
-If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork. Do not put a PAT directly in the workflow file; store it in GitHub Secrets and reference it as `${{ secrets.YOUR_SECRET_NAME }}`.
+If you are using a fork, replace `DenverCoder1` with the account or organization that hosts your fork.
+
+For private contributions, you will need a Personal Access Token (PAT):
+
+1. [Create a Personal Access Token](https://github.com/settings/tokens) (PAT) with the repo scope.
+2. Do not use the PAT directly in the workflow file; store it in the repository's GitHub Actions secrets (`Settings` > `Secrets and variables` > `Actions` -> `New repository secret`). Give it a descriptive name, such as `STREAK_STATS_TOKEN`.
+3. Update your workflow file to use the token with the name you specified:
+
+```yaml
+- name: Generate streak stats
+  uses: DenverCoder1/github-readme-streak-stats@v1
+  with:
+    options: user=${{ github.repository_owner }}&theme=default&disable_animations=true
+    path: profile/streak.svg
+    token: ${{ secrets.STREAK_STATS_TOKEN }}
+```
 
 #### Next Steps
 
@@ -137,6 +151,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     `excludeDaysLabel`     |       Excluded days of the week text color       |                             **hex code** without `#` or **css color**                              |
 |       `date_format`        |  Date format pattern or empty for locale format  |                        See note below on [📅 Date Formats](#-date-formats)                         |
 |          `locale`          |  Locale for labels and numbers (Default: `en`)   |                            ISO 639-1 code - See [🗪 Locales](#-locales)                             |
+|         `timezone`         |    Timezone used to determine the current day    |                            IANA timezone identifier, eg. `Asia/Kolkata`                            |
 |      `short_numbers`       |  Use short numbers (e.g. 1.5k instead of 1,500)  |                                         `true` or `false`                                          |
 |           `type`           |          Output format (Default: `svg`)          |                              Current options: `svg`, `png` or `json`                               |
 |           `mode`           |          Streak mode (Default: `daily`)          |             `daily` (contribute daily) or `weekly` (contribute once per Sun-Sat week)              |
