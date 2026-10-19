@@ -325,6 +325,13 @@ input:focus:invalid {
   line-height: 1.5;
 }
 
+.workflow-note code {
+  background: var(--border);
+  border-radius: 4px;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
 .output .btn {
   margin-top: 16px;
 }

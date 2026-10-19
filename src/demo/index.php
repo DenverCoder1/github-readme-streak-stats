@@ -271,7 +271,7 @@ function camelToSkewer(string $str): string
                 <div>
                     <h2>GitHub Actions Workflow</h2>
                     <p class="workflow-note">
-                        Create <code>.github/workflows/streak-stats.yml</code> in your profile repository. For private contributions, create a repository secret named <code>STREAK_STATS_TOKEN</code> and use it in place of <code>GITHUB_TOKEN</code>.
+                        Create <code>.github/workflows/streak-stats.yml</code> in your profile repository. For private contributions, create a repository secret named <code>STREAK_STATS_TOKEN</code> and replace <code>${{ secrets.GITHUB_TOKEN }}</code> with <code>${{ secrets.STREAK_STATS_TOKEN }}</code> in the workflow below.
                     </p>
                     <div class="code-container workflow">
                         <code></code>

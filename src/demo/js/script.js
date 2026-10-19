@@ -68,7 +68,9 @@ const preview = {
     // disable copy button if username is invalid
     const copyButtons = document.querySelectorAll(".copy-button");
     copyButtons.forEach((button) => {
-      button.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+      button.disabled =
+        !button.classList.contains("copy-workflow") &&
+        Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
     });
     // disable clear button if no added advanced options
     const clearButton = document.querySelector("#clear-button");
@@ -96,18 +98,19 @@ const preview = {
    */
   generateWorkflow(params) {
     const repositoryOwner = ["$", "{{ ", "github.repository_owner", " }}"].join("");
-    const githubToken = ["$", "{{ ", "secrets.GITHUB_TOKEN", " }}"].join("");
-    const options = this.toQueryString(params, ["type"]) || `user=${repositoryOwner}`;
+    const theme = encodeURIComponent(params.theme || "default");
+    const extraOptions = this.toQueryString(params, ["user", "theme", "type", "disable_animations"]);
+    const options = [`user=${repositoryOwner}&theme=${theme}&disable_animations=true`, extraOptions].filter(Boolean).join("&");
 
     return `name: Update streak stats
 
 on:
   schedule:
-    - cron: "0 3 * * *"
+    - cron: "0 3 * * *" # Run every day at 03:00
   push:
     paths:
-      - ".github/workflows/streak-stats.yml"
-  workflow_dispatch:
+      - ".github/workflows/streak-stats.yml" # Run any time this file is modified
+  workflow_dispatch: # Run manually from the Actions tab
 
 jobs:
   build:
@@ -116,19 +119,18 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@main
+        uses: DenverCoder1/github-readme-streak-stats@v1
         with:
           options: ${options}
           path: profile/streak.svg
-          token: ${githubToken}
 
       - name: Commit streak stats
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add profile/streak.svg
           git commit -m "Update streak stats" || exit 0
           git push`;
