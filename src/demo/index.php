@@ -267,6 +267,20 @@ function camelToSkewer(string $str): string
                         Copy To Clipboard
                     </button>
                 </div>
+
+                <div>
+                    <h2>GitHub Actions Workflow</h2>
+                    <p class="workflow-note">
+                        Create <code>.github/workflows/streak-stats.yml</code> in your profile repository. For private contributions, create a repository secret named <code>STREAK_STATS_TOKEN</code> and replace <code>${{ secrets.GITHUB_TOKEN }}</code> with <code>${{ secrets.STREAK_STATS_TOKEN }}</code> in the workflow below.
+                    </p>
+                    <div class="code-container workflow">
+                        <code></code>
+                    </div>
+
+                    <button class="copy-button btn tooltip copy-workflow" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+                        Copy To Clipboard
+                    </button>
+                </div>
             </div>
             <div class="bottom">
                 <a href="https://github.com/DenverCoder1/github-readme-streak-stats/blob/main/docs/faq.md" target="_blank" class="underline-hover faq">
