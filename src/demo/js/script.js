@@ -495,6 +495,10 @@ window.addEventListener(
   "load",
   () => {
     const tabs = [...document.querySelectorAll('.deployment-tabs [role="tab"]')];
+    /**
+     * Select a tab and update the UI accordingly
+     * @param {Element} selectedTab - the tab to select
+     */
     const selectTab = (selectedTab) => {
       tabs.forEach((tab) => {
         const selected = tab === selectedTab;
