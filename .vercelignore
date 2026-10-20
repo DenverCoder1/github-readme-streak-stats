@@ -10,6 +10,9 @@ cache/
 # Local Configuration
 .DS_Store
 
+# Ignore only nested Dockerfiles; the root Dockerfile is the container entrypoint for Vercel
+.devcontainer/Dockerfile
+
 # Environment
 .env
 .php-version

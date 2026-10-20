@@ -21,3 +21,4 @@ docker_tag
 # IDE
 .vscode/
 .idea/
+.env*
