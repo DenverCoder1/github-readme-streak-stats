@@ -116,6 +116,9 @@ final class RenderTest extends TestCase
         );
     }
 
+    /**
+     * Test border radius cannot inject markup
+     */
     public function testBorderRadiusCannotInjectMarkup(): void
     {
         $payloads = [
@@ -133,6 +136,9 @@ final class RenderTest extends TestCase
         }
     }
 
+    /**
+     * Test error message cannot inject markup
+     */
     public function testErrorMessageCannotInjectMarkup(): void
     {
         $message = "</text><script>alert(document.domain)</script><text> & \"quoted\" 'text'";
@@ -143,6 +149,9 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString($message, $document->textContent);
     }
 
+    /**
+     * Test excluded days cannot inject markup
+     */
     public function testExcludedDaysCannotInjectMarkup(): void
     {
         $day = "</text><script>alert(document.domain)</script><text>";
@@ -152,6 +161,9 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString(htmlspecialchars($day), $render);
     }
 
+    /**
+     * Test request options cannot inject markup
+     */
     public function testRequestOptionsCannotInjectMarkup(): void
     {
         $options = array_merge(array_keys($this->testParams), [
@@ -177,6 +189,9 @@ final class RenderTest extends TestCase
         }
     }
 
+    /**
+     * Assert that the given SVG render is safe and does not contain potentially dangerous elements or attributes
+     */
     private function assertSafeSvg(string $render): void
     {
         $document = new DOMDocument();
