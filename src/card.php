@@ -375,7 +375,7 @@ function generateCard(array $stats, ?array $params = null): string
     $theme = getRequestedTheme($params);
 
     // get requested locale, default to English
-    $localeCode = $params["locale"] ?? "en";
+    $localeCode = normalizeLocaleCode($params["locale"] ?? "en");
     $localeTranslations = getTranslations($localeCode);
 
     // whether the locale is right-to-left
@@ -386,7 +386,7 @@ function generateCard(array $stats, ?array $params = null): string
     $dateFormat = $params["date_format"] ?? ($localeTranslations["date_format"] ?? null);
 
     // read border_radius parameter, default to 4.5 if not set
-    $borderRadius = $params["border_radius"] ?? 4.5;
+    $borderRadius = floatval($params["border_radius"] ?? 4.5);
 
     $showTotalContributions = ($params["hide_total_contributions"] ?? "") !== "true";
     $showCurrentStreak = ($params["hide_current_streak"] ?? "") !== "true";
@@ -484,6 +484,7 @@ function generateCard(array $stats, ?array $params = null): string
     if (!empty($stats["excludedDays"])) {
         $offset = $direction === "rtl" ? $cardWidth - 5 : 5;
         $excludingDaysText = getExcludingDaysText($stats["excludedDays"], $localeTranslations, $localeCode);
+        $excludingDaysText = htmlspecialchars($excludingDaysText, ENT_QUOTES | ENT_SUBSTITUTE | ENT_XML1, "UTF-8");
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
                 <g transform='translate({$offset},187)'>
@@ -618,12 +619,13 @@ function generateCard(array $stats, ?array $params = null): string
 function generateErrorCard(string $message, ?array $params = null): string
 {
     $params = $params ?? $_REQUEST;
+    $message = htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE | ENT_XML1, "UTF-8");
 
     // get requested theme, use $_REQUEST if no params array specified
     $theme = getRequestedTheme($params);
 
     // read border_radius parameter, default to 4.5 if not set
-    $borderRadius = $params["border_radius"] ?? 4.5;
+    $borderRadius = floatval($params["border_radius"] ?? 4.5);
 
     // read card_width parameter
     $cardWidth = getCardWidth($params);
