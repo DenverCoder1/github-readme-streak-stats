@@ -214,10 +214,7 @@ function removeGitHubToken(string $token): void
     }
     // if there is no available token, throw an error
     if (empty($GLOBALS["ALL_TOKENS"])) {
-        throw new AssertionError(
-            "We are being rate-limited! Check <a href='https://git.io/streak-ratelimit' font-weight='bold'>git.io/streak-ratelimit</a> for details.",
-            429,
-        );
+        throw new AssertionError("We are being rate-limited! Check https://git.io/streak-ratelimit for details.", 429);
     }
 }
 
