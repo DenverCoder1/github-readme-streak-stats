@@ -117,6 +117,95 @@ final class RenderTest extends TestCase
     }
 
     /**
+     * Test border radius cannot inject markup
+     */
+    public function testBorderRadiusCannotInjectMarkup(): void
+    {
+        $payloads = [
+            "4.5'/><script>alert(document.domain)</script><rect rx='4.5",
+            "4.5' onmouseover='alert(document.domain)",
+        ];
+
+        foreach ($payloads as $payload) {
+            $params = $this->testParams + ["border_radius" => $payload];
+            $renders = [generateCard($this->testStats, $params), generateErrorCard("Error", $params)];
+            foreach ($renders as $render) {
+                $this->assertStringContainsString("rx='4.5'", $render);
+                $this->assertSafeSvg($render);
+            }
+        }
+    }
+
+    /**
+     * Test error message cannot inject markup
+     */
+    public function testErrorMessageCannotInjectMarkup(): void
+    {
+        $message = "</text><script>alert(document.domain)</script><text> & \"quoted\" 'text'";
+        $render = generateErrorCard($message, $this->testParams);
+        $this->assertSafeSvg($render);
+        $document = new DOMDocument();
+        $this->assertTrue($document->loadXML($render));
+        $this->assertStringContainsString($message, $document->textContent);
+    }
+
+    /**
+     * Test excluded days cannot inject markup
+     */
+    public function testExcludedDaysCannotInjectMarkup(): void
+    {
+        $day = "</text><script>alert(document.domain)</script><text>";
+        $this->testStats["excludedDays"] = [$day];
+        $render = generateOutput($this->testStats, $this->testParams)["body"];
+        $this->assertSafeSvg($render);
+        $this->assertStringContainsString(htmlspecialchars($day), $render);
+    }
+
+    /**
+     * Test request options cannot inject markup
+     */
+    public function testRequestOptionsCannotInjectMarkup(): void
+    {
+        $options = array_merge(array_keys($this->testParams), [
+            "theme",
+            "locale",
+            "date_format",
+            "border_radius",
+            "card_width",
+            "card_height",
+        ]);
+        $payloads = [
+            "4.5'/><script>alert(document.domain)</script><rect rx='4.5",
+            "4.5' onload='alert(document.domain)",
+            "url(javascript:alert(document.domain))",
+        ];
+
+        foreach ($options as $option) {
+            foreach ($payloads as $payload) {
+                $params = array_replace($this->testParams, [$option => $payload]);
+                $this->assertSafeSvg(generateOutput($this->testStats, $params)["body"]);
+                $this->assertSafeSvg(generateOutput($payload, $params)["body"]);
+            }
+        }
+    }
+
+    /**
+     * Assert that the given SVG render is safe and does not contain potentially dangerous elements or attributes
+     */
+    private function assertSafeSvg(string $render): void
+    {
+        $document = new DOMDocument();
+        $this->assertTrue($document->loadXML($render));
+        $xpath = new DOMXPath($document);
+        $this->assertSame(
+            0,
+            $xpath->query(
+                "//*[local-name()='script' or local-name()='foreignObject' or local-name()='a' or local-name()='image' or local-name()='use'] | //@*[starts-with(local-name(), 'on') or local-name()='href' or contains(., 'javascript:')] | //*[local-name()='style' and contains(., 'javascript:')]",
+            )->length,
+        );
+    }
+
+    /**
      * Test split lines function
      */
     public function testSplitLines(): void

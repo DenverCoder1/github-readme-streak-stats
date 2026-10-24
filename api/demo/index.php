@@ -246,30 +246,61 @@ function fileModifiedTime(string $filename): int
                     Note: The stats above are just examples and not from your GitHub profile.
                 </p>
                 
-                <div>
-                    <h2>Markdown</h2>
-                    <div class="code-container md">
-                        <code></code>
-                    </div>
-                    
-                    <button class="copy-button btn tooltip copy-md" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
-                        Copy To Clipboard
-                    </button>
+                <h2 id="deployment-label">Select a deployment option</h2>
+                <div class="deployment-tabs" role="tablist" aria-labelledby="deployment-label">
+                    <button type="button" id="tab-workflow" role="tab" aria-controls="panel-workflow" aria-selected="true">GitHub Actions</button>
+                    <button type="button" id="tab-md" role="tab" aria-controls="panel-md" aria-selected="false" tabindex="-1">Markdown</button>
+                    <button type="button" id="tab-html" role="tab" aria-controls="panel-html" aria-selected="false" tabindex="-1">HTML</button>
                 </div>
-                
-                <div>
-                    <h2>HTML</h2>
-                    <div class="code-container html">
+
+                <div id="panel-workflow" role="tabpanel" aria-labelledby="tab-workflow">
+                    <p class="workflow-note">
+                        Create <code>.github/workflows/streak-stats.yml</code> in your profile repository. For private contributions, create a repository secret named <code>STREAK_STATS_TOKEN</code> and replace <code>${{ secrets.GITHUB_TOKEN }}</code> with <code>${{ secrets.STREAK_STATS_TOKEN }}</code> in the workflow below.
+                    </p>
+                    <div class="code-container workflow">
                         <code></code>
                     </div>
-                    
-                    <button class="copy-button btn tooltip copy-html" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+
+                    <button class="copy-button btn tooltip copy-workflow" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                         Copy To Clipboard
                     </button>
                 </div>
 
+                <div id="panel-md" role="tabpanel" aria-labelledby="tab-md" hidden>
+                    <div>
+                        <p class="md-note">
+                            Copy the Markdown snippet below and add it to your README file where you want the streak stats to appear.
+                        </p>
+                        <div class="code-container md">
+                            <code></code>
+                        </div>
+
+                        <button class="copy-button btn tooltip copy-md" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+                            Copy To Clipboard
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="panel-html" role="tabpanel" aria-labelledby="tab-html" hidden>
+                    <div>
+                        <p class="html-note">
+                            Copy the HTML snippet below and add it to your README file where you want the streak stats to appear.
+                        </p>
+                        <div class="code-container html">
+                            <code></code>
+                        </div>
+
+                        <button class="copy-button btn tooltip copy-html" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
+                            Copy To Clipboard
+                        </button>
+                    </div>
+                </div>
+
                 <div>
                     <h2>JSON</h2>
+                    <p class="json-note">
+                        Use the API URL to fetch your streak stats as a JSON object.
+                    </p>
                     <div class="code-container json">
                         <code></code>
                     </div>

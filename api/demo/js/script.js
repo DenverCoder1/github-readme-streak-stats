@@ -35,13 +35,13 @@ const preview = {
     params.hide_longest_streak = String(!params.sections.includes("longest"));
     delete params.sections;
     // convert parameters to query string
-    const query = Object.keys(params)
-      .filter((key) => params[key] !== this.defaults[key])
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-      .join("&");
+    const query = this.toQueryString(params);
     // generate links and markdown
     const imageURL = `${window.location.origin}?${query}`;
     const demoImageURL = `preview.php?${query}`;
+    document.querySelectorAll('#deployment-label, .deployment-tabs, .output [role="tabpanel"]').forEach((element) => {
+      element.style.display = params.type === "json" ? "none" : "";
+    });
     // update preview
     if (params.type !== "json") {
       const repoLink = "https://git.io/streak-stats";
@@ -67,14 +67,78 @@ const preview = {
       document.querySelector(".output .json").style.display = "block";
       document.querySelector(".copy-json").parentElement.style.display = "block";
     }
+    document.querySelector(".workflow code").innerText = this.generateWorkflow(params);
     // disable copy button if username is invalid
     const copyButtons = document.querySelectorAll(".copy-button");
     copyButtons.forEach((button) => {
-      button.disabled = Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
+      button.disabled =
+        !button.classList.contains("copy-workflow") &&
+        Boolean(document.querySelector("#user:invalid") || !document.querySelector("#user").value);
     });
     // disable clear button if no added advanced options
     const clearButton = document.querySelector("#clear-button");
     clearButton.disabled = !document.querySelectorAll(".minus").length;
+  },
+
+  /**
+   * Convert parameters to a query string without default values.
+   * @param {Object} params - the parameters to convert
+   * @param {string[]} ignoredKeys - keys to exclude from the query string
+   * @returns {string} the encoded query string
+   */
+  toQueryString(params, ignoredKeys = []) {
+    return Object.keys(params)
+      .filter((key) => !ignoredKeys.includes(key))
+      .filter((key) => params[key] !== this.defaults[key])
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+      .join("&");
+  },
+
+  /**
+   * Generate a GitHub Actions workflow file from the current parameters.
+   * @param {Object} params - the current card parameters
+   * @returns {string} the workflow file content
+   */
+  generateWorkflow(params) {
+    const repositoryOwner = ["$", "{{ ", "github.repository_owner", " }}"].join("");
+    const theme = encodeURIComponent(params.theme || "default");
+    const extraOptions = this.toQueryString(params, ["user", "theme", "type", "disable_animations"]);
+    const options = [`user=${repositoryOwner}&theme=${theme}&disable_animations=true`, extraOptions]
+      .filter(Boolean)
+      .join("&");
+
+    return `name: Update streak stats
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # Run every day at 03:00
+  push:
+    paths:
+      - ".github/workflows/streak-stats.yml" # Run any time this file is modified
+  workflow_dispatch: # Run manually from the Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Generate streak stats
+        uses: DenverCoder1/github-readme-streak-stats@v1
+        with:
+          options: ${options}
+          path: profile/streak.svg
+
+      - name: Commit streak stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add profile/streak.svg
+          git commit -m "Update streak stats" || exit 0
+          git push`;
   },
 
   /**
@@ -399,6 +463,8 @@ const clipboard = {
       input.value = document.querySelector(".html code").innerText;
     } else if (el.classList.contains("copy-json")) {
       input.value = document.querySelector(".json code").innerText;
+    } else if (el.classList.contains("copy-workflow")) {
+      input.value = document.querySelector(".workflow code").innerText;
     }
     document.body.appendChild(input);
     // select all
@@ -428,6 +494,33 @@ const tooltip = {
 window.addEventListener(
   "load",
   () => {
+    const tabs = [...document.querySelectorAll('.deployment-tabs [role="tab"]')];
+    /**
+     * Select a tab and update the UI accordingly
+     * @param {Element} selectedTab - the tab to select
+     */
+    const selectTab = (selectedTab) => {
+      tabs.forEach((tab) => {
+        const selected = tab === selectedTab;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        document.getElementById(tab.getAttribute("aria-controls")).hidden = !selected;
+      });
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index + tabs.length - 1) % tabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectTab(tabs[nextIndex]);
+        tabs[nextIndex].focus();
+      });
+    });
     // refresh preview on interactions with the page
     const refresh = () => preview.update();
     document.addEventListener("keyup", refresh, false);

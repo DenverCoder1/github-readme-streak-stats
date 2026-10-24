@@ -311,8 +311,51 @@ input:focus:invalid {
   word-break: break-all;
 }
 
+.output .workflow {
+  word-break: normal;
+  overflow-x: auto;
+}
+
+.output .workflow code {
+  white-space: pre;
+}
+
+.workflow-note {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.workflow-note code {
+  background: var(--border);
+  border-radius: 4px;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
 .output .btn {
   margin-top: 16px;
+}
+
+.deployment-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--stroke);
+  margin-bottom: 16px;
+}
+
+.deployment-tabs button {
+  flex: 1;
+  padding: 10px 8px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.deployment-tabs [aria-selected="true"] {
+  border-bottom-color: var(--blue-light);
+  font-weight: bold;
 }
 
 .top-bottom-split {
