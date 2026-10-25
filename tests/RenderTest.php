@@ -40,6 +40,9 @@ final class RenderTest extends TestCase
         "excludedDays" => [],
     ];
 
+    /**
+     * Test escapeXml function
+     */
     public function testEscapeXml(): void
     {
         $this->assertSame("&lt;&gt;&amp;&quot;&apos;", escapeXml("<>&\"'"));
