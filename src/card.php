@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 function escapeXml(string $text): string
 {
-    return htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE | ENT_XML1, "UTF-8");
+    return htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE | ENT_DISALLOWED | ENT_XML1, "UTF-8");
 }
 
 /**
@@ -495,7 +495,7 @@ function generateCard(array $stats, ?array $params = null): string
     if (!empty($stats["excludedDays"])) {
         $offset = $direction === "rtl" ? $cardWidth - 5 : 5;
         $excludingDaysText = getExcludingDaysText($stats["excludedDays"], $localeTranslations, $localeCode);
-        $excludingDaysText = escapeXml($excludingDaysText);
+        $excludingDaysText = htmlspecialchars($excludingDaysText, ENT_QUOTES | ENT_SUBSTITUTE | ENT_XML1, "UTF-8");
         $excludedDays = "<g style='isolation: isolate'>
                 <!-- Excluded Days -->
                 <g transform='translate({$offset},187)'>
