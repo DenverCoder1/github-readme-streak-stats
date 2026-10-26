@@ -248,20 +248,12 @@ The Inkscape dependency is required for PNG rendering, as well as Segoe UI font 
 
 Vercel is the recommended option for hosting the files since it is **free** and easy to set up. Watch the video below or expand the instructions to learn how to deploy to Vercel.
 
-> [!NOTE]
-> PNG mode is not supported since Inkscape will not be installed but the default SVG mode will work.
-
-### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
-
 <details>
   <summary><b>Instructions for deploying to Vercel (Free)</b></summary>
 
 ### Step-by-step instructions for deploying to Vercel
 
 #### Option 1: Deploy to Vercel quickly with the Deploy button (recommended)
-
-> [!IMPORTANT]
-> Make sure that you host the **`vercel`** branch as otherwise you'll get a 404 error from Vercel. You can set the `vercel` branch as default after forking the repo.
 
 1. Click the Deploy button below
 
@@ -299,6 +291,9 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 
 > ⚠️ **Note**
 > To set up automatic Vercel deployments from GitHub, make sure to turn **off** "Include source files outside of the Root Directory" in the General settings and use `vercel` as the production branch in the Git settings.
+
+> ⚠️ **Note**
+> If you get the message "Error: The Vercel Function 'container' cannot be deployed. Container functions require Fluid Compute to be enabled", you need to go to your Vercel project settings, navigate to **Settings > Functions**, and enable **"Fluid Compute"**
 
 </details>
 
@@ -376,7 +371,7 @@ Docker is a great option for self-hosting with full control over your environmen
 </details>
 
 [hspace]: https://user-images.githubusercontent.com/20955511/136058102-b79570bc-4912-4369-b664-064a0ada8588.png
-[verceldeploy]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fvercel&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats
+[verceldeploy]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDenverCoder1%2Fgithub-readme-streak-stats%2Ftree%2Fmain&env=TOKEN&envDescription=GitHub%20Personal%20Access%20Token%20(no%20scopes%20required)&envLink=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew%3Fdescription%3DGitHub%2520Readme%2520Streak%2520Stats&project-name=streak-stats&repository-name=github-readme-streak-stats
 [herokudeploy]: https://heroku.com/deploy?template=https://github.com/DenverCoder1/github-readme-streak-stats/tree/main
 
 ## 🤗 Contributing
