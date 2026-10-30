@@ -97,3 +97,24 @@ function statsMissingOrStale(?array $cachedStats, string $timezone = ""): bool
         return $currentStreakEnd < getCurrentDate($timezone);
     }
 }
+
+/**
+ * HTTP Cache-Control max-age for a streak card response (#944).
+ *
+ * Fresh stats (streak includes today / current week): until next midnight in
+ * $timezone, capped at CACHE_DURATION. Stale, missing, or error responses use
+ * SHORT_CACHE_DURATION so proxies do not keep a card past server freshness.
+ *
+ * @param array<string,mixed>|null $stats Stats array, or null for errors
+ * @param string $timezone Timezone identifier used for freshness checks
+ * @param DateTimeImmutable|null $now Current time override for tests
+ * @return int max-age in seconds
+ */
+function getHttpCacheSeconds(?array $stats, string $timezone = "", ?DateTimeImmutable $now = null): int
+{
+    if ($stats === null || statsMissingOrStale($stats, $timezone)) {
+        return SHORT_CACHE_DURATION;
+    }
+
+    return min(CACHE_DURATION, getSecondsUntilNextMidnight($timezone, $now));
+}
