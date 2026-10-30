@@ -251,6 +251,9 @@ Vercel is the recommended option for hosting the files since it is **free** and 
 > [!NOTE]
 > PNG mode is not supported since Inkscape will not be installed but the default SVG mode will work.
 
+> [!TIP]
+> If Composer still fails with a GitHub auth error during the Vercel build, set an environment variable `COMPOSER_AUTH` to `{"github-oauth":{"github.com":"YOUR_TOKEN"}}` (same token format as the issue workaround).
+
 ### 📺 [Click here for a video tutorial on how to self-host on Vercel](https://www.youtube.com/watch?v=maoXtlb8t44)
 
 <details>
