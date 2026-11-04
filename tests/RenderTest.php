@@ -41,6 +41,17 @@ final class RenderTest extends TestCase
     ];
 
     /**
+     * Test escapeXml function
+     */
+    public function testEscapeXml(): void
+    {
+        $this->assertSame("&lt;&gt;&amp;&quot;&apos;", escapeXml("<>&\"'"));
+        $this->assertSame("&amp;lt;", escapeXml("&lt;"));
+        $this->assertSame("\u{00E9}", escapeXml("\u{00E9}"));
+        $this->assertSame("\u{FFFD}", escapeXml("\xFF"));
+    }
+
+    /**
      * Test normal card render
      */
     public function testCardRender(): void
@@ -158,7 +169,7 @@ final class RenderTest extends TestCase
         $this->testStats["excludedDays"] = [$day];
         $render = generateOutput($this->testStats, $this->testParams)["body"];
         $this->assertSafeSvg($render);
-        $this->assertStringContainsString(htmlspecialchars($day), $render);
+        $this->assertStringContainsString(escapeXml($day), $render);
     }
 
     /**

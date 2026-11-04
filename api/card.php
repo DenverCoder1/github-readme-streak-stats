@@ -3,6 +3,17 @@
 declare(strict_types=1);
 
 /**
+ * Escape text for XML output.
+ *
+ * @param string $text The text to escape
+ * @return string The XML-escaped text
+ */
+function escapeXml(string $text): string
+{
+    return htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE | ENT_DISALLOWED | ENT_XML1, "UTF-8");
+}
+
+/**
  * Convert date from Y-M-D to more human-readable format
  *
  * @param string $dateString String in Y-M-D format
@@ -50,7 +61,7 @@ function formatDate(string $dateString, string|null $format, string $locale): st
         }
     }
     // sanitize and return formatted date
-    return htmlspecialchars($formatted);
+    return escapeXml($formatted);
 }
 
 /**
@@ -246,7 +257,7 @@ function splitLines(string $text, int $maxChars, int $line1Offset): string
             $text = utf8WordWrap($text, $maxChars, "\n", true);
         }
     }
-    $text = htmlspecialchars($text);
+    $text = escapeXml($text);
     return preg_replace(
         "/^(.*)\n(.*)/",
         "<tspan x='0' dy='{$line1Offset}'>$1</tspan><tspan x='0' dy='16'>$2</tspan>",
@@ -619,7 +630,7 @@ function generateCard(array $stats, ?array $params = null): string
 function generateErrorCard(string $message, ?array $params = null): string
 {
     $params = $params ?? $_REQUEST;
-    $message = htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE | ENT_XML1, "UTF-8");
+    $message = escapeXml($message);
 
     // get requested theme, use $_REQUEST if no params array specified
     $theme = getRequestedTheme($params);
