@@ -319,6 +319,7 @@ return [
         "Excluding {days}" => "ಹೊರತುಪಡಿಸಿ {days}",
     ],
     "ko" => [
+        "date_format" => "[Y.]n.j",
         "Total Contributions" => "총 기여 수",
         "Current Streak" => "현재 연속 기여 수",
         "Longest Streak" => "최장 연속 기여 수",
