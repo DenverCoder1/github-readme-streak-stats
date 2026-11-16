@@ -174,6 +174,7 @@ Note: Theme names provided are case-insensitive and any use of underscores will 
 |        `oceanic-next`         |                 ![image](https://github.com/user-attachments/assets/e0182770-a511-42b6-a40b-644317268a0f)                  |
 |       `kanagawa-paper`        |                 ![image](https://github.com/user-attachments/assets/541a521d-a6a8-4b55-ab79-7b1a9bdb092c)                  |
 |          `sakura-x`           |                 ![image](https://github.com/user-attachments/assets/65360cfa-9d5e-42f2-b3c9-cc2815623413)                  |
+|          `cozy-cat`           |                 ![image](https://github.com/user-attachments/assets/f0451d2b-18f7-4358-b2ff-51f07e632b4b)                  |
 
 ### Can't find the theme you like?
 

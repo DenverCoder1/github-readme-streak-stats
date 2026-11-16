@@ -2160,4 +2160,17 @@ return [
         "dates" => "#C4B28A",
         "excludeDaysLabel" => "#C8C093",
     ],
+    "cozy-cat" => [
+        "background" => "#FFF8F0",
+        "border" => "#F2D7C4",
+        "stroke" => "#E8C2A8",
+        "ring" => "#F28C9B",
+        "fire" => "#F4A261",
+        "currStreakNum" => "#5B3A29",
+        "sideNums" => "#5B3A29",
+        "currStreakLabel" => "#E76F7E",
+        "sideLabels" => "#7A5440",
+        "dates" => "#A07D6A",
+        "excludeDaysLabel" => "#A07D6A",
+    ],
 ];
