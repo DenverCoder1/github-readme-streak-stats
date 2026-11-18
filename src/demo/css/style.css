@@ -320,6 +320,87 @@ input:focus:invalid {
   white-space: pre;
 }
 
+.snippet {
+  position: relative;
+}
+
+.snippet .code-container {
+  padding-top: 48px;
+}
+
+.snippet-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border: 1px solid var(--stroke);
+  border-radius: 6px;
+  background: var(--card-background);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.snippet-copy:hover {
+  background: var(--background);
+}
+
+.snippet-copy:focus-visible {
+  outline: var(--blue-light) auto 2px;
+}
+
+.snippet-copy:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.snippet-copy svg {
+  width: 20px;
+  height: 20px;
+}
+
+.snippet-copy .check-icon {
+  display: none;
+}
+
+.snippet-copy[data-copied] .copy-icon {
+  display: none;
+}
+
+.snippet-copy[data-copied] .check-icon {
+  display: block;
+}
+
+.copy-status {
+  position: absolute;
+  top: 52px;
+  right: 8px;
+  z-index: 1;
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: #4a4a4afa;
+  color: white;
+  font-size: 0.8em;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.snippet-copy[data-copied] + .copy-status,
+.snippet-copy[data-failed] + .copy-status {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-status {
+    transition: none;
+  }
+}
+
 .workflow-note {
   font-size: 0.9em;
   line-height: 1.5;

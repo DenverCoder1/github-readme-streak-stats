@@ -50,8 +50,8 @@ const preview = {
       document.querySelector(".output img").src = demoImageURL;
       document.querySelector(".md code").innerText = md;
       document.querySelector(".html code").innerText = html;
-      document.querySelector(".copy-md").parentElement.style.display = "block";
-      document.querySelector(".copy-html").parentElement.style.display = "block";
+      document.querySelector(".copy-md.btn").parentElement.style.display = "block";
+      document.querySelector(".copy-html.btn").parentElement.style.display = "block";
       document.querySelector(".output img").style.display = "block";
       document.querySelector(".output .json").style.display = "none";
       document.querySelector(".copy-json").parentElement.style.display = "none";
@@ -61,8 +61,8 @@ const preview = {
         .then((data) => (document.querySelector(".output .json pre").innerText = JSON.stringify(data, null, 2)))
         .catch(console.error);
       document.querySelector(".json code").innerText = imageURL;
-      document.querySelector(".copy-md").parentElement.style.display = "none";
-      document.querySelector(".copy-html").parentElement.style.display = "none";
+      document.querySelector(".copy-md.btn").parentElement.style.display = "none";
+      document.querySelector(".copy-html.btn").parentElement.style.display = "none";
       document.querySelector(".output img").style.display = "none";
       document.querySelector(".output .json").style.display = "block";
       document.querySelector(".copy-json").parentElement.style.display = "block";
@@ -450,34 +450,101 @@ jobs:
 };
 
 const clipboard = {
+  timers: new WeakMap(),
+
   /**
    * Copy the content of an element to the clipboard
    * @param {Element} el - the element to copy
+   * @param {Element|null} target - the element whose content should be copied
    */
-  copy(el) {
-    // create input box to copy from
-    const input = document.createElement("input");
-    if (el.classList.contains("copy-md")) {
-      input.value = document.querySelector(".md code").innerText;
+  async copy(el, target = null) {
+    let text;
+    if (target) {
+      text = target.innerText;
+    } else if (el.classList.contains("copy-md")) {
+      text = document.querySelector(".md code").innerText;
     } else if (el.classList.contains("copy-html")) {
-      input.value = document.querySelector(".html code").innerText;
+      text = document.querySelector(".html code").innerText;
     } else if (el.classList.contains("copy-json")) {
-      input.value = document.querySelector(".json code").innerText;
+      text = document.querySelector(".json code").innerText;
     } else if (el.classList.contains("copy-workflow")) {
-      input.value = document.querySelector(".workflow code").innerText;
+      text = document.querySelector(".workflow code").innerText;
     }
-    document.body.appendChild(input);
-    // select all
-    input.select();
-    input.setSelectionRange(0, 99999);
-    // copy
-    document.execCommand("copy");
-    // remove input box
-    input.parentElement.removeChild(input);
-    // set tooltip text
-    el.title = "Copied!";
+
+    try {
+      await navigator.clipboard.writeText(text);
+      this.report(el, true);
+    } catch {
+      try {
+        if (this.legacyCopy(text)) {
+          this.report(el, true);
+          return;
+        }
+      } catch {
+        // Report the clipboard failure below.
+      }
+      this.report(el, false);
+    }
+  },
+
+  legacyCopy(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.cssText = "position:fixed;inset-block-start:0;opacity:0";
+    document.body.append(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+    try {
+      return document.execCommand("copy");
+    } finally {
+      textarea.remove();
+    }
+  },
+
+  report(el, success) {
+    clearTimeout(this.timers.get(el));
+    el.removeAttribute("data-copied");
+    el.removeAttribute("data-failed");
+    if (!el.classList.contains("snippet-copy")) {
+      el.title = success ? "Copied!" : "Copy failed.";
+    }
+    const status = el.nextElementSibling;
+    if (status?.classList.contains("copy-status")) {
+      status.textContent = success ? "Copied!" : "Copy failed. Please try again.";
+    }
+    el.setAttribute(success ? "data-copied" : "data-failed", "");
+    this.timers.set(
+      el,
+      setTimeout(() => {
+        el.removeAttribute("data-copied");
+        el.removeAttribute("data-failed");
+        if (status?.classList.contains("copy-status")) {
+          status.textContent = "";
+        }
+      }, 2000),
+    );
   },
 };
+
+if ("CommandEvent" in window) {
+  document.addEventListener(
+    "command",
+    (event) => {
+      if (event.command === "--copy") {
+        clipboard.copy(event.source, event.target);
+      }
+    },
+    true,
+  );
+} else {
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest('button[command="--copy"]');
+    if (!button) return;
+    const target = document.getElementById(button.getAttribute("commandfor"));
+    if (target) clipboard.copy(button, target);
+  });
+}
 
 const tooltip = {
   /**

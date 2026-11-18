@@ -25,6 +25,36 @@ function camelToSkewer(string $str): string
         $str,
     );
 }
+
+/**
+ * Render a code snippet block
+ * @param string $type The class to add to the code container
+ * @param string $id The ID of the code element
+ * @param string $label The aria-label for the copy button
+ */
+function renderCodeSnippet(string $type, string $id, string $label): void
+{
+    $type = htmlspecialchars($type, ENT_QUOTES, "UTF-8");
+    $id = htmlspecialchars($id, ENT_QUOTES, "UTF-8");
+    $label = htmlspecialchars($label, ENT_QUOTES, "UTF-8");
+    ?>
+    <div class="snippet">
+        <div class="code-container <?= $type ?>">
+            <code id="<?= $id ?>"></code>
+        </div>
+        <button class="copy-button snippet-copy copy-<?= $type ?>" type="button" command="--copy" commandfor="<?= $id ?>" aria-label="<?= $label ?>" disabled>
+            <svg class="copy-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="8" width="13" height="13" rx="2"></rect>
+                <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path>
+            </svg>
+            <svg class="check-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 12 4 4L19 6"></path>
+            </svg>
+        </button>
+        <span class="copy-status" role="status" aria-live="polite" aria-atomic="true"></span>
+    </div>
+<?php
+}
 ?>
 
 <!DOCTYPE html>
@@ -246,9 +276,7 @@ function camelToSkewer(string $str): string
                     <p class="workflow-note">
                         Create <code>.github/workflows/streak-stats.yml</code> in your profile repository. For private contributions, create a repository secret named <code>STREAK_STATS_TOKEN</code> and replace <code>${{ secrets.GITHUB_TOKEN }}</code> with <code>${{ secrets.STREAK_STATS_TOKEN }}</code> in the workflow below.
                     </p>
-                    <div class="code-container workflow">
-                        <code></code>
-                    </div>
+                    <?php renderCodeSnippet("workflow", "workflow-snippet", "Copy workflow code"); ?>
 
                     <button class="copy-button btn tooltip copy-workflow" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                         Copy To Clipboard
@@ -260,9 +288,7 @@ function camelToSkewer(string $str): string
                         <p class="md-note">
                             Copy the Markdown snippet below and add it to your README file where you want the streak stats to appear.
                         </p>
-                        <div class="code-container md">
-                            <code></code>
-                        </div>
+                        <?php renderCodeSnippet("md", "markdown-snippet", "Copy Markdown code"); ?>
 
                         <button class="copy-button btn tooltip copy-md" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                             Copy To Clipboard
@@ -275,9 +301,7 @@ function camelToSkewer(string $str): string
                         <p class="html-note">
                             Copy the HTML snippet below and add it to your README file where you want the streak stats to appear.
                         </p>
-                        <div class="code-container html">
-                            <code></code>
-                        </div>
+                        <?php renderCodeSnippet("html", "html-snippet", "Copy HTML code"); ?>
 
                         <button class="copy-button btn tooltip copy-html" onclick="clipboard.copy(this);" onmouseout="tooltip.reset(this);" disabled>
                             Copy To Clipboard
