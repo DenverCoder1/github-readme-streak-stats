@@ -26,6 +26,12 @@ function camelToSkewer(string $str): string
     );
 }
 
+/**
+ * Render a code snippet block
+ * @param string $type The class to add to the code container
+ * @param string $id The ID of the code element
+ * @param string $label The aria-label for the copy button
+ */
 function renderCodeSnippet(string $type, string $id, string $label): void
 {
     $type = htmlspecialchars($type, ENT_QUOTES, "UTF-8");
