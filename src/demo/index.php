@@ -31,7 +31,7 @@ function renderCodeSnippet(string $type, string $id, string $label): void
     $type = htmlspecialchars($type, ENT_QUOTES, "UTF-8");
     $id = htmlspecialchars($id, ENT_QUOTES, "UTF-8");
     $label = htmlspecialchars($label, ENT_QUOTES, "UTF-8");
-?>
+    ?>
     <div class="snippet">
         <div class="code-container <?= $type ?>">
             <code id="<?= $id ?>"></code>
