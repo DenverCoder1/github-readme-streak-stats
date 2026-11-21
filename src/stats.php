@@ -65,10 +65,12 @@ function executeContributionGraphRequests(string $user, array $years): array
     foreach ($requests as $year => $handle) {
         $contents = curl_multi_getcontent($handle);
         $decoded = is_string($contents) ? json_decode($contents) : null;
-        // if response is empty or invalid, retry request one time or throw an error
-        if (empty($decoded) || empty($decoded->data) || !empty($decoded->errors)) {
+        $attempts = 1;
+        // if response is empty or invalid, retry request until successful or max attempts reached
+        while (empty($decoded) || empty($decoded->data) || !empty($decoded->errors)) {
             $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
             $error_type = $decoded->errors[0]->type ?? "";
+            
             // Missing SSL certificate
             if (curl_errno($handle) === 60) {
                 throw new AssertionError("You don't have a valid SSL Certificate installed or XAMPP.", 500);
@@ -81,28 +83,36 @@ function executeContributionGraphRequests(string $user, array $years): array
             elseif ($error_type === "NOT_FOUND") {
                 throw new InvalidArgumentException("Could not find a user with that name.", 404);
             }
+            
             // if rate limit is exceeded, don't retry with same token
             if (str_contains($message, "rate limit exceeded")) {
-                removeGitHubToken($tokens[$year]);
+                $failedToken = ($attempts === 1) ? $tokens[$year] : $token;
+                removeGitHubToken($failedToken);
             }
-            error_log("First attempt to decode response for $user's $year contributions failed. $message");
+            
+            error_log("Attempt $attempts to decode response for $user's $year contributions failed. $message");
             error_log("Contents: $contents");
+            
+            // Cap retries to the number of tokens available (min 2, max 10) to avoid infinite loops
+            $maxRetries = max(2, min(10, count($GLOBALS["ALL_TOKENS"] ?? []) + 1));
+            if ($attempts >= $maxRetries) {
+                error_log("Failed to decode response for $user's $year contributions after $attempts attempts. Giving up.");
+                break;
+            }
+            
+            $attempts++;
+            
             // retry request
             $query = buildContributionGraphQuery($user, $year);
             $token = getGitHubToken();
             $request = getGraphQLCurlHandle($query, $token);
             $contents = curl_exec($request);
             $decoded = is_string($contents) ? json_decode($contents) : null;
-            // if the response is still empty or invalid, log an error and skip the year
-            if (empty($decoded) || empty($decoded->data)) {
-                $message = $decoded->errors[0]->message ?? ($decoded->message ?? "An API error occurred.");
-                if (str_contains($message, "rate limit exceeded")) {
-                    removeGitHubToken($token);
-                }
-                error_log("Failed to decode response for $user's $year contributions after 2 attempts. $message");
-                error_log("Contents: $contents");
-                continue;
-            }
+        }
+
+        // if the response is still empty or invalid after retries, skip the year
+        if (empty($decoded) || empty($decoded->data) || !empty($decoded->errors)) {
+            continue;
         }
         $responses[$year] = $decoded;
     }
