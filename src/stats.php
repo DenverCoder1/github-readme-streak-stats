@@ -298,6 +298,26 @@ function getCurrentDate(string $timezone = "", ?DateTimeImmutable $now = null): 
 }
 
 /**
+ * Seconds until the next midnight in a timezone.
+ *
+ * @param string $timezone Timezone identifier, or empty for the server default
+ * @param DateTimeImmutable|null $now Current time override for tests
+ * @return int Seconds until next local midnight (>= 1)
+ */
+function getSecondsUntilNextMidnight(string $timezone = "", ?DateTimeImmutable $now = null): int
+{
+    try {
+        $dateTimezone = new DateTimeZone($timezone ?: date_default_timezone_get());
+    } catch (Exception) {
+        throw new InvalidArgumentException("Invalid timezone.", 400);
+    }
+
+    $now = ($now ?: new DateTimeImmutable("now"))->setTimezone($dateTimezone);
+    $nextMidnight = $now->setTime(0, 0, 0)->modify("+1 day");
+    return max(1, $nextMidnight->getTimestamp() - $now->getTimestamp());
+}
+
+/**
  * Normalize names of days of the week (eg. ["Sunday", " mon", "TUE"] -> ["Sun", "Mon", "Tue"])
  *
  * @param array<string> $days List of days of the week

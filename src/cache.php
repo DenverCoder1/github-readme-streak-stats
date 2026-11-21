@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 // Default cache duration: 24 hours (in seconds)
 define("CACHE_DURATION", 24 * 60 * 60);
+// Short HTTP cache for stale/error responses so Camo does not outlive server freshness (#944)
+define("SHORT_CACHE_DURATION", 60 * 60);
 define("CACHE_DIR", __DIR__ . "/../cache");
 
 /**
@@ -206,4 +208,16 @@ function clearUserCache(string $user): bool
     }
 
     return true;
+}
+
+/**
+ * Send Expires / Last-Modified / Cache-Control for the card response.
+ *
+ * @param int $cacheSeconds max-age in seconds
+ */
+function setHttpCacheHeaders(int $cacheSeconds): void
+{
+    header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheSeconds) . " GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: public, max-age=$cacheSeconds");
 }
